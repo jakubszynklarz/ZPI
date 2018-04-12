@@ -1,14 +1,10 @@
 body{
-	margin-top: 0px;
+	margin-top: 150px;
 }
 .jumbotron{
 	width: 1200px;
 	margin: 0 auto;
-	margin-top: 150px;
 	margin-bottom: 100px;
-}
-.collapse{
-	float: right;
 }
 p.lead{
 	float: right;
@@ -16,25 +12,18 @@ p.lead{
 footer{
 	background-color: #e9ecef;
 	}
-ul.navbar-nav{
-	margin-left: 1200px;
-}
 button{
 	padding: 0px;
 	margin: 5px;
 }
-nav.navbar.navbar-expand-lg.navbar-light.bg-light{
+#global-nav{
 	top: 0;
-	overflow: hidden;
-  	position: fixed;
+	position: fixed;
   	width: 100%;
-	background-color: white;
 	z-index: 1;
 	height: 100px;
-	margin-bottom: auto;
-}
-.navbar-brand{
-	margin: 0 auto;
+	line-height: 100px;
+	background-color: #e9ecef;
 }
 a.btn.btn-outline-primary{
 	margin: 5px;
@@ -50,4 +39,8 @@ img.logo{
 	overflow: hidden;
   	position: fixed;
 	
+}
+.buttons{
+	float: right;
+	margin-right: 400px;
 }
