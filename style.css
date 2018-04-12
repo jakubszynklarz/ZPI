@@ -1,0 +1,53 @@
+body{
+	margin-top: 0px;
+}
+.jumbotron{
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 150px;
+	margin-bottom: 100px;
+}
+.collapse{
+	float: right;
+}
+p.lead{
+	float: right;
+}
+footer{
+	background-color: #e9ecef;
+	}
+ul.navbar-nav{
+	margin-left: 1200px;
+}
+button{
+	padding: 0px;
+	margin: 5px;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light{
+	top: 0;
+	overflow: hidden;
+  	position: fixed;
+  	width: 100%;
+	background-color: white;
+	z-index: 1;
+	height: 100px;
+	margin-bottom: auto;
+}
+.navbar-brand{
+	margin: 0 auto;
+}
+a.btn.btn-outline-primary{
+	margin: 5px;
+}
+.logo{
+	z-index: 2;
+	
+}
+img.logo{
+	
+	top: -50px;
+	left: 400px;
+	overflow: hidden;
+  	position: fixed;
+	
+}
