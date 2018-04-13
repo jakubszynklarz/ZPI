@@ -6,9 +6,16 @@ body{
 	margin: 0 auto;
 	margin-bottom: 100px;
 }
+<<<<<<< HEAD
 p.lead{
 	float: right;
 }
+=======
+.collapse{
+	float: right;
+}
+
+>>>>>>> radek
 footer{
 	background-color: #e9ecef;
 	}
