@@ -12,6 +12,7 @@ body{
 }
 p.lead{
 	float: right;
+	text-decoration: none;
 }
 footer{
 	background-color: #e9ecef;
