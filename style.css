@@ -210,5 +210,8 @@ img.logo{
 a.btn.btn-outline-primary{
 	display: none;
 }
+button.btn.btn-outline-primary{
+	display: none;
+}
 	
 }
