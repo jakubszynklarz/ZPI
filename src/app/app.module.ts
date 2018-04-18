@@ -16,7 +16,8 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
-import { HomepageComponent } from './homepage/homepage.component';
+import { HomepageComponent } from './homepage/homepage.componen;
+import { PanelSedziowskiComponent } from './panel-sedziowski/panel-sedziowski.component't';
 
 @NgModule({
     imports: [
@@ -31,7 +32,8 @@ import { HomepageComponent } from './homepage/homepage.component';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        HomepageComponent
+        HomepageCompone,
+        PanelSedziowskiComponentnt
     ],
     providers: [
         AuthGuard,
