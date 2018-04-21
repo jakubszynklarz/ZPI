@@ -1,3 +1,4 @@
+
 <div style="float: left;" class="col-sm-6">
   <div>
 
@@ -13,18 +14,17 @@
   </div>
   <!-- duze punkty -->
   <div>
-    <div style="float: left;"  >
+    <div style="float: left;" >
 
       <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik1(1)'>+1 </button>
       <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik1(2)'>+2 </button>
       <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik1(3)'>+3 </button>
       <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik1(4)'>+4 </button>
     </div>
-    <div  class="punktyNapis" >
+    <div  style="float: left; " >
       <h1 class="display-4">Punkty</h1>
-
     </div>
-    <div style="float: right;">
+    <div style="float: left;" >
 
       <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik1(-1)'>-1 </button>
       <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik1(-2)'>-2 </button>
@@ -58,12 +58,12 @@
       </div>
 
     </div>
-    <div style="float: left;">
+    <div style="float: right;">
       <div>
         <div style="float: left;">
           <button class="btn btn-light btn-sm" (click)='zwiekszKaryZawodnik1(1)'>+1 </button>
         </div>
-        <div style="float: right;">
+        <div style="float: left;">
           <h1 class="display-4">Kary</h1>
         </div>
         <div style="float: left;">
@@ -87,8 +87,8 @@
           <div class="form-group">
             <label for="exampleFormControlSelect1">wybierz zawodnika1</label>
             <select class="form-control" id="exampleFormControlSelect1">
-              <option>Zadownik1</option>
-              <option>Zadownik1</option>
+              <option>Zadownik2</option>
+              <option>Zadownik3</option>
             </select>
           </div>
         </form>
@@ -121,51 +121,54 @@
     
       <!-- przewagi i kary -->
       <div>
-        <div >
-          <div>
-            <div style="float: left;">
-              <button class="btn btn-light btn-sm" (click)='zwiekszPrzewagiZawodnik2(1)'>+1 </button>
+          <div style="float: left;">
+            <div>
+              <div style="float: left;">
+                <button class="btn btn-light btn-sm" (click)='zwiekszPrzewagiZawodnik2(1)'>+1 </button>
+              </div>
+              <div style="float: left;">
+                <h1 class="display-4">przewagi</h1>
+              </div>
+              <div style="float: left;">
+                <button class="btn btn-light btn-sm" (click)='zwiekszPrzewagiZawodnik2(-1)'>-1 </button>
+              </div>
+              <div style="clear: both;"></div>
             </div>
-            <div style="float: left;">
-              <h1 class="display-4">przewagi</h1>
+            <div>
+              <h1 class="display-4" style="text-align: center">{{przewagiZawodnik2}}</h1>
             </div>
-            <div style="float: left;">
-              <button class="btn btn-light btn-sm" (click)='zwiekszPrzewagiZawodnik2(-1)'>-1 </button>
-            </div>
-            <div style="clear: both;"></div>
+      
           </div>
-          <div>
-            <h1 class="display-4" style="text-align: center">{{przewagiZawodnik2}}</h1>
+          <div style="float: right;">
+            <div>
+              <div style="float: left;">
+                <button class="btn btn-light btn-sm" (click)='zwiekszKaryZawodnik2(1)'>+1 </button>
+              </div>
+              <div style="float: left;">
+                <h1 class="display-4">Kary</h1>
+              </div>
+              <div style="float: left;">
+                <button class="btn btn-light btn-sm" (click)='zwiekszKaryZawodnik2(-1)'>-1 </button>
+              </div>
+              <div style="clear: both;"></div>
+            </div>
+            <div>
+              <h1 class="display-4" style="text-align: center">{{karyZawodnik2}}</h1>
+            </div>
           </div>
+          <div style="clear: both;"> </div>
         </div>
-        <div >
-          <div>
-            <div style="float: left;">
-              <button class="btn btn-light btn-sm" (click)='zwiekszKaryZawodnik2(1)'>+1 </button>
-            </div>
-            <div >
-              <h1 class="display-4">Kary</h1>
-            </div>
-            <div style="float: right;">
-              <button class="btn btn-light btn-sm" (click)='zwiekszKaryZawodnik2(-1)'>-1 </button>
-            </div>
-            <div style="clear: both;"></div>
-          </div>
-          <div>
-            <h1 class="display-4" style="text-align: center">{{karyZawodnik2}}</h1>
-          </div>
-        </div>
-        <div style="clear: both;"> </div>
-      </div>
 
 
 </div>
 
 <div style="clear: both;"></div>
-<div>
-    <h1 class="display-1" style="text-align: center">{{licznik}}</h1>
+<div >
+  
+    <h1 class="display-1" style="text-align: center">{{ZegarCzas}}</h1>
 </div>
 <div>
     <button  class="btn btn-light btn-sm" (click)='StartStop()'>{{btnZegar}}</button>
+    <button  class="btn btn-light btn-sm" (click)='zresetujZegarIpunkty()'>Reset</button>
   
 </div>
