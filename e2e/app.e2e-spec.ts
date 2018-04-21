@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('angular2-registration-login-example-cli App', () => {
+describe('zpi App', () => {
   let page: AppPage;
 
   beforeEach(() => {

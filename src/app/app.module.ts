@@ -1,55 +1,42 @@
-﻿import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
-// used to create fake backend
-import { fakeBackendProvider } from './_helpers/index';
-
-import { AppComponent }  from './app.component';
+import { NgModule } from '@angular/core';
 import { routing }        from './app.routing';
 
-import { AlertComponent } from './_directives/index';
-import { AuthGuard } from './_guards/index';
-import { JwtInterceptor } from './_helpers/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
-import { HomeComponent } from './home/index';
-import { LoginComponent } from './login/index';
-import { RegisterComponent } from './register/index';
+import { AppComponent } from './app.component';
+import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { FooterComponent } from './footer/footer.component';
 import { PanelSedziowskiComponent } from './panel-sedziowski/panel-sedziowski.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NonRouteLinkComponent } from './non-route-link/non-route-link.component';
+import { FormsModule }    from '@angular/forms';
+import { TurniejeComponent } from './turnieje/turnieje.component';
+import { ListaTurniejiComponent } from './turnieje/lista-turnieji/lista-turnieji.component';
+import { FormStworzTurniejComponent } from './turnieje/form-stworz-turniej/form-stworz-turniej.component';
+import { TurniejService } from './turnieje/shared/turniej.service';
+
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpClientModule,
-        routing
-    ],
-    declarations: [
-        AppComponent,
-        AlertComponent,
-        HomeComponent,
-        LoginComponent,
-        RegisterComponent,
-        HomepageComponent,
-        PanelSedziowskiComponent
-    ],
-    providers: [
-        AuthGuard,
-        AlertService,
-        AuthenticationService,
-        UserService,
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: JwtInterceptor,
-            multi: true
-        },
-
-        // provider used to create fake backend
-        fakeBackendProvider
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    AppNavbarComponent,
+    HomepageComponent,
+    FooterComponent,
+    PanelSedziowskiComponent,
+    LoginComponent,
+    RegisterComponent,
+    NonRouteLinkComponent,
+    TurniejeComponent,
+    ListaTurniejiComponent,
+    FormStworzTurniejComponent
+  ],
+  imports: [
+    BrowserModule,
+    routing,
+    FormsModule
+  ],
+  providers: [TurniejService],
+  bootstrap: [AppComponent]
 })
-
 export class AppModule { }

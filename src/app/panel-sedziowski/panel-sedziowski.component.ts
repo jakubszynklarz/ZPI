@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./panel-sedziowski.component.css']
 })
 export class PanelSedziowskiComponent implements OnInit {
-
-  //#region Zmienne
   duzePunktyZawodnik1: number = 0;
   duzePunktyZawodnik2: number = 0;
   

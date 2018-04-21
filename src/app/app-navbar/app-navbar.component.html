@@ -1,0 +1,77 @@
+<div class="wrap-all">
+	<span class="navigation-toggle">
+		<span></span>
+		<span></span>
+		<span></span>
+	</span>
+
+	<nav class="navigation" role="navigation">
+		<h1 routerLink="/homepage" class="logo">
+			MENU
+		</h1>
+	<ul>
+		<li><a routerLink="/homepage">Strona główna</a></li>
+		<li><a routerLink="/panelsedziego" >Zawody</a></li>
+		<li><a href="">O nas</a></li>
+		<li><a href="">Kontakt</a></li>
+		<li><a href="" data-toggle="modal" data-target="#exampleModal">Zaloguj się</a></li>
+	</ul>
+	</nav>
+</div>
+
+<!-- MENU DESKTOPOWE -->
+
+<nav id="global-nav">
+	 <div class="buttons">
+		<a routerLink="/homepage"><img src="https://image.ibb.co/cxqoSH/bjj.png" class="logo" alt="logo" border="0"></a>
+		 <a routerLink="/homepage" class="btn btn-outline-primary" role="button">Strona główna</a>	
+		<a routerLink="/panelsedziego" class="btn btn-outline-primary" role="button">Zawody(aka_pan_sedziego)</a>     					
+		   <a routerLink="/turnieje" class="btn btn-outline-primary" role="button">O nas(form_i_lis_turn)</a>   					
+		<a href="#" class="btn btn-outline-primary" role="button">Kontakt(puste)</a>
+		<button type="button" class="btn btn-outline-primary" [routerLink]="['/login']" >Zaloguj się</button>
+		<!-- <p class="lead"><a [routerLink]="['/register']" class="btn btn-primary btn-lg">Rejestracja</a></p> -->
+	 </div>
+</nav>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+			  <div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Zaloguj się</h5>
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+					</button>
+			   </div>
+			   <div class="modal-body">
+					<div class="col-md-6 col-md-offset-3">
+<h2>Login</h2>
+<form name="form" ng-submit="vm.login()" role="form">
+<div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+	<label for="username">Username</label>
+	<input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+	<span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+</div>
+<div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+	<label for="password">Password</label>
+	<input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+	<span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+</div>
+<div class="form-actions">
+	<button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+	<img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+	<a href="#!/register" class="btn btn-link">Register</a>
+</div>
+</form>
+</div>
+			  </div>
+			   <div class="modal-footer">
+				<a href="rejestracja/register/register.view.html"  data-toggle="modal" data-target="#exampleModale" class="btn btn-outline-danger" role="button">Zarejestruj się</a>
+			   </div>
+		</div>
+	  </div>
+</div>
+
+
+			
+	
