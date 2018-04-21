@@ -1,28 +1,28 @@
-<div class="col-md-6 col-md-offset-3">
-  <h2>Register</h2>
+<div class="col-md-4" align="center" style="width: 50%;margin: auto;">
+  <h2>Rejestracja</h2>
   <form name="form"  #f="ngForm" >
       <div class="form-group" >
-          <label for="firstName">First Name</label>
-          <input type="text" class="form-control" name="firstName"  />
+          <label for="user_name">Nazwa Użytkownika</label>
+          <input type="text" class="form-control" name="user_name"  />
           
       </div>
       <div class="form-group" >
-          <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" name="lastName"   />
+          <label for="e_mail">Adres e-mail</label>
+          <input type="text" class="form-control" name="e_mail"   />
           
       </div>
       <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" name="username"   />
+          <label for="password">Hasło</label>
+          <input type="text" class="form-control" name="password"   />
       </div>
       <div class="form-group" >
-          <label for="password">Password</label>
-          <input type="password" class="form-control" name="password" ed />
+          <label for="password_potwierdz">Potwierdz hasło</label>
+          <input type="text" class="form-control" name="password_potwierdz" />
       </div>
       <div class="form-group">
-          <button [disabled]="loading" class="btn btn-primary">Register</button>
+          <button [disabled]="loading" class="btn btn-primary">Zarejestruj</button>
           <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-          <a [routerLink]="['/homepage']" class="btn btn-link">Cancel</a>
+          <a [routerLink]="['/homepage']" class="btn btn-link">Anuluj</a>
       </div>
   </form>
 </div>
