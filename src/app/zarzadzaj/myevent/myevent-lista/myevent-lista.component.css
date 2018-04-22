@@ -9,8 +9,11 @@
 }
 .Column
 {
-    align-content: center;
     
+    align-content: center;
     display: table-cell;
     
+}
+.Row:hover {
+    cursor: pointer;
 }
