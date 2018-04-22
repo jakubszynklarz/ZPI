@@ -1,0 +1,79 @@
+<!-- dodaj miejscowość -->
+<div *ngFor="let turnie of turnieje | async ">
+  <div *ngIf="turnie.id === current" >
+      <div *ngIf="check == defula" >
+        {{def(turnie)}}
+        <script>$scope.def = function() {
+         }</script> 
+      </div>
+    <!-- dodaj miejscowość -->
+    <form #turniejForm="ngForm" (ngSubmit)="update()">
+      <div class="card text-black bg-white">
+        <div class="card-header text-white bg-primary">
+          <h3 class="panel-title">Stwórz Turniej</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-group col-lg-10">
+            <label for="nazwaTurnieju" class="col-form-label col-lg-10 ">Nazwa Turnieju:</label>
+            <input  class="form-control" id="nazwaTurnieju" required type="text" class="form-control"   name="nazwaTurnieju"
+              #nazwaTurnieju="ngModel" [(ngModel)]="selectedModeloo.nazwa" >
+          </div>
+          <div class="form-group col-lg-12">
+            <label for="opisturnieju">Opis Turnieju:</label>
+            <textarea id="opisturnieju" cols="30" rows="10" type="text" class="form-control" value="{{turnie.opis}}" name="opisturnieju"
+              #opisturnieju="ngModel" [(ngModel)]="selectedModeloo.opis">
+            </textarea>
+          </div>
+          <div class="form-group col-lg-2">
+            <label for="miasto">Miasto:</label>
+            <input id="miasto" type="text" class="form-control" value="{{turnie.miejsce}}" name="miasto" #miasto="ngModel" [(ngModel)]="selectedModeloo.miejsce"> 
+          </div>
+          <div class="form-group col-lg-8">
+            <label for="nrkonta">Nr konta:</label>
+            <input id="nrkonta" type="text" class="form-control" value="{{turnie.nr_konta}}" name="nrkonta" #nrkonta="ngModel" [(ngModel)]="selectedModeloo.nr_konta"> 
+          </div>
+          <div class="form-group col-lg-2">
+            <label for="wpisowe">Wpisowe:</label>
+            <input id="wpisowe" type="text" class="form-control" value="{{turnie.wpisowe}}" name="wpisowe" #wpisowe="ngModel" [(ngModel)]="selectedModeloo.wpisowe">
+
+
+
+          </div>
+
+          <div class="form-group col-lg-4">
+            <label>Wybierz Kategorie:</label>
+            <div class="form-control">
+              <label class="radio-inline">
+                <input type="radio" name="kategoria" value="Gi"> Gi
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="kategoria" value="No Gi"> No Gi
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="kategoria" value="Gi oraz No Gi"> Gi oraz No Gi
+              </label>
+            </div>
+          </div>
+          <div class="form-group col-lg-2">
+
+            <label for="data">Data Turnieju:</label>
+            <input id="data" type="date" class="form-control" value="{{turnie.kiedy | date:'yyyy-MM-dd'}}" name="data" #data="ngModel"
+              [(ngModel)]="selectedModeloo.kiedy" />
+
+
+          </div>
+          <div class="form-group col-lg-2">
+            <label for="datakonca">Data końca rejestracji:</label>
+            <input id="datakonca" type="date" class="form-control" value="{{turnie.do_kiedyrej | date:'yyyy-MM-dd'}}" name="datakonca"
+              #datakonca="ngModel" [(ngModel)]="selectedModeloo.do_kiedyrej" />
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" type="submit" [disabled]="turniejForm.invalid">Stwórz</button>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

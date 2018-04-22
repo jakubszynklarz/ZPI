@@ -1,0 +1,20 @@
+<tr *ngFor="let turnie of turnieje | async ">
+        <div *ngIf="turnie.tworca === tworca">
+
+          <!-- {{turnie.id}} -->
+            <div class="Row" [routerLink]="['/turnieje', turnie.id]" >
+                <div class="Column">
+                    {{ turnie.nazwa }}
+                </div>
+                <div class="Column">
+                    {{ turnie.miejsce }}
+                </div>
+                <div class="Column">
+                    {{ turnie.kiedy | date:'shortDate' }}
+                    <!-- <p>{{ turnie.kiedy | json  }}</p>        -->
+                </div>
+                
+            </div>
+        </div>
+    
+</tr>
