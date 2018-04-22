@@ -1,31 +1,30 @@
-<div class="card text-dark bg-white" *ngFor="let modelturnieju of turniej">
+<tr *ngFor="let turnie of turnieje | async ">
+    <!--  -->
+    <!-- ROZBIĆ DIV NA DWA W JEDNYM BĘDĄ INFORMACJE W DRUGIM OPIS -->
 
-  <!--  -->
-  <!-- ROZBIĆ DIV NA DWA W JEDNYM BĘDĄ INFORMACJE W DRUGIM OPIS -->
-  
-  <!-- dODAĆ wpioswe do informacji o turnieju -->
-  
-  <div class="card-header text-white bg-primary">
-    <h3 class="card-title">{{modelturnieju.name}}</h3>
-</div>
-<div class="card-body">
-   <div class="col-10">
-       <div class="row vertical-align">
-           <div class="col-8">
-               <div class="row">
-                   <div class="col-6">Opis Turnieju:</div>
-                   <div class="col-6">: {{modelturnieju.opis}}</div>
-                   <div class="col-6">Miasto:</div>
-                   <div class="col-6">: {{modelturnieju.miasto}}</div>
-                   <div class="col-6">Kategoria:</div>
-                   <div class="col-6">: {{modelturnieju.kategoria}}</div>
-                   <div class="col-6">Data Turnieju:</div>
-                   <div class="col-6">: {{modelturnieju.dataturnieju | date}}</div>
-                   <div class="col-6">Data Zakonczenia Zapisow:</div>
-                   <div class="col-6">: {{modelturnieju.datakonca | date}}</div>
-               </div>
-           </div>
-       </div>
-   </div>
-</div>
-</div>
+    <!-- dODAĆ wpioswe do informacji o turnieju -->
+
+    <div class="card-header text-white bg-primary">
+        <h3 class="card-title">{{turnie.nazwa}}</h3>
+    </div>
+    <div class="card-body">
+        <div class="col-10">
+            <div class="row vertical-align">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-6">Opis Turnieju:</div>
+                        <div class="col-6">: {{turnie.opis}}</div>
+                        <div class="col-6">Miasto:</div>
+                        <div class="col-6">: {{turnie.miejsce}}</div>
+                        <div class="col-6">Kategoria:</div>
+                        <div class="col-6">: </div>
+                        <div class="col-6">Data Turnieju:</div>
+                        <div class="col-6">: {{turnie.kiedy | date}}</div>
+                        <div class="col-6">Data Zakonczenia Zapisow:</div>
+                        <div class="col-6">: {{turnie.do_kiedyrej | date}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</tr>

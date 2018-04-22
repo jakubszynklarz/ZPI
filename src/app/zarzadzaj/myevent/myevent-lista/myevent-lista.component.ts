@@ -17,6 +17,7 @@ import { JsonPipe } from '@angular/common';
 export class MyeventListaComponent implements OnInit {
 
   public tworca:string='Andre';
+  
   public value:boolean=true;
 
   private turnieCollection: AngularFirestoreCollection<Modeloo>;

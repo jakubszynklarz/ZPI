@@ -1,168 +1,73 @@
-
 <!-- dodaj miejscowość -->
 
-<form #turniejForm="ngForm" (ngSubmit)="zapiszTurniej()" >
-  <div class="card text-black bg-white">
-    <div class="card-header text-white bg-primary">
-      <h3 class="panel-title">Stwórz Turniej</h3>
-    </div>
-    <div class="card-body">
-      <div class="form-group col-lg-10" [class.has-error]="nazwaTurniejuControl.invalid && nazwaTurniejuControl.touched" [class.has-success]="nazwaTurniejuControl.valid">
-        <label for="nazwaTurnieju" class="col-form-label col-lg-10 ">Nazwa Turnieju:</label>
-        <input 
-          id="nazwaTurnieju"
-          required 
-          type="text" 
-          class="form-control" 
-          name="nazwaTurnieju" 
-          [(ngModel)]="turniej.name" 
-          #nazwaTurniejuControl="ngModel">
-      
-        <span class="form-text" *ngIf="nazwaTurniejuControl.invalid && nazwaTurniejuControl.touched">
-          Nazwa Turnieju jest wymagana!
-        </span>
-      </div>
-      <div class="form-group col-lg-12"
-      [class.has-error]="nazwaTurniejuControl.invalid && nazwaTurniejuControl.touched" >
-        <label for="opisturnieju">Opis Turnieju:</label>
-        <textarea 
-          id="opisturnieju"
-          required 
-          cols="30" rows ="10" 
-          type="text" 
-          class="form-control" 
-          name="opisturnieju"
-          [(ngModel)]="turniej.opis"
-          #opisturnieju="ngModel"></textarea>
-      </div>
-      <span class="form-text" *ngIf="opisturnieju.invalid && opisturnieju.touched">
-          Opis Turnieju jest wymagany!
-        </span>
-      <div class="form-group">
-        <div class="col-lg-2">
-
-          <label for="miasto" >Miasto:</label>
-          <input 
-          id="miasto"
-          type="text" 
-          class="form-control" 
-          name="miasto" 
-          [(ngModel)]="turniej.miasto"
-          #miasto="ngModel"
-          required>
-        </div>
-        <span class="form-text" *ngIf="miasto.invalid && miasto.touched">
-            Miasto w ktorym odbywa się Turniej jest wymagane!
-          </span>
-    </div>
-    
-      <div class="form-group col-lg-8">
-          <label for="nrkonta">Nr konta:</label>
-          <input 
-            id="nrkonta"
-            required 
-            minlength="10"
-            pattern="^[0-9]*$"
-            type="text"
-            class="form-control" 
-            name="nrkonta" 
-            [(ngModel)]="turniej.nrkonta"
-            #nrkonta="ngModel">
-
-        <span class="form-text" *ngIf="nrkonta.invalid && nrkonta.touched">
-            <div *ngIf="nrkonta.errors.required">
-                Numer konta jest wymagane!        
+      <!-- dodaj miejscowość -->
+      <form #turniejForm="ngForm" (ngSubmit)="add()">
+        <div class="card text-black bg-white" style="margin: 50px">
+          <div class="card-header text-white bg-primary">
+            <h3 class="panel-title">Właściwości turnieju</h3>
+          </div>
+          <div class="card-body ">
+  
+            <div class="row">
+              <div class="form-group col-lg-6">
+  
+                <label for="nazwaTurnieju" class="col-form-label " style="font-size:120%">Nazwa Turnieju:</label>
+                <input class="form-control" id="nazwaTurnieju" required type="text" class="form-control" name="nazwaTurnieju" #nazwaTurnieju="ngModel"
+                  [(ngModel)]="selectedModeloo.nazwa" style="width:50%">
+                
+                  <label for="miasto" style="font-size:120%">Miasto:</label>
+                <input id="miasto" type="text" class="form-control"  name="miasto" #miasto="ngModel" [(ngModel)]="selectedModeloo.miejsce"
+                  style="width:50%">
+                
+                  <label for="nrkonta">Nr konta:</label>
+                <input id="nrkonta" type="text" class="form-control"  name="nrkonta" #nrkonta="ngModel" [(ngModel)]="selectedModeloo.nr_konta"
+                  style="width:50%">
+                <label for="wpisowe">Wpisowe:</label>
+                <input id="wpisowe" type="text" class="form-control"  name="wpisowe" #wpisowe="ngModel" [(ngModel)]="selectedModeloo.wpisowe"
+                  style="width:20%">
+  
+                  <div class="form-group " >
+                      <label>Wybierz Kategorie:</label>
+                      <div class="form-control" style="width:30%">
+                        <div>
+                          <input type="radio" name="kategoria" value="Gi"> Gi
+                        </div>
+                        <div>
+                          <input type="radio" name="kategoria" value="No Gi"> No Gi
+                        </div>
+                        <div>
+                          <input type="radio" name="kategoria" value="Gi oraz No Gi"> Gi oraz No Gi
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div style="display:inline-flex">
+                        <div class="form-group " style="margin:5px">
+                            <label for="data">Data Turnieju:</label>
+                            <input id="data" type="date" class="form-control"  name="data" #data="ngModel"
+                              [(ngModel)]="selectedModeloo.kiedy" />
+                          </div>
+                
+                          <div class="form-group "style="margin:5px">
+                            <label for="datakonca">Data końca rejestracji:</label>
+                            <input id="datakonca" type="date" class="form-control"  name="datakonca"
+                              #datakonca="ngModel" [(ngModel)]="selectedModeloo.do_kiedyrej" />
+                          </div>
+                    </div>
+  
+              </div>
+              <div class="form-group col-lg-6">
+                <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
+                <textarea id="opisturnieju" cols="30" rows="10" type="text" class="form-control"  name="opisturnieju"
+                  #opisturnieju="ngModel" [(ngModel)]="selectedModeloo.opis">
+                </textarea>
+                
+              </div>
             </div>
-            <div *ngIf="nrkonta.errors.minlength" > numer konta jest za krótki wymagana długość to
-              {{head.errors.minlength.requiredLength }}! </div>
-            <div *ngIf="nrkonta.errors.pattern" > numer konta może zawierać tylko liczby! </div>
-          </span>
-      </div>
-      
-
-      <div class="form-group col-lg-2">
-          <label for="wpisowe">Wpisowe:</label>
-          <input 
-            id="wpisowe" 
-            type="text" 
-            class="form-control" 
-            name="wpisowe" 
-            required
-            [(ngModel)]="turniej.wpisowe" 
-            placeholder="50 zł" 
-            #wpisowe="ngModel">
-
-          <span class="form-text" *ngIf="wpisowe.invalid && wpisowe.touched">
-              Podanie kwoty wpisowego jest wymagane!
-            </span>
-      </div>
-      
-      <div class="form-group col-lg-4">
-        <label>Wybierz Kategorie:</label>
-        <div class="form-control">
-          <label class="radio-inline">
-            <input 
-              type="radio" 
-              name="kategoria" 
-              value="Gi" 
-              [(ngModel)]="turniej.kategoria"
-              #kategoria="ngModel"
-              required> Gi
-          </label>
-          <label class="radio-inline">
-            <input 
-              type="radio" 
-              name="kategoria" 
-              value="No Gi" 
-              [(ngModel)]="turniej.kategoria"
-              #kategoria="ngModel"
-              required> No Gi
-          </label>
-          <label class="radio-inline">
-            <input 
-              type="radio" 
-              name="kategoria" 
-              value="Gi oraz No Gi" 
-              [(ngModel)]="turniej.kategoria"
-              #kategoria="ngModel"
-              required> Gi oraz No Gi
-          </label>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary" type="submit" [disabled]="turniejForm.invalid">Stwórz</button>
+          </div>
         </div>
-        <span class="form-text" *ngIf="kategoria.invalid && kategoria.touched">
-            Wybierz kategorie!
-          </span>
-      </div>
-      <div class="form-group col-lg-2">
-
-        <label for="data">Data Turnieju:</label>
-        <input id="data"
-          name="data"
-          [(ngModel)]="turniej.dataturnieju" 
-          type="date" 
-          class="form-control"
-          required
-          #data="ngModel" />
-          <span class="form-text" *ngIf="data.invalid && data.touched">
-              Wybierz date!
-            </span>
-      </div>
-      <div class="form-group col-lg-2">
-          <label for="datakonca">Data końca rejestracji:</label>
-          <input 
-          id="datakonca" 
-          name="datakonca" 
-          [(ngModel)]="turniej.datakonca" 
-          type="date" 
-          class="form-control" 
-          required
-          #datakonca="ngModel"/>
-          <span class="form-text" *ngIf="datakonca.invalid && datakonca.touched">
-              Wybierz date!
-            </span>
-      </div>
-    </div>
-    <div class="card-footer">
-      <button class="btn btn-primary"  type="submit" [disabled]="turniejForm.invalid">Stwórz turniej</button>
-    </div>
-  </div>
-</form>
+      </form>
+  

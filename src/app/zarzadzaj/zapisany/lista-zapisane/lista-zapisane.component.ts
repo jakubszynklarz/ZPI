@@ -13,6 +13,7 @@ import { JsonPipe } from '@angular/common';
 export class ListaZapisaneComponent implements OnInit {
   
 public username:string='OskaczHejter';
+
 public value:boolean=true;
 
 private turnieCollection: AngularFirestoreCollection<Modeloo>;
