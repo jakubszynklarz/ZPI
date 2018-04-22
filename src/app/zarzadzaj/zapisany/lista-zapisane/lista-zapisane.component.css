@@ -1,0 +1,16 @@
+.Row
+{
+    display: table;
+    background-color: white;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 5px; /*Optional*/
+    
+}
+.Column
+{
+    align-content: center;
+    
+    display: table-cell;
+    
+}

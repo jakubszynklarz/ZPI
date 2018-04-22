@@ -15,6 +15,20 @@ import { TurniejeComponent } from './turnieje/turnieje.component';
 import { ListaTurniejiComponent } from './turnieje/lista-turnieji/lista-turnieji.component';
 import { FormStworzTurniejComponent } from './turnieje/form-stworz-turniej/form-stworz-turniej.component';
 import { TurniejService } from './turnieje/shared/turniej.service';
+import { ZarzadzajComponent } from './zarzadzaj/zarzadzaj.component';
+import { ZapisanyComponent } from './zarzadzaj/zapisany/zapisany.component';
+import { MyeventComponent } from './zarzadzaj/myevent/myevent.component';
+import { ListaZapisaneComponent } from './zarzadzaj/zapisany/lista-zapisane/lista-zapisane.component';
+import { ZapisaneComponent } from './zarzadzaj/zapisany/zapisane/zapisane.component';
+import { environment } from '../environments/environment';
+export const firebaseConfig = environment.firebaseConfig;
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { FirebaseApp } from '@firebase/app-types';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireModule } from 'angularfire2';
+import { MyeventListaComponent } from './zarzadzaj/myevent/myevent-lista/myevent-lista.component';
+import { MyevenComponent } from './zarzadzaj/myevent/myeven/myeven.component';
 
 
 @NgModule({
@@ -29,12 +43,23 @@ import { TurniejService } from './turnieje/shared/turniej.service';
     NonRouteLinkComponent,
     TurniejeComponent,
     ListaTurniejiComponent,
-    FormStworzTurniejComponent
+    FormStworzTurniejComponent,
+    ZarzadzajComponent,
+    ZapisanyComponent,
+    MyeventComponent,
+    ListaZapisaneComponent,
+    ZapisaneComponent,
+    MyeventListaComponent,
+    MyevenComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     routing,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
+    
   ],
   providers: [TurniejService],
   bootstrap: [AppComponent]

@@ -1,0 +1,28 @@
+<tr *ngFor="let turnie of turnieje | async ">
+    <div *ngFor="let uczestnik of turnie.zapisani">
+        <div *ngIf="uczestnik.kto === username">
+            <div class="Row">
+                <div class="Column">
+                    
+                    {{ turnie.nazwa }}
+                </div>
+                <div class="Column">
+                    {{ turnie.miejsce }}
+                </div>
+                <div class="Column">
+                    {{ turnie.kiedy | date:'shortDate' }}
+                    <!-- <p>{{ turnie.kiedy | json  }}</p>        -->
+                </div>
+                <div class="Column">
+                    <span *ngIf="uczestnik.oplacone ===  value ">
+                        True
+                    </span>
+                    <span *ngIf="uczestnik.oplacone !==  value ">
+                            False
+                        </span>
+                    <!-- {{uczestnik.kto}} -->
+                </div>
+            </div>
+        </div>
+    </div>
+</tr>

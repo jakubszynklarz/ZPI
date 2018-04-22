@@ -1,13 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-	margin-top: 200px;
+	margin-top: 150px;
 }
-.jumbotron{
-	width: 80%;
-	margin: 0 auto;
-	margin-bottom: 100px;
-	height: 450px;
-}
+
 footer{
 	background-color: #e9ecef;
 }
