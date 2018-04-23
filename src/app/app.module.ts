@@ -29,6 +29,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { MyeventListaComponent } from './zarzadzaj/myevent/myevent-lista/myevent-lista.component';
 import { MyevenComponent } from './zarzadzaj/myevent/myeven/myeven.component';
+import { KategorieComponent } from './zarzadzaj/zapisany/zapisane/kategorie/kategorie.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { MyevenComponent } from './zarzadzaj/myevent/myeven/myeven.component';
     ListaZapisaneComponent,
     ZapisaneComponent,
     MyeventListaComponent,
-    MyevenComponent
+    MyevenComponent,
+    KategorieComponent
   ],
   imports: [
     NgbModule.forRoot(),
