@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 import { DatePipe } from '@angular/common';
 import { JsonPipe } from '@angular/common';
+import { KeysPipePipe } from '../../../zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { JsonPipe } from '@angular/common';
   styleUrls: ['./form-zapisz-sie.component.css']
 })
 export class FormZapiszSieComponent implements OnInit {
-
+  
 
   // selectedKategorie: Kategorie = new Kategorie();
 
@@ -21,20 +22,20 @@ export class FormZapiszSieComponent implements OnInit {
   private kategorie: Observable<any[]>;
 
   constructor(private db: AngularFirestore) {
-    // this.kategorieCollection = db.collection<Kategorie>('/kategorie');
-    // this.kategorie = this.kategorieCollection.snapshotChanges().map(actions => {
-    //   return actions.map(a => {
-    //     const data = a.payload.doc.data() as Kategorie;
-    //     const id = a.payload.doc.id;
+    this.kategorieCollection = db.collection<Kategorie>('/kategorie');
+    this.kategorie = this.kategorieCollection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Kategorie;
+        const id = a.payload.doc.id;
 
-    //     return { id, ...data };
-    //   })
-    // });
+        return { id, ...data };
+      })
+    });
     
-
-    const list: AngularFirestoreCollection<string[]> = this.db.collection('kategorie')
-    this.kategorie =list.valueChanges();
-    console.log(this.kategorie);
+    
+    // const list: AngularFirestoreCollection<string[]> = this.db.collection('kategorie')
+    // this.kategorie =list.valueChanges();
+    // console.log(this.kategorie);
     
 
   
