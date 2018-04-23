@@ -21,26 +21,29 @@ export class FormZapiszSieComponent implements OnInit {
   private kategorie: Observable<any[]>;
 
   constructor(private db: AngularFirestore) {
-    this.kategorieCollection = db.collection<Kategorie>('/kategorie');
-    this.kategorie = this.kategorieCollection.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Kategorie;
-        const id = a.payload.doc.id;
+    // this.kategorieCollection = db.collection<Kategorie>('/kategorie');
+    // this.kategorie = this.kategorieCollection.snapshotChanges().map(actions => {
+    //   return actions.map(a => {
+    //     const data = a.payload.doc.data() as Kategorie;
+    //     const id = a.payload.doc.id;
 
-        return { id, ...data };
-      })
-    });
-    console.log(this.kategorie)
-
-    // const list: AngularFirestoreCollection<string[]> = this.db.collection('Kategorie')
-
-    // list.valueChanges().subscribe((data) => { ( data['0']['belts'])})
-    // console.log(this.pojecia);
+    //     return { id, ...data };
+    //   })
+    // });
     
 
-    // console.log("stop")
+    const list: AngularFirestoreCollection<string[]> = this.db.collection('kategorie')
+    this.kategorie =list.valueChanges();
+    console.log(this.kategorie);
+    
+
   
   }
+  dodajZawodnika(){
+    // to bedzie funkcja dodajaca zawodniak do turnieju
+  }
+
+ 
   ngOnInit() {
   }
 

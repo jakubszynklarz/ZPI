@@ -1,4 +1,4 @@
-<form style="margin: 10px;">
+<form #zapisywanieForm="ngForm" (ngSubmit)="dodajZawodnika()" style="margin: 10px;">
     <div class="form-group">
       <label for="ImieNazwisko">Imie Nazwisko</label>
       <input type="text" class="form-control" id="ImieNazwisko" placeholder="np. Jan Nowak">
@@ -14,17 +14,24 @@
       
     <div class="form-group">
       <label for="selectSex">wybierz płeć</label>
-      <select class="form-control" id="selectSex">
-        <option>man</option>
-        <option>woman</option>
+      <select class="form-control" id="selectSex" name="selectSex" #selectSex="ngModel" 
+      ngModel  >
+        <option ></option>
+        <option value="man"  >man</option>
+        <option value="woman">woman</option>
       </select>
+      {{selectSex.value }}
     </div>
+
+
     <div class="form-group">
       <label for="selectWeight">wybierz wage</label>
-      <select class="form-control" id="selectWeight">
-          <option></option>
+      <select class="form-control" id="selectWeight" >
           
-        <option >-70</option>
+        
+            <option *ngFor="let ka1t of kategorie | async" >{{ka1t[0].gi}}</option>
+          
+       
         <option>48</option>
       </select>
     </div>
@@ -39,5 +46,6 @@
   </form>
 
   <ul>
-    <li *ngFor="let kat of kategorie | async "><div >{{kat |json}}</div></li>
+    <li *ngFor="let kat of kategorie | async ">
+      <div >{{kat |json}}</div></li> 
   </ul>
