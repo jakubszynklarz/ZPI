@@ -16,6 +16,7 @@ import { ZapisanyComponent } from './zarzadzaj/zapisany/zapisany.component';
 import { ZapisaneComponent } from './zarzadzaj/zapisany/zapisane/zapisane.component';
 
 
+
 const appRoutes: Routes = [
     { path: '', component:HomepageComponent },
     // {path:'',component: HomepageComponent},
@@ -30,7 +31,6 @@ const appRoutes: Routes = [
     { path: 'zapiszSie/:def_number', component: ZapiszSieComponent },    
     { path: 'zarzadzanie', component: ZarzadzajComponent },
     {path:'turnieje/:def_number',component: MyevenComponent},
-    {path:'zapisany/:def_number',component: ZapisaneComponent},
 
 
     // otherwise redirect to home

@@ -1,10 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-	margin-top: 150px;
-}
-
-footer{
-	background-color: #e9ecef;
+	margin-top: 200px;
 }
 button{
 	padding: 0px;
@@ -68,7 +64,8 @@ img.logo{
 	display: none;
 }
 
-/*MENU DLA URZĄDZEŃ MOBILNYCH*/
+
+/*MENU DLA URZÄ„DZEĹ MOBILNYCH*/
 @media only screen and (max-width: 960px) {
 	
 .wrap-all {
@@ -204,6 +201,9 @@ img.logo{
 	left: 30%;
 }
 a.btn.btn-outline-primary{
+	display: none;
+}
+button.btn.btn-outline-primary{
 	display: none;
 }
 	
