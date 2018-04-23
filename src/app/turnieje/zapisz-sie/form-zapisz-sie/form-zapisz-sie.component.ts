@@ -15,9 +15,7 @@ import { KeysPipePipe } from '../../../zarzadzaj/zapisany/zapisane/kategorie/key
 export class FormZapiszSieComponent implements OnInit {
   
 
-  // selectedKategorie: Kategorie = new Kategorie();
 
-  // public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
   private kategorieCollection: AngularFirestoreCollection<Kategorie>;
   private kategorie: Observable<any[]>;
 
@@ -33,10 +31,7 @@ export class FormZapiszSieComponent implements OnInit {
     });
     
     
-    // const list: AngularFirestoreCollection<string[]> = this.db.collection('kategorie')
-    // this.kategorie =list.valueChanges();
-    // console.log(this.kategorie);
-    
+
 
   
   }
