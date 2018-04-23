@@ -30,6 +30,8 @@ import { AngularFireModule } from 'angularfire2';
 import { MyeventListaComponent } from './zarzadzaj/myevent/myevent-lista/myevent-lista.component';
 import { MyevenComponent } from './zarzadzaj/myevent/myeven/myeven.component';
 import { KategorieComponent } from './zarzadzaj/zapisany/zapisane/kategorie/kategorie.component';
+import { DywizjeComponent } from './zarzadzaj/zapisany/zapisane/dywizje/dywizje.component';
+import { KeysPipePipe } from './zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { KategorieComponent } from './zarzadzaj/zapisany/zapisane/kategorie/kate
     ZapisaneComponent,
     MyeventListaComponent,
     MyevenComponent,
-    KategorieComponent
+    KategorieComponent,
+    DywizjeComponent,
+    KeysPipePipe
   ],
   imports: [
     NgbModule.forRoot(),

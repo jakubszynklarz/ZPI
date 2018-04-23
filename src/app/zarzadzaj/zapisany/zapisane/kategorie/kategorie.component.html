@@ -4,17 +4,19 @@
     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       {{turnie.id}}
     </button>
+    
     <div class="dropdown-menu">
-      <div *ngFor="let tur of turnie.belts ">
-
-
-
-        <a class="dropdown-item" href="#">{{tur}}</a>
-
-
-
+      <!-- {{turnie.gi | json}} -->
+      <div *ngFor="let tur of turnie.gi | keysPipe">
+          
+          <div class="btn-group dropright">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{tur.key}}
+              </button>
+              <div class="dropdown-menu">
+                <!-- Dropdown menu links -->
+              </div>
+            </div>
       </div>
-
     </div>
   </div>
 </div>
