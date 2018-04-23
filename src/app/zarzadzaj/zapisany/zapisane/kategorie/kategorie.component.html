@@ -17,7 +17,25 @@
                           <div *ngFor="let tu of tur.value | keysPipe">
                         <li class="dropdown-submenu">
                           <a class="dropdown-item" href="#">{{tu.value.nazwa }}</a>
-                        
+                          <ul class="dropdown-menu">
+                              <li class="dropdown-submenu">
+
+
+                                  <div *ngFor="let wer of katu | async ">
+                                    <div *ngIf="wer.id === current">
+                                        
+                                        <div *ngFor="let turok of wer.zapisani | keysPipe ">
+                                            <!-- <div *ngIf="turnie.id === current">
+                                              {{tu.value.kategoria |json }}
+                                        </div> -->
+                                          {{turok.value.kategoria  }}
+                                          {{turnie.id }}{{tur.key}}{{tu.value.nazwa}}{{tu.key}}
+                                        </div>
+                          
+                                  </div>
+                                </div>
+                                </li>
+                            </ul>
                         </li>
                         </div>
                       </ul>
