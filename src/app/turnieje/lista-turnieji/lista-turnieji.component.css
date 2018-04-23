@@ -1,0 +1,26 @@
+.lista{
+    width: 80%;
+    margin: 0 auto;
+}
+.navlist{
+    width: 80%;
+    margin: 0 auto;
+    color: #007bff;
+    background-color: #e9ecef;
+    background-image: none;
+    margin-bottom: 50px;
+    border-radius: 2px;
+    
+}
+td.col-sm{
+    max-width: 10%;
+    max-height: 200px;
+    
+    
+}
+th.col-sm{
+    width: 10%;
+}
+table.table-hover:hover{
+    background-color: #abdde5;
+}

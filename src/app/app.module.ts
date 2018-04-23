@@ -29,9 +29,14 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { MyeventListaComponent } from './zarzadzaj/myevent/myevent-lista/myevent-lista.component';
 import { MyevenComponent } from './zarzadzaj/myevent/myeven/myeven.component';
+
+import { ZapiszSieComponent } from './turnieje/zapisz-sie/zapisz-sie.component';
+import { FormZapiszSieComponent } from './turnieje/zapisz-sie/form-zapisz-sie/form-zapisz-sie.component';
 import { KategorieComponent } from './zarzadzaj/zapisany/zapisane/kategorie/kategorie.component';
 import { DywizjeComponent } from './zarzadzaj/zapisany/zapisane/dywizje/dywizje.component';
 import { KeysPipePipe } from './zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
+
+
 
 
 @NgModule({
@@ -53,10 +58,16 @@ import { KeysPipePipe } from './zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.
     ListaZapisaneComponent,
     ZapisaneComponent,
     MyeventListaComponent,
+
     MyevenComponent,
+
+    ZapiszSieComponent,
+    FormZapiszSieComponent,
     KategorieComponent,
     DywizjeComponent,
-    KeysPipePipe
+    KeysPipePipe,
+    MyevenComponent
+
   ],
   imports: [
     NgbModule.forRoot(),

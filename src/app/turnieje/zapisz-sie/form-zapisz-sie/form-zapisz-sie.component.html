@@ -1,0 +1,51 @@
+<div *ngFor="let kat of kategorie | async  ">
+
+
+<form #zapisywanieForm="ngForm" (ngSubmit)="dodajZawodnika()" style="margin: 10px;">
+    <div class="form-group">
+      <label for="ImieNazwisko">Imie Nazwisko</label>
+      <input type="text" class="form-control" id="ImieNazwisko" placeholder="np. Jan Nowak">
+    </div>
+    <div class="form-group">
+        <label for="Klub">Klub</label>
+        <input type="text" class="form-control" id="Klub" placeholder="RGC WROCŁAW">
+      </div>
+      <div class="form-group">
+          <label for="email">Email </label>
+          <input type="email" class="form-control" id="email" placeholder="JanNowak@gmail.com">
+        </div>
+      
+    <div class="form-group">
+      <label for="selectSex">wybierz płeć</label>
+      <select class="form-control" id="selectSex" name="selectSex" #selectSex="ngModel" 
+      ngModel  >
+       
+        <option value="man"  >man</option>
+        <option value="woman">woman</option>
+      </select>
+      {{selectSex.value }}
+    </div>
+
+
+    <div class="form-group">
+      <label for="selectWeight">wybierz wage</label>
+      <select class="form-control" id="selectWeight" >
+
+          
+       
+        <option>48</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="selectBelt">wybierz Pas</label>
+      <select class="form-control" id="selectBelt">
+        <option>-70</option>
+        <option>48</option>
+      </select>
+    </div>
+  </form>
+
+  
+      {{kat |json}} </div> 
+  

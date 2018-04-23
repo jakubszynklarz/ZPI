@@ -1,0 +1,12 @@
+.navlist{
+    width: 100%;
+    margin: 0 auto;
+    color: #007bff;
+    background-color: #e9ecef;
+    background-image: none;
+    border-radius: 2px;
+    
+}
+th.col-sm{
+    width: 20%;
+}

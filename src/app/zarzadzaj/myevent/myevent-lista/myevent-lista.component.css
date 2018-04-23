@@ -1,18 +1,14 @@
-.Row
-{
-    display: table;
-    width: 100%; /*Optional*/
-    table-layout: fixed; /*Optional*/
-    border-spacing: 5px; /*Optional*/
-    margin:5px;
+.lista{
+    width: 100%;
+    margin: 0 auto;
 }
-.Column
-{
+
+td.col-sm{
+    max-width: 20%;
+    max-height: 200px;
     
-    align-content: center;
-    display: table-cell;
     
 }
-.Row:hover {
-    cursor: pointer;
+table.table-hover:hover{
+    background-color: #abdde5;
 }
