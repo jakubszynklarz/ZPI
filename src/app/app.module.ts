@@ -29,6 +29,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { MyeventListaComponent } from './zarzadzaj/myevent/myevent-lista/myevent-lista.component';
 import { MyevenComponent } from './zarzadzaj/myevent/myeven/myeven.component';
+import { ZapiszSieComponent } from './turnieje/zapisz-sie/zapisz-sie.component';
+import { FormZapiszSieComponent } from './turnieje/zapisz-sie/form-zapisz-sie/form-zapisz-sie.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { MyevenComponent } from './zarzadzaj/myevent/myeven/myeven.component';
     ListaZapisaneComponent,
     ZapisaneComponent,
     MyeventListaComponent,
-    MyevenComponent
+    MyevenComponent,
+    ZapiszSieComponent,
+    FormZapiszSieComponent
   ],
   imports: [
     NgbModule.forRoot(),

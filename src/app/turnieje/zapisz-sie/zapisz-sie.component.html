@@ -1,0 +1,62 @@
+<!-- dodaj miejscowość -->
+<div class="container">
+  <div *ngFor="let turnie of turnieje | async ">
+    <div *ngIf="turnie.id === current">
+        <div *ngIf="check == defula">
+        {{def(turnie)}}
+        <script>$scope.def = function () {
+          }</script>
+      </div>
+      <!-- dodaj miejscowość -->
+
+
+
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm">Nazwa:</div>
+            <div class="col-sm">{{selectedModeloo.nazwa}}</div>
+          </div>
+
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm">Opis:</div>
+            <div class="col-sm">{{selectedModeloo.opis}}</div>
+          </div>
+
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm">Miejsce :</div>
+            <div class="col-sm">{{selectedModeloo.miejsce}}</div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm">Numer konta:</div>
+            <div class="col-sm">{{selectedModeloo.nr_konta}} </div>
+          </div>
+        </li>
+
+        <li class="list-group-item">
+
+          <div class="row">
+            <div class="col-sm">Data zawodów:</div>
+            <div class="col-sm">{{selectedModeloo.kiedy}} </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm">Koniec rejestracji: </div>
+            <div class="col-sm">{{selectedModeloo.do_kiedyrej}} </div>
+          </div>
+        </li>
+      </ul>
+
+      <app-form-zapisz-sie></app-form-zapisz-sie>
+      
+    </div>
+  </div>
+</div>
