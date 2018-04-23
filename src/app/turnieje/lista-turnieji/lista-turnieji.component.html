@@ -1,30 +1,40 @@
-<tr *ngFor="let turnie of turnieje | async ">
+<div class="navlist">
+<table class="table">
+  
+    
+      <th class="col-sm">Nazwa</th>
+      <!-- <th class="col-sm">Opis</th> -->
+      <th class="col-sm">Miasto</th>
+      <th class="col-sm">Kategoria</th>
+      <th class="col-sm">Data turnieju</th>
+     <!-- <th class="col-sm">Data zakończenia zapisów</th> -->
+    
+  
+</table>
+</div>
+<div class="lista" *ngFor="let turnie of turnieje | async ">
     <!--  -->
     <!-- ROZBIĆ DIV NA DWA W JEDNYM BĘDĄ INFORMACJE W DRUGIM OPIS -->
 
     <!-- dODAĆ wpioswe do informacji o turnieju -->
 
-    <div class="card-header text-white bg-primary">
-        <h3 class="card-title">{{turnie.nazwa}}</h3>
-    </div>
-    <div class="card-body">
-        <div class="col-10">
-            <div class="row vertical-align">
-                <div class="col-8">
-                    <div class="row">
-                        <div class="col-6">Opis Turnieju:</div>
-                        <div class="col-6">: {{turnie.opis}}</div>
-                        <div class="col-6">Miasto:</div>
-                        <div class="col-6">: {{turnie.miejsce}}</div>
-                        <div class="col-6">Kategoria:</div>
-                        <div class="col-6">: </div>
-                        <div class="col-6">Data Turnieju:</div>
-                        <div class="col-6">: {{turnie.kiedy | date}}</div>
-                        <div class="col-6">Data Zakonczenia Zapisow:</div>
-                        <div class="col-6">: {{turnie.do_kiedyrej | date}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</tr>
+
+<div class="table-responsive"> 
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <td class="col-sm">{{turnie.nazwa}}</td>
+      <!-- <td class="col-sm">{{turnie.opis}}</td> -->
+      <td class="col-sm">{{turnie.miejsce}}</td>
+      <td class="col-sm"></td>
+      <td class="col-sm">{{turnie.kiedy | date}}</td>
+      <!-- <td class="col-sm">{{turnie.do_kiedyrej | date}}</td> -->
+    </tr>
+  </tbody>
+</table>
+   
+    
+    </div> 
+    
+    
+    

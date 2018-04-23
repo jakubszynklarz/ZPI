@@ -11,8 +11,6 @@ import { ListaTurniejiComponent } from './turnieje/lista-turnieji/lista-turnieji
 import { TurniejeComponent } from './turnieje/turnieje.component';
 import { ZarzadzajComponent } from './zarzadzaj/zarzadzaj.component';
 import { MyevenComponent } from './zarzadzaj/myevent/myeven/myeven.component';
-import { ZapisanyComponent } from './zarzadzaj/zapisany/zapisany.component';
-import { ZapisaneComponent } from './zarzadzaj/zapisany/zapisane/zapisane.component';
 
 
 const appRoutes: Routes = [
@@ -28,7 +26,6 @@ const appRoutes: Routes = [
     { path: 'turnieje', component: TurniejeComponent },
     { path: 'zarzadzanie', component: ZarzadzajComponent },
     {path:'turnieje/:def_number',component: MyevenComponent},
-    {path:'zapisany/:def_number',component: ZapisaneComponent},
 
 
     // otherwise redirect to home
