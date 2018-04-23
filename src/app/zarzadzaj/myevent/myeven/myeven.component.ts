@@ -33,9 +33,9 @@ export class MyevenComponent implements OnInit {
     
   }
   ngOnInit() {
-    console.log("init")
+   
     this.check=0;
-   console.log(this.check);
+   
     
     
   }
