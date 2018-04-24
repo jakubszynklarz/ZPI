@@ -1,83 +1,76 @@
-<div *ngFor="let kat of kategorie | async  ">
+<!-- <div > {{kategorie |async| json}}</div>  -->
 
 
-  <form #zapisywanieForm="ngForm" (ngSubmit)="dodajZawodnika()" style="margin: 10px;">
-    <div class="form-group">
-      <label for="ImieNazwisko">Imie Nazwisko</label>
-      <input type="text" class="form-control" id="ImieNazwisko" placeholder="np. Jan Nowak">
-    </div>
-    <div class="form-group">
-      <label for="Klub">Klub</label>
-      <input type="text" class="form-control" id="Klub" placeholder="RGC WROCŁAW">
-    </div>
-    <div class="form-group">
-      <label for="email">Email </label>
-      <input type="email" class="form-control" id="email" placeholder="JanNowak@gmail.com">
-    </div>
 
-    <div class="form-group">
-      <label for="selectSex">wybierz płeć</label>
-      <select class="form-control" id="selectSex" name="selectSex" #selectSex="ngModel" ngModel>
-        <option value="man">man</option>
-        <option value="woman">woman</option>
-      </select>
+<!-- <form #zapisywanieForm="ngForm" (ngSubmit)="dodajZawodnika()" style="margin: 10px;">
+  <div class="form-group">
+    <label for="ImieNazwisko">Imie Nazwisko</label>
+    <input type="text" class="form-control" id="ImieNazwisko" placeholder="np. Jan Nowak">
+  </div>
+  <div class="form-group">
+    <label for="Klub">Klub</label>
+    <input type="text" class="form-control" id="Klub" placeholder="RGC WROCŁAW">
+  </div>
+  <div class="form-group">
+    <label for="email">Email </label>
+    <input type="email" class="form-control" id="email" placeholder="JanNowak@gmail.com">
+  </div>
 
-    </div>
+  <div class="form-group">
+    <label for="selectSex">wybierz płeć</label>
+    <select class="form-control" id="selectSex" name="selectSex" #selectSex="ngModel" ngModel>
+      <option value="men">men</option>
+      <option value="woman">woman</option>
+    </select>
 
+  </div>
+  <div *ngIf="selectSex.value==='men'||selectSex.value==='woman'">
     <div class="form-group">
       <label for="selectDivision">Gi czy nogi</label>
       <select class="form-control" id="selectDivision" name="selectDivision" #selectDivision="ngModel" ngModel>
-          <option value="gi">gi</option>
-          <option value="nogi">nogi</option>
+        <option value="gi">gi</option>
+        <option value="nogi">nogi</option>
       </select>
-     
-    </div>
 
-    <div class="form-group">
-      <label for="selectBelt">wybierz Pas</label>
-      <select class="form-control" id="selectBelt" name="selectBelt" #selectBelt="ngModel" ngModel>
-        <option *ngFor="let pas of kat.gi | keysPipe">{{pas.key }}</option>
-      </select>
     </div>
+    <div *ngFor="let kat of kategorie | async  ">
+      <div class="form-group">
+        <label for="selectBelt">wybierz Pas</label>
+        <select class="form-control" id="selectBelt" name="selectBelt" #selectBelt="ngModel" ngModel>
+          <option *ngFor="let pas of kat.gi | keysPipe">{{pas.key }}</option>
+        </select>
+      </div>
 
 
 
       <div class="form-group">
         <label for="selectWeight">wybierz wage</label>
-        
-        <select *ngIf="selectSex.value==='man'&&selectDivision.value==='nogi'" class="form-control" id="selectWeight">
-            <option *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</option>
+
+        <select *ngIf="selectSex.value==='men'&&selectDivision.value==='nogi'" class="form-control" id="selectWeight">
+          <option *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</option>
         </select>
-        <select *ngIf="selectSex.value==='man'&&selectDivision.value==='gi'" class="form-control" id="selectWeight">
-            <option *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</option>
+        <select *ngIf="selectSex.value==='men'&&selectDivision.value==='gi'" class="form-control" id="selectWeight">
+          <option *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</option>
         </select>
         <select *ngIf="selectSex.value==='woman'&&selectDivision.value==='gi'" class="form-control" id="selectWeight">
-            <option *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</option>
+          <option *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</option>
         </select>
         <select *ngIf="selectSex.value==='woman'&&selectDivision.value==='nogi'" class="form-control" id="selectWeight">
-            <option *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</option>
+          <option *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</option>
         </select>
 
-  
-    </div>
-    <!-- <div *ngIf="selectSex.value==='man'"></div>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown button
-        </button>
-        <div>
-
-        
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</a>
-
-        </div>
       </div>
-    </div> -->
+    </div>
+ 
+
+  </div>
+
+</form> -->
 
 
-  </form>
-
-
+<!-- {{kat |json}} -->
+<div *ngFor="let kat of kategorie | async  ">
   {{kat |json}}
 </div>
+
+  <div > {{kategorie | async | json}}</div> 

@@ -14,13 +14,17 @@ import { KeysPipePipe } from '../../../zarzadzaj/zapisany/zapisane/kategorie/key
 })
 export class FormZapiszSieComponent implements OnInit {
   
-
+  itemsCollection: AngularFirestoreCollection<Item>;
+  items:Observable<Item[]>;
 
   private kategorieCollection: AngularFirestoreCollection<Kategorie>;
   private kategorie: Observable<any[]>;
-
+  private fuckcole: AngularFirestoreDocument<any[]>;
+  private fuck : Observable<any[]>;
   constructor(private db: AngularFirestore) {
-    this.kategorieCollection = db.collection<Kategorie>('/kategorie');
+    this.kategorieCollection = db.collection<Kategorie>('KATEGORIA').doc('plec').
+    collection('men',ref => {return ref.where('id','==','nogi')});
+    // ,ref => {return ref.where('wagi','==','gi')}
     this.kategorie = this.kategorieCollection.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Kategorie;
@@ -29,12 +33,26 @@ export class FormZapiszSieComponent implements OnInit {
         return { id, ...data };
       })
     });
+    console.log(this.kategorie)
     
-    
-
-
+    // // this.items  = this.db.collection('/kategorie').valueChanges();
+    // this.fuckcole = db.collection('kategorie').doc('men').collection('').doc('gi');
+    // this.fuck = this.fuckcole.valueChanges();
   
   }
+  getItems(){
+    
+    // let i :Item = new Item();
+    // i.id = "da";
+    // i.opis = "adsf";
+    // i.title = "adfas";
+    // this.db.collection('items').add(i);
+    console.log(this.items)
+    return this.items;
+
+  }
+
+
   dodajZawodnika(){
     // to bedzie funkcja dodajaca zawodniak do turnieju
   }
@@ -47,4 +65,16 @@ export class FormZapiszSieComponent implements OnInit {
 export class Kategorie {
   
   
+}
+
+
+export class Item {
+  // public id?:string;
+  
+  public gi?:string;
+  
+  // public title?:string;
+  // public opis?:string;
+  constructor(){
+  }
 }
