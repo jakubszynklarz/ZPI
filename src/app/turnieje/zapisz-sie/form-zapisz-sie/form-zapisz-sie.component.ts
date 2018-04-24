@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { DatePipe } from '@angular/common';
 import { JsonPipe } from '@angular/common';
 import { KeysPipePipe } from '../../../zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -122,6 +123,25 @@ export class FormZapiszSieComponent implements OnInit {
     // this.fuck = this.fuckcole.valueChanges();
   
   }
+
+
+  zapiszSie(formularz:nowyZawodnik){
+    let dobryZawonidk:poprawnyZawodnik = new poprawnyZawodnik();
+    // dobryZawonidk.kategoria = formularz.kategoria;
+    dobryZawonidk.klub = formularz.Klub;
+    dobryZawonidk.nazwa = formularz.ImieNazwisko;
+    dobryZawonidk.oplacone = false;
+    dobryZawonidk.pas = formularz.selectBelt;
+    dobryZawonidk.plec = formularz.selectSex;
+    dobryZawonidk.waga = formularz.selectWeight;
+    dobryZawonidk.kategoria ="gi";
+    console.log(dobryZawonidk)
+    this.db.collection<any>('turnieje').doc(''+this.current).
+    collection('zapisani').doc('gi').collection<any>('zawodnicy').
+    add(JSON.parse(JSON.stringify(dobryZawonidk) ));
+    console.log( "dodano zawodnika");
+  }
+  
   getItems(){
     
     // let i :Item = new Item();
@@ -160,3 +180,28 @@ export class Item {
   constructor(){
   }
 }
+export class poprawnyZawodnik{
+  constructor(){
+
+  }
+   public nazwa?:string;
+   public oplacone?:boolean;
+   public pas?:string;
+   public waga?:string;
+   public klub?:string;
+   public plec?:string;
+   public kategoria?:string;
+   
+   
+}
+
+export class nowyZawodnik {
+  public ImieNazwisko?:string;
+  public Klub?:string;
+  public email?:string;
+  public selectSex?:string;
+  public selectBelt?:string;
+  public kategoria?:string;
+  public selectWeight?:string;
+}
+
