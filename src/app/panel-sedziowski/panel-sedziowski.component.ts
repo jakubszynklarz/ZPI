@@ -44,7 +44,7 @@ export class PanelSedziowskiComponent implements OnInit {
   //#endregion
   constructor(private db: AngularFirestore) { 
 
-    this.zapisaniCollection=db.collection<Modeloo>('/turnieje').doc(this.current).collection('zapisani').doc('gi').collection('zawodnicy');
+    this.zapisaniCollection=db.collection<Modeloo>('turnieje').doc(this.current).collection('zapisani').doc('gi').collection('zawodnicy');
     this.zapisani=this.zapisaniCollection.snapshotChanges().map(actions =>{
       return actions.map( a=>{
         const data = a.payload.doc.data() as Modeloo;
