@@ -48,7 +48,7 @@ img.logo{
 	height: 200px;
 	-webkit-transition: all .5s;
     transition: all .5s;
-	left: 10%;
+	left: 8%;
 	
 	
 }
@@ -61,7 +61,7 @@ img.logo{
 }
 
 /*MENU DLA URZÄ„DZEĹ MOBILNYCH*/
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1000px) {
 	
 .wrap-all {
 		display: block;
@@ -193,7 +193,7 @@ navigation-show .page-content {
 	left:0;
 }
 img.logo{
-	left: 30%;
+	left: 35%;
 }
 a.btn.btn-outline-primary{
 	display: none;
@@ -202,4 +202,38 @@ button.btn.btn-outline-primary{
 	display: none;
 }
 	
+}
+@media only screen and (min-width:1001px) and (max-width: 1360px) {
+    
+    a.btn.btn-outline-primary{
+        padding: .365rem .65rem;
+	   font-size: 13px;
+	   -webkit-transition: all .5s;
+        transition: all .5s;
+    }
+    button.btn.btn-outline-primary{
+        padding: .365rem .65rem;
+	   font-size: 13px;
+	   -webkit-transition: all .5s;
+        transition: all .5s;
+    }
+    #global-nav{
+	   top: 0;
+	   position: fixed;
+  	   width: 100%;
+	   z-index: 1;
+	   height: 60px;
+	   line-height: 60px;
+	   background-color: #e9ecef;
+	   -webkit-transition: height .5s, line-height .5s; /* Safari */
+        transition: height .5s, line-height .5s;
+}
+    img.logo{
+	   width: 150px;
+        height: 150px;
+	   top: -37px;
+	   -webkit-transition: all .5s;
+        transition: all .5s;
+    }
+    
 }
