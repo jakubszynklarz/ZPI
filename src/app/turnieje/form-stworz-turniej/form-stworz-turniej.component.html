@@ -3,9 +3,7 @@
       <!-- dodaj miejscowość -->
       <form #turniejForm="ngForm" (ngSubmit)="add()">
         <div class="card text-black bg-white" style="margin: 50px">
-          <div class="card-header text-white bg-primary">
-            <h3 class="panel-title">Stwórz turniej</h3>
-          </div>
+          
           <div class="card-body ">
   
             <div class="row">
@@ -65,8 +63,9 @@
               </div>
             </div>
           </div>
-          <div class="card-footer" routerLink="/lista_turniejow">
+          <div class="card-footer">
             <button type="submit" class="btn btn-primary" [disabled]="turniejForm.invalid">Stwórz</button>
+            <button routerLink="/turnieje" type="submit" class="btn btn-primary">Wróć do listy turniejów</button>
           </div>
             
         </div>
