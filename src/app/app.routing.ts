@@ -31,6 +31,7 @@ const appRoutes: Routes = [
     { path: 'zapiszSie/:def_number', component: ZapiszSieComponent },    
     { path: 'zarzadzanie', component: ZarzadzajComponent },
     {path:'turnieje/:def_number',component: MyevenComponent},
+    {path:'zapisany/:def_number',component: ZapisaneComponent},
 
 
     // otherwise redirect to home

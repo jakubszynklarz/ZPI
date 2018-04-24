@@ -1,3 +1,67 @@
-<p>
-  zapisane works!
-</p>
+<!-- dodaj miejscowość -->
+<div *ngFor="let turnie of turnieje | async ">
+  <div *ngIf="turnie.id === current">
+
+    <!-- dodaj miejscowość -->
+    <form #turniejForm="ngForm" (ngSubmit)="update()">
+      <div class="card text-black bg-white" style="margin: 50px">
+        <div class="card-header text-white bg-primary">
+          <h3 class="panel-title">Właściwości turnieju</h3>
+        </div>
+        <div class="card-body ">
+
+          <div class="row">
+            <div class="form-group col-lg-6">
+
+              <label for="nazwaTurnieju" class="col-form-label " style="font-size:120%">Nazwa Turnieju:</label>
+              <div class="divek" style="width:50%">{{turnie.nazwa}}</div>
+
+
+              <label for="miasto" style="font-size:120%">Miasto:</label>
+              <div class="divek" style="width:50%">{{turnie.miejsce}}</div>
+
+
+              <label for="nrkonta">Nr konta:</label>
+              <div class="divek" style="width:50%">{{turnie.nr_konta}}</div>
+
+              <label for="wpisowe">Wpisowe:</label>
+              <div class="divek" style="width:50%">{{turnie.wpisowe}}</div>
+
+              
+
+              <div style="display:inline-flex">
+                <div class="form-group " style="margin:5px">
+                  <label for="data">Data Turnieju:</label>
+                  <div class="divek" style="">{{turnie.kiedy}}</div>
+                </div>
+
+                <div class="form-group " style="margin:5px">
+                  <label for="datakonca">Data końca rejestracji:</label>
+                  <div class="divek" style="width:60%">{{turnie.do_kiedyrej}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
+              <div class="divek" style="width:80%;height:40%" cols="30" rows="10">{{turnie.opis}}</div>
+              <div class="form-group ">
+                  <label>Zapisani w kategori:</label>
+                  <div Class="Row" >
+                    <app-kategorie></app-kategorie>
+                </div>
+                </div>
+                <div class="form-group ">
+                    <!-- <label>Wyniki w dywizjach</label> -->
+                    <div>
+                    <app-dywizje></app-dywizje>
+                  </div>
+                  </div>
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>

@@ -1,7 +1,8 @@
 <tr *ngFor="let turnie of turnieje | async ">
     <div *ngFor="let uczestnik of turnie.zapisani">
         <div *ngIf="uczestnik.kto === username">
-            <div class="Row">
+            <div class="btn btn-primary" style="margin:5px;" >
+            <div class="Row" [routerLink]="['/zapisany', turnie.id]">
                 <div class="Column">
                     
                     {{ turnie.nazwa }}
@@ -23,6 +24,7 @@
                     <!-- {{uczestnik.kto}} -->
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </tr>

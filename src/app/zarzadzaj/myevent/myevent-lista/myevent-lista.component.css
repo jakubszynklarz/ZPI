@@ -1,14 +1,18 @@
-.lista{
-    width: 100%;
-    margin: 0 auto;
+.Row
+{
+    display: table;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 5px; /*Optional*/
+    margin:5px;
 }
-
-td.col-sm{
-    max-width: 20%;
-    max-height: 200px;
+.Column
+{
     
+    align-content: center;
+    display: table-cell;
     
 }
-table.table-hover:hover{
-    background-color: #abdde5;
+.Row:hover {
+    cursor: pointer;
 }
