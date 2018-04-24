@@ -1,9 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-html{
-    height: 100%;
-}
 body{
 	margin-top: 200px;
-    min-height: 100%;
-    position: relative;
+    
 }
