@@ -7,57 +7,71 @@
         <script>$scope.def = function () {
           }</script>
       </div> -->
-      <!-- dodaj miejscowość -->
+<!-- dodaj miejscowość -->
+<!-- {{turn | async |json }} -->
 
+<!-- <div *ngIf="1===1;then turn | async" >
+        {{turn  |json }}
+      </div> -->
+<!-- <div>{{turnieje |async |json }}</div> -->
+<div *ngFor="let val of turnieje |async ">
+  <div *ngIf="current===val.id">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm">Nazwa:</div>
+          <div class="col-sm">{{val.nazwa }}</div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm">Opis:</div>
+          <div class="col-sm">{{val.opis }}</div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm">Kategoria:</div>
+          <div class="col-sm">{{val.kategoria }}</div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm">Miejsce :</div>
+          <div class="col-sm">{{val.miejsce }}</div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm">Numer konta:</div>
+          <div class="col-sm">{{val.nr_konta }} </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm">Wpisowe:</div>
+          <div class="col-sm">{{val.wpisowe }} </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm">Data zawodów:</div>
+          <div class="col-sm">{{val.kiedy }} </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm">Koniec rejestracji: </div>
+          <div class="col-sm">{{val.do_kiedyrej }} </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 
-
-<!-- 
-      <ul class="list-group">
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm">Nazwa:</div>
-            <div class="col-sm">{{selectedModeloo.nazwa}}</div>
-          </div>
-
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm">Opis:</div>
-            <div class="col-sm">{{selectedModeloo.opis}}</div>
-          </div>
-
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm">Miejsce :</div>
-            <div class="col-sm">{{selectedModeloo.miejsce}}</div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm">Numer konta:</div>
-            <div class="col-sm">{{selectedModeloo.nr_konta}} </div>
-          </div>
-        </li>
-
-        <li class="list-group-item">
-
-          <div class="row">
-            <div class="col-sm">Data zawodów:</div>
-            <div class="col-sm">{{selectedModeloo.kiedy}} </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm">Koniec rejestracji: </div>
-            <div class="col-sm">{{selectedModeloo.do_kiedyrej}} </div>
-          </div>
-        </li>
-      </ul>
-
-      <app-form-zapisz-sie></app-form-zapisz-sie>
-      
+<app-form-zapisz-sie></app-form-zapisz-sie>
+<!--       
     </div>
   </div>
-</div> -->
-<app-form-zapisz-sie></app-form-zapisz-sie>
+</div>
+<app-form-zapisz-sie></app-form-zapisz-sie> -->

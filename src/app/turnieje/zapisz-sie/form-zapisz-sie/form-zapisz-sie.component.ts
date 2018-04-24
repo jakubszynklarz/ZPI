@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
@@ -16,15 +16,35 @@ export class FormZapiszSieComponent implements OnInit {
   
   itemsCollection: AngularFirestoreCollection<Item>;
   items:Observable<Item[]>;
+  public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+
+  private menWomenColection: AngularFirestoreCollection<any[]>;
+  private menWomen: Observable<any[]>;
+
+  private facetGiColection: AngularFirestoreCollection<any[]>;
+  private facetGi: Observable<any[]>;
+
+  private facetNoGiColection: AngularFirestoreCollection<any[]>;
+  private facetNoGi: Observable<any[]>;
+
+  private kobietaNoGiColection: AngularFirestoreCollection<any[]>;
+  private kobietaNoGi: Observable<any[]>;
+
+  private kobietaGiColection: AngularFirestoreCollection<any[]>;
+  private kobietaGi: Observable<any[]>;
+  
+  private pasyColection: AngularFirestoreCollection<any[]>;
+  private pasy: Observable<any[]>;
+  
 
   private kategorieCollection: AngularFirestoreCollection<Kategorie>;
   private kategorie: Observable<any[]>;
-  private fuckcole: AngularFirestoreDocument<any[]>;
-  private fuck : Observable<any[]>;
+  // private fuckcole: AngularFirestoreDocument<any[]>;
+  // private fuck : Observable<any[]>;
   constructor(private db: AngularFirestore) {
-    this.kategorieCollection = db.collection<Kategorie>('KATegorie').doc('man').
-    collection('gi',);
-    // }
+    this.kategorieCollection = db.collection<Kategorie>('turnieje').
+    doc(''+this.current).collection('zapisani');
+    // , ref =>{return ref.where('tworca','==','Endzik')}
     this.kategorie = this.kategorieCollection.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Kategorie;
@@ -33,7 +53,43 @@ export class FormZapiszSieComponent implements OnInit {
         return { id, ...data };
       })
     });
-    console.log(this.kategorie)
+
+
+    this.menWomenColection = db.collection<any[]>('KATegorie');
+    this.menWomen = this.menWomenColection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Kategorie;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
+    
+    this.pasyColection = db.collection<any[]>('pasy');
+    this.pasy = this.pasyColection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Kategorie;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
+
+    this.facetGiColection = db.collection<any[]>('KATegorie').doc('man').collection('gi');
+    this.facetGi = this.facetGiColection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Kategorie;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
+
+  
+
+    // this.plecjColection = db.collection('KATegorie');
+    // this.plec = this.plecjColection.valueChanges();
+
+
+    // doc('AU7pzccJaqxZAGtwjk6N').collection('zapisani').doc('gi').
+    // collection('zawodnicy', ref =>{return ref.where('pas','==','czarny' ).where('waga','==','heavy') });
     
     // // this.items  = this.db.collection('/kategorie').valueChanges();
     // this.fuckcole = db.collection('kategorie').doc('men').collection('').doc('gi');
