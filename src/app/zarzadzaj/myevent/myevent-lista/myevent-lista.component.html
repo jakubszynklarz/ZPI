@@ -1,19 +1,17 @@
-<tr *ngFor="let turnie of turnieje | async ">
-      <!-- {{turnie.id}} -->
-      <div class="btn btn-primary" style="margin:5px;">
-        <div class="Row" [routerLink]="['/turnieje', turnie.id]" >
-            <div class="Column " >
-                {{ turnie.nazwa }}
-            </div>
-            <div class="Column ">
-                {{ turnie.miejsce }}
-            </div>
-            <div class="Column" >
-                {{ turnie.kiedy | date:'shortDate' }}
-                <!-- <p>{{ turnie.kiedy | json  }}</p>        -->
-            </div>
-            
-        </div>
+<div class="lista" *ngFor="let turnie of turnieje | async ">
+    <div class="Row" [routerLink]="['/turnieje', turnie.id]" >
+            <div class="table-responsive"> 
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <th class="col-sm">{{turnie.nazwa}}</th>
+                                <!-- <td class="col-sm">{{turnie.opis}}</td> -->
+                                <th class="col-sm">{{turnie.miejsce}}</th>
+                                <th class="col-sm">{{ turnie.kiedy | date:'shortDate' }}</th>
+                                <!-- <td class="col-sm">{{turnie.do_kiedyrej | date}}</td> -->
+                            </tr>
+                        </tbody>
+                </table>
+            </div> 
     </div>
-
-</tr>
+</div>

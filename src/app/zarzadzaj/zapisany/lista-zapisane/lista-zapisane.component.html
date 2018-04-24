@@ -1,31 +1,24 @@
-
-<tr *ngFor="let turnie of turnieje | async ">
+<div class="lista" *ngFor="let turnie of turnieje | async ">
     <div *ngFor="let uczestnik of turnie.zapis">
         <div *ngIf="uczestnik.kto === username">
-            <div class="btn btn-primary" style="margin:5px;" >
             <div class="Row" [routerLink]="['/zapisany', turnie.id]">
-                <div class="Column">
-                    
-                    {{ turnie.nazwa }}
-                </div>
-                <div class="Column">
-                    {{ turnie.miejsce }}
-                </div>
-                <div class="Column">
-                    {{ turnie.kiedy | date:'shortDate' }}
-                    <!-- <p>{{ turnie.kiedy | json  }}</p>        -->
-                </div>
-                <div class="Column">
-                    <span *ngIf="uczestnik.oplacone ===  value ">
-                        True
-                    </span>
-                    <span *ngIf="uczestnik.oplacone !==  value ">
-                            False
-                        </span>
-                    <!-- {{uczestnik.kto}} -->
-                </div>
+                <div class="table-responsive"> 
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <th class="col-sm">{{turnie.nazwa}}</th>
+                                <!-- <td class="col-sm">{{turnie.opis}}</td> -->
+                                <th class="col-sm">{{turnie.miejsce}}</th>
+                                <th class="col-sm">{{ turnie.kiedy | date:'shortDate' }}</th>
+                                <th class="col-sm">
+                                    <span *ngIf="uczestnik.oplacone ===  value ">Opłacone</span>
+                                    <span *ngIf="uczestnik.oplacone !==  value ">Nieopłacone</span>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
             </div>
         </div>
-        </div>
     </div>
-</tr>
+</div>
