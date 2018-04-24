@@ -17,7 +17,12 @@ export class KategorieComponent implements OnInit {
   private katu: Observable<any[]>;
   private katuCollection: AngularFirestoreCollection<Kategorie>;
 
+
+  
+
+
   constructor(private db: AngularFirestore) { 
+    // this.kateCollection=db.collection<Kategorie>('/turnieje').doc(this.current).collection('zapisani').doc('gi').collection('zawodnicy');
     this.kateCollection=db.collection<Kategorie>('/kategorie');
     this.kategorie=this.kateCollection.snapshotChanges().map(actions =>{
       return actions.map( a=>{
@@ -27,7 +32,7 @@ export class KategorieComponent implements OnInit {
       })
     })
 
-    this.katuCollection=db.collection<Kategorie>('/turnieje');
+    this.katuCollection=db.collection<Kategorie>('/turnieje').doc(this.current).collection('zapisani').doc('gi').collection('zawodnicy');
     this.katu=this.katuCollection.snapshotChanges().map(actions =>{
       return actions.map( a=>{
         const data = a.payload.doc.data() as Kategorie;
@@ -35,6 +40,8 @@ export class KategorieComponent implements OnInit {
         return {id,...data};
       })
     })
+
+    
 
 
   }

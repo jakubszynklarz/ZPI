@@ -1,5 +1,6 @@
+
 <tr *ngFor="let turnie of turnieje | async ">
-    <div *ngFor="let uczestnik of turnie.zapisani">
+    <div *ngFor="let uczestnik of turnie.zapis">
         <div *ngIf="uczestnik.kto === username">
             <div class="btn btn-primary" style="margin:5px;" >
             <div class="Row" [routerLink]="['/zapisany', turnie.id]">

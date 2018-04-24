@@ -1,6 +1,4 @@
 <tr *ngFor="let turnie of turnieje | async ">
-    <div *ngIf="turnie.tworca === tworca">
-
       <!-- {{turnie.id}} -->
       <div class="btn btn-primary" style="margin:5px;">
         <div class="Row" [routerLink]="['/turnieje', turnie.id]" >
@@ -16,7 +14,6 @@
             </div>
             
         </div>
-    </div>
     </div>
 
 </tr>
