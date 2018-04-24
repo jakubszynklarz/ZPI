@@ -1,7 +1,22 @@
 
+<div align="center">
+<div class="form-group" align="center" style="width:20%">
+    <label for="exampleFormControlSelect1">Wybierz pas</label>
+    <select class="form-control"  id="selectBelt" name="selectBelt" #selectBelt="ngModel" ngModel >
+      <option *ngFor="let pas of pasy | async" [value]="pas.id">{{pas.id}}</option>
+    </select>
+  </div>
+ 
+  <div class="form-group" align="center" style="width:20%">
+      <label for="exampleFormControlSelect1">Wybierz kategorie</label>
+      <select class="form-control" id="selectWeight" #selectWeight="ngModel" ngModel >
+        <option *ngFor="let waga of wagi | async" [value]="waga.id">{{waga.id}}</option>
+      </select>
+    </div>
+  </div>
+  
 <div style="float: left;" class="col-sm-6">
   <div>
-
     <form>
       <div class="form-group">
         <label for="exampleFormControlSelect1">wybierz zawodnika1</label>
