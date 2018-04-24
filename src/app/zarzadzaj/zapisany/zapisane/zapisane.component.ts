@@ -23,7 +23,7 @@ export class ZapisaneComponent implements OnInit {
   private kateCollection: AngularFirestoreCollection<Kategorie>;
 
   private zapisaniCollection: AngularFirestoreCollection<Kategorie>;
-  private zapisani: Observable<any[]>;s
+  private zapisani: Observable<any[]>;
   
   constructor(private db: AngularFirestore) { 
     

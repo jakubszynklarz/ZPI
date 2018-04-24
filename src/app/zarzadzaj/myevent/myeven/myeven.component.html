@@ -99,8 +99,10 @@
           </div>
         </div>
         <div class="card-footer">
+            <button class="btn btn-primary" [routerLink]="['/sedziowski', turnie.id]" >Panel sędziowski</button>
           <button class="btn btn-primary" type="submit" [disabled]="turniejForm.invalid">Aktualizuj</button>
         </div>
+        
       </div>
     </form>
   </div>

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import { Kategorie } from '../zarzadzaj/shared/kategorie.model';
+import { Modeloo } from '../zarzadzaj/shared/modeloo.model';
+import { KeysPipePipe } from '../zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
 
 @Component({
   selector: 'app-panel-sedziowski',
@@ -6,8 +11,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./panel-sedziowski.component.css']
 })
 export class PanelSedziowskiComponent implements OnInit {
-  
-  
+
+  public zawodnik1:string;
+  public zawodnik2:string;
+
+  private zapisaniCollection: AngularFirestoreCollection<Kategorie>;
+  private zapisani: Observable<any[]>;
+  public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+
+  private pasyColection: AngularFirestoreCollection<any[]>;
+  private pasy: Observable<any[]>;
+
+  private wagiColection: AngularFirestoreCollection<any[]>;
+  private wagi: Observable<any[]>;
 
   //#region zmienne
   duzePunktyZawodnik1: number = 0;
@@ -22,13 +38,52 @@ export class PanelSedziowskiComponent implements OnInit {
   licznik = 0;
   flagaStart = 0;
   
+
   ZegarCzas: string = "00:00";
   btnZegar:string = "start"
   //#endregion
-  constructor() { }
+  constructor(private db: AngularFirestore) { 
+
+    this.zapisaniCollection=db.collection<Modeloo>('/turnieje').doc(this.current).collection('zapisani').doc('gi').collection('zawodnicy');
+    this.zapisani=this.zapisaniCollection.snapshotChanges().map(actions =>{
+      return actions.map( a=>{
+        const data = a.payload.doc.data() as Modeloo;
+        const id = a.payload.doc.id;
+        return {id,...data,};
+      })
+      
+    })
+
+    this.pasyColection = db.collection<any[]>('pasy');
+    this.pasy = this.pasyColection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Kategorie;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
+
+
+    this.wagiColection = db.collection<any[]>('KATegorie').doc('man').collection('gi');
+    this.wagi = this.wagiColection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Kategorie;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
+
+    
+  }
 
   ngOnInit() {
 
+  }
+  zaw1(x){
+    this.zawodnik1=x; 
+  }
+  zaw2(x){
+    this.zawodnik2=x;
   }
 
   //#region  obslugaPunktow
