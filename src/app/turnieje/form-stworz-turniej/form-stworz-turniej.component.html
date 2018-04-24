@@ -65,9 +65,10 @@
               </div>
             </div>
           </div>
-          <div class="card-footer">
-            <button class="btn btn-primary" type="submit" [disabled]="turniejForm.invalid">Stwórz</button>
+          <div class="card-footer" routerLink="/lista_turniejow">
+            <button type="submit" class="btn btn-primary" [disabled]="turniejForm.invalid">Stwórz</button>
           </div>
+            
         </div>
       </form>
   
