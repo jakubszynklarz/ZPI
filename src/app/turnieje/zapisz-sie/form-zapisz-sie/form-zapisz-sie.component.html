@@ -37,64 +37,73 @@
     </select>
   </div>
 
-  <div > {{facetGi |async| json}}</div> 
+  <!-- <div > {{facetGi |async| json}}</div>  -->
+  <!-- <div> {{facetGi |async|json }}</div> -->
 
-  <div> {{kategorie |async| json}}</div>
+  <!-- <div class="form-group">
+    <label for="selectWeight">wybierz wage</label>
+
+    <select class="form-control" id="selectWeight">
+      <option>asdfasd</option>
+      <option *ngFor="let fa of facetGi |async" [value]="fa.id"> {{fa.id }} </option>
+
+    </select>
+  </div> -->
+
+  <!-- gi i facet -->
+  <!-- <div> {{kategorie |async| json}}</div> -->
   <div *ngFor="let kat of kategorie |async">
     <div *ngIf="kat.id=='gi'&&selectSex.value=='man'">
-
-gi i facet
-        
-<div class="form-group">
-    <label for="selectWeight">wybierz wage</label>
-
-    <select  class="form-control" id="selectWeight">
-          <option *ngFor="let katWag of facetGi | async ">{{katWag.wagi}}</option>
+      <div class="form-group">
+        <label for="selectWeight">wybierz wage</label>
+        <select class="form-control" id="selectWeight">
+          <option>asdfasd</option>
+          <option *ngFor="let fa of facetGi |async" [value]="fa.id"> {{fa.id }} </option>
         </select>
-    
-
-  </div>
-
-
-
-
-    </div>
-    <div *ngIf="kat.id=='nogi'&&selectSex.value=='man'" > 
-    nogi i facet
-    
-
-
-
-  </div>
-
-  <div *ngIf="kat.id=='nogi'&&selectSex.value!='man'" > 
-      nogi i kobieta
-      
-
-
-
-
-
-    </div>
-    <div *ngIf="kat.id!='nogi'&&selectSex.value!='man'" > 
-        gi i kobieta
-        
-
-
-
       </div>
+    </div>
+
+    <div *ngIf="kat.id=='nogi'&&selectSex.value=='man'">
+      <div class="form-group">
+        <label for="selectWeight">wybierz wage</label>
+        <select class="form-control" id="selectWeight">
+          <option>asdfasd</option>
+          <option *ngFor="let fa of facetNoGi |async" [value]="fa.id"> {{fa.id }} </option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="kat.id=='nogi'&&selectSex.value=='women'">
+     <div class="form-group">
+        <label for="selectWeight">wybierz wage</label>
+        <select class="form-control" id="selectWeight">
+          <option>asdfasd</option>
+          <option *ngFor="let fa of kobietaNoGi |async" [value]="fa.id"> {{fa.id }} </option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="kat.id!='nogi'&&selectSex.value=='women'">
+      <div class="form-group">
+        <label for="selectWeight">wybierz wage</label>
+        <select class="form-control" id="selectWeight">
+          <option>asdfasd</option>
+          <option *ngFor="let fa of kobietaGi |async" [value]="fa.id"> {{fa.id }} </option>
+        </select>
+      </div>
+    </div>
   </div>
 
 
-  <div class="form-group">
-    <label for="selectWeight">wybierz wage</label>
+  <!-- <div class="form-group">
+    <label for="selectWeight">wybierz wage</label> -->
 
-    <!-- <select *ngIf="selectSex.value==='men'&&selectDivision.value==='nogi'" class="form-control" id="selectWeight">
+  <!-- <select *ngIf="selectSex.value==='men'&&selectDivision.value==='nogi'" class="form-control" id="selectWeight">
           <option *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</option>
         </select>
      -->
 
-  </div>
+  <!-- </div> -->
 
 
 

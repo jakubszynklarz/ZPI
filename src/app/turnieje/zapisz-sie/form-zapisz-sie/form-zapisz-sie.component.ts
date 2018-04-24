@@ -82,7 +82,33 @@ export class FormZapiszSieComponent implements OnInit {
       })
     });
 
+    this.facetNoGiColection = db.collection<any[]>('KATegorie').doc('man').collection('nogi');
+    this.facetNoGi = this.facetGiColection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Kategorie;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
+    // kobietaNoGiColection
   
+    this.kobietaNoGiColection = db.collection<any[]>('KATegorie').doc('women').collection('nogi');
+    this.kobietaNoGi = this.facetGiColection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Kategorie;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
+
+    this.kobietaGiColection = db.collection<any[]>('KATegorie').doc('women').collection('nogi');
+    this.kobietaGi = this.facetGiColection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Kategorie;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
 
     // this.plecjColection = db.collection('KATegorie');
     // this.plec = this.plecjColection.valueChanges();
