@@ -35,6 +35,7 @@ import { FormZapiszSieComponent } from './turnieje/zapisz-sie/form-zapisz-sie/fo
 import { KategorieComponent } from './zarzadzaj/zapisany/zapisane/kategorie/kategorie.component';
 import { DywizjeComponent } from './zarzadzaj/zapisany/zapisane/dywizje/dywizje.component';
 import { KeysPipePipe } from './zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -75,7 +76,8 @@ import { KeysPipePipe } from './zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.
     routing,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ReactiveFormsModule
     
   ],
   providers: [TurniejService],
