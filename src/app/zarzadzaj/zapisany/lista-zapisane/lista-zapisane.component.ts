@@ -21,6 +21,8 @@ private turnieje: Observable<any[]>;
 
 
   constructor(private zarzadService: ZarzadService,db: AngularFirestore) { 
+    // this.turnieCollection=db.collection<Modeloo>('/turnieje');
+    // this.turnieCollection=db.collection<Modeloo>('/turnieje',ref => {return ref.where('tworca','==',this.tworca)});
     this.turnieCollection=db.collection<Modeloo>('/turnieje');
     this.turnieje=this.turnieCollection.snapshotChanges().map(actions =>{
       return actions.map( a=>{
@@ -29,6 +31,7 @@ private turnieje: Observable<any[]>;
         return {id,...data};
       })
     })
+    
 
 
   }
@@ -36,5 +39,6 @@ private turnieje: Observable<any[]>;
   ngOnInit() {
     
   }
+  
 }
 

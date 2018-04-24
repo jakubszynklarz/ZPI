@@ -20,7 +20,7 @@ export class MyevenComponent implements OnInit {
 
   
   constructor(private db: AngularFirestore) { 
-    
+
     this.turnieCollection=db.collection<Modeloo>('/turnieje');
     this.turnieje=this.turnieCollection.snapshotChanges().map(actions =>{
       return actions.map( a=>{

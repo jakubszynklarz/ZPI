@@ -12,7 +12,7 @@ import { Modeloo } from '../../zarzadzaj/shared/modeloo.model';
 })
 export class FormStworzTurniejComponent implements OnInit {
 
-  private tworca:string="Andre"
+  private tworca:string="Endzik"
   selectedModeloo: Modeloo = new Modeloo();
   private turnieCollection: AngularFirestoreCollection<Modeloo>;
   private turnieje: Observable<any[]>;

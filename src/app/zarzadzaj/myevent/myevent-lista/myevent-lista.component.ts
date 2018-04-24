@@ -25,7 +25,12 @@ export class MyeventListaComponent implements OnInit {
 
   
   constructor(private zarzadService: ZarzadService,private db: AngularFirestore) { 
-    this.turnieCollection=db.collection<Modeloo>('/turnieje');
+    
+    this.turnieCollection=db.collection<Modeloo>('/turnieje',ref => {return ref.where('tworca','==',this.tworca)});
+
+    // this.turnieCollection = db.collection<Modeloo>('KATegorie').doc('man').
+    // collection('gi',);
+
     this.turnieje=this.turnieCollection.snapshotChanges().map(actions =>{
       return actions.map( a=>{
         const data = a.payload.doc.data() as Modeloo;
@@ -33,7 +38,10 @@ export class MyeventListaComponent implements OnInit {
         return {id,...data};
       })
     })
+
+
   }
+
 
   addItem(item: Modeloo) {
     this.turnieCollection.add(item);
