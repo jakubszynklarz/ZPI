@@ -11,7 +11,10 @@ import { KeysPipePipe } from '../zarzadzaj/zapisany/zapisane/kategorie/keys-pipe
   styleUrls: ['./panel-sedziowski.component.css']
 })
 export class PanelSedziowskiComponent implements OnInit {
-  
+
+  public zawodnik1:string;
+  public zawodnik2:string;
+
   private zapisaniCollection: AngularFirestoreCollection<Kategorie>;
   private zapisani: Observable<any[]>;
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
@@ -46,10 +49,9 @@ export class PanelSedziowskiComponent implements OnInit {
       return actions.map( a=>{
         const data = a.payload.doc.data() as Modeloo;
         const id = a.payload.doc.id;
-       
-        
-        return {id,...data};
+        return {id,...data,};
       })
+      
     })
 
     this.pasyColection = db.collection<any[]>('pasy');
@@ -76,6 +78,12 @@ export class PanelSedziowskiComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+  zaw1(x){
+    this.zawodnik1=x; 
+  }
+  zaw2(x){
+    this.zawodnik2=x;
   }
 
   //#region  obslugaPunktow
