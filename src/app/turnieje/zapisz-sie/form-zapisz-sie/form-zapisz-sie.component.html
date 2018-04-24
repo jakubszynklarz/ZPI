@@ -70,7 +70,13 @@
 
 <!-- {{kat |json}} -->
 <div *ngFor="let kat of kategorie | async  ">
-  {{kat |json}}
+  <!-- {{kat|json}} -->
+  <div *ngFor="let ka of kat | keysPipe ">
+      <div *ngIf="ka.key!='id'">
+
+      {{ka.key }}{{ka.value.waga }}
+    </div>
+  </div>
 </div>
 
-  <div > {{kategorie | async | json}}</div> 
+  <!-- <div > {{kategorie | async | json}}</div>  -->

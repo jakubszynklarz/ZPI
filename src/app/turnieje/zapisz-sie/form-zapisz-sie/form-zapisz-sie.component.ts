@@ -22,9 +22,9 @@ export class FormZapiszSieComponent implements OnInit {
   private fuckcole: AngularFirestoreDocument<any[]>;
   private fuck : Observable<any[]>;
   constructor(private db: AngularFirestore) {
-    this.kategorieCollection = db.collection<Kategorie>('KATEGORIA').doc('plec').
-    collection('men',ref => {return ref.where('id','==','nogi')});
-    // ,ref => {return ref.where('wagi','==','gi')}
+    this.kategorieCollection = db.collection<Kategorie>('KATegorie').doc('man').
+    collection('gi',);
+    // }
     this.kategorie = this.kategorieCollection.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Kategorie;
