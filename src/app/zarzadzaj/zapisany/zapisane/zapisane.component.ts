@@ -22,11 +22,23 @@ export class ZapisaneComponent implements OnInit {
   private kategorie: Observable<any[]>;
   private kateCollection: AngularFirestoreCollection<Kategorie>;
 
+  private zapisaniCollection: AngularFirestoreCollection<Kategorie>;
+  private zapisani: Observable<any[]>;s
   
   constructor(private db: AngularFirestore) { 
     
     this.turnieCollection=db.collection<Modeloo>('/turnieje');
     this.turnieje=this.turnieCollection.snapshotChanges().map(actions =>{
+      return actions.map( a=>{
+        const data = a.payload.doc.data() as Modeloo;
+        const id = a.payload.doc.id;
+        
+        return {id,...data};
+      })
+    })
+
+    this.zapisaniCollection=db.collection<Modeloo>('/turnieje').doc(this.current).collection('zapisani').doc('gi').collection('zawodnicy');
+    this.zapisani=this.zapisaniCollection.snapshotChanges().map(actions =>{
       return actions.map( a=>{
         const data = a.payload.doc.data() as Modeloo;
         const id = a.payload.doc.id;
