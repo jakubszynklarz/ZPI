@@ -33,6 +33,7 @@ const appRoutes: Routes = [
     {path:'turnieje/:def_number',component: MyevenComponent},
     {path:'sedziowski/:def_number',component: PanelSedziowskiComponent},
     {path:'zapisany/:def_number',component: ZapisaneComponent},
+    
 
     // otherwise redirect to home
     { path: '**', redirectTo: 'error' }

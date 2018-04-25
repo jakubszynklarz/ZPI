@@ -1,5 +1,6 @@
-.jumbotron{
-	
-	margin: 5px ;
-	
+.col-md-6{
+    text-align: center;
+    border: 0.5px solid #A8A8A8;
+    border-radius: 10px;
+    margin: 5px;
 }
