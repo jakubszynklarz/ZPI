@@ -1,15 +1,11 @@
-<div class="container">
-  <nav class="navbar navbar-light bg-light navbar-expand-md">
-    <ul class="nav navbar-nav">
-        <div class="nav-item">
-        <li >
-            <div class ="navbar-brand">
-            <a  routerLink="/lista_turniejow" class="col-sm" >Lista Turniejów</a>
-            <a routerLink="/stworz_turniej" class="col-sm" >Stwórz Turniej</a>
-          </div>
-        </li>
-      </div>
-    </ul>
-</nav>
 
+<div class="card text-center">
+  <div class="card-header">
+    <div class="new">
+        <a routerLink="/stworz_turniej" class="btn btn-outline-primary">Stwórz nowy turniej</a>
+    </div>
+  </div>
+  <div>
+    <app-lista-turnieji></app-lista-turnieji>
+  </div>
 </div>
