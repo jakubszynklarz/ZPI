@@ -89,7 +89,6 @@
         <div class="form-group">
           <label for="selectWeight">wybierz wage</label>
           <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-            <option>asdfasd</option>
             <option *ngFor="let fa of facetNoGi |async" [value]="fa.id"> {{fa.id }} </option>
           </select>
         </div>
@@ -99,7 +98,6 @@
       <div class="form-group">
           <label for="selectWeight">wybierz wage</label>
           <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-            <option>asdfasd</option>
             <option *ngFor="let fa of kobietaNoGi |async" [value]="fa.id"> {{fa.id }} </option>
           </select>
         </div>
@@ -109,14 +107,13 @@
         <div class="form-group">
           <label for="selectWeight">wybierz wage</label>
           <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-            <option>asdfasd</option>
             <option *ngFor="let fa of kobietaGi |async" [value]="fa.id"> {{fa.id }} </option>
           </select>
         </div>
       </div>
     
   </div>
-
+<!-- {{kobietaGi|async |json}} -->
 
   <!-- <div class="form-group">
     <label for="selectWeight">wybierz wage</label> -->

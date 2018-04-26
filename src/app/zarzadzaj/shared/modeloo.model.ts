@@ -1,4 +1,5 @@
 export class Modeloo {
+    id?:string;
     miejsce:string;
     opis:string;
     nazwa:string;
