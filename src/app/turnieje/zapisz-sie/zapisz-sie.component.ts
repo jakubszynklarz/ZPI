@@ -37,6 +37,7 @@ export class ZapiszSieComponent implements OnInit {
         return { id, ...data };
       })
     });
+    
     this.turniejDoc = db.collection('turnieje').doc(''+this.current);
     this.turn = this.turniejDoc.valueChanges();
 
