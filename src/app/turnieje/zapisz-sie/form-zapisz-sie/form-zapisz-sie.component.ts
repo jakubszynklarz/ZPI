@@ -21,38 +21,17 @@ export class FormZapiszSieComponent implements OnInit {
 
 
   menWomen: any[];
-
   facetGi: any[];
-
-  // private facetNoGiColection: AngularFirestoreCollection<any[]>;
   private facetNoGi: any[];
-
-  // private kobietaNoGiColection: AngularFirestoreCollection<any[]>;
   private kobietaNoGi: any[];
-
-  // private kobietaGiColection: AngularFirestoreCollection<any[]>;
   private kobietaGi: any[];
-
-  // private pasyColection: AngularFirestoreCollection<any[]>;
   private pasy: any[]
-
   private turniejGiNogi: KatGiNogi[];
-
-
   private kategorieCollection: AngularFirestoreCollection<Kategorie>;
   private kategorie: Observable<any[]>;
 
   constructor(private db: AngularFirestore, private katServ: KategorieService) {
-    // this.kategorieCollection = db.collection<Kategorie>('turnieje').
-    //   doc('' + this.current).collection('zapisani');
-    // // , ref =>{return ref.where('tworca','==','Endzik')}
-    // this.kategorie = this.kategorieCollection.snapshotChanges().map(actions => {
-    //   return actions.map(a => {
-    //     const data = a.payload.doc.data() as Kategorie;
-    //     const id = a.payload.doc.id;
-    //     return { id, ...data };
-    //   })
-    // });
+    
     katServ.getKatGiNogi(this.current).subscribe(data => { this.turniejGiNogi = data });
 
     katServ.getPasy().subscribe(data => { this.pasy = data });
@@ -67,60 +46,6 @@ export class FormZapiszSieComponent implements OnInit {
     
     katServ.getWagi('women', 'nogi').subscribe(data => { this.kobietaNoGi = data })
 
-
-    // this.menWomenColection = db.collection<any[]>('KATegorie');
-    // this.menWomen = this.menWomenColection.snapshotChanges().map(actions => {
-    //   return actions.map(a => {
-    //     const data = a.payload.doc.data() as Kategorie;
-    //     const id = a.payload.doc.id;
-    //     return { id, ...data };
-    //   })
-    // });
-
-    // this.pasyColection = db.collection<any[]>('pasy');
-    // this.pasy = this.pasyColection.snapshotChanges().map(actions => {
-    //   return actions.map(a => {
-    //     const data = a.payload.doc.data() as Kategorie;
-    //     const id = a.payload.doc.id;
-    //     return { id, ...data };
-    //   })
-    // });
-
-    // this.facetGiColection = db.collection<any[]>('KATegorie').doc('man').collection('gi');
-    // this.facetGi = this.facetGiColection.snapshotChanges().map(actions => {
-    //   return actions.map(a => {
-    //     const data = a.payload.doc.data() as Kategorie;
-    //     const id = a.payload.doc.id;
-    //     return { id, ...data };
-    //   })
-    // });
-
-    // this.facetNoGiColection = db.collection<any[]>('KATegorie').doc('man').collection('nogi');
-    // this.facetNoGi = this.facetGiColection.snapshotChanges().map(actions => {
-    //   return actions.map(a => {
-    //     const data = a.payload.doc.data() as Kategorie;
-    //     const id = a.payload.doc.id;
-    //     return { id, ...data };
-    //   })
-    // });
-
-    // this.kobietaNoGiColection = db.collection<any[]>('KATegorie').doc('women').collection('nogi');
-    // this.kobietaNoGi = this.facetGiColection.snapshotChanges().map(actions => {
-    //   return actions.map(a => {
-    //     const data = a.payload.doc.data() as Kategorie;
-    //     const id = a.payload.doc.id;
-    //     return { id, ...data };
-    //   })
-    // });
-
-    // this.kobietaGiColection = db.collection<any[]>('KATegorie').doc('women').collection('nogi');
-    // this.kobietaGi = this.facetGiColection.snapshotChanges().map(actions => {
-    //   return actions.map(a => {
-    //     const data = a.payload.doc.data() as Kategorie;
-    //     const id = a.payload.doc.id;
-    //     return { id, ...data };
-    //   })
-    // });
   }
 
 
