@@ -9,6 +9,7 @@ export class Modeloo {
     do_kiedyrej:DateTimeFormat;
     zapisanie:Array<any>;
     nr_konta:number;
+    kategoria?:string;
 
 }
 
