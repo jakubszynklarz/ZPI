@@ -37,6 +37,7 @@ import { DywizjeComponent } from './zarzadzaj/zapisany/zapisane/dywizje/dywizje.
 import { KeysPipePipe } from './zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TurniejeService } from './turnieje/zapisz-sie/serwisy/turniej.service';
+import { KategorieService } from './turnieje/shared/kategorie.service';
 
 
 
@@ -81,7 +82,7 @@ import { TurniejeService } from './turnieje/zapisz-sie/serwisy/turniej.service';
     ReactiveFormsModule
     
   ],
-  providers: [TurniejService,TurniejeService],
+  providers: [TurniejService,TurniejeService,KategorieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
