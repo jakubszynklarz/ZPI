@@ -61,8 +61,9 @@ export class KategorieService {
   }
 
 
-  getWagi(menOrWomen: string, giOrNogi) {
-    this.kategorie = this.kategorie.doc(menOrWomen).collection(giOrNogi);
+  getWagi(menOrWomen: string, giOrNogi:string) {
+    let kat = this.db.collection<any[]>('KATegorie');
+    this.kategorie = kat.doc(menOrWomen).collection(giOrNogi);
     this.wagi = this.kategorie.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as any;

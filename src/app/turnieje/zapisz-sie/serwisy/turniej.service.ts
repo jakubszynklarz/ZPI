@@ -23,6 +23,10 @@ export class TurniejeService {
 
   }
 
+  getZapisanych(){
+    
+  }
+
   getTurnieje() {
 
     return this.turniej;
@@ -43,7 +47,7 @@ export class TurniejeService {
 
 
   setTurniej(turn: Modeloo) {
-
+    
     this.turniejCollection.add(JSON.parse(JSON.stringify(turn)));
   }
 

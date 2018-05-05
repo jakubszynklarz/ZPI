@@ -1,5 +1,5 @@
 <form ngForm #zapisywanieForm="ngForm" (ngSubmit)="dodajZawodnika()" style="margin: 10px;">
-  
+
   <div class="form-group">
     <label for="ImieNazwisko">Imie Nazwisko</label>
     <input name="ImieNazwisko" #ImieNazwisko="ngModel" ngModel type="text" class="form-control" id="ImieNazwisko" placeholder="np. Jan Nowak">
@@ -18,7 +18,6 @@
     <select class="form-control" id="selectSex" name="selectSex" #selectSex="ngModel" ngModel>
       <option *ngFor="let mw of menWomen" value="{{mw.id}}">{{mw.id}}</option>
     </select>
-
   </div>
 
 
@@ -30,47 +29,51 @@
   </div>
 
 
+  <div *ngIf="turniejGiNogi">
 
-  <div *ngIf="turniejGiNogi[0].id=='gi'">
 
-    <div *ngIf="selectSex.value=='man'">
-      <div class="form-group">
-        <label for="selectWeight">wybierz wage</label>
-        <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-          <option *ngFor="let fa of facetGi " [value]="fa.id"> {{fa.id }} </option>
-        </select>
+    <div *ngIf="turniejGiNogi.id=='gi'">
+
+      <div *ngIf="selectSex.value=='man'">
+        <div class="form-group">
+          <label for="selectWeight">wybierz wage</label>
+          <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
+            <option *ngFor="let fa of facetGi " [value]="fa.id"> {{fa.id }} </option>
+          </select>
+        </div>
+      </div>
+
+      <div *ngIf="selectSex.value=='women'">
+        <div class="form-group">
+          <label for="selectWeight">wybierz wage</label>
+          <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
+            <option *ngFor="let fa of kobietaGi " [value]="fa.id"> {{fa.id }} </option>
+          </select>
+        </div>
       </div>
     </div>
 
-    <div *ngIf="selectSex.value=='women'">
-      <div class="form-group">
-        <label for="selectWeight">wybierz wage</label>
-        <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-          <option *ngFor="let fa of kobietaGi " [value]="fa.id"> {{fa.id }} </option>
-        </select>
+
+    <div *ngIf="turniejGiNogi.id=='nogi'">
+      <div *ngIf="selectSex.value=='man'">
+        <div class="form-group">
+          <label for="selectWeight">wybierz wage</label>
+          <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
+            <option *ngFor="let fa of facetNoGi " [value]="fa.id"> {{fa.id }} </option>
+          </select>
+        </div>
+      </div>
+
+      <div *ngIf="selectSex.value=='women'">
+        <div class="form-group">
+          <label for="selectWeight">wybierz wage</label>
+          <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
+            <option *ngFor="let fa of kobietaNoGi " [value]="fa.id"> {{fa.id }} </option>
+          </select>
+        </div>
       </div>
     </div>
-  </div>
 
-
-  <div *ngIf="turniejGiNogi.id=='nogi'">
-    <div *ngIf="selectSex.value=='man'">
-      <div class="form-group">
-        <label for="selectWeight">wybierz wage</label>
-        <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-          <option *ngFor="let fa of facetNoGi " [value]="fa.id"> {{fa.id }} </option>
-        </select>
-      </div>
-    </div>
-
-    <div *ngIf="selectSex.value=='women'">
-      <div class="form-group">
-        <label for="selectWeight">wybierz wage</label>
-        <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-          <option *ngFor="let fa of kobietaNoGi " [value]="fa.id"> {{fa.id }} </option>
-        </select>
-      </div>
-    </div>
   </div>
 
 
