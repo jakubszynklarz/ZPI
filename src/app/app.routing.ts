@@ -14,6 +14,7 @@ import { MyevenComponent } from './zarzadzaj/myevent/myeven/myeven.component';
 import { ZapiszSieComponent } from './turnieje/zapisz-sie/zapisz-sie.component';
 import { ZapisanyComponent } from './zarzadzaj/zapisany/zapisany.component';
 import { ZapisaneComponent } from './zarzadzaj/zapisany/zapisane/zapisane.component';
+import { LadderComponent } from './ladder/ladder.component';
 
 
 
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
     { path: 'turnieje', component: TurniejeComponent },
     { path: 'zapiszSie/:def_number', component: ZapiszSieComponent },    
     { path: 'zarzadzanie', component: ZarzadzajComponent },
+    { path: 'ladder', component: LadderComponent },
     {path:'turnieje/:def_number',component: MyevenComponent},
     {path:'sedziowski/:def_number',component: PanelSedziowskiComponent},
     {path:'zapisany/:def_number',component: ZapisaneComponent},
