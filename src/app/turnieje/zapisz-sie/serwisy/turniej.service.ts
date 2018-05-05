@@ -2,32 +2,50 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { JsonPipe } from '@angular/common';
+import { Modeloo } from '../../../zarzadzaj/shared/modeloo.model';
 
 @Injectable()
-export class TurniejService {
+export class TurniejeService {
 
-  itemsCollection: AngularFirestoreCollection<any>;
-  items:Observable<any[]>;
-  constructor(public afs:AngularFirestore) { 
-    this.items  = this.afs.collection('items').valueChanges();
+  turniejDocument: AngularFirestoreDocument<Modeloo>;
+  turniejCollection: AngularFirestoreCollection<Modeloo[]>;
+  turniej: Observable<Modeloo[]>;
+  constructor(public db: AngularFirestore) {
+
+    this.turniejCollection = db.collection<Modeloo[]>('/turnieje');
+    this.turniej = this.turniejCollection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Modeloo;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
+
   }
-  // ii:Item ;
-  getItems(){
-    
-    // let i :Item = new Item();
-    // i.id = "da";
-    // i.opis = "adsf";
-    // i.title = "adfas";
-    // this.afs.collection('items').add(i);
-    return this.items;
 
+  getTurnieje() {
+
+    return this.turniej;
+  }
+  DeleteTurniej(idDokumentu) {
+
+    //uwaga bardzo ważne slesz jest wymagany na poczatku
+    // idDokumentu to np cDLIW476ASD7W5
+    this.turniejDocument = this.db.doc('/turnieje/' + idDokumentu);
+    this.turniejDocument.delete();
+  }
+  updateTurniej(turn:Modeloo, idDokumentu) {
+    //uwaga bardzo ważne slesz jest wymagany na poczatku
+    // idDokumentu to np cDLIW476ASD7W5
+    this.turniejDocument = this.db.doc('/turnieje/' + idDokumentu);
+    this.turniejDocument.update(turn);
+  }
+
+
+  setTurniej(turn: Modeloo) {
+
+    this.turniejCollection.add(JSON.parse(JSON.stringify(turn)));
   }
 
 }
 
-
-// constructor(public itemService: ItemService) { }
-
-// ngOnInit() {
-//   this.itemService.getItems().subscribe(items => {console.log(items)})
-// }
