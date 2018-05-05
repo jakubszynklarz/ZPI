@@ -14,6 +14,7 @@ import { MyevenComponent } from './zarzadzaj/myevent/myeven/myeven.component';
 import { ZapiszSieComponent } from './turnieje/zapisz-sie/zapisz-sie.component';
 import { ZapisanyComponent } from './zarzadzaj/zapisany/zapisany.component';
 import { ZapisaneComponent } from './zarzadzaj/zapisany/zapisane/zapisane.component';
+// import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-details.component';
 
 
 

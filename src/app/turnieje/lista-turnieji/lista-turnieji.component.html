@@ -13,15 +13,12 @@
   </table>
 </div>
 <div class="lista" *ngFor="let turnie of turnieje | async ">
-
-
-  <div class="Row" [routerLink]="['/turnieje', turnie.id]">
+  <div class="Row" [routerLink]="['/zapisany', turnie.id]">
     <div class="table-responsive">
       <table class="table table-hover">
         <tbody>
           <tr>
             <th class="col-sm">{{turnie.nazwa}}</th>
-
             <th class="col-sm">{{turnie.miejsce}}</th>
             <th class="col-sm"> {{turnie.kategoria}}</th>
             <th class="col-sm">{{turnie.kiedy | date}}</th>

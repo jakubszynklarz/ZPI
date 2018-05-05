@@ -1,7 +1,11 @@
 
 <!-- {{turnieje.id | async }} -->
 
-<div *ngIf="turnieje ">
+<div class="card-header text-white bg-primary">
+    <h3 class="panel-title">Szczegóły turnieju</h3>
+  </div>
+
+<div *ngIf="turnieje">
   <ul class="list-group">
     <li class="list-group-item">
       <div class="row">
@@ -9,24 +13,24 @@
         <div class="col-sm">{{turnieje.nazwa }}</div>
       </div>
     </li>
-    <li class="list-group-item">
+    <!-- <li class="list-group-item">
       <div class="row">
         <div class="col-sm">Opis:</div>
         <div class="col-sm">{{turnieje.opis }}</div>
       </div>
-    </li>
-    <li class="list-group-item">
+    </li> -->
+    <!-- <li class="list-group-item">
       <div class="row">
         <div class="col-sm">Kategoria:</div>
         <div class="col-sm">{{turnieje.kategoria }}</div>
       </div>
-    </li>
-    <li class="list-group-item">
+    </li> -->
+    <!-- <li class="list-group-item">
       <div class="row">
         <div class="col-sm">Miejsce :</div>
         <div class="col-sm">{{turnieje.miejsce }}</div>
       </div>
-    </li>
+    </li> -->
     <li class="list-group-item">
       <div class="row">
         <div class="col-sm">Numer konta:</div>

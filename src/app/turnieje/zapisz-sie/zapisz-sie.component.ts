@@ -27,26 +27,11 @@ export class ZapiszSieComponent implements OnInit {
 
     this.turnjServe.getTurnieje().subscribe(data => { this.turnieje = data.find(turn => turn.id == this.current);});
 
-    // dodajTurniej() {
-    //   let turn:Turniej = new Turniej();
-    //   turn.data="da";
-    //   turn.kategoria="gi";
-    //   turn.nazwa="nogi fight otm";
-    //   this.turnejServe.setTurniej(turn);
-    // }
-    // aktualizujTurniej(turn: Turniej) {
-    //   turn.kategoria = "zaktualizowane";
-    //   this.turnejServe.updateTurniej(turn, turn.id)
-    // }
-
-    // usunTurniej(turn: Turniej) {
-    //   this.turnejServe.DeleteTurniej(turn.id);
-    // }
-
   }
 
 
   ngOnInit() {
+    // this.turnjServe.getTurnieje().subscribe(data => { this.turnieje = data.find(turn => turn.id == this.current);});
 
   }
 
