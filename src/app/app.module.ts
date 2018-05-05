@@ -37,8 +37,11 @@ import { DywizjeComponent } from './zarzadzaj/zapisany/zapisane/dywizje/dywizje.
 import { KeysPipePipe } from './zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TurniejeService } from './turnieje/zapisz-sie/serwisy/turniej.service';
+import { LadderComponent } from './ladder/ladder.component';
+import { SixteenComponent } from './ladder/sixteen/sixteen.component';
 import { KategorieService } from './turnieje/shared/kategorie.service';
 import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-details.component';
+
 
 
 
@@ -71,7 +74,11 @@ import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-deta
     DywizjeComponent,
     KeysPipePipe,
     MyevenComponent,
+    LadderComponent,
+    SixteenComponent
+
     TurniejDetailsComponent
+
 
   ],
   imports: [
