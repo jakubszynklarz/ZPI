@@ -1,0 +1,100 @@
+<!-- dodaj miejscowość -->
+
+<div class="card text-black bg-white" style="margin: 50px">
+  <div class="card-header text-white bg-primary">
+    <h3 class="panel-title">Szczegóły turnieju</h3>
+  </div>
+  <div class="card-body ">
+
+    <div class="row">
+      <div class=" col-lg-6">
+        <div>
+
+          <label for="nazwaTurnieju" class="col-form-label " style="font-size:120%">Nazwa Turnieju:</label>
+          <label  id="nazwaTurnieju"  name="nazwaTurnieju" style="width:50%"> jakas nazwa</label>
+        </div>
+        <div>
+
+          <label for="miasto" style="font-size:120%">Miasto:</label>
+          <label id="miasto"  name="miasto" style="width:50%">wroclaw</label>
+        </div>
+        <div>
+
+          <label for="nrkonta">Nr konta:</label>
+          <label id="nrkonta"  style="width:50%">Nr konta</label>
+        </div>
+        <div>
+
+          <label for="wpisowe">Wpisowe:</label>
+          <label id="wpisowe"  style="width:20%">wpisowe</label>
+        </div>
+
+        <div class=" ">
+          <label>Kategoria:</label>
+          <div  style="width:10%">
+
+              wpisowe
+
+          </div>
+        </div>
+
+        <div style="display:inline-flex">
+          <div class=" " style="margin:5px">
+            <label for="data">Data Turnieju:</label>
+            <label id="data"   name="data" > kiedy</label>
+          </div>
+
+          <div class=" " style="margin:5px">
+            <label for="datakonca">Data końca rejestracji:</label>
+            <label id="datakonca" type="date"   >do kiedy rej </label> 
+          </div>
+        </div>
+
+      </div>
+      <div class=" col-lg-6">
+        <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
+        <textarea id="opisturnieju" cols="30" rows="10" type="text"  value="{{turnie.opis}}" name="opisturnieju"
+          #opisturnieju="ngModel" [(ngModel)]="selectedModeloo.opis">
+              </textarea>
+        <div class=" " style="margin:5px">
+          <div class="row">
+            <div class=" col-lg-3">
+              <label style="font-size:120%">Zapisani:</label>
+            </div>
+            <div class=" col-lg-3">
+              <label style="font-size:120%">Oplata?:</label>
+            </div>
+            <div class=" col-lg-3">
+              <label style="font-size:120%">Pas:</label>
+            </div>
+            <div class=" col-lg-3">
+              <label style="font-size:120%">Waga:</label>
+            </div>
+          </div>
+          <div id="" style="overflow-y:scroll;overflow-x:hidden;border-style:inset">
+            <div *ngFor="let zapi of zapisani | async">
+              <div class="row">
+                <div class="column col-lg-3 ">
+                  <label>{{zapi.nazwa}}</label>
+                </div>
+                <div class="column col-lg-3">
+                  <label>{{zapi.oplacone}}</label>
+                </div>
+                <div class="column col-lg-3 ">
+                  <label>{{zapi.pas}}</label>
+                </div>
+                <div class="column col-lg-3">
+                  <label>{{zapi.waga}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-primary" type="submit" >zapisz sie</button>
+  </div>
+
+</div>

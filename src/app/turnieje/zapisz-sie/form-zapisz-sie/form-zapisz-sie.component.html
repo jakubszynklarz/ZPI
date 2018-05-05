@@ -1,145 +1,82 @@
-<!-- <div > {{menWomen |async| json}}</div>  -->
-<!-- <div *ngFor="let p of  |async">
+<form ngForm #zapisywanieForm="ngForm"  style="margin: 10px;">
 
-
-</div> -->
-
-
-<form ngForm #zapisywanieForm="ngForm" (ngSubmit)="dodajZawodnika()" style="margin: 10px;">
   <div class="form-group">
     <label for="ImieNazwisko">Imie Nazwisko</label>
-    <input 
-      name="ImieNazwisko" 
-      #ImieNazwisko="ngModel" 
-      ngModel
-      type="text" 
-      class="form-control" 
-      id="ImieNazwisko" 
-      placeholder="np. Jan Nowak">
+    <input name="ImieNazwisko" #ImieNazwisko="ngModel" ngModel type="text" class="form-control" id="ImieNazwisko" placeholder="np. Jan Nowak">
   </div>
   <div class="form-group">
     <label for="Klub">Klub</label>
-    <input 
-      name="Klub" 
-      #Klub="ngModel" 
-      ngModel
-      type="text" 
-      class="form-control" 
-      id="Klub" 
-      placeholder="RGC WROCŁAW">
+    <input name="Klub" #Klub="ngModel" ngModel type="text" class="form-control" id="Klub" placeholder="RGC WROCŁAW">
   </div>
   <div class="form-group">
     <label for="email">Email </label>
-    <input 
-      name="email" #email="ngModel" ngModel
-      type="email" 
-      class="form-control"
-      id="email" 
-      placeholder="JanNowak@gmail.com" >
+    <input name="email" #email="ngModel" ngModel type="email" class="form-control" id="email" placeholder="JanNowak@gmail.com">
   </div>
 
   <div class="form-group">
     <label for="selectSex">wybierz płeć</label>
     <select class="form-control" id="selectSex" name="selectSex" #selectSex="ngModel" ngModel>
-      <option *ngFor="let mw of menWomen |async" value="{{mw.id}}">{{mw.id}}</option>
-
+      <option *ngFor="let mw of menWomen" value="{{mw.id}}">{{mw.id}}</option>
     </select>
-
   </div>
-  <!-- <div *ngIf="selectSex.value==='men'||selectSex.value==='woman'"> -->
 
-  <!-- <div *ngFor="let kat of kategorie | async  "> -->
+
   <div class="form-group">
     <label for="selectBelt">wybierz Pas</label>
     <select class="form-control" id="selectBelt" name="selectBelt" #selectBelt="ngModel" ngModel>
-      <option *ngFor="let pas of pasy |async" value="{{pas.id}}"> {{pas.id }}</option>
+      <option *ngFor="let pas of pasy " value="{{pas.id}}"> {{pas.id }}</option>
     </select>
   </div>
 
-  <!-- <div > {{facetGi |async| json}}</div>  -->
-  <!-- <div> {{facetGi |async|json }}</div> -->
 
-  <!-- <div class="form-group">
-    <label for="selectWeight">wybierz wage</label>
+  <div *ngIf="turniejGiNogi">
 
-    <select class="form-control" id="selectWeight">
-      <option>asdfasd</option>
-      <option *ngFor="let fa of facetGi |async" [value]="fa.id"> {{fa.id }} </option>
 
-    </select>
-  </div> -->
+    <div *ngIf="turniejGiNogi.id=='gi'">
 
-  <!-- gi i facet -->
-  <!-- <div> {{kategorie |async| json}}</div> -->
-  <div *ngFor="let kat of kategorie |async"  > 
-    <input hidden name="kategoria"  #kategoria="ngModel" ngModel> 
-      
-
-      <div *ngIf="kat.id=='gi'&&selectSex.value=='man'">
+      <div *ngIf="selectSex.value=='man'">
         <div class="form-group">
           <label for="selectWeight">wybierz wage</label>
           <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-            
-            <option *ngFor="let fa of facetGi |async" [value]="fa.id"> {{fa.id }} </option>
+            <option *ngFor="let fa of facetGi " [value]="fa.id"> {{fa.id }} </option>
           </select>
         </div>
       </div>
 
-      <div *ngIf="kat.id=='nogi'&&selectSex.value=='man'">
+      <div *ngIf="selectSex.value=='women'">
         <div class="form-group">
           <label for="selectWeight">wybierz wage</label>
           <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-            <option *ngFor="let fa of facetNoGi |async" [value]="fa.id"> {{fa.id }} </option>
+            <option *ngFor="let fa of kobietaGi " [value]="fa.id"> {{fa.id }} </option>
           </select>
         </div>
       </div>
+    </div>
 
-      <div *ngIf="kat.id=='nogi'&&selectSex.value=='women'">
-      <div class="form-group">
-          <label for="selectWeight">wybierz wage</label>
-          <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-            <option *ngFor="let fa of kobietaNoGi |async" [value]="fa.id"> {{fa.id }} </option>
-          </select>
-        </div>
-      </div>
 
-      <div *ngIf="kat.id!='nogi'&&selectSex.value=='women'">
+    <div *ngIf="turniejGiNogi.id=='nogi'">
+      <div *ngIf="selectSex.value=='man'">
         <div class="form-group">
           <label for="selectWeight">wybierz wage</label>
           <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
-            <option *ngFor="let fa of kobietaGi |async" [value]="fa.id"> {{fa.id }} </option>
+            <option *ngFor="let fa of facetNoGi " [value]="fa.id"> {{fa.id }} </option>
           </select>
         </div>
       </div>
-    
+
+      <div *ngIf="selectSex.value=='women'">
+        <div class="form-group">
+          <label for="selectWeight">wybierz wage</label>
+          <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
+            <option *ngFor="let fa of kobietaNoGi " [value]="fa.id"> {{fa.id }} </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
   </div>
-<!-- {{kobietaGi|async |json}} -->
 
-  <!-- <div class="form-group">
-    <label for="selectWeight">wybierz wage</label> -->
 
-  <!-- <select *ngIf="selectSex.value==='men'&&selectDivision.value==='nogi'" class="form-control" id="selectWeight">
-          <option *ngFor="let katWag of kat.nogi.blue| keysPipe">{{katWag.value.nazwa}}</option>
-        </select>
-     -->
-
-  <!-- </div> -->
-<!-- {{zapisywanieForm.value | json}} -->
-
-<button [routerLink]="['/zapisany', current]"  class="btn btn-primary" type="submit"  (click)="zapiszSie(zapisywanieForm.value)" >zapisz się </button>
+  <button [routerLink]="['/zapisany', current]" class="btn btn-primary" type="submit" (click)="zapiszSie(zapisywanieForm.value)">zapisz się </button>
 
 </form>
-
-
-<!-- {{kategorie |json}} -->
-<!-- <div *ngFor="let kat of kategorie | async  ">
-  {{kat|json}} -->
-<!-- <div *ngFor="let ka of kat  ">
-      <div *ngIf="ka.key!='id'">
-
-      {{ka.key }}{{ka.value }}
-    </div>
-  </div> -->
-<!-- </div> -->
-
-<!-- <div > {{kategorie | async | json}}</div>  -->

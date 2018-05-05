@@ -6,6 +6,9 @@ import { DatePipe } from '@angular/common';
 import { JsonPipe } from '@angular/common';
 import { KeysPipePipe } from '../../../zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
 import { NgForm } from '@angular/forms';
+import { KategorieService, KatGiNogi } from '../../shared/kategorie.service';
+import { TurniejeService } from '../serwisy/turniej.service';
+import { Modeloo } from '../../../zarzadzaj/shared/modeloo.model';
 
 
 @Component({
@@ -18,98 +21,46 @@ export class FormZapiszSieComponent implements OnInit {
 
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 
-  private menWomenColection: AngularFirestoreCollection<any[]>;
-  private menWomen: Observable<any[]>;
 
-  private facetGiColection: AngularFirestoreCollection<any[]>;
-  private facetGi: Observable<any[]>;
+  menWomen: any[];
+  facetGi: any[];
+   facetNoGi: any[];
+   kobietaNoGi: any[];
+   kobietaGi: any[];
+   pasy: any[]
+   turniejGiNogi: KatGiNogi;
+   kategorieCollection: AngularFirestoreCollection<Kategorie>;
+   kategorie: Observable<any[]>;
+  turniej:Modeloo = new Modeloo();
 
-  private facetNoGiColection: AngularFirestoreCollection<any[]>;
-  private facetNoGi: Observable<any[]>;
+  kmenNogi:KategorieService = new KategorieService(this.db);
+  kwomenGi:KategorieService = new KategorieService(this.db);
+  kwomenNogi:KategorieService = new KategorieService(this.db);
+  
+  
+  constructor(private db: AngularFirestore, private katServ: KategorieService,private turn:TurniejeService) {
+    turn.getTurnieje().subscribe(data => {this.turniej = data.find(t=> t.id == this.current)})
+    
+    katServ.getKatGiNogi(this.current).subscribe(data => { this.turniejGiNogi = data[0] });
 
-  private kobietaNoGiColection: AngularFirestoreCollection<any[]>;
-  private kobietaNoGi: Observable<any[]>;
+    katServ.getPasy().subscribe(data => { this.pasy = data });
+    
+    katServ.getManWoman(this.current).subscribe(data => { this.menWomen = data });
+    
+    katServ.getWagi('man', 'gi').subscribe(data => { this.facetGi = data });
+    
+    katServ.getWagi('man', 'nogi').subscribe(data => { this.facetNoGi = data });
+    
+    katServ.getWagi('women', 'gi').subscribe(data => { this.kobietaGi = data });
+    
+    katServ.getWagi('women', 'nogi').subscribe(data => { this.kobietaNoGi = data });
 
-  private kobietaGiColection: AngularFirestoreCollection<any[]>;
-  private kobietaGi: Observable<any[]>;
-
-  private pasyColection: AngularFirestoreCollection<any[]>;
-  private pasy: Observable<any[]>;
-
-
-  private kategorieCollection: AngularFirestoreCollection<Kategorie>;
-  private kategorie: Observable<any[]>;
-
-  constructor(private db: AngularFirestore) {
-    this.kategorieCollection = db.collection<Kategorie>('turnieje').
-      doc('' + this.current).collection('zapisani');
-    // , ref =>{return ref.where('tworca','==','Endzik')}
-    this.kategorie = this.kategorieCollection.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Kategorie;
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      })
-    });
-
-
-    this.menWomenColection = db.collection<any[]>('KATegorie');
-    this.menWomen = this.menWomenColection.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Kategorie;
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      })
-    });
-
-    this.pasyColection = db.collection<any[]>('pasy');
-    this.pasy = this.pasyColection.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Kategorie;
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      })
-    });
-
-    this.facetGiColection = db.collection<any[]>('KATegorie').doc('man').collection('gi');
-    this.facetGi = this.facetGiColection.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Kategorie;
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      })
-    });
-
-    this.facetNoGiColection = db.collection<any[]>('KATegorie').doc('man').collection('nogi');
-    this.facetNoGi = this.facetGiColection.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Kategorie;
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      })
-    });
-
-    this.kobietaNoGiColection = db.collection<any[]>('KATegorie').doc('women').collection('nogi');
-    this.kobietaNoGi = this.facetGiColection.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Kategorie;
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      })
-    });
-
-    this.kobietaGiColection = db.collection<any[]>('KATegorie').doc('women').collection('nogi');
-    this.kobietaGi = this.facetGiColection.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Kategorie;
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      })
-    });
   }
 
 
+
   zapiszSie(formularz: nowyZawodnik) {
+    
     let dobryZawonidk: poprawnyZawodnik = new poprawnyZawodnik();
     // dobryZawonidk.kategoria = formularz.kategoria;
     dobryZawonidk.klub = formularz.Klub;
@@ -118,12 +69,12 @@ export class FormZapiszSieComponent implements OnInit {
     dobryZawonidk.pas = formularz.selectBelt;
     dobryZawonidk.plec = formularz.selectSex;
     dobryZawonidk.waga = formularz.selectWeight;
-    dobryZawonidk.kategoria = "gi";
-    console.log(dobryZawonidk)
+    dobryZawonidk.kategoria = this.turniej.kategoria;
+    // console.log(dobryZawonidk)
     this.db.collection<any>('turnieje').doc('' + this.current).
-      collection('zapisani').doc('gi').collection<any>('zawodnicy').
+      collection('zapisani').doc(this.turniej.kategoria).collection<any>('zawodnicy').
       add(JSON.parse(JSON.stringify(dobryZawonidk)));
-    console.log("dodano zawodnika");
+    // console.log("dodano zawodnika");
   }
 
 

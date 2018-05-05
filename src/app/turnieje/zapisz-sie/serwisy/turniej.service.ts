@@ -23,7 +23,19 @@ export class TurniejeService {
 
   }
 
+  getZapisanych(){
+    
+  }
+
   getTurnieje() {
+    let turniejCollection = this.db.collection<Modeloo[]>('/turnieje');
+    this.turniej = this.turniejCollection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Modeloo;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
 
     return this.turniej;
   }
@@ -43,7 +55,7 @@ export class TurniejeService {
 
 
   setTurniej(turn: Modeloo) {
-
+    
     this.turniejCollection.add(JSON.parse(JSON.stringify(turn)));
   }
 

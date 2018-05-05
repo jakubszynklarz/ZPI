@@ -1,40 +1,34 @@
 <div class="navlist">
-<table class="table">
-  
-    
-      <th class="col-sm">Nazwa</th>
-      <!-- <th class="col-sm">Opis</th> -->
-      <th class="col-sm">Miasto</th>
-      <th class="col-sm">Kategoria</th>
-      <th class="col-sm">Data turnieju</th>
-     <!-- <th class="col-sm">Data zakończenia zapisów</th> -->
-    
-  
-</table>
+  <table class="table">
+
+
+    <th class="col-sm">Nazwa</th>
+
+    <th class="col-sm">Miasto</th>
+    <th class="col-sm">Kategoria</th>
+    <th class="col-sm">Data turnieju</th>
+
+
+
+  </table>
 </div>
 <div class="lista" *ngFor="let turnie of turnieje | async ">
-    <!--  -->
-    <!-- ROZBIĆ DIV NA DWA W JEDNYM BĘDĄ INFORMACJE W DRUGIM OPIS -->
 
-    <!-- dODAĆ wpioswe do informacji o turnieju -->
+  <div class="Row" [routerLink]="['/zapisany', turnie.id]">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <th class="col-sm">{{turnie.nazwa}}</th>
+            <th class="col-sm">{{turnie.miejsce}}</th>
+            <th class="col-sm"> {{turnie.kategoria}}</th>
+            <th class="col-sm">{{turnie.kiedy | date}}</th>
+          </tr>
+        </tbody>
+      </table>
 
-<div class="Row" [routerLink]="['/zapisany', turnie.id]" >
-<div class="table-responsive"> 
-<table class="table table-hover">
-  <tbody>
-    <tr>
-      <th class="col-sm">{{turnie.nazwa}}</th>
-      <!-- <td class="col-sm">{{turnie.opis}}</td> -->
-      <th class="col-sm">{{turnie.miejsce}}</th>
-      <th class="col-sm"></th>
-      <th class="col-sm">{{turnie.kiedy | date}}</th>
-      <!-- <td class="col-sm">{{turnie.do_kiedyrej | date}}</td> -->
-    </tr>
-  </tbody>
-</table>
-   
-    
-    </div> 
-    
-    
-    
+
+    </div>
+  </div>
+</div>
+
