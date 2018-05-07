@@ -1,4 +1,7 @@
 <p>
   generuj-ladder works!
 </p>
-{{zawColection|json}}
+<div *ngFor="let zaw of zawColection ">
+  {{zaw.klub }}
+</div>
+<button (click)='podziel()'>Kek</button>

@@ -24,4 +24,8 @@ export class LadderService {
 
     return turniej;
   }
+  dodZawodnikow(){
+    
+  }
+
 }
