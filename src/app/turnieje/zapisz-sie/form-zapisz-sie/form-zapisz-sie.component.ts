@@ -98,7 +98,7 @@ export class poprawnyZawodnik {
   public klub?: string;
   public plec?: string;
   public kategoria?: string;
-
+  public pozycjaStartowa?:string;
 }
 
 export class nowyZawodnik {
