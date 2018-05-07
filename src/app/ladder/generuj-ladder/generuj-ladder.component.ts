@@ -57,7 +57,12 @@ export class GenerujLadderComponent implements OnInit {
 //     this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[1]+'/'+this.wagi[0]+'/man').
 //     add(JSON.parse(JSON.stringify(zaw)));
 // }
+let i=0;
 for (let zaw of this.zawColection3) {
+  // if (i< 8){
+    zaw.pozycjaStartowa = ''+i;
+    i++;
+  // }
   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[2]+'/'+this.wagi[0]+'/man').
   add(JSON.parse(JSON.stringify(zaw)));
 }
