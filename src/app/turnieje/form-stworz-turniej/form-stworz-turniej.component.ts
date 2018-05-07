@@ -49,7 +49,7 @@ export class FormStworzTurniejComponent implements OnInit {
 
     this._turniejSerivce.setTurniej(turniej);
 
-
+    
     // var updateNested = this.db.collection('turnieje').add({
     //   opis: this.selectedModeloo.opis,
     //   kiedy: this.selectedModeloo.kiedy,

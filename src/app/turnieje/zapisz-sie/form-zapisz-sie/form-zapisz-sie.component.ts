@@ -24,8 +24,8 @@ export class FormZapiszSieComponent implements OnInit {
 
   menWomen: any[];
   facetGi: any[];
-   facetNoGi: any[];
-   kobietaNoGi: any[];
+  //  facetNoGi: any[];
+  //  kobietaNoGi: any[];
    kobietaGi: any[];
    pasy: any[]
    turniejGiNogi: KatGiNogi;
@@ -41,7 +41,7 @@ export class FormZapiszSieComponent implements OnInit {
   constructor(private db: AngularFirestore, private katServ: KategorieService,private turn:TurniejeService) {
     turn.getTurnieje().subscribe(data => {this.turniej = data.find(t=> t.id == this.current)})
     
-    katServ.getKatGiNogi(this.current).subscribe(data => { this.turniejGiNogi = data[0] });
+    // katServ.getKatGiNogi(this.current).subscribe(data => { this.turniejGiNogi = data[0] });
 
     katServ.getPasy().subscribe(data => { this.pasy = data });
     
@@ -49,11 +49,11 @@ export class FormZapiszSieComponent implements OnInit {
     
     katServ.getWagi('man', 'gi').subscribe(data => { this.facetGi = data });
     
-    katServ.getWagi('man', 'nogi').subscribe(data => { this.facetNoGi = data });
+    // katServ.getWagi('man', 'nogi').subscribe(data => { this.facetNoGi = data });
     
     katServ.getWagi('women', 'gi').subscribe(data => { this.kobietaGi = data });
     
-    katServ.getWagi('women', 'nogi').subscribe(data => { this.kobietaNoGi = data });
+    // katServ.getWagi('women', 'nogi').subscribe(data => { this.kobietaNoGi = data });
 
   }
 
@@ -69,10 +69,10 @@ export class FormZapiszSieComponent implements OnInit {
     dobryZawonidk.pas = formularz.selectBelt;
     dobryZawonidk.plec = formularz.selectSex;
     dobryZawonidk.waga = formularz.selectWeight;
-    dobryZawonidk.kategoria = this.turniej.kategoria;
+    dobryZawonidk.kategoria = 'gi';
     // console.log(dobryZawonidk)
     this.db.collection<any>('turnieje').doc('' + this.current).
-      collection('zapisani').doc(this.turniej.kategoria).collection<any>('zawodnicy').
+      collection('zapisani').doc('gi').collection<any>('zawodnicy').
       add(JSON.parse(JSON.stringify(dobryZawonidk)));
     // console.log("dodano zawodnika");
   }

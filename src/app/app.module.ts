@@ -41,6 +41,8 @@ import { LadderComponent } from './ladder/ladder.component';
 import { SixteenComponent } from './ladder/sixteen/sixteen.component';
 import { KategorieService } from './turnieje/shared/kategorie.service';
 import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-details.component';
+import { LadderService } from './ladder/sheard/ladder.service';
+import { GenerujLadderComponent } from './ladder/generuj-ladder/generuj-ladder.component';
 
 
 
@@ -65,7 +67,7 @@ import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-deta
     ListaZapisaneComponent,
     ZapisaneComponent,
     MyeventListaComponent,
-
+    GenerujLadderComponent,
     MyevenComponent,
 
     ZapiszSieComponent,
@@ -91,7 +93,7 @@ import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-deta
     ReactiveFormsModule
     
   ],
-  providers: [TurniejService,TurniejeService,KategorieService],
+  providers: [TurniejService,TurniejeService,KategorieService,LadderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
