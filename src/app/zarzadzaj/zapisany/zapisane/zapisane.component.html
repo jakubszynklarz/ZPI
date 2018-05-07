@@ -9,7 +9,7 @@
           <h3 class="panel-title" style="float: left ;">Szczegóły turnieju  </h3> 
           <button style="float: right ;" [routerLink]="['/zapiszSie', turnie.id]" class="btn btn-primary">Zapisz się</button>
         </div>
-        <div class="card-body ">
+        <div class="card-body">
 
           <div class="row">
             <div class="form-group col-lg-6">
@@ -51,7 +51,7 @@
             </div>
             <div class="form-group col-lg-6">
               <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
-              <div class="divek" style="width:80%;height:40%" cols="30" rows="10">{{turnie.opis}}</div>
+              <div class="opistruniej">{{turnie.opis}}</div>
               <div class="form-group "style="margin:5px">
                   <div class="row">
                       <div class="form-group col-lg-4" >
@@ -65,9 +65,9 @@
                               <label style="font-size:120%">Waga:</label>
                             </div>
                     </div>
-                  <div id="" style="overflow-y:scroll;overflow-x:hidden;border-style:inset">
+                  <div class="tablica">
                       <div *ngFor="let zapi of zapisani | async">
-                        <div class="row" >
+                          <div class="row" >
                             <div  class="column col-lg-4 ">
                                 <label >{{zapi.nazwa}}</label>
                             </div>
@@ -78,7 +78,7 @@
                               <div class="column col-lg-4">
                                   <label >{{zapi.waga}}</label>
                                 </div>
-                        </div>
+                          </div>
                         </div>
                   </div>
               </div>
