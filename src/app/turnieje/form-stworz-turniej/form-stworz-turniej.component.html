@@ -10,8 +10,12 @@
         <div class="form-group col-lg-6">
 
           <label for="nazwaTurnieju" class="col-form-label " style="font-size:120%">Nazwa Turnieju:</label>
-          <input class="form-control" id="nazwaTurnieju" required type="text" class="form-control" name="nazwaTurnieju" #nazwaTurnieju="ngModel"
-            [(ngModel)]="selectedModeloo.nazwa" style="width:50%">
+          <input class="form-control" id="nazwaTurnieju" required type="text" class="form-control" required ngModel name="nazwaTurnieju" #nazwaTurnieju="ngModel"
+            reuqired minlength="3" maxlength="10" [(ngModel)]="selectedModeloo.nazwa" style="width:50%">
+            <div class = "alert alert-danger" *ngIf="nazwaTurnieju.touched && !nazwaTurnieju.valid" style="width:50%">Nazwa Turnieju jest wymagana</div>
+            <!-- <div *ngIf="nazwaTurnieju.errors.reuqired">Nazwa Turnieju jest wymagana</div> -->
+            <!-- <div *ngIf="nazwaTurnieju.errors.minlength">Nazwa Turnieju powinna posiadać min 3 znaki</div> -->
+          
 
           <label for="miasto" style="font-size:120%">Miasto:</label>
           <input id="miasto" type="text" class="form-control" name="miasto" #miasto="ngModel" [(ngModel)]="selectedModeloo.miejsce"
@@ -70,7 +74,7 @@
           <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
           <textarea id="opisturnieju" cols="30" rows="10" type="text" class="form-control" name="opisturnieju" #opisturnieju="ngModel"
             [(ngModel)]="selectedModeloo.opis">
-                </textarea>
+                </textarea>   
 
         </div>
       </div>
