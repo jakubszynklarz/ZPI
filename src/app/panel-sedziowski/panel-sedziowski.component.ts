@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Kategorie } from '../zarzadzaj/shared/kategorie.model';
 import { Modeloo } from '../zarzadzaj/shared/modeloo.model';
 import { KeysPipePipe } from '../zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
+import { TurniejPodzialSerService } from '../zarzadzaj/shared/turniej-podzial-ser.service';
 
 @Component({
   selector: 'app-panel-sedziowski',
@@ -24,7 +25,7 @@ export class PanelSedziowskiComponent implements OnInit {
 
   private wagiColection: AngularFirestoreCollection<any[]>;
   private wagi: Observable<any[]>;
-
+  zawodnicy;
   //#region zmienne
   duzePunktyZawodnik1: number = 0;
   duzePunktyZawodnik2: number = 0;
@@ -43,8 +44,8 @@ export class PanelSedziowskiComponent implements OnInit {
   btnZegar:string = "start"
   //#endregion
 
-  
-  constructor(private db: AngularFirestore) { 
+
+  constructor(private db: AngularFirestore,private podzialServ:TurniejPodzialSerService) { 
 
     this.zapisaniCollection=db.collection<Modeloo>('turnieje').doc(this.current).collection('zapisani').doc('gi').collection('zawodnicy');
     this.zapisani=this.zapisaniCollection.snapshotChanges().map(actions =>{
@@ -76,6 +77,10 @@ export class PanelSedziowskiComponent implements OnInit {
     });
 
     
+  }
+
+  ladujZawodnikow(waga:string, pas:string){
+   this.podzialServ.getPodzial(this.current, waga,pas , 'man').subscribe(data => {this.zawodnicy = data})
   }
 
   ngOnInit() {
