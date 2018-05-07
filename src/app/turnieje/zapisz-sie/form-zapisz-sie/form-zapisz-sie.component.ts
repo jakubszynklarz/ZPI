@@ -74,6 +74,7 @@ export class FormZapiszSieComponent implements OnInit {
     this.db.collection<any>('turnieje').doc('' + this.current).
       collection('zapisani').doc('gi').collection<any>('zawodnicy').
       add(JSON.parse(JSON.stringify(dobryZawonidk)));
+      
     // console.log("dodano zawodnika");
   }
 
