@@ -27,12 +27,12 @@
       <option *ngFor="let pas of pasy " value="{{pas.id}}"> {{pas.id }}</option>
     </select>
   </div>
+{{facetGi|json}}
+
+  <!-- <div *ngIf="turniejGiNogi"> -->
 
 
-  <div *ngIf="turniejGiNogi">
-
-
-    <div *ngIf="turniejGiNogi.id=='gi'">
+    <!-- <div *ngIf="turniejGiNogi.id=='gi'"> -->
 
       <div *ngIf="selectSex.value=='man'">
         <div class="form-group">
@@ -51,10 +51,10 @@
           </select>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
 
 
-    <div *ngIf="turniejGiNogi.id=='nogi'">
+    <!-- <div *ngIf="turniejGiNogi.id=='nogi'">
       <div *ngIf="selectSex.value=='man'">
         <div class="form-group">
           <label for="selectWeight">wybierz wage</label>
@@ -72,9 +72,9 @@
           </select>
         </div>
       </div>
-    </div>
+    </div> -->
 
-  </div>
+  <!-- </div> -->
 
 
   <button [routerLink]="['/zapisany', current]" class="btn btn-primary" type="submit" (click)="zapiszSie(zapisywanieForm.value)">zapisz się </button>
