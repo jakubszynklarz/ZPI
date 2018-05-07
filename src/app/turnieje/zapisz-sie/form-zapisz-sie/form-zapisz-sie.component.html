@@ -92,6 +92,6 @@
   <!-- </div> -->
 
 
-  <button [routerLink]="['/zapisany', current]" class="btn btn-primary" type="submit" (click)="zapiszSie(zapisywanieForm.value)">Zapisz się</button>
-
+  <button [routerLink]="['/zapisany', current]" class="btn btn-primary" type="submit" (click)="zapiszSie(zapisywanieForm.value)" data-dismiss="modal">Zapisz się</button>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
 </form>
