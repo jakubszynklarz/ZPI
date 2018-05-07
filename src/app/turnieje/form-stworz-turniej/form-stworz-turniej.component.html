@@ -10,33 +10,55 @@
         <div class="form-group col-lg-6">
 
           <label for="nazwaTurnieju" class="col-form-label " style="font-size:120%">Nazwa Turnieju:</label>
-          <input class="form-control" id="nazwaTurnieju" required type="text" class="form-control" required ngModel name="nazwaTurnieju" #nazwaTurnieju="ngModel"
-            reuqired minlength="3" maxlength="10" [(ngModel)]="selectedModeloo.nazwa" style="width:50%">
+          <input class="form-control" id="nazwaTurnieju" placeholder="Wroclaw KSW" required type="text" class="form-control" required ngModel name="nazwaTurnieju" #nazwaTurnieju="ngModel"
+            required minlength="3" maxlength="10" [(ngModel)]="selectedModeloo.nazwa" style="width:50%">
             <div class = "alert alert-danger" *ngIf="nazwaTurnieju.touched && !nazwaTurnieju.valid" style="width:50%">Nazwa Turnieju jest wymagana</div>
-            <!-- <div *ngIf="nazwaTurnieju.errors.reuqired">Nazwa Turnieju jest wymagana</div> -->
+            <!-- <div *ngIf="nazwaTurnieju.errors.required">Nazwa Turnieju jest wymagana</div> -->
             <!-- <div *ngIf="nazwaTurnieju.errors.minlength">Nazwa Turnieju powinna posiadać min 3 znaki</div> -->
           
 
           <label for="miasto" style="font-size:120%">Miasto:</label>
-          <input id="miasto" type="text" class="form-control" name="miasto" #miasto="ngModel" [(ngModel)]="selectedModeloo.miejsce"
+          <input id="miasto" type="text" class="form-control" placeholder ="Wroclaw" required ngModel name="miasto" #miasto="ngModel" [(ngModel)]="selectedModeloo.miejsce"
             style="width:50%">
+            <div class = "alert alert-danger" *ngIf ="miasto.touched && !nazwaTurnieju.valid" style="width:50%">Miasto jest wymagane</div>
 
           <label for="nrkonta">Nr konta:</label>
-          <input id="nrkonta" type="text" class="form-control" name="nrkonta" #nrkonta="ngModel" [(ngModel)]="selectedModeloo.nr_konta"
-            style="width:50%">
-          <label for="wpisowe">Wpisowe:</label>
-          <input id="wpisowe" type="text" class="form-control" name="wpisowe" #wpisowe="ngModel" [(ngModel)]="selectedModeloo.wpisowe"
-            style="width:20%">
+          <input id="nrkonta" type = "text" class="form-control" required ngModel name="nrkonta" #nrkonta="ngModel" [(ngModel)]="selectedModeloo.nr_konta"
+            style="width:50%" placeholder="123456789...." required minlength = "1" maxlength="26" pattern="^([0-9]{0,26})$">
+            <div class = "alert alert-danger" *ngIf ="nrkonta.touched && !nrkonta.valid" style="width:50%">
+            <div *ngIf = "nrkonta.errors.required"> Nr konta jest wymagany</div>
+            <div *ngIf = "nrkonta.errors.minlength">Nr konta musi zawierać co najmniej 1 cyfre</div>
+              <div *ngIf ="nrkonta.errors.pattern">Nr konta musi byc cyfra</div>
+          </div>
+            <!-- <div *ngIf = "nrkonta.errors.pattern">Muszą być to cyfry</div> -->
 
+            
+          
+          
+          <label for="wpisowe">Wpisowe:</label>
+          <input id="wpisowe"
+           type="text"
+            class="form-control"
+             required
+              ngModel 
+              name = "wpisowe"
+               #wpisowe="ngModel"
+                [(ngModel)]="selectedModeloo.wpisowe"
+            style="width:30%" placeholder="50 zł">
+            <div class = "alert alert-danger" *ngIf ="wpisowe.touched && !wpisowe.valid" style="width:30%">Wpisowe jest wymagane</div>
+
+            <!-- NIE MOGE DODAC VALIDACJI NA RADIOBOXY   -->
           <div class="form-group ">
             <label>Wybierz Kategorie:</label>
             <div class="form-control" style="width:30%">
               <div>
-                <input type="radio" name="kategoria" value="gi" name="kategoria" #wpisowe="ngModel" [(ngModel)]="selectedModeloo.kategoria"> Gi
+                <input type="radio" name="kategoria" value="gi" name="kategoria" #kategoria="ngModel" [(ngModel)]="selectedModeloo.kategoria" required> Gi
               </div>
+
               <div>
-                <input type="radio" name="kategoria" value="nogi" name="kategoria" #wpisowe="ngModel" [(ngModel)]="selectedModeloo.kategoria"> No Gi
+                <input type="radio" name="kategoria" value="nogi" name="kategoria" #kategoria="ngModel" [(ngModel)]="selectedModeloo.kategoria"> No Gi
               </div>
+              
               <!-- <div>
                           <input type="radio" name="kategoria" value="Gi oraz No Gi"> Gi oraz No Gi
                         </div> -->
@@ -55,11 +77,12 @@
                         </label>
                       </div> -->
           </div>
-
+    <!-- NIE MOGE DODAC VALIDACJI NA DATEPICKERY   --> 
           <div style="display:inline-flex">
             <div class="form-group " style="margin:5px">
               <label for="data">Data Turnieju:</label>
               <input id="data" type="date" class="form-control" name="data" #data="ngModel" [(ngModel)]="selectedModeloo.kiedy" />
+            
             </div>
 
             <div class="form-group " style="margin:5px">
@@ -70,11 +93,14 @@
           </div>
 
         </div>
+        <!-- NIE MOGE DODAC VALIDACJI NA OPIS   -->
         <div class="form-group col-lg-6">
           <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
-          <textarea id="opisturnieju" cols="30" rows="10" type="text" class="form-control" name="opisturnieju" #opisturnieju="ngModel"
+          <textarea id="opisturnieju" cols="30" rows="10" type="text" class="form-control" requried ngModel name="opisturnieju" #opisturnieju="ngModel"
             [(ngModel)]="selectedModeloo.opis">
-                </textarea>   
+                </textarea>
+                <div class = "alert alert-danger" *ngIf ="opisturnieju.touched && !opisturnieju.valid">Opis Turnieju jest wymagany</div>
+                 
 
         </div>
       </div>
