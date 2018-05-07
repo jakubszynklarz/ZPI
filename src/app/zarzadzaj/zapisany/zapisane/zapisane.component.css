@@ -1,17 +1,41 @@
+.pole{
+    width: 80%;
+    margin: 0 auto;
+}
 .card-body{
     min-height: 800px;
 }
 
-.tablica{
+.list{
     text-align: center;
     border: 0.5px solid #A8A8A8;
     border-radius: 10px;
     margin: 5px;
 }
-.col-lg-4{
-    
-    text-align: center;
-}
 .opistruniej{
     width: 100%;
 }
+.lista{
+    width: 100%;
+    margin: 0 auto;
+        
+}
+.navlist{
+    width: 100%;
+    margin: 0 auto;
+    color: black;
+    border-radius: 10px 10px 0 0px;
+}
+td.col-sm{
+    max-width: 10%;
+    max-height: 200px;
+    
+    
+}
+th.col-sm{
+    width: 20%;
+}
+tbody{
+    width: 70%;
+}
+    

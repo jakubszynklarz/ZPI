@@ -5,9 +5,9 @@
     <!-- dodaj miejscowość -->
     <form #turniejForm="ngForm" (ngSubmit)="update()">
       <div class="card text-black bg-white" style="margin: 50px">
-        <div class="card-header text-white bg-primary "  >
-          <h3 class="panel-title" style="float: left ;">Szczegóły turnieju  </h3> 
-          <button style="float: right ;" [routerLink]="['/zapiszSie', turnie.id]" class="btn btn-primary">Zapisz się</button>
+        <div class="card-header">
+          <h3 class="panel-title" style="float: left ;">Szczegóły turnieju</h3> 
+          <button style="float: right;" [routerLink]="['/zapiszSie', turnie.id]" class="btn btn-outline-primary">Zapisz się</button>
         </div>
         <div class="card-body">
 
@@ -48,11 +48,16 @@
                   <div class="divek" style="width:60%">{{turnie.do_kiedyrej}}</div>
                 </div>
               </div>
-            </div>
-            <div class="form-group col-lg-6">
+              <br>
+              <br>
+              <br>
+              <br>
               <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
               <div class="opistruniej">{{turnie.opis}}</div>
-              <div class="form-group "style="margin:5px">
+            </div>
+            <div class="form-group col-lg-6">
+              <div class="list">
+              <!-- <div class="form-group "style="margin:5px">
                   <div class="row">
                       <div class="form-group col-lg-4" >
                           <label style="font-size:120%">Zapisani:</label>
@@ -81,11 +86,31 @@
                           </div>
                         </div>
                   </div>
+              </div> -->
+              <div class="navlist">
+                <table class="table">
+                  <th class="col-sm">Zapisani</th>
+                  <th class="col-sm">Pas</th>
+                  <th class="col-sm">Waga</th>
+                </table>
               </div>
-                
+              <div class="lista" *ngFor="let zapi of zapisani | async">
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <th class="col-sm">{{zapi.nazwa}}</th>
+                        <th class="col-sm">{{zapi.pas}}</th>
+                        <th class="col-sm">{{zapi.waga}}</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
 
             </div>
-            
+          </div>
           </div>
         </div>
       </div>
