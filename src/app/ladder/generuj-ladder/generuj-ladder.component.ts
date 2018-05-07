@@ -18,6 +18,7 @@ export class GenerujLadderComponent implements OnInit {
   zawColection3: poprawnyZawodnik[];
   zawColection4: poprawnyZawodnik[];
   zawColection5: poprawnyZawodnik[];
+
   zawColection6: poprawnyZawodnik[];
   zawColection7: poprawnyZawodnik[];
   zawColection8: poprawnyZawodnik[];
@@ -26,19 +27,20 @@ export class GenerujLadderComponent implements OnInit {
 
   pasy =['bialy', 'brązowy','czarny', 'niebieski', 'purpurowy'];
   wagi = ['heavy', 'rooster'];
+  // kolekcje=[  this.zawColection1,this.zawColection2,this.zawColection3,this.zawColection4,this.zawColection5,]
   constructor(private db: AngularFirestore, private ladServ: LadderService) {
 
-     ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[0],'man').subscribe(data => {this.zawColection1 = data});
-     ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[1],'man').subscribe(data => {this.zawColection2 = data});
+    //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[0],'man').subscribe(data => {this.zawColection1 = data});
+    //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[1],'man').subscribe(data => {this.zawColection2 = data});
      ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[2],'man').subscribe(data => {this.zawColection3 = data});
-     ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[3],'man').subscribe(data => {this.zawColection4 = data});
-     ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[4],'man').subscribe(data => {this.zawColection5 = data});
+    //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[3],'man').subscribe(data => {this.zawColection4 = data});
+    //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[4],'man').subscribe(data => {this.zawColection5 = data});
 
-     ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[0],'man').subscribe(data => {this.zawColection6 = data});
-     ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[1],'man').subscribe(data => {this.zawColection7 = data});
+    //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[0],'man').subscribe(data => {this.zawColection6 = data});
+    //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[1],'man').subscribe(data => {this.zawColection7 = data});
      ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[2],'man').subscribe(data => {this.zawColection8 = data});
-     ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[3],'man').subscribe(data => {this.zawColection9 = data});
-     ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[4],'man').subscribe(data => {this.zawColection10 = data});
+    //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[3],'man').subscribe(data => {this.zawColection9 = data});
+    //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[4],'man').subscribe(data => {this.zawColection10 = data});
     // this.zawColection = this.db.collection<poprawnyZawodnik>('/turnieje/'+ this.current+'/zapisani/gi/zawodnicy/',ref => {return ref.where('','==','')});
    }
 
@@ -47,12 +49,48 @@ export class GenerujLadderComponent implements OnInit {
   }
 
   podziel(){
-    for (let zaw of this.zawColection1) {
-      console.log(zaw);
-      this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/niebieski/heavy/man'+'/'+this.pasy[0]+'/'+this.wagi[0]+'/man').add(JSON.parse(JSON.stringify(zaw)));
-  }
+//     for (let zaw of this.zawColection1) {
+//       this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[0]+'/'+this.wagi[0]+'/man').
+//       add(JSON.parse(JSON.stringify(zaw)));
+//   }
+//   for (let zaw of this.zawColection2) {
+//     this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[1]+'/'+this.wagi[0]+'/man').
+//     add(JSON.parse(JSON.stringify(zaw)));
+// }
+for (let zaw of this.zawColection3) {
+  this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[2]+'/'+this.wagi[0]+'/man').
+  add(JSON.parse(JSON.stringify(zaw)));
+}
+// for (let zaw of this.zawColection4) {
+//   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[3]+'/'+this.wagi[0]+'/man').
+//   add(JSON.parse(JSON.stringify(zaw)));
+// }
+// for (let zaw of this.zawColection5) {
+//   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[4]+'/'+this.wagi[0]+'/man').
+//   add(JSON.parse(JSON.stringify(zaw)));
+// }
 
-  
+//   for (let zaw of this.zawColection6) {
+//   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[0]+'/'+this.wagi[1]+'/man').
+//   add(JSON.parse(JSON.stringify(zaw)));
+// }
+// for (let zaw of this.zawColection7) {
+//   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[1]+'/'+this.wagi[1]+'/man').
+//   add(JSON.parse(JSON.stringify(zaw)));
+// }
+for (let zaw of this.zawColection8) {
+  this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[2]+'/'+this.wagi[1]+'/man').
+  add(JSON.parse(JSON.stringify(zaw)));
+}
+// for (let zaw of this.zawColection9) {
+//   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[3]+'/'+this.wagi[1]+'/man').
+//   add(JSON.parse(JSON.stringify(zaw)));
+// }
+// for (let zaw of this.zawColection10) {
+//   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[4]+'/'+this.wagi[1]+'/man').
+//   add(JSON.parse(JSON.stringify(zaw)));
+// }
+
  
     
   
