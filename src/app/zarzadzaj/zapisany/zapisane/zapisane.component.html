@@ -7,7 +7,119 @@
       <div class="card text-black bg-white" style="margin: 50px">
         <div class="card-header">
           <h3 class="panel-title" style="float: left ;">Szczegóły turnieju</h3> 
-          <button style="float: right;" [routerLink]="['/zapiszSie', turnie.id]" class="btn btn-outline-primary">Zapisz się</button>
+          <button style="float: right;"  [routerLink]="['/zapiszSie', turnie.id]" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModall">Zapisz się</button>
+          <!-- [routerLink]="['/zapiszSie', turnie.id]" -->
+          <div class="modal fade" id="exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModallLabele" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Dołącz do "{{turnie.nazwa}}"</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form ngForm #zapisywanieForm="ngForm"  style="margin: 10px;">
+
+                    <div class="form-group">
+                      <label for="ImieNazwisko">Imie Nazwisko</label>
+                      <input required ngModel name="ImieNazwisko" #ImieNazwisko="ngModel" ngModel type="text" class="form-control" id="ImieNazwisko" placeholder="np. Jan Nowak"
+                      requried pattern ="^[A-Za-z]$">
+                      <div class = "alert alert-danger" *ngIf ="ImieNazwisko.touched && !ImieNazwisko.valid">
+                        <div *ngIf = "ImieNazwisko.errors.required">Imie i Nazwisko jest wymagane</div>
+                        <div *ngIf ="ImieNazwisko.errors.pattern">Nieprawidlowe Imie i Nazwisko</div>
+                  
+                  
+                      </div>
+                  
+                    </div>
+                    <div class="form-group">
+                      <label for="Klub">Klub</label>
+                      <input name="Klub" #Klub="ngModel" ngModel type="text" class="form-control" id="Klub" placeholder="RGC WROCŁAW">
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email </label>
+                      <input required ngModel name="email" #email="ngModel" ngModel type="email" class="form-control" id="email" placeholder="jannowak@gmail.com"
+                      required pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$">
+                      <div class = "alert alert-danger" *ngIf = "email.invalid && email.touched">
+                      <div *ngIf = "email.errors.required">Adres email jest wymagany</div>
+                      <div *ngIf ="email.errors.pattern">Podany adres email jest nieprawidlowy</div>
+                    </div>
+                  
+                  
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="selectSex">wybierz płeć</label>
+                      <select class="form-control" id="selectSex" name="selectSex" #selectSex="ngModel" ngModel>
+                        <option *ngFor="let mw of menWomen" value="{{mw.id}}">{{mw.id}}</option>
+                      </select>
+                    </div>
+                  
+                  
+                    <div class="form-group">
+                      <label for="selectBelt">wybierz pas</label>
+                      <select class="form-control" id="selectBelt" name="selectBelt" #selectBelt="ngModel" ngModel>
+                        <option *ngFor="let pas of pasy " value="{{pas.id}}"> {{pas.id }}</option>
+                      </select>
+                    </div>
+                  <!-- {{facetGi|json}} -->
+                  
+                    <!-- <div *ngIf="turniejGiNogi"> -->
+                  
+                  
+                      <!-- <div *ngIf="turniejGiNogi.id=='gi'"> -->
+                  
+                        <div *ngIf="selectSex.value=='man'">
+                          <div class="form-group">
+                            <label for="selectWeight">wybierz wagę</label>
+                            <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
+                              <option *ngFor="let fa of facetGi " [value]="fa.id"> {{fa.id }} </option>
+                            </select>
+                          </div>
+                        </div>
+                  
+                        <div *ngIf="selectSex.value=='women'">
+                          <div class="form-group">
+                            <label for="selectWeight">wybierz wagę</label>
+                            <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
+                              <option *ngFor="let fa of kobietaGi " [value]="fa.id"> {{fa.id }} </option>
+                            </select>
+                          </div>
+                        </div>
+                      <!-- </div> -->
+                  
+                  
+                      <!-- <div *ngIf="turniejGiNogi.id=='nogi'">
+                        <div *ngIf="selectSex.value=='man'">
+                          <div class="form-group">
+                            <label for="selectWeight">wybierz wage</label>
+                            <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
+                              <option *ngFor="let fa of facetNoGi " [value]="fa.id"> {{fa.id }} </option>
+                            </select>
+                          </div>
+                        </div>
+                  
+                        <div *ngIf="selectSex.value=='women'">
+                          <div class="form-group">
+                            <label for="selectWeight">wybierz wage</label>
+                            <select class="form-control" id="selectWeight" name="selectWeight" #selectWeight="ngModel" ngModel>
+                              <option *ngFor="let fa of kobietaNoGi " [value]="fa.id"> {{fa.id }} </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div> -->
+                  
+                    <!-- </div> -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                  <button [routerLink]="['/zapisany', current]" class="btn btn-primary" type="submit" (click)="zapiszSie(zapisywanieForm.value)">Zapisz się</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="card-body">
 
@@ -22,34 +134,33 @@
               <div class="divek" style="width:50%">{{turnie.miejsce}}</div>
 
 
-              <label for="nrkonta">Nr konta:</label>
+              <label for="nrkonta" style="font-size:120%">Nr konta:</label>
               <div class="divek" style="width:50%">{{turnie.nr_konta}}</div>
 
-              <label for="wpisowe">Wpisowe:</label>
+              <label for="wpisowe" style="font-size:120%">Wpisowe:</label>
               <div class="divek" style="width:50%">{{turnie.wpisowe}}</div>
 
-              <div class="form-group " >
-                  <label>Kategoria:</label>
-                  <div class="form-control" style="width:10%">
+              <div class="form-group" >
+                  <label style="font-size:120%">Kategoria:</label>
+                  <div class="divek">
                     
                       {{turnie.kategoria}}
                    
                   </div>
                 </div>
 
-              <div style="display:inline-flex">
-                <div class="form-group " style="margin:5px">
-                  <label for="data">Data Turnieju:</label>
-                  <div class="divek" style="">{{turnie.kiedy}}</div>
+              <div>
+                <div class="form-group">
+                  <label for="data" style="font-size:120%">Data Turnieju:</label>
+                  <div class="divek">{{turnie.kiedy}}</div>
                 </div>
-
-                <div class="form-group " style="margin:5px">
-                  <label for="datakonca">Data końca rejestracji:</label>
+              </div>
+              <div>
+                <div class="form-group">
+                  <label for="datakonca" style="font-size:120%">Data końca rejestracji:</label>
                   <div class="divek" style="width:60%">{{turnie.do_kiedyrej}}</div>
                 </div>
               </div>
-              <br>
-              <br>
               <br>
               <br>
               <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
@@ -89,9 +200,9 @@
               </div> -->
               <div class="navlist">
                 <table class="table">
-                  <th class="col-sm">Zapisani</th>
-                  <th class="col-sm">Pas</th>
-                  <th class="col-sm">Waga</th>
+                  <th class="col-sm" style="font-size:120%">Zapisani</th>
+                  <th class="col-sm" style="font-size:120%">Pas</th>
+                  <th class="col-sm" style="font-size:120%">Waga</th>
                 </table>
               </div>
               <div class="lista" *ngFor="let zapi of zapisani | async">
