@@ -99,6 +99,26 @@ export class poprawnyZawodnik {
   public plec?: string;
   public kategoria?: string;
   public pozycjaStartowa?:string;
+  // cwierc finaly
+  public pierwszyoQ?:string;
+  public drugioQ?:string;
+  public trzecioQ?:string;
+  public czwartyoQ?:string;
+  public piatyoQ?:string;
+  public szustyoQ?:string;
+  public siuoQ?:string;
+  public osmyuoQ?:string;
+  // polfinaly
+  public pierwszySFinal?:string;
+  public drugiSFinal?:string;
+  public trzeciSFinal?:string;
+  public czwartySFinal?:string;
+  // final
+  public pierwszyFinal?:string;
+  public drugiFinal?:string;
+  
+  
+  
 }
 
 export class nowyZawodnik {
