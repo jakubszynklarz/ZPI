@@ -76,8 +76,10 @@
       </div>
     </div>
     <div class="card-footer">
-      <button type="submit" class="btn btn-primary" [disabled]="turniejForm.invalid">Stwórz</button>
-      <button routerLink="/turnieje" type="submit" class="btn btn-primary">Wróć do listy turniejów</button>
+      <button [routerLink]="['/turnieje']" type="submit" class="btn btn-primary" (click)="add()" [disabled]="turniejForm.invalid">Stwórz</button>
+      <!-- <button routerLink="/turnieje" type="submit" class="btn btn-primary">Wróć do listy turniejów</button> -->
+
+      
     </div>
 
   </div>
