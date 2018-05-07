@@ -2,7 +2,15 @@
 
   <div class="form-group">
     <label for="ImieNazwisko">Imie Nazwisko</label>
-    <input name="ImieNazwisko" #ImieNazwisko="ngModel" ngModel type="text" class="form-control" id="ImieNazwisko" placeholder="np. Jan Nowak">
+    <input required ngModel name="ImieNazwisko" #ImieNazwisko="ngModel" ngModel type="text" class="form-control" id="ImieNazwisko" placeholder="np. Jan Nowak"
+    requried pattern ="^[A-Za-z]$">
+    <div class = "alert alert-danger" *ngIf ="ImieNazwisko.touched && !ImieNazwisko.valid">
+      <div *ngIf = "ImieNazwisko.errors.required">Imie i Nazwisko jest wymagane</div>
+      <div *ngIf ="ImieNazwisko.errors.pattern">Nieprawidlowe Imie i Nazwisko</div>
+
+
+    </div>
+
   </div>
   <div class="form-group">
     <label for="Klub">Klub</label>
@@ -10,7 +18,14 @@
   </div>
   <div class="form-group">
     <label for="email">Email </label>
-    <input name="email" #email="ngModel" ngModel type="email" class="form-control" id="email" placeholder="JanNowak@gmail.com">
+    <input required ngModel name="email" #email="ngModel" ngModel type="email" class="form-control" id="email" placeholder="JanNowak@gmail.com"
+    required pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$">
+    <div class = "alert alert-danger" *ngIf = "email.invalid && email.touched">
+    <div *ngIf = "email.errors.required">Adres email jest wymagany</div>
+    <div *ngIf ="email.errors.pattern">Podany adres email jest nieprawidlowy</div>
+  </div>
+
+
   </div>
 
   <div class="form-group">
@@ -27,7 +42,7 @@
       <option *ngFor="let pas of pasy " value="{{pas.id}}"> {{pas.id }}</option>
     </select>
   </div>
-{{facetGi|json}}
+<!-- {{facetGi|json}} -->
 
   <!-- <div *ngIf="turniejGiNogi"> -->
 
