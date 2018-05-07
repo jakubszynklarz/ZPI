@@ -75,8 +75,7 @@ import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-deta
     KeysPipePipe,
     MyevenComponent,
     LadderComponent,
-    SixteenComponent
-
+    SixteenComponent,
     TurniejDetailsComponent
 
 
