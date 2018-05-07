@@ -91,6 +91,7 @@ export class Kategorie {
 
 export class poprawnyZawodnik {
   constructor() { }
+  public id?:string;
   public nazwa?: string;
   public oplacone?: boolean;
   public pas?: string;
