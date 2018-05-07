@@ -24,8 +24,19 @@ export class LadderService {
 
     return turniej;
   }
-  dodZawodnikow(){
-    
+  
+  getzawo(current: string, waga: string, pas: string, plec: string){
+    let zawoCollection = this.db.collection<poprawnyZawodnik>('/turnieje/' + current +'/'+pas+'/'+waga+'/'+plec);
+    let turniej = zawoCollection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as poprawnyZawodnik;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
+
+    return turniej;
+
   }
 
 }
