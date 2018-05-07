@@ -78,6 +78,7 @@ import { GenerujLadderComponent } from './ladder/generuj-ladder/generuj-ladder.c
     MyevenComponent,
     LadderComponent,
     SixteenComponent,
+
     TurniejDetailsComponent
 
 
