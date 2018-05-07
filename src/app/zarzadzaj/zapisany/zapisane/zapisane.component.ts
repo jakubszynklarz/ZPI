@@ -3,6 +3,8 @@ import { Modeloo } from '../../shared/modeloo.model';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Kategorie } from '../../shared/kategorie.model';
+import { TurniejPodzialSerService } from '../../shared/turniej-podzial-ser.service';
+import { poprawnyZawodnik } from '../../../turnieje/zapisz-sie/form-zapisz-sie/form-zapisz-sie.component';
 
 @Component({
   selector: 'app-zapisane',
@@ -24,8 +26,14 @@ export class ZapisaneComponent implements OnInit {
 
   private zapisaniCollection: AngularFirestoreCollection<Kategorie>;
   private zapisani: Observable<any[]>;
+  zawoCzarnyHeavy :poprawnyZawodnik[]
+  zawoCzarnyRooster :poprawnyZawodnik[]
   
-  constructor(private db: AngularFirestore) { 
+  
+  constructor(private db: AngularFirestore,podzial:TurniejPodzialSerService) { 
+    podzial.getPodzial(this.current, 'heavy','czarny' , 'man').subscribe(data => {this.zawoCzarnyHeavy = data})
+    podzial.getPodzial(this.current, 'rooster','czarny' , 'man').subscribe(data => {this.zawoCzarnyRooster = data})
+    
     
     this.turnieCollection=db.collection<Modeloo>('/turnieje');
     this.turnieje=this.turnieCollection.snapshotChanges().map(actions =>{

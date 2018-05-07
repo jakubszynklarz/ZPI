@@ -42,6 +42,8 @@ export class PanelSedziowskiComponent implements OnInit {
   ZegarCzas: string = "00:00";
   btnZegar:string = "start"
   //#endregion
+
+  
   constructor(private db: AngularFirestore) { 
 
     this.zapisaniCollection=db.collection<Modeloo>('turnieje').doc(this.current).collection('zapisani').doc('gi').collection('zawodnicy');
@@ -86,6 +88,8 @@ export class PanelSedziowskiComponent implements OnInit {
     this.zawodnik2=x;
   }
 
+
+
   //#region  obslugaPunktow
   zwiekszDuzeZawodnik1(ilePunktow){
     this.duzePunktyZawodnik1 += ilePunktow;
@@ -126,7 +130,7 @@ export class PanelSedziowskiComponent implements OnInit {
   }
   //#endregion 
   
-  
+  //#region zegar
   zegar() {
     //console.log(flagaStart);
     if (this.flagaStart === 1) {
@@ -178,5 +182,5 @@ export class PanelSedziowskiComponent implements OnInit {
     this.karyZawodnik1 = 0;
     this.karyZawodnik2 = 0;
 }
-
+//#endregion
 }

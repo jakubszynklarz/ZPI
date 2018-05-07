@@ -1,42 +1,43 @@
-
 <div align="center">
-<div class="form-group" align="center" style="width:20%">
+  <div class="form-group" align="center" style="width:20%">
     <label for="exampleFormControlSelect1">Wybierz pas</label>
-    <select class="form-control"  id="selectBelt" name="selectBelt" #selectBelt="ngModel" ngModel >
+    <select class="form-control" id="selectBelt" name="selectBelt" #selectBelt="ngModel" ngModel>
       <option *ngFor="let pas of pasy | async" [value]="pas.id">{{pas.id}}</option>
     </select>
   </div>
   <div class="form-group" align="center" style="width:20%">
-    
-      <label for="exampleFormControlSelect1">Wybierz kategorie</label>
-      <select class="form-control" id="selectWeight" #selectWeight="ngModel" ngModel >
-        <option *ngFor="let waga of wagi | async" [value]="waga.id">{{waga.id}}</option>
-      </select>
-    </div>
+
+    <label for="exampleFormControlSelect1">Wybierz kategorie</label>
+    <select class="form-control" id="selectWeight" #selectWeight="ngModel" ngModel>
+      <option *ngFor="let waga of wagi | async" [value]="waga.id">{{waga.id}}</option>
+    </select>
   </div>
-  
+</div>
+
+
+
+
 <div style="float: left;" class="col-sm-6">
-    <div class="row">
-    
+  <div class="row">
+
     <div class="btn-group">
-        <button type="button" class="btn btn-info dropdown-toggle" 
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Zawodnik 1
-        </button>
-        <div class="dropdown-menu">
-          <div *ngFor="let zap of zapisani | async">
-            <div *ngIf="zap.pas === selectBelt.value">
-                <div *ngIf="zap.waga === selectWeight.value">
+      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Zawodnik 1
+      </button>
+      <div class="dropdown-menu">
+        <div *ngFor="let zap of zapisani | async">
+          <div *ngIf="zap.pas === selectBelt.value">
+            <div *ngIf="zap.waga === selectWeight.value">
               <a class="dropdown-item" (click)="zaw1(zap.nazwa)">{{zap.nazwa}}</a>
             </div>
           </div>
-          </div>
         </div>
       </div>
-      <div>
-          <h3>{{zawodnik1}}</h3>
-      </div>
     </div>
+    <div>
+      <h3>{{zawodnik1}}</h3>
+    </div>
+  </div>
   <!-- duze punkty -->
   <div class="row">
     <div class="col-sm">
@@ -46,10 +47,10 @@
       <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik1(3)'>+3 </button>
       <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik1(4)'>+4 </button>
     </div>
-    <div  class="col-sm" >
+    <div class="col-sm">
       <h1 class="display-4">Punkty</h1>
     </div>
-    <div class="col-sm" >
+    <div class="col-sm">
 
       <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik1(-1)'>-1 </button>
       <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik1(-2)'>-2 </button>
@@ -98,112 +99,111 @@
         <h1 class="display-4" style="text-align: center">{{karyZawodnik1}}</h1>
       </div>
     </div>
-    
+
   </div>
 
 </div>
 
 <div style="float: left;" class="col-sm-6">
   <div class="row">
-    
+
     <div class="btn-group">
-        <button type="button" class="btn btn-info dropdown-toggle" 
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Zawodnik 2
-        </button>
-        <div class="dropdown-menu">
-          <div *ngFor="let zap of zapisani | async">
-            <div *ngIf="zap.pas === selectBelt.value">
-                <div *ngIf="zap.waga === selectWeight.value">
+      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Zawodnik 2
+      </button>
+      <div class="dropdown-menu">
+        <div *ngFor="let zap of zapisani | async">
+          <div *ngIf="zap.pas === selectBelt.value">
+            <div *ngIf="zap.waga === selectWeight.value">
               <a class="dropdown-item" id="selectZaw1" #selectZaw1="ngModel" ngModel (click)="zaw2(zap.nazwa)">{{zap.nazwa}} </a>
             </div>
           </div>
-          </div>
         </div>
-        
+      </div>
+
+    </div>
+    <div>
+      <h3>{{zawodnik2}}</h3>
+    </div>
+  </div>
+
+
+  <!-- duze punkty -->
+  <div class="row">
+    <div class="col-sm">
+
+      <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(1)'>+1 </button>
+      <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(2)'>+2 </button>
+      <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(3)'>+3 </button>
+      <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(4)'>+4 </button>
+    </div>
+    <div class="col-sm">
+      <h1 class="display-4">Punkty</h1>
+    </div>
+    <div class="col-sm">
+
+      <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(-1)'>-1 </button>
+      <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(-2)'>-2 </button>
+      <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(-3)'>-3 </button>
+      <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(-4)'>-4 </button>
+    </div>
+    <!-- <div style="clear: both;"></div> -->
+  </div>
+
+  <div>
+    <h1 class="display-1" style="text-align: center">{{duzePunktyZawodnik2}}</h1>
+  </div>
+
+  <!-- przewagi i kary -->
+  <div class="row">
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm">
+          <button class="btn btn-light btn-sm" (click)='zwiekszPrzewagiZawodnik2(1)'>+1 </button>
+        </div>
+        <div class="col-sm">
+          <h1 class="display-4">przewagi</h1>
+        </div>
+        <div class="col-sm">
+          <button class="btn btn-light btn-sm" (click)='zwiekszPrzewagiZawodnik2(-1)'>-1 </button>
+        </div>
       </div>
       <div>
-          <h3>{{zawodnik2}}</h3>
+        <h1 class="display-4 col-sm " style="text-align: center">{{przewagiZawodnik2}}</h1>
       </div>
+
     </div>
-     
-      
-    <!-- duze punkty -->
-    <div class="row">
-      <div class="col-sm">
-  
-        <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(1)'>+1 </button>
-        <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(2)'>+2 </button>
-        <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(3)'>+3 </button>
-        <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(4)'>+4 </button>
-      </div>
-      <div  class="col-sm" >
-        <h1 class="display-4">Punkty</h1>
-      </div>
-      <div class="col-sm" >
-  
-        <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(-1)'>-1 </button>
-        <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(-2)'>-2 </button>
-        <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(-3)'>-3 </button>
-        <button class="btn btn-light btn-sm" (click)='zwiekszDuzeZawodnik2(-4)'>-4 </button>
-      </div>
-      <!-- <div style="clear: both;"></div> -->
-    </div>
-  
-    <div>
-      <h1 class="display-1" style="text-align: center">{{duzePunktyZawodnik2}}</h1>
-    </div>
-  
-    <!-- przewagi i kary -->
-    <div class="row">
-      <div class="col-sm">
-        <div class="row">
-          <div class="col-sm">
-            <button class="btn btn-light btn-sm" (click)='zwiekszPrzewagiZawodnik2(1)'>+1 </button>
-          </div>
-          <div class="col-sm">
-            <h1 class="display-4">przewagi</h1>
-          </div>
-          <div class="col-sm">
-            <button class="btn btn-light btn-sm" (click)='zwiekszPrzewagiZawodnik2(-1)'>-1 </button>
-          </div>
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm">
+          <button class="btn btn-light btn-sm" (click)='zwiekszKaryZawodnik2(1)'>+1 </button>
         </div>
-        <div>
-          <h1 class="display-4 col-sm " style="text-align: center">{{przewagiZawodnik2}}</h1>
+        <div class="col-sm">
+          <h1 class="display-4">Kary</h1>
         </div>
-  
-      </div>
-      <div class="col-sm">
-        <div class="row">
-          <div class="col-sm">
-            <button class="btn btn-light btn-sm" (click)='zwiekszKaryZawodnik2(1)'>+1 </button>
-          </div>
-          <div class="col-sm">
-            <h1 class="display-4">Kary</h1>
-          </div>
-          <div class="col-sm">
-            <button class="btn btn-light btn-sm" (click)='zwiekszKaryZawodnik2(-1)'>-1 </button>
-          </div>
-        </div>
-        <div>
-          <h1 class="display-4" style="text-align: center">{{karyZawodnik2}}</h1>
+        <div class="col-sm">
+          <button class="btn btn-light btn-sm" (click)='zwiekszKaryZawodnik2(-1)'>-1 </button>
         </div>
       </div>
-      
+      <div>
+        <h1 class="display-4" style="text-align: center">{{karyZawodnik2}}</h1>
+      </div>
     </div>
-  
+
   </div>
-  
+
+</div>
+
 
 <div style="clear: both;"></div>
-<div >
+<div>
 
   <!-- zegar -->
-    <h1 class="display-1" style="text-align: center">{{ZegarCzas}}</h1>
+  <h1 class="display-1" style="text-align: center">{{ZegarCzas}}</h1>
 </div>
 <!-- przyciski do zegarka -->
 <div>
-    <button  class="btn btn-light btn-sm" (click)='StartStop()'>{{btnZegar}}</button>
-    <button  class="btn btn-light btn-sm" (click)='zresetujZegarIpunkty()'>Reset</button>
-  
+  <button class="btn btn-light btn-sm" (click)='StartStop()'>{{btnZegar}}</button>
+  <button class="btn btn-light btn-sm" (click)='zresetujZegarIpunkty()'>Reset</button>
+
 </div>
