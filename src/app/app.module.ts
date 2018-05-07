@@ -43,6 +43,8 @@ import { KategorieService } from './turnieje/shared/kategorie.service';
 import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-details.component';
 import { LadderService } from './ladder/sheard/ladder.service';
 import { GenerujLadderComponent } from './ladder/generuj-ladder/generuj-ladder.component';
+import { TurniejPodzialComponent } from './zarzadzaj/shared/turniej-podzial/turniej-podzial.component';
+import { TurniejPodzialSerService } from './zarzadzaj/shared/turniej-podzial-ser.service';
 
 
 
@@ -79,7 +81,9 @@ import { GenerujLadderComponent } from './ladder/generuj-ladder/generuj-ladder.c
     LadderComponent,
     SixteenComponent,
 
-    TurniejDetailsComponent
+    TurniejDetailsComponent,
+
+    TurniejPodzialComponent
 
 
   ],
@@ -93,7 +97,7 @@ import { GenerujLadderComponent } from './ladder/generuj-ladder/generuj-ladder.c
     ReactiveFormsModule
     
   ],
-  providers: [TurniejService,TurniejeService,KategorieService,LadderService],
+  providers: [TurniejService,TurniejeService,KategorieService,LadderService,TurniejPodzialSerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

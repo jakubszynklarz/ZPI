@@ -60,12 +60,24 @@ export class GenerujLadderComponent implements OnInit {
 let i=0;
 for (let zaw of this.zawColection3) {
   // if (i< 8){
+    
     zaw.pozycjaStartowa = ''+i;
     i++;
   // }
   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[2]+'/'+this.wagi[0]+'/man').
   add(JSON.parse(JSON.stringify(zaw)));
-}
+  }
+  let pusty :poprawnyZawodnik = new poprawnyZawodnik();
+  pusty.nazwa = ' ';
+  pusty.klub = ' ';
+  for (let k=i; k<16; k++){
+    pusty.pozycjaStartowa =  ''+k;
+    if(k>i){
+      this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[2]+'/'+this.wagi[0]+'/man').add(JSON.parse(JSON.stringify(pusty)));
+    }
+      
+  }
+  
 // for (let zaw of this.zawColection4) {
 //   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[3]+'/'+this.wagi[0]+'/man').
 //   add(JSON.parse(JSON.stringify(zaw)));
@@ -97,8 +109,9 @@ for (let zaw of this.zawColection8) {
 // }
 
  
+}
     
   
  
 }
-}
+

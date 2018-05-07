@@ -3,10 +3,10 @@
   <div class="form-group">
     <label for="ImieNazwisko">Imie Nazwisko</label>
     <input required ngModel name="ImieNazwisko" #ImieNazwisko="ngModel" ngModel type="text" class="form-control" id="ImieNazwisko" placeholder="np. Jan Nowak"
-    requried pattern ="^[A-Za-z]$">
+    required pattern ="([A-Za-z])+( [A-Za-z]+)*">
     <div class = "alert alert-danger" *ngIf ="ImieNazwisko.touched && !ImieNazwisko.valid">
       <div *ngIf = "ImieNazwisko.errors.required">Imie i Nazwisko jest wymagane</div>
-      <div *ngIf ="ImieNazwisko.errors.pattern">Nieprawidlowe Imie i Nazwisko</div>
+      <div *ngIf ="ImieNazwisko.errors.pattern">Imie i Nazwisko jest nieprawidlowe </div>
 
 
     </div>
