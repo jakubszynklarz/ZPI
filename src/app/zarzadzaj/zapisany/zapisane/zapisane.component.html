@@ -7,7 +7,9 @@
       <div class="card text-black bg-white" style="margin: 50px">
         <div class="card-header">
           <h3 class="panel-title" style="float: left ;">Szczegóły turnieju</h3> 
+          <form>
           <button style="float: right;" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModall">Zapisz się</button>
+        </form>
           <!-- [routerLink]="['/zapiszSie', turnie.id]" -->
           <div class="modal fade" id="exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModallLabele" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -110,10 +112,11 @@
                   <th class="col-sm" style="font-size:120%">Waga</th>
                 </table>
               </div>
-              <div class="lista" *ngFor="let zapi of zapisani | async">
+              <div class="listzaw">
+              <div *ngFor="let zapi of zapisani | async">
 
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table table-fixed">
                     <tbody>
                       <tr>
                         <th class="col-sm">{{zapi.nazwa}}</th>
@@ -124,7 +127,7 @@
                   </table>
                 </div>
               </div>
-
+            </div>
             </div>
           </div>
           </div>
@@ -139,3 +142,5 @@
   {{zawoCzarnyHeavy|json}}
 
   {{zawoCzarnyRooster |json}} -->
+
+  
