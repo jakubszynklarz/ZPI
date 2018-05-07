@@ -7,7 +7,24 @@
       <div class="card text-black bg-white" style="margin: 50px">
         <div class="card-header">
           <h3 class="panel-title" style="float: left ;">Szczegóły turnieju</h3> 
-          <button style="float: right;" [routerLink]="['/zapiszSie', turnie.id]" class="btn btn-outline-primary">Zapisz się</button>
+          <button style="float: right;" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModall">Zapisz się</button>
+          <!-- [routerLink]="['/zapiszSie', turnie.id]" -->
+          <div class="modal fade" id="exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModallLabele" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Dołącz do "{{turnie.nazwa}}"</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <app-form-zapisz-sie></app-form-zapisz-sie>
+                </div>
+                
+              </div>
+            </div>
+          </div>
         </div>
         <div class="card-body">
 
@@ -22,34 +39,33 @@
               <div class="divek" style="width:50%">{{turnie.miejsce}}</div>
 
 
-              <label for="nrkonta">Nr konta:</label>
+              <label for="nrkonta" style="font-size:120%">Nr konta:</label>
               <div class="divek" style="width:50%">{{turnie.nr_konta}}</div>
 
-              <label for="wpisowe">Wpisowe:</label>
+              <label for="wpisowe" style="font-size:120%">Wpisowe:</label>
               <div class="divek" style="width:50%">{{turnie.wpisowe}}</div>
 
-              <div class="form-group " >
-                  <label>Kategoria:</label>
-                  <div class="form-control" style="width:10%">
+              <div class="form-group" >
+                  <label style="font-size:120%">Kategoria:</label>
+                  <div class="divek">
                     
                       {{turnie.kategoria}}
                    
                   </div>
                 </div>
 
-              <div style="display:inline-flex">
-                <div class="form-group " style="margin:5px">
-                  <label for="data">Data Turnieju:</label>
-                  <div class="divek" style="">{{turnie.kiedy}}</div>
+              <div>
+                <div class="form-group">
+                  <label for="data" style="font-size:120%">Data Turnieju:</label>
+                  <div class="divek">{{turnie.kiedy}}</div>
                 </div>
-
-                <div class="form-group " style="margin:5px">
-                  <label for="datakonca">Data końca rejestracji:</label>
+              </div>
+              <div>
+                <div class="form-group">
+                  <label for="datakonca" style="font-size:120%">Data końca rejestracji:</label>
                   <div class="divek" style="width:60%">{{turnie.do_kiedyrej}}</div>
                 </div>
               </div>
-              <br>
-              <br>
               <br>
               <br>
               <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
@@ -89,9 +105,9 @@
               </div> -->
               <div class="navlist">
                 <table class="table">
-                  <th class="col-sm">Zapisani</th>
-                  <th class="col-sm">Pas</th>
-                  <th class="col-sm">Waga</th>
+                  <th class="col-sm" style="font-size:120%">Zapisani</th>
+                  <th class="col-sm" style="font-size:120%">Pas</th>
+                  <th class="col-sm" style="font-size:120%">Waga</th>
                 </table>
               </div>
               <div class="lista" *ngFor="let zapi of zapisani | async">

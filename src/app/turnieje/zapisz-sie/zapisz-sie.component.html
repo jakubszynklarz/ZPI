@@ -1,11 +1,11 @@
 
 <!-- {{turnieje.id | async }} -->
 
-<div class="card-header text-white bg-primary">
+<div class="card-header">
     <h3 class="panel-title">Szczegóły turnieju</h3>
   </div>
 
-<div *ngIf="turnieje">
+<div class="info" *ngIf="turnieje">
   <ul class="list-group">
     <li class="list-group-item">
       <div class="row">
@@ -57,6 +57,6 @@
     </li>
   </ul>
 </div>
-
-
-<app-form-zapisz-sie></app-form-zapisz-sie>
+<div class="zapiszsie">
+  <app-form-zapisz-sie></app-form-zapisz-sie>
+</div>
