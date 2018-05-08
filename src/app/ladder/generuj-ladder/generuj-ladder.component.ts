@@ -142,8 +142,6 @@ export class GenerujLadderComponent implements OnInit {
     //   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[4]+'/'+this.wagi[1]+'/man').
     //   add(JSON.parse(JSON.stringify(zaw)));
     // }
-
-
   }
 
 
