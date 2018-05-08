@@ -11,6 +11,11 @@ import { Kategorie } from '../../shared/kategorie.model';
   styleUrls: ['./myeven.component.css']
 })
 export class MyevenComponent implements OnInit {
+
+
+  public pas:string = 'czarny';
+  public waga:string='heavy';
+
   public check:number;
   public defula:number=0;
   selectedModeloo: Modeloo = new Modeloo();

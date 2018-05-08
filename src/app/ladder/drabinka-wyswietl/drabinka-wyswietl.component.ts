@@ -30,6 +30,15 @@ export class DrabinkaWyswietlComponent implements OnInit {
   public poz14: string;
   public poz15: string;
   public poz16: string;
+  public q1:string;
+  public q2:string;
+  public q3:string;
+  public q4:string;
+  public q5:string;
+  public q6:string;
+  public q7:string;
+  public q8:string;
+
   public nazwaturnieju: string;
   zawColection1: poprawnyZawodnik[];
   zawColection2: poprawnyZawodnik[];
@@ -52,7 +61,7 @@ export class DrabinkaWyswietlComponent implements OnInit {
       this.fukcja()
       this.nazwaturnieju=this.turnieje.nazwa
           }, 4000);
-          console.log(this.url[4])
+          
    }
 
   ngOnInit() {
@@ -91,6 +100,26 @@ export class DrabinkaWyswietlComponent implements OnInit {
         this.poz15 = zaw.nazwa
       } if (zaw.pozycjaStartowa == '15') {
         this.poz16 = zaw.nazwa
+      }if(zaw.pierwszyoQ=='true'){
+        this.q1=zaw.nazwa
+      }if(zaw.drugioQ=='true'){
+        this.q2=zaw.nazwa
+      }if(zaw.trzecioQ=='true'){
+        this.q3=zaw.nazwa
+      }
+      if(zaw.czwartyoQ=='true'){
+        this.q4=zaw.nazwa
+      }
+      if(zaw.piatyoQ=='true'){
+        this.q5=zaw.nazwa
+      }
+      if(zaw.szustyoQ=='true'){
+        this.q6=zaw.nazwa
+      }
+      if(zaw.siuoQ=='true'){
+        this.q7=zaw.nazwa
+      }if(zaw.osmyuoQ=='true'){
+        this.q8=zaw.nazwa
       }
 
 
