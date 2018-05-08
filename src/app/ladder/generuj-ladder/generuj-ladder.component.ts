@@ -52,7 +52,7 @@ export class GenerujLadderComponent implements OnInit {
 
   mojaFun() {
     // console.log("dupa");
-     let cos = this.ladServ.getzawo(this.current, 'heavy', 'czarny', 'man').subscribe(data2 => {
+     let usuwanieZbazy = this.ladServ.getzawo(this.current, 'heavy', 'czarny', 'man').subscribe(data2 => {
       // console.log("dupa");
       setTimeout(() => {
         console.log(data2.length);
@@ -61,12 +61,12 @@ export class GenerujLadderComponent implements OnInit {
           this.db.doc('/turnieje/AU7pzccJaqxZAGtwjk6N/czarny/heavy/man/' + data2[i].id).delete();
         }
         ;
-      }, 2000);
+      }, 500);
     });
     
     setTimeout(() => {
-        cos.unsubscribe();
-    }, 3000);
+        usuwanieZbazy.unsubscribe();
+    }, 1000);
     
 
   }
