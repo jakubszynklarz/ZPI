@@ -7,6 +7,7 @@ import { KeysPipePipe } from '../zarzadzaj/zapisany/zapisane/kategorie/keys-pipe
 import { TurniejPodzialSerService } from '../zarzadzaj/shared/turniej-podzial-ser.service';
 import { poprawnyZawodnik } from '../turnieje/zapisz-sie/form-zapisz-sie/form-zapisz-sie.component';
 
+
 @Component({
   selector: 'app-panel-sedziowski',
   templateUrl: './panel-sedziowski.component.html',
@@ -17,7 +18,7 @@ export class PanelSedziowskiComponent implements OnInit {
   public zawodnik1: string;
   public zawodnik2: string;
 
-  aktualnaPara: number = 0;
+  aktualnaPara: number = -1;
   wyswietlPara: string;
   para1: poprawnyZawodnik[];
   para2: poprawnyZawodnik[];
@@ -33,13 +34,16 @@ export class PanelSedziowskiComponent implements OnInit {
   // private zapisani: Observable<any[]>;
 
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-
+  wagadoFun: string;
+  pasdoFun: string;
   private pasyColection: AngularFirestoreCollection<any[]>;
   private pasy: Observable<any[]>;
 
   private wagiColection: AngularFirestoreCollection<any[]>;
   private wagi: Observable<any[]>;
   zawodnicy;
+
+
   //#region zmienne
   duzePunktyZawodnik1: number = 0;
   duzePunktyZawodnik2: number = 0;
@@ -61,6 +65,7 @@ export class PanelSedziowskiComponent implements OnInit {
 
   constructor(private db: AngularFirestore, private podzialServ: TurniejPodzialSerService) {
 
+    //#region pasyWagi
     this.pasyColection = db.collection<any[]>('pasy');
     this.pasy = this.pasyColection.snapshotChanges().map(actions => {
       return actions.map(a => {
@@ -78,10 +83,12 @@ export class PanelSedziowskiComponent implements OnInit {
         return { id, ...data };
       })
     });
+    //#endregion
 
   }
-
+  
   ladujPare() {
+    this.aktualnaPara++;
     if (this.aktualnaPara == 0) {
       this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
     } if (this.aktualnaPara == 1) {
@@ -105,11 +112,12 @@ export class PanelSedziowskiComponent implements OnInit {
     } if (this.aktualnaPara == 7) {
       this.wyswietlPara = this.para8[0].nazwa + " " + this.para8[1].nazwa;
     }
-    this.aktualnaPara++;
   }
 
 
   ladujZawodnikow(waga: string, pas: string) {
+    this.wagadoFun = waga;
+    this.pasdoFun = pas;
     this.aktualnaPara = 0;
     this.podzialServ.getPodzial(this.current, waga, pas, 'man').subscribe(data => {
       this.zawodnicy = data;
@@ -123,7 +131,6 @@ export class PanelSedziowskiComponent implements OnInit {
           this.para5 = data.filter(z => z.pozycjaStartowa == "4" || z.pozycjaStartowa == "11");
           this.para6 = data.filter(z => z.pozycjaStartowa == "5" || z.pozycjaStartowa == "10");
           this.para7 = data.filter(z => z.pozycjaStartowa == "3" || z.pozycjaStartowa == "12");
-          console.log(data.filter(z => z.pozycjaStartowa == "2" || z.pozycjaStartowa == "13"));
           this.para8 = data.filter(z => z.pozycjaStartowa == "2" || z.pozycjaStartowa == "13");
         }
       }, 1000);
@@ -141,9 +148,108 @@ export class PanelSedziowskiComponent implements OnInit {
   }
 
 
+  updateZawodnika(slo: poprawnyZawodnik, idDokumentu) {
+    // console.log(idDokumentu);
+    this.db.doc('/turnieje/'+this.current+'/'+this.pasdoFun+'/'+this.wagadoFun+'/man/'+idDokumentu).update(slo);
+
+  }
 
 
+  aktualizujZawodnikow(ktoryZawo: number) {
 
+
+    if (this.aktualnaPara == 0) {
+      if (ktoryZawo == 1) {
+        let pop: poprawnyZawodnik = new poprawnyZawodnik();
+        pop = this.para1[0];
+        pop.duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(pop, this.para1[0].id);
+      } else {
+        this.para1[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.para1[1], this.para1[1].id);
+      }
+
+    } if (this.aktualnaPara == 1) {
+
+      if (ktoryZawo == 1) {
+        let pop: poprawnyZawodnik = new poprawnyZawodnik();
+        pop = this.para2[0];
+        pop.duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(pop, this.para2[0].id);
+      } else {
+        this.para2[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.para2[1], this.para2[1].id);
+      }
+
+    } if (this.aktualnaPara == 2) {
+
+      if (ktoryZawo == 1) {
+        let pop: poprawnyZawodnik = new poprawnyZawodnik();
+        pop = this.para3[0];
+        pop.duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(pop, this.para3[0].id);
+      } else {
+        this.para3[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.para3[1], this.para3[1].id);
+      }
+    } if (this.aktualnaPara == 3) {
+
+      if (ktoryZawo == 1) {
+        let pop: poprawnyZawodnik = new poprawnyZawodnik();
+        pop = this.para4[0];
+        pop.duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(pop, this.para4[0].id);
+      } else {
+        this.para4[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.para4[1], this.para4[1].id);
+      }
+    } if (this.aktualnaPara == 4) {
+
+      if (ktoryZawo == 1) {
+        let pop: poprawnyZawodnik = new poprawnyZawodnik();
+        pop = this.para5[0];
+        pop.duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(pop, this.para5[0].id);
+      } else {
+        this.para5[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.para5[1], this.para5[1].id);
+      }
+      
+    } if (this.aktualnaPara == 5) {
+
+      if (ktoryZawo == 1) {
+        let pop: poprawnyZawodnik = new poprawnyZawodnik();
+        pop = this.para6[0];
+        pop.duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(pop, this.para6[0].id);
+      } else {
+        this.para6[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.para6[1], this.para6[1].id);
+      }
+      
+    } if (this.aktualnaPara == 6) {
+
+      if (ktoryZawo == 1) {
+        let pop: poprawnyZawodnik = new poprawnyZawodnik();
+        pop = this.para7[0];
+        pop.duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(pop, this.para7[0].id);
+      } else {
+        this.para7[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.para7[1], this.para7[1].id);
+      }
+    } if (this.aktualnaPara == 7) {
+      if (ktoryZawo == 1) {
+        let pop: poprawnyZawodnik = new poprawnyZawodnik();
+        pop = this.para8[0];
+        pop.duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(pop, this.para8[0].id);
+      } else {
+        this.para8[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.para8[1], this.para8[1].id);
+      }
+    }
+  }
 
 
 
@@ -151,16 +257,20 @@ export class PanelSedziowskiComponent implements OnInit {
 
   //#region  obslugaPunktow
   zwiekszDuzeZawodnik1(ilePunktow) {
+
     this.duzePunktyZawodnik1 += ilePunktow;
     if (this.duzePunktyZawodnik1 < 0) {
       this.duzePunktyZawodnik1 = 0;
     }
+    this.aktualizujZawodnikow(1);
   }
   zwiekszDuzeZawodnik2(ilePunktow) {
+    
     this.duzePunktyZawodnik2 += ilePunktow;
     if (this.duzePunktyZawodnik2 < 0) {
       this.duzePunktyZawodnik2 = 0;
     }
+    this.aktualizujZawodnikow(2);
   }
 
   zwiekszKaryZawodnik1(ilePunktow) {
