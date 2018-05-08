@@ -15,8 +15,7 @@ import { Modeloo } from '../../zarzadzaj/shared/modeloo.model';
 
 export class SixteenComponent implements OnInit {
 
-  pasy = ['bialy', 'brązowy', 'czarny', 'niebieski', 'purpurowy'];
-  wagi = ['heavy', 'rooster'];
+  
 
 
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
@@ -50,22 +49,23 @@ export class SixteenComponent implements OnInit {
   zawColection9: poprawnyZawodnik[];
   zawColection10: poprawnyZawodnik[];
   turnieje: Modeloo;
-  
+  public url:string[] = window.location.href.split('/');
+
   constructor(private db: AngularFirestore, private ladServ: LadderService, private podzielone: TurniejPodzialSerService) {
     // ladServ.getTur(this.current).subscribe(data => { this.turnieje = data.filter(turn => turn.id == this.current)[0];});
     ladServ.getTur().subscribe(data => { this.turnieje = data.filter(turn => turn.id == this.current)[0];});
 
-   
-    ladServ.getzawo(this.current, 'heavy', 'czarny', 'man').subscribe(data => { this.zawColection = data });
+   console.log(this.url);
+    ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection = data });
     //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[0],'man').subscribe(data => {this.zawColection1 = data});
     //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[1],'man').subscribe(data => {this.zawColection2 = data});
-    ladServ.getZawonikow(this.current, this.wagi[0], this.pasy[2], 'man').subscribe(data => { this.zawColection3 = data });
+    ladServ.getZawonikow(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection3 = data });
     //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[3],'man').subscribe(data => {this.zawColection4 = data});
     //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[4],'man').subscribe(data => {this.zawColection5 = data});
 
     //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[0],'man').subscribe(data => {this.zawColection6 = data});
     //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[1],'man').subscribe(data => {this.zawColection7 = data});
-    ladServ.getZawonikow(this.current, this.wagi[1], this.pasy[2], 'man').subscribe(data => { this.zawColection8 = data });
+    ladServ.getZawonikow(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection8 = data });
     //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[3],'man').subscribe(data => {this.zawColection9 = data});
     //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[4],'man').subscribe(data => {this.zawColection10 = data});
     // this.zawColection = this.db.collection<poprawnyZawodnik>('/turnieje/'+ this.current+'/zapisani/gi/zawodnicy/',ref => {return ref.where('','==','')});
@@ -171,7 +171,7 @@ export class SixteenComponent implements OnInit {
       zaw.pozycjaStartowa = '' + i;
       i++;
       // }
-      this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' + this.pasy[2] + '/' + this.wagi[0] + '/man').doc(zaw.id).set(JSON.parse(JSON.stringify(zaw)))
+      this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' + this.url[4] + '/' + this.url[5] + '/man').doc(zaw.id).set(JSON.parse(JSON.stringify(zaw)))
       // add(JSON.parse(JSON.stringify(zaw)));
     }
     let pusty: poprawnyZawodnik = new poprawnyZawodnik();
@@ -180,7 +180,7 @@ export class SixteenComponent implements OnInit {
     for (let k = i; k <= 16; k++) {
       pusty.pozycjaStartowa = '' + k;
       if (k >= i) {
-        this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' + this.pasy[2] + '/' + this.wagi[0] + '/man').add(JSON.parse(JSON.stringify(pusty)));
+        this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' +this.url[4] + '/' +this.url[5] + '/man').add(JSON.parse(JSON.stringify(pusty)));
       }
     }
 
@@ -219,13 +219,13 @@ export class SixteenComponent implements OnInit {
 
   mojaFun() {
     // console.log("dupa");
-    let cos = this.ladServ.getzawo(this.current, 'heavy', 'czarny', 'man').subscribe(data2 => {
+    let cos = this.ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data2 => {
       // console.log("dupa");
       setTimeout(() => {
 
         for (let i = 0; i < data2.length; i++) {
 
-          this.db.doc('/turnieje/AU7pzccJaqxZAGtwjk6N/czarny/heavy/man/' + data2[i].id).delete();
+          this.db.doc('/turnieje/' +this.current+'/'+this.url[4]+'/'+this.url[5]+'man'+ data2[i].id).delete();
         }
         ;
       }, 500);

@@ -52,7 +52,7 @@ export class DrabinkaWyswietlComponent implements OnInit {
       this.fukcja()
       this.nazwaturnieju=this.turnieje.nazwa
           }, 4000);
-          console.log(this.url[4])
+          
    }
 
   ngOnInit() {

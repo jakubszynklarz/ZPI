@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     { path: 'zarzadzanie', component: ZarzadzajComponent },
     // { path: 'ladder', component: LadderComponent },
     { path: 'ladder/:def_number', component: GenerujLadderComponent },
-    { path: 'lader/:def_number', component: SixteenComponent },    
+    { path: 'lader/:pas/:waga/:def_number', component: SixteenComponent },    
     {path:'turnieje/:def_number',component: MyevenComponent},
     {path:'sedziowski/:def_number',component: PanelSedziowskiComponent},
     {path:'zapisany/:def_number',component: ZapisaneComponent},
