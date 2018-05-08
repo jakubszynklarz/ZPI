@@ -56,6 +56,10 @@ export class SixteenComponent implements OnInit {
     ladServ.getTur().subscribe(data => { this.turnieje = data.filter(turn => turn.id == this.current)[0];});
 
    console.log(this.url);
+//    4"pas"
+
+// 5:"waga
+
     ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection = data });
     //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[0],'man').subscribe(data => {this.zawColection1 = data});
     //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[1],'man').subscribe(data => {this.zawColection2 = data});
@@ -83,14 +87,15 @@ export class SixteenComponent implements OnInit {
 
   opusmagnum() {
 
-
+    this.mojaFun();
+    
     setTimeout(() => {
       this.podziel();
-    }, 1100);
-    this.mojaFun();
+    }, 2200);
+    
     setTimeout(() => {
       this.fukcja();
-    }, 1200);
+    }, 3300);
 
   }
 
@@ -225,10 +230,10 @@ export class SixteenComponent implements OnInit {
 
         for (let i = 0; i < data2.length; i++) {
 
-          this.db.doc('/turnieje/' +this.current+'/'+this.url[4]+'/'+this.url[5]+'man'+ data2[i].id).delete();
+          this.db.doc('/turnieje/' +this.current+'/'+this.url[4]+'/'+this.url[5]+'/man/'+ data2[i].id).delete();
         }
         ;
-      }, 500);
+      }, 700);
     });
 
     setTimeout(() => {

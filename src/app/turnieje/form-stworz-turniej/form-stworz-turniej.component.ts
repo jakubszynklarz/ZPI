@@ -13,7 +13,7 @@ import { TurniejeService } from '../zapisz-sie/serwisy/turniej.service';
 })
 export class FormStworzTurniejComponent implements OnInit {
 
-  private tworca: string = "Endzik"
+  private tworca: string = "Andre"
   selectedModeloo: Modeloo = new Modeloo();
   private turnieCollection: AngularFirestoreCollection<Modeloo>;
   private turnieje: Observable<any[]>;
