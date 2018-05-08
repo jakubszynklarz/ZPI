@@ -4,7 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs/Observable';
 import { LadderService } from '../sheard/ladder.service';
 import { TurniejPodzialSerService } from '../../zarzadzaj/shared/turniej-podzial-ser.service';
-
+import {} from '@types/node'
 @Component({
   selector: 'app-sixteen',
   templateUrl: './sixteen.component.html',

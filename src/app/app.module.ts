@@ -48,7 +48,7 @@ import { TurniejPodzialSerService } from './zarzadzaj/shared/turniej-podzial-ser
 
 
 
-
+declare var require: any;
 
 @NgModule({
   declarations: [
