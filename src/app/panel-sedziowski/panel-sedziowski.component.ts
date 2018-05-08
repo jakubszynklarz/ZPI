@@ -7,6 +7,7 @@ import { KeysPipePipe } from '../zarzadzaj/zapisany/zapisane/kategorie/keys-pipe
 import { TurniejPodzialSerService } from '../zarzadzaj/shared/turniej-podzial-ser.service';
 import { poprawnyZawodnik } from '../turnieje/zapisz-sie/form-zapisz-sie/form-zapisz-sie.component';
 import { isNullOrUndefined } from 'util';
+import { Conditional } from '@angular/compiler';
 
 
 @Component({
@@ -37,15 +38,8 @@ export class PanelSedziowskiComponent implements OnInit {
 
   paraFinal1: poprawnyZawodnik[] = [];
   paraFinal2: poprawnyZawodnik[] = [];
-
   paraGlownyFinal: poprawnyZawodnik[] = [];
-  
 
-
-
-
-  // private zapisaniCollection: AngularFirestoreCollection<Kategorie>;
-  // private zapisani: Observable<any[]>;
 
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
   wagadoFun: string;
@@ -101,63 +95,6 @@ export class PanelSedziowskiComponent implements OnInit {
 
   }
 
-  ladujPare() {
-    if (this.aktualnaPara == 0) {
-      // console.log('pierwsza prara');
-      this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
-    } if (this.aktualnaPara == 1) {
-      // console.log('druga prara');
-
-      this.wyswietlPara = this.para2[0].nazwa + " " + this.para2[1].nazwa;
-    } if (this.aktualnaPara == 2) {
-
-      this.wyswietlPara = this.para3[0].nazwa + " " + this.para3[1].nazwa;
-    } if (this.aktualnaPara == 3) {
-
-      this.wyswietlPara = this.para4[0].nazwa + " " + this.para4[1].nazwa;
-    } if (this.aktualnaPara == 4) {
-
-      this.wyswietlPara = this.para5[0].nazwa + " " + this.para5[1].nazwa;
-    } if (this.aktualnaPara == 5) {
-
-      this.wyswietlPara = this.para6[0].nazwa + " " + this.para6[1].nazwa;
-    } if (this.aktualnaPara == 6) {
-
-      this.wyswietlPara = this.para7[0].nazwa + " " + this.para7[1].nazwa;
-    }
-    if (this.aktualnaPara == 7) {
-      this.wyswietlPara = this.para8[0].nazwa + " " + this.para8[1].nazwa;
-
-    }
-
-    // polfinaly
-    if (this.aktualnaPara == 8) {
-
-      this.wyswietlPara = this.paraPolFi1[0].nazwa + " " + this.paraPolFi1[1].nazwa;
-    }
-    if (this.aktualnaPara == 9) {
-      this.wyswietlPara = this.paraPolFi2[0].nazwa + " " + this.paraPolFi2[1].nazwa;
-    }
-    if (this.aktualnaPara == 10) {
-      this.wyswietlPara = this.paraPolFi3[0].nazwa + " " + this.paraPolFi3[1].nazwa;
-    }
-    if (this.aktualnaPara == 11) {
-
-      this.wyswietlPara = this.paraPolFi4[0].nazwa + " " + this.paraPolFi4[1].nazwa;
-    }
-    // finaly
-    if (this.aktualnaPara == 12) {
-      console.log(this.paraFinal1);
-      this.wyswietlPara = this.paraFinal1[0].nazwa + " " + this.paraFinal1[1].nazwa;
-    }
-    if (this.aktualnaPara == 13) {
-      this.wyswietlPara = this.paraFinal2[0].nazwa + " " + this.paraFinal2[1].nazwa;
-    }
-    if (this.aktualnaPara == 14) {
-      this.wyswietlPara = this.paraGlownyFinal[0].nazwa + " " + this.paraGlownyFinal[1].nazwa;
-    }
-    
-  }
 
 
   ladujZawodnikow(waga: string, pas: string) {
@@ -177,47 +114,20 @@ export class PanelSedziowskiComponent implements OnInit {
           this.para6 = data.filter(z => z.pozycjaStartowa == "5" || z.pozycjaStartowa == "10");
           this.para7 = data.filter(z => z.pozycjaStartowa == "3" || z.pozycjaStartowa == "12");
           this.para8 = data.filter(z => z.pozycjaStartowa == "2" || z.pozycjaStartowa == "13");
+          this.paraPolFi1 = data.filter(p => p.pierwszyoQ == 'true' || p.trzecioQ == 'true');
+          this.paraPolFi2 = data.filter(p => p.drugioQ == 'true' || p.czwartyoQ == 'true');
+          this.paraPolFi3 = data.filter(p => p.piatyoQ == 'true' || p.siuoQ == 'true');
+          this.paraPolFi4 = data.filter(p => p.szustyoQ == 'true' || p.osmyuoQ == 'true');
+          this.paraFinal1 = data.filter(p => p.pierwszySFinal == 'true' || p.trzeciSFinal == 'true');
+          this.paraFinal2 = data.filter(p => p.drugiSFinal == 'true' || p.czwartySFinal == 'true');
+          this.paraGlownyFinal = data.filter(p => p.pierwszyFinal == 'true' || p.drugiFinal == 'true')
 
         }
       }, 1000);
     });
   }
-  polfinaly() {
-    // funkcja opdla sie przy wysweitlaniu
-    // pary 1 i 3 || 2 i 4 || 5 i 7 || 6 i 8
 
 
-    this.paraPolFi1.push(this.para1.filter(p => p.pierwszyoQ == 'true')[0]);
-    this.paraPolFi1.push(this.para3.filter(p => p.trzecioQ == 'true')[0]);
-    // console.log(this.paraPolFi1);
-    this.paraPolFi2.push(this.para2.filter(p => p.drugioQ == 'true')[0]);
-    this.paraPolFi2.push(this.para4.filter(p => p.czwartyoQ == 'true')[0]);
-
-    this.paraPolFi3.push(this.para5.filter(p => p.piatyoQ == 'true')[0]);
-    this.paraPolFi3.push(this.para7.filter(p => p.siuoQ == 'true')[0]);
-    console.log(this.para6);
-    console.log(this.para8);
-    this.paraPolFi4.push(this.para6.filter(p => p.szustyoQ == 'true')[0]);
-    this.paraPolFi4.push(this.para8.filter(p => p.osmyuoQ == 'true')[0]);
-  }
-
-  finaly() {
-    //  1 i 3 || 2 i 4 
-
-    this.paraFinal1.push(this.paraPolFi1.filter(p => p.pierwszySFinal == 'true')[0]);
-    this.paraFinal1.push(this.paraPolFi3.filter(p => p.trzeciSFinal == 'true')[0]);
-
-    this.paraFinal2.push(this.paraPolFi2.filter(p => p.drugiSFinal == 'true')[0]);
-    this.paraFinal2.push(this.paraPolFi4.filter(p => p.czwartySFinal == 'true')[0]);
-
-
-
-    // this.paraFinal1.push(this.paraPolFi1.filter(p => p.pierwszySFinal == 'true'));
-  }
-  ultimateFinal(){
-      this.paraGlownyFinal.push(this.paraPolFi4.filter(p => p.pierwszyFinal == 'true')[0]);
-      this.paraGlownyFinal.push(this.paraPolFi4.filter(p => p.drugiFinal == 'true')[0]);
-  }
 
   ngOnInit() {
 
@@ -231,11 +141,12 @@ export class PanelSedziowskiComponent implements OnInit {
 
 
   wygral(ktoryZawo: number) {
-    if (this.aktualnaPara == 11) {
-      this.finaly()
-    }
 
+    this.aktualnaPara++;
+
+    //#region pierwszaRunda
     if (this.aktualnaPara == 0) {
+      this.wyswietlPara = this.para2[0].nazwa + " " + this.para2[1].nazwa;
       if (ktoryZawo == 1) {
         this.para1[0].pierwszyoQ = 'true';
         this.updateZawodnika(this.para1[0], this.para1[0].id);
@@ -245,6 +156,7 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 1) {
+      this.wyswietlPara = this.para3[0].nazwa + " " + this.para3[1].nazwa;
       if (ktoryZawo == 1) {
         this.para2[0].drugioQ = 'true';
         this.updateZawodnika(this.para2[0], this.para2[0].id);
@@ -254,6 +166,7 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 2) {
+      this.wyswietlPara = this.para4[0].nazwa + " " + this.para4[1].nazwa;
       if (ktoryZawo == 1) {
         this.para3[0].trzecioQ = 'true';
         this.updateZawodnika(this.para3[0], this.para3[0].id);
@@ -263,6 +176,7 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 3) {
+      this.wyswietlPara = this.para5[0].nazwa + " " + this.para5[1].nazwa;
       if (ktoryZawo == 1) {
         this.para4[0].czwartyoQ = 'true';
         this.updateZawodnika(this.para4[0], this.para4[0].id);
@@ -272,6 +186,7 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 4) {
+      this.wyswietlPara = this.para6[0].nazwa + " " + this.para6[1].nazwa;
       if (ktoryZawo == 1) {
         this.para5[0].piatyoQ = 'true';
         this.updateZawodnika(this.para5[0], this.para5[0].id);
@@ -281,6 +196,7 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 5) {
+      this.wyswietlPara = this.para7[0].nazwa + " " + this.para7[1].nazwa;
       if (ktoryZawo == 1) {
         this.para6[0].szustyoQ = 'true';
         this.updateZawodnika(this.para6[0], this.para6[0].id);
@@ -290,7 +206,7 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 6) {
-
+      this.wyswietlPara = this.para8[0].nazwa + " " + this.para8[1].nazwa;
       if (ktoryZawo == 1) {
         this.para7[0].siuoQ = 'true';
         this.updateZawodnika(this.para7[0], this.para7[0].id);
@@ -298,9 +214,11 @@ export class PanelSedziowskiComponent implements OnInit {
         this.para7[1].siuoQ = 'true';
         this.updateZawodnika(this.para7[1], this.para7[1].id);
       }
+      //#endregion
+
 
     } if (this.aktualnaPara == 7) {
-
+      // this.wyswietlPara = this.para8[0].nazwa + " " + this.para8[1].nazwa;
       if (ktoryZawo == 1) {
         let pop: poprawnyZawodnik = new poprawnyZawodnik();
         pop = this.para8[0];
@@ -311,12 +229,12 @@ export class PanelSedziowskiComponent implements OnInit {
         this.updateZawodnika(this.para8[1], this.para8[1].id);
 
       }
-      this.polfinaly()
-
-
+      this.wyswietlPara = this.paraPolFi1[0].nazwa + " " + this.paraPolFi1[1].nazwa;
     }
 
     if (this.aktualnaPara == 8) {
+      this.wyswietlPara = this.paraPolFi2[0].nazwa + " " + this.paraPolFi2[1].nazwa;
+
       if (ktoryZawo == 1) {
         this.paraPolFi1[0].pierwszySFinal = 'true';
         this.updateZawodnika(this.paraPolFi1[0], this.paraPolFi1[0].id);
@@ -326,6 +244,7 @@ export class PanelSedziowskiComponent implements OnInit {
       }
     }
     if (this.aktualnaPara == 9) {
+      this.wyswietlPara = this.paraPolFi3[0].nazwa + " " + this.paraPolFi3[1].nazwa;
       if (ktoryZawo == 1) {
         this.paraPolFi2[0].drugiSFinal = 'true';
         this.updateZawodnika(this.paraPolFi2[0], this.paraPolFi2[0].id);
@@ -335,6 +254,7 @@ export class PanelSedziowskiComponent implements OnInit {
       }
     }
     if (this.aktualnaPara == 10) {
+      this.wyswietlPara = this.paraPolFi4[0].nazwa + " " + this.paraPolFi4[1].nazwa;
       if (ktoryZawo == 1) {
         this.paraPolFi3[0].trzeciSFinal = 'true';
         this.updateZawodnika(this.paraPolFi3[0], this.paraPolFi3[0].id);
@@ -345,6 +265,7 @@ export class PanelSedziowskiComponent implements OnInit {
       // this.finaly();
     }
     if (this.aktualnaPara == 11) {
+      this.wyswietlPara = this.paraFinal1[0].nazwa + " " + this.paraFinal1[1].nazwa;      
       if (ktoryZawo == 1) {
         this.paraPolFi4[0].czwartySFinal = 'true';
         this.updateZawodnika(this.paraPolFi4[0], this.paraPolFi4[0].id);
@@ -355,6 +276,7 @@ export class PanelSedziowskiComponent implements OnInit {
     }
     // finaly
     if (this.aktualnaPara == 12) {
+      this.wyswietlPara = this.paraFinal2[0].nazwa + " " + this.paraFinal2[1].nazwa;      
       if (ktoryZawo == 1) {
         this.paraFinal1[0].pierwszyFinal = 'true';
         this.updateZawodnika(this.paraFinal1[0], this.paraFinal1[0].id);
@@ -372,10 +294,16 @@ export class PanelSedziowskiComponent implements OnInit {
         this.paraFinal2[1].drugiFinal = 'true';
         this.updateZawodnika(this.paraFinal2[1], this.paraFinal2[1].id);
       }
+      setTimeout(() => { 
+        this.wyswietlPara = this.paraGlownyFinal[0].nazwa + " " + this.paraGlownyFinal[1].nazwa;
+       }, 1000);
+      
+      
     }
-
+    //wielki final
 
     if (this.aktualnaPara == 14) {
+      // paraGlownyFinal
       if (ktoryZawo == 1) {
         this.paraGlownyFinal[0].winner = 'true';
         this.updateZawodnika(this.paraGlownyFinal[0], this.paraGlownyFinal[0].id);
@@ -385,9 +313,7 @@ export class PanelSedziowskiComponent implements OnInit {
       }
     }
 
-    this.aktualnaPara++;
 
-    this.ladujPare();
 
   }
 
@@ -544,8 +470,9 @@ export class PanelSedziowskiComponent implements OnInit {
       }
     }
 
-    if (this.aktualnaPara == 12) {
+    if (this.aktualnaPara == 13) {
       if (ktoryZawo == 1) {
+        console.log(this.paraFinal1[0]);
         this.paraFinal2[0].duzePunkty = '' + this.duzePunktyZawodnik1;
         this.updateZawodnika(this.paraFinal2[0], this.paraFinal2[0].id);
       } else {
