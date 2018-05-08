@@ -1,5 +1,5 @@
 <!-- dodaj miejscowość -->
-<div *ngFor="let turnie of turnieje | async ">
+<div class="pole" *ngFor="let turnie of turnieje | async ">
   <div *ngIf="turnie.id === current">
     <div *ngIf="check == defula">
       {{def(turnie)}}
@@ -9,7 +9,7 @@
     <!-- dodaj miejscowość -->
     <form #turniejForm="ngForm" (ngSubmit)="update()">
       <div class="card text-black bg-white" style="margin: 50px">
-          <div class="card-header text-white bg-primary">
+          <div class="card-header">
             <h3 class="panel-title">Właściwości turnieju</h3>
           </div>
         <div class="card-body ">
@@ -25,14 +25,14 @@
               <input id="miasto" type="text" class="form-control" value="{{turnie.miejsce}}" name="miasto" #miasto="ngModel" [(ngModel)]="selectedModeloo.miejsce"
                 style="width:50%">
               
-                <label for="nrkonta">Nr konta:</label>
+                <label for="nrkonta" style="font-size:120%">Nr konta:</label>
               <input id="nrkonta" type="text" class="form-control" value="{{turnie.nr_konta}}" name="nrkonta" #nrkonta="ngModel" [(ngModel)]="selectedModeloo.nr_konta"
                 style="width:50%">
-              <label for="wpisowe">Wpisowe:</label>
+              <label for="wpisowe" style="font-size:120%">Wpisowe:</label>
               <input id="wpisowe" type="text" class="form-control" value="{{turnie.wpisowe}}" name="wpisowe" #wpisowe="ngModel" [(ngModel)]="selectedModeloo.wpisowe"
                 style="width:20%">
 
-                <div class="form-group " >
+                <div class="form-group " style="font-size:120%">
                     <label>Kategoria:</label>
                     <div class="form-control" style="width:10%">
                       
@@ -41,67 +41,71 @@
                     </div>
                   </div>
 
-                  <div style="display:inline-flex">
-                      <div class="form-group " style="margin:5px">
-                          <label for="data">Data Turnieju:</label>
+                  <div>
+                      <div class="form-group " style="width: 25%;">
+                          <label for="data" style="font-size:120%">Data Turnieju:</label>
                           <input id="data" type="date" class="form-control" value="{{turnie.kiedy | date:'yyyy-MM-dd'}}" name="data" #data="ngModel"
                             [(ngModel)]="selectedModeloo.kiedy" />
                         </div>
-              
-                        <div class="form-group "style="margin:5px">
-                          <label for="datakonca">Data końca rejestracji:</label>
+                      </div>
+                      <div>
+                        <div class="form-group "style="width: 25%;">
+                          <label for="datakonca" style="font-size:120%">Data końca rejestracji:</label>
                           <input id="datakonca" type="date" class="form-control" value="{{turnie.do_kiedyrej | date:'yyyy-MM-dd'}}" name="datakonca"
                             #datakonca="ngModel" [(ngModel)]="selectedModeloo.do_kiedyrej" />
                         </div>
-                  </div>
-
-            </div>
-            <div class="form-group col-lg-6">
-              <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
+                    </div>
+                  <br>
+                  <br>
+                  <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
               <textarea id="opisturnieju" cols="30" rows="10" type="text" class="form-control" value="{{turnie.opis}}" name="opisturnieju"
                 #opisturnieju="ngModel" [(ngModel)]="selectedModeloo.opis">
               </textarea>
-              <div class="form-group "style="margin:5px">
-                  <div class="row">
-                      <div class="form-group col-lg-3" >
-                          <label style="font-size:120%">Zapisani:</label>
-                      </div>
-                      <div class="form-group col-lg-3">
-                          <label style="font-size:120%">Oplata?:</label>
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <label style="font-size:120%">Pas:</label>
-                          </div>
-                          <div class="form-group col-lg-3">
-                              <label style="font-size:120%">Waga:</label>
-                            </div>
-                    </div>
-                  <div id="" style="overflow-y:scroll;overflow-x:hidden;border-style:inset">
+
+            </div>
+            <div class="form-group col-lg-6">
+             <div class="list">
+                <div class="navlist">
+                    <table class="table">
+                      <th class="col-sm" style="font-size:100%">Imię i nazwisko</th>
+                      <th class="col-sm" style="font-size:100%">Czy opłacone?</th>
+                      <th class="col-sm" style="font-size:100%">Pas</th>
+                      <th class="col-sm" style="font-size:100%">Waga</th>
+                    </table>
+                  </div>
+              
+                  
+                  <div class="listzaw">
                       <div *ngFor="let zapi of zapisani | async">
-                        <div class="row" >
-                            <div  class="column col-lg-3 ">
-                                <label >{{zapi.nazwa}}</label>
+                          <div class="table-responsive">
+                              <table class="table">
+                                <tbody>
+                                  <tr>
+                                    <th class="col-sm">{{zapi.nazwa}}</th>
+                                    <th class="col-sm">{{zapi.oplacone}}</th>
+                                    <th class="col-sm">{{zapi.pas}}</th>
+                                    <th class="col-sm">{{zapi.waga}}</th>
+                                  </tr>
+                                </tbody>
+                              </table>
                             </div>
-                            <div class="column col-lg-3">
-                                <label >{{zapi.oplacone}}</label>
-                              </div>
-                              <div  class="column col-lg-3 ">
-                                  <label >{{zapi.pas}}</label>
-                              </div>
-                              <div class="column col-lg-3">
-                                  <label >{{zapi.waga}}</label>
-                                </div>
-                        </div>
+                        
                         </div>
                   </div>
-              </div>
+              
+            </div>
             </div>
           </div>
         </div>
         <div class="card-footer">
+<<<<<<< HEAD
             <button class="btn btn-primary" [routerLink]="['/sedziowski', turnie.id]" >Panel sędziowski</button>
           <button class="btn btn-primary" type="submit" [disabled]="turniejForm.invalid">Aktualizuj</button>
           <button class="btn btn-primary" [routerLink]="['/lader', turnie.id]" >Generuj drabinke</button>
+=======
+            <button class="btn btn-outline-primary" [routerLink]="['/sedziowski', turnie.id]" >Panel sędziowski</button>
+          <button class="btn btn-outline-primary" type="submit" [disabled]="turniejForm.invalid">Aktualizuj</button>
+>>>>>>> 0bc2d4e3cf41027ceb097beac99260a59fb1b288
         </div>
         
       </div>
