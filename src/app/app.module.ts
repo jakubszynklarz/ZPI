@@ -45,6 +45,7 @@ import { LadderService } from './ladder/sheard/ladder.service';
 import { GenerujLadderComponent } from './ladder/generuj-ladder/generuj-ladder.component';
 import { TurniejPodzialComponent } from './zarzadzaj/shared/turniej-podzial/turniej-podzial.component';
 import { TurniejPodzialSerService } from './zarzadzaj/shared/turniej-podzial-ser.service';
+import { DrabinkaWyswietlComponent } from './ladder/drabinka-wyswietl/drabinka-wyswietl.component';
 
 
 
@@ -83,7 +84,9 @@ declare var require: any;
 
     TurniejDetailsComponent,
 
-    TurniejPodzialComponent
+    TurniejPodzialComponent,
+
+    DrabinkaWyswietlComponent
 
 
   ],

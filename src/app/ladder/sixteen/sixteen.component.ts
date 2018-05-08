@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { LadderService } from '../sheard/ladder.service';
 import { TurniejPodzialSerService } from '../../zarzadzaj/shared/turniej-podzial-ser.service';
 import {} from '@types/node'
+import { Modeloo } from '../../zarzadzaj/shared/modeloo.model';
 @Component({
   selector: 'app-sixteen',
   templateUrl: './sixteen.component.html',
@@ -36,7 +37,7 @@ export class SixteenComponent implements OnInit {
   public poz14: string;
   public poz15: string;
   public poz16: string;
-
+  public nazwaturnieju: string;
   zawColection1: poprawnyZawodnik[];
   zawColection2: poprawnyZawodnik[];
   zawColection3: poprawnyZawodnik[];
@@ -48,9 +49,13 @@ export class SixteenComponent implements OnInit {
   zawColection8: poprawnyZawodnik[];
   zawColection9: poprawnyZawodnik[];
   zawColection10: poprawnyZawodnik[];
-
-
+  turnieje: Modeloo;
+  
   constructor(private db: AngularFirestore, private ladServ: LadderService, private podzielone: TurniejPodzialSerService) {
+    // ladServ.getTur(this.current).subscribe(data => { this.turnieje = data.filter(turn => turn.id == this.current)[0];});
+    ladServ.getTur().subscribe(data => { this.turnieje = data.filter(turn => turn.id == this.current)[0];});
+
+   
     ladServ.getzawo(this.current, 'heavy', 'czarny', 'man').subscribe(data => { this.zawColection = data });
     //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[0],'man').subscribe(data => {this.zawColection1 = data});
     //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[1],'man').subscribe(data => {this.zawColection2 = data});
@@ -66,7 +71,9 @@ export class SixteenComponent implements OnInit {
     // this.zawColection = this.db.collection<poprawnyZawodnik>('/turnieje/'+ this.current+'/zapisani/gi/zawodnicy/',ref => {return ref.where('','==','')});
     setTimeout(() => {
       this.fukcja()
-    }, 2000);
+      this.nazwaturnieju=this.turnieje.nazwa
+          }, 4000);
+
 
     // this.mojaFun(); 
   }

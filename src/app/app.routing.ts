@@ -17,6 +17,7 @@ import { ZapisaneComponent } from './zarzadzaj/zapisany/zapisane/zapisane.compon
 import { LadderComponent } from './ladder/ladder.component';
 import { GenerujLadderComponent } from './ladder/generuj-ladder/generuj-ladder.component';
 import { SixteenComponent } from './ladder/sixteen/sixteen.component';
+import { DrabinkaWyswietlComponent } from './ladder/drabinka-wyswietl/drabinka-wyswietl.component';
 // import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-details.component';
 
 
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     {path:'turnieje/:def_number',component: MyevenComponent},
     {path:'sedziowski/:def_number',component: PanelSedziowskiComponent},
     {path:'zapisany/:def_number',component: ZapisaneComponent},
+    {path:'ladder/:pas/:waga/:def_number',component: DrabinkaWyswietlComponent},
     
 
 
