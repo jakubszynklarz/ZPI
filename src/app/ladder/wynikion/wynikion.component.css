@@ -1,0 +1,51 @@
+.pole{
+    width: 80%;
+    margin: 0 auto;
+}
+.card-body{
+    min-height: 800px;
+}
+
+.list{
+    text-align: center;
+    border: 0.5px solid #A8A8A8;
+    border-radius: 10px;
+    margin: 5px;
+    
+}
+.listzaw{
+    height: 750px;
+    overflow-y: auto;
+}
+.opistruniej{
+    width: 100%;
+}
+.navlist{
+    width: 100%;
+    margin: 0 auto;
+    color: black;
+    border-radius: 10px 10px 0 0px;
+    display: block;
+}
+td.col-sm{
+    max-width: 10%;
+    max-height: 200px;
+    
+    
+}
+th.col-sm{
+    width: 20%;
+    font-style: normal;
+    text-shadow: none;
+    font-weight: normal;
+}
+tbody{
+    width: 70%;
+    max-height: 230px;
+    overflow-y: auto;
+    
+}
+.divek{
+    font-weight: bold;
+}
+    
