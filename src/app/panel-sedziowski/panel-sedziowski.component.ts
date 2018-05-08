@@ -122,9 +122,16 @@ export class PanelSedziowskiComponent implements OnInit {
           this.paraFinal2 = data.filter(p => p.drugiSFinal == 'true' || p.czwartySFinal == 'true');
           this.paraGlownyFinal = data.filter(p => p.pierwszyFinal == 'true' || p.drugiFinal == 'true')
 
+
+          if(this.aktualnaPara==-1){
+            this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
+            
+          }
         }
       }, 1000);
     });
+
+    
   }
 
 
@@ -141,7 +148,7 @@ export class PanelSedziowskiComponent implements OnInit {
 
 
   wygral(ktoryZawo: number) {
-
+    
     this.aktualnaPara++;
 
     //#region pierwszaRunda
@@ -311,6 +318,11 @@ export class PanelSedziowskiComponent implements OnInit {
         this.paraGlownyFinal[1].winner = 'true';
         this.updateZawodnika(this.paraGlownyFinal[1], this.paraGlownyFinal[1].id);
       }
+    }
+
+    if (this.aktualnaPara == 15) {
+      // paraGlownyFinal
+      this.wyswietlPara = "5o był ostatni zawodnik w tej drabince."
     }
 
 
