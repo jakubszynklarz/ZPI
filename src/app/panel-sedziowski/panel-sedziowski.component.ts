@@ -86,13 +86,15 @@ export class PanelSedziowskiComponent implements OnInit {
     //#endregion
 
   }
-  
+
   ladujPare() {
     this.aktualnaPara++;
     if (this.aktualnaPara == 0) {
+      // console.log('pierwsza prara');
       this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
     } if (this.aktualnaPara == 1) {
-
+      // console.log('druga prara');
+      
       this.wyswietlPara = this.para2[0].nazwa + " " + this.para2[1].nazwa;
     } if (this.aktualnaPara == 2) {
 
@@ -118,7 +120,7 @@ export class PanelSedziowskiComponent implements OnInit {
   ladujZawodnikow(waga: string, pas: string) {
     this.wagadoFun = waga;
     this.pasdoFun = pas;
-    this.aktualnaPara = 0;
+    this.aktualnaPara = -1;
     this.podzialServ.getPodzial(this.current, waga, pas, 'man').subscribe(data => {
       this.zawodnicy = data;
       // console.log(data);
@@ -148,9 +150,90 @@ export class PanelSedziowskiComponent implements OnInit {
   }
 
 
+  wygral(ktoryZawo: number) {
+
+    if (this.aktualnaPara == 0) {
+      if (ktoryZawo == 1) {
+        this.para1[0].pierwszyoQ = 'true';
+        this.updateZawodnika(this.para1[0], this.para1[0].id);
+      } else {
+        this.para1[1].pierwszyoQ = 'true';
+        this.updateZawodnika(this.para1[1], this.para1[1].id);
+      }
+
+    } if (this.aktualnaPara == 1) {
+      if (ktoryZawo == 1) {
+        this.para2[0].drugioQ = 'true';
+        this.updateZawodnika(this.para2[0], this.para2[0].id);
+      } else {
+        this.para2[1].drugioQ = 'true';
+        this.updateZawodnika(this.para2[1], this.para2[1].id);
+      }
+
+    } if (this.aktualnaPara == 2) {
+      if (ktoryZawo == 1) {
+        this.para3[0].trzecioQ = 'true';
+        this.updateZawodnika(this.para3[0], this.para3[0].id);
+      } else {
+        this.para3[1].trzecioQ = 'true';
+        this.updateZawodnika(this.para3[1], this.para3[1].id);
+      }
+
+    } if (this.aktualnaPara == 3) {
+      if (ktoryZawo == 1) {
+        this.para4[0].czwartyoQ = 'true';
+        this.updateZawodnika(this.para4[0], this.para4[0].id);
+      } else {
+        this.para4[1].czwartyoQ = 'true';
+        this.updateZawodnika(this.para4[1], this.para4[1].id);
+      }
+
+    } if (this.aktualnaPara == 4) {
+      if (ktoryZawo == 1) {
+        this.para5[0].piatyoQ = 'true';
+        this.updateZawodnika(this.para5[0], this.para5[0].id);
+      } else {
+        this.para5[1].piatyoQ = 'true';
+        this.updateZawodnika(this.para5[1], this.para5[1].id);
+      }
+
+    } if (this.aktualnaPara == 5) {
+      if (ktoryZawo == 1) {
+        this.para6[0].szustyoQ = 'true';
+        this.updateZawodnika(this.para6[0], this.para6[0].id);
+      } else {
+        this.para6[1].szustyoQ = 'true';
+        this.updateZawodnika(this.para6[1], this.para6[1].id);
+      }
+
+    } if (this.aktualnaPara == 6) {
+
+      if (ktoryZawo == 1) {
+        this.para7[0].siuoQ = 'true';
+        this.updateZawodnika(this.para7[0], this.para7[0].id);
+      } else {
+        this.para7[1].siuoQ = 'true';
+        this.updateZawodnika(this.para7[1], this.para7[1].id);
+      }
+
+    } if (this.aktualnaPara == 7) {
+      if (ktoryZawo == 1) {
+        this.para8[0].osmyuoQ = 'true';
+        this.updateZawodnika(this.para8[0], this.para8[0].id);
+      } else {
+        this.para8[1].osmyuoQ = 'true';
+        this.updateZawodnika(this.para8[1], this.para8[1].id);
+      }
+    }
+    this.ladujPare();
+
+
+  }
+
+
   updateZawodnika(slo: poprawnyZawodnik, idDokumentu) {
     // console.log(idDokumentu);
-    this.db.doc('/turnieje/'+this.current+'/'+this.pasdoFun+'/'+this.wagadoFun+'/man/'+idDokumentu).update(slo);
+    this.db.doc('/turnieje/' + this.current + '/' + this.pasdoFun + '/' + this.wagadoFun + '/man/' + idDokumentu).update(slo);
 
   }
 
@@ -214,7 +297,7 @@ export class PanelSedziowskiComponent implements OnInit {
         this.para5[1].duzePunkty = '' + this.duzePunktyZawodnik2;
         this.updateZawodnika(this.para5[1], this.para5[1].id);
       }
-      
+
     } if (this.aktualnaPara == 5) {
 
       if (ktoryZawo == 1) {
@@ -226,7 +309,7 @@ export class PanelSedziowskiComponent implements OnInit {
         this.para6[1].duzePunkty = '' + this.duzePunktyZawodnik2;
         this.updateZawodnika(this.para6[1], this.para6[1].id);
       }
-      
+
     } if (this.aktualnaPara == 6) {
 
       if (ktoryZawo == 1) {
@@ -265,7 +348,7 @@ export class PanelSedziowskiComponent implements OnInit {
     this.aktualizujZawodnikow(1);
   }
   zwiekszDuzeZawodnik2(ilePunktow) {
-    
+
     this.duzePunktyZawodnik2 += ilePunktow;
     if (this.duzePunktyZawodnik2 < 0) {
       this.duzePunktyZawodnik2 = 0;
