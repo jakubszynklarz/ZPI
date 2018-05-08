@@ -6,6 +6,7 @@ import { Modeloo } from '../zarzadzaj/shared/modeloo.model';
 import { KeysPipePipe } from '../zarzadzaj/zapisany/zapisane/kategorie/keys-pipe.pipe';
 import { TurniejPodzialSerService } from '../zarzadzaj/shared/turniej-podzial-ser.service';
 import { poprawnyZawodnik } from '../turnieje/zapisz-sie/form-zapisz-sie/form-zapisz-sie.component';
+import { isNullOrUndefined } from 'util';
 
 
 @Component({
@@ -37,7 +38,9 @@ export class PanelSedziowskiComponent implements OnInit {
   paraFinal1: poprawnyZawodnik[] = [];
   paraFinal2: poprawnyZawodnik[] = [];
 
+  paraGlownyFinal: poprawnyZawodnik[] = [];
   
+
 
 
 
@@ -99,61 +102,61 @@ export class PanelSedziowskiComponent implements OnInit {
   }
 
   ladujPare() {
-    this.aktualnaPara++;
-    // if (this.aktualnaPara == 0) {
-    //   // console.log('pierwsza prara');
-    //   this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
-    // } if (this.aktualnaPara == 1) {
-    //   // console.log('druga prara');
+    if (this.aktualnaPara == 0) {
+      // console.log('pierwsza prara');
+      this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
+    } if (this.aktualnaPara == 1) {
+      // console.log('druga prara');
 
-    //   this.wyswietlPara = this.para2[0].nazwa + " " + this.para2[1].nazwa;
-    // } if (this.aktualnaPara == 2) {
+      this.wyswietlPara = this.para2[0].nazwa + " " + this.para2[1].nazwa;
+    } if (this.aktualnaPara == 2) {
 
-    //   this.wyswietlPara = this.para3[0].nazwa + " " + this.para3[1].nazwa;
-    // } if (this.aktualnaPara == 3) {
+      this.wyswietlPara = this.para3[0].nazwa + " " + this.para3[1].nazwa;
+    } if (this.aktualnaPara == 3) {
 
-    //   this.wyswietlPara = this.para4[0].nazwa + " " + this.para4[1].nazwa;
-    // } if (this.aktualnaPara == 4) {
+      this.wyswietlPara = this.para4[0].nazwa + " " + this.para4[1].nazwa;
+    } if (this.aktualnaPara == 4) {
 
-    //   this.wyswietlPara = this.para5[0].nazwa + " " + this.para5[1].nazwa;
-    // } if (this.aktualnaPara == 5) {
+      this.wyswietlPara = this.para5[0].nazwa + " " + this.para5[1].nazwa;
+    } if (this.aktualnaPara == 5) {
 
-    //   this.wyswietlPara = this.para6[0].nazwa + " " + this.para6[1].nazwa;
-    // } if (this.aktualnaPara == 6) {
+      this.wyswietlPara = this.para6[0].nazwa + " " + this.para6[1].nazwa;
+    } if (this.aktualnaPara == 6) {
 
-    //   this.wyswietlPara = this.para7[0].nazwa + " " + this.para7[1].nazwa;
-    // } 
+      this.wyswietlPara = this.para7[0].nazwa + " " + this.para7[1].nazwa;
+    }
     if (this.aktualnaPara == 7) {
       this.wyswietlPara = this.para8[0].nazwa + " " + this.para8[1].nazwa;
-      this.polfinaly()
-      // console.log('stop');
+
     }
-     
-    // // polfinaly
-    // if (this.aktualnaPara == 8) {
-      
-    //   this.wyswietlPara = this.paraPolFi1[0].nazwa +  " "+this.paraPolFi1[1].nazwa;
-    // }
-    // if (this.aktualnaPara == 9) {
-    //   this.wyswietlPara = this.paraPolFi2[0].nazwa + " " + this.paraPolFi2[1].nazwa;
-    // }
-    // if (this.aktualnaPara == 10) {
-    //   this.wyswietlPara = this.paraPolFi3[0].nazwa + " " + this.paraPolFi3[1].nazwa;
-    // }
-    // if (this.aktualnaPara == 11) {
-      
-    //   this.wyswietlPara = this.paraPolFi4[0].nazwa + " " + this.paraPolFi4[1].nazwa; 
-    // }
-    // // finaly
-    // if (this.aktualnaPara == 12) {
-      
-    //   console.log(this.paraFinal1);
-    //   this.wyswietlPara = this.paraFinal1[0].nazwa +  " "+this.paraFinal1[1].nazwa;
-    // }
-    // if (this.aktualnaPara == 13) {
-    //   console.log(this.paraFinal2);
-    //   this.wyswietlPara = this.paraFinal2[0].nazwa +  " "+this.paraFinal2[1].nazwa;
-    // }
+
+    // polfinaly
+    if (this.aktualnaPara == 8) {
+
+      this.wyswietlPara = this.paraPolFi1[0].nazwa + " " + this.paraPolFi1[1].nazwa;
+    }
+    if (this.aktualnaPara == 9) {
+      this.wyswietlPara = this.paraPolFi2[0].nazwa + " " + this.paraPolFi2[1].nazwa;
+    }
+    if (this.aktualnaPara == 10) {
+      this.wyswietlPara = this.paraPolFi3[0].nazwa + " " + this.paraPolFi3[1].nazwa;
+    }
+    if (this.aktualnaPara == 11) {
+
+      this.wyswietlPara = this.paraPolFi4[0].nazwa + " " + this.paraPolFi4[1].nazwa;
+    }
+    // finaly
+    if (this.aktualnaPara == 12) {
+      console.log(this.paraFinal1);
+      this.wyswietlPara = this.paraFinal1[0].nazwa + " " + this.paraFinal1[1].nazwa;
+    }
+    if (this.aktualnaPara == 13) {
+      this.wyswietlPara = this.paraFinal2[0].nazwa + " " + this.paraFinal2[1].nazwa;
+    }
+    if (this.aktualnaPara == 14) {
+      this.wyswietlPara = this.paraGlownyFinal[0].nazwa + " " + this.paraGlownyFinal[1].nazwa;
+    }
+    
   }
 
 
@@ -198,25 +201,22 @@ export class PanelSedziowskiComponent implements OnInit {
     this.paraPolFi4.push(this.para8.filter(p => p.osmyuoQ == 'true')[0]);
   }
 
-  finaly(){
+  finaly() {
     //  1 i 3 || 2 i 4 
-    console.log(this.paraPolFi1);
-    console.log(this.paraPolFi2);
-    console.log(this.paraPolFi3);
-    console.log(this.paraPolFi4);
-    console.log('start');
-     
+
     this.paraFinal1.push(this.paraPolFi1.filter(p => p.pierwszySFinal == 'true')[0]);
     this.paraFinal1.push(this.paraPolFi3.filter(p => p.trzeciSFinal == 'true')[0]);
-    
+
     this.paraFinal2.push(this.paraPolFi2.filter(p => p.drugiSFinal == 'true')[0]);
     this.paraFinal2.push(this.paraPolFi4.filter(p => p.czwartySFinal == 'true')[0]);
-    console.log(this.paraFinal1);
-    console.log(this.paraFinal2);
-    console.log('stop');
-    
-    
+
+
+
     // this.paraFinal1.push(this.paraPolFi1.filter(p => p.pierwszySFinal == 'true'));
+  }
+  ultimateFinal(){
+      this.paraGlownyFinal.push(this.paraPolFi4.filter(p => p.pierwszyFinal == 'true')[0]);
+      this.paraGlownyFinal.push(this.paraPolFi4.filter(p => p.drugiFinal == 'true')[0]);
   }
 
   ngOnInit() {
@@ -231,6 +231,9 @@ export class PanelSedziowskiComponent implements OnInit {
 
 
   wygral(ktoryZawo: number) {
+    if (this.aktualnaPara == 11) {
+      this.finaly()
+    }
 
     if (this.aktualnaPara == 0) {
       if (ktoryZawo == 1) {
@@ -302,13 +305,14 @@ export class PanelSedziowskiComponent implements OnInit {
         let pop: poprawnyZawodnik = new poprawnyZawodnik();
         pop = this.para8[0];
         pop.osmyuoQ = 'true';
-        // this.para8[0].osmyuoQ = 'true';
         this.updateZawodnika(pop, this.para8[0].id);
       } else {
         this.para8[1].osmyuoQ = 'true';
         this.updateZawodnika(this.para8[1], this.para8[1].id);
-        
+
       }
+      this.polfinaly()
+
 
     }
 
@@ -338,9 +342,9 @@ export class PanelSedziowskiComponent implements OnInit {
         this.paraPolFi3[1].trzeciSFinal = 'true';
         this.updateZawodnika(this.paraPolFi3[1], this.paraPolFi3[1].id);
       }
+      // this.finaly();
     }
     if (this.aktualnaPara == 11) {
-      console.log(this.paraPolFi4);
       if (ktoryZawo == 1) {
         this.paraPolFi4[0].czwartySFinal = 'true';
         this.updateZawodnika(this.paraPolFi4[0], this.paraPolFi4[0].id);
@@ -348,11 +352,8 @@ export class PanelSedziowskiComponent implements OnInit {
         this.paraPolFi4[1].czwartySFinal = 'true';
         this.updateZawodnika(this.paraPolFi4[1], this.paraPolFi4[1].id);
       }
-      setTimeout(() => { this.finaly(); }, 1000);
-      
     }
-// finaly
-
+    // finaly
     if (this.aktualnaPara == 12) {
       if (ktoryZawo == 1) {
         this.paraFinal1[0].pierwszyFinal = 'true';
@@ -373,6 +374,18 @@ export class PanelSedziowskiComponent implements OnInit {
       }
     }
 
+
+    if (this.aktualnaPara == 14) {
+      if (ktoryZawo == 1) {
+        this.paraGlownyFinal[0].winner = 'true';
+        this.updateZawodnika(this.paraGlownyFinal[0], this.paraGlownyFinal[0].id);
+      } else {
+        this.paraGlownyFinal[1].winner = 'true';
+        this.updateZawodnika(this.paraGlownyFinal[1], this.paraGlownyFinal[1].id);
+      }
+    }
+
+    this.aktualnaPara++;
 
     this.ladujPare();
 
