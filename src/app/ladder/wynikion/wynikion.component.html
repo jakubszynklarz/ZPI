@@ -1,0 +1,105 @@
+
+<div class="card text-black bg-white" style="margin: 50px">
+  <div class="card-header">
+    <h3 class="panel-title" style="float: left ;">Wyniki online:</h3>
+
+
+
+
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="form-group col-lg-6">
+        <div class="listakat">
+
+
+
+          <div class="card text-black bg-white" style="margin: 20px">
+            <div class="card-header">
+              <h3 class="panel-title" align="center">Czarny Heavy</h3>
+
+
+
+
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="form-group col-lg-12">
+                  <div class="navlist">
+                    <table class="table">
+                      <th class="col-sm" style="font-size:100%">Uczestnik</th>
+                      <th class="col-sm" style="font-size:100%">Klub</th>
+                      <th class="col-sm" style="font-size:100%">Pozycja startowa</th>
+                      <th class="col-sm" style="font-size:100%">Dotarł do</th>
+                      <th class="col-sm" style="font-size:100%">Wygrane</th>
+                      <th class="col-sm" style="font-size:100%">Suma punktów</th>
+                      
+                    </table>
+                  </div>
+                  <div *ngFor="let zaw of zawColection8 ">
+
+                    <div *ngIf="zaw.nazwa !== 'Brak zawodnika'">
+                      <table class="table">
+
+                        <tbody>
+                          <tr>
+                            <th class="col-sm">{{zaw.nazwa}}</th>
+                            <th class="col-sm">{{zaw.klub}}</th>
+                            <th class="col-sm">{{zaw.pozycjaStartowa}}</th>
+
+
+                            <ng-container *ngIf="zaw.pierwszyoQ === 'true'  || zaw.drugioQ === 'true' || zaw.trzecioQ === 'true'
+                             || zaw.czwartyoQ === 'true' || zaw.piatyoQ === 'true' || zaw.szustyoQ === 'true' 
+                             || zaw.siuoQ === 'true' || zaw.osmyuoQ === 'true';else loss">
+                             <ng-container #semi *ngIf="zaw.pierwszySFinal === 'true'  || zaw.drugiSFinal === 'true' || zaw.trzeciSFinal === 'true'
+                            || zaw.czwartySFinal === 'true';else cwierc">
+                            <ng-container #pol *ngIf="zaw.pierwszyFinal === 'true'  || zaw.drugiFinal === 'true'
+                            ;else semifi">
+                            <ng-container #pol *ngIf="zaw.winner === 'true';else final">
+                                <th class="col-sm">Zwyciezca</th>
+                                <th class="col-sm">4</th>
+                            </ng-container>
+                            </ng-container>
+                            </ng-container>
+                          </ng-container>
+                          <th class="col-sm">{{zaw.duzePunkty}}</th>
+
+
+
+                            <ng-template #loss>
+                              <th class="col-sm">Pierwsza runda</th>
+                              <th class="col-sm">0</th>
+                            </ng-template>
+                            <ng-template #semifi>
+                              <th class="col-sm">Pół finał</th>
+                              <th class="col-sm">2</th>
+                            </ng-template>
+                            <ng-template #cwierc>
+                              <th class="col-sm">Cwierc finał</th>
+                              <th class="col-sm">1</th>
+                            </ng-template>
+                            <ng-template #final>
+                              <th class="col-sm">Finał</th>
+                              <th class="col-sm">3</th>
+                            </ng-template>
+                            <ng-template #zwyciezca>
+                              <th class="col-sm">Zwyciezca</th>
+                            </ng-template>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                    </div>
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

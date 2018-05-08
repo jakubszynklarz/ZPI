@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { poprawnyZawodnik } from '../../turnieje/zapisz-sie/form-zapisz-sie/form-zapisz-sie.component';
+import { Modeloo } from '../../zarzadzaj/shared/modeloo.model';
 
 @Injectable()
 export class LadderService {
@@ -37,6 +38,20 @@ export class LadderService {
 
     return turniej;
 
+  }
+
+
+  getTur() {
+    let turniejCollection = this.db.collection<Modeloo[]>('/turnieje');
+     let turniej = turniejCollection.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Modeloo;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })
+    });
+    
+    return turniej;
   }
 
 }

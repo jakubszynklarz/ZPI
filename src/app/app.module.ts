@@ -45,10 +45,12 @@ import { LadderService } from './ladder/sheard/ladder.service';
 import { GenerujLadderComponent } from './ladder/generuj-ladder/generuj-ladder.component';
 import { TurniejPodzialComponent } from './zarzadzaj/shared/turniej-podzial/turniej-podzial.component';
 import { TurniejPodzialSerService } from './zarzadzaj/shared/turniej-podzial-ser.service';
+import { DrabinkaWyswietlComponent } from './ladder/drabinka-wyswietl/drabinka-wyswietl.component';
+import { WynikionComponent } from './ladder/wynikion/wynikion.component';
 
 
 
-
+declare var require: any;
 
 @NgModule({
   declarations: [
@@ -83,7 +85,11 @@ import { TurniejPodzialSerService } from './zarzadzaj/shared/turniej-podzial-ser
 
     TurniejDetailsComponent,
 
-    TurniejPodzialComponent
+    TurniejPodzialComponent,
+
+    DrabinkaWyswietlComponent,
+
+    WynikionComponent
 
 
   ],
