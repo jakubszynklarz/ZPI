@@ -46,6 +46,7 @@ import { GenerujLadderComponent } from './ladder/generuj-ladder/generuj-ladder.c
 import { TurniejPodzialComponent } from './zarzadzaj/shared/turniej-podzial/turniej-podzial.component';
 import { TurniejPodzialSerService } from './zarzadzaj/shared/turniej-podzial-ser.service';
 import { DrabinkaWyswietlComponent } from './ladder/drabinka-wyswietl/drabinka-wyswietl.component';
+import { WynikionComponent } from './ladder/wynikion/wynikion.component';
 
 
 
@@ -86,7 +87,9 @@ declare var require: any;
 
     TurniejPodzialComponent,
 
-    DrabinkaWyswietlComponent
+    DrabinkaWyswietlComponent,
+
+    WynikionComponent
 
 
   ],

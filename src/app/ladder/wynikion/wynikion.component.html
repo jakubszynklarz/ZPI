@@ -1,0 +1,58 @@
+
+<button (click)="test()">asd
+</button>
+      <div class="card text-black bg-white" style="margin: 50px">
+        <div class="card-header">
+          <h3 class="panel-title" style="float: left ;">Wyniki online:</h3> 
+
+          
+               
+          
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <div class="listakat">
+
+
+
+                <div class="card text-black bg-white" style="margin: 20px">
+                  <div class="card-header">
+                    <h3 class="panel-title" align="center">Czarny Heavy</h3> 
+          
+                    
+                         
+                    
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="form-group col-lg-6">
+                        <div class="listzaw"*ngFor="let zaw of zawColection8 ">
+                           
+                            <div *ngIf="zaw.nazwa !== 'Brak zawodnika'">
+                              <table class="table">
+                                <tbody>
+                                  <tr>
+                                    <th class="col-sm">{{zaw.nazwa}}</th>
+                                    <th class="col-sm">{{zaw.pozycjaStartowa}}</th>
+                                    
+                                  </tr>
+                                </tbody>
+                              </table>
+                            
+          
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  

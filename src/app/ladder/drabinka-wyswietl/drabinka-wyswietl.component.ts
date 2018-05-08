@@ -39,6 +39,15 @@ export class DrabinkaWyswietlComponent implements OnInit {
   public q7:string;
   public q8:string;
 
+  public sf1:string;
+  public sf2:string;
+  public sf3:string;
+  public sf4:string;
+
+  public fi1:string;
+  public fi2:string;
+  public zwyciezca:string;
+
   public nazwaturnieju: string;
   zawColection1: poprawnyZawodnik[];
   zawColection2: poprawnyZawodnik[];
@@ -60,7 +69,7 @@ export class DrabinkaWyswietlComponent implements OnInit {
     setTimeout(() => {
       this.fukcja()
       this.nazwaturnieju=this.turnieje.nazwa
-          }, 4000);
+          }, 3000);
           
    }
 
@@ -120,7 +129,20 @@ export class DrabinkaWyswietlComponent implements OnInit {
         this.q7=zaw.nazwa
       }if(zaw.osmyuoQ=='true'){
         this.q8=zaw.nazwa
+      }if(zaw.pierwszySFinal =='true'){
+        this.sf1=zaw.nazwa
+      }if(zaw.drugiSFinal =='true'){
+        this.sf2=zaw.nazwa
+      }if(zaw.trzeciSFinal =='true'){
+        this.sf3=zaw.nazwa
+      }if(zaw.czwartySFinal =='true'){
+        this.sf4=zaw.nazwa
+      }if(zaw.pierwszyFinal =='true'){
+        this.fi1=zaw.nazwa
+      }if(zaw.drugiFinal =='true'){
+        this.fi2=zaw.nazwa
       }
+
 
 
 

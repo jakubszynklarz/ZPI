@@ -29,7 +29,7 @@ export class ZapisaneComponent implements OnInit {
 
   private zapisaniCollection: AngularFirestoreCollection<Kategorie>;
   private zapisani: Observable<any[]>;
-  
+  public datakonca:string;
   constructor(private db: AngularFirestore) { 
     
     this.turnieCollection=db.collection<Modeloo>('/turnieje');
@@ -74,6 +74,9 @@ export class ZapisaneComponent implements OnInit {
       wpisowe:this.selectedModeloo.wpisowe
     });
   }
-  
+  public datka(data){
+    console.log(data);
+
+  }
 
 }
