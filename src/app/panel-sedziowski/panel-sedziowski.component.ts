@@ -34,6 +34,11 @@ export class PanelSedziowskiComponent implements OnInit {
   paraPolFi3: poprawnyZawodnik[] = [];
   paraPolFi4: poprawnyZawodnik[] = [];
 
+  paraFinal1: poprawnyZawodnik[] = [];
+  paraFinal2: poprawnyZawodnik[] = [];
+
+  
+
 
 
   // private zapisaniCollection: AngularFirestoreCollection<Kategorie>;
@@ -95,58 +100,60 @@ export class PanelSedziowskiComponent implements OnInit {
 
   ladujPare() {
     this.aktualnaPara++;
-    if (this.aktualnaPara == 0) {
-      // console.log('pierwsza prara');
-      this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
-    } if (this.aktualnaPara == 1) {
-      // console.log('druga prara');
+    // if (this.aktualnaPara == 0) {
+    //   // console.log('pierwsza prara');
+    //   this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
+    // } if (this.aktualnaPara == 1) {
+    //   // console.log('druga prara');
 
-      this.wyswietlPara = this.para2[0].nazwa + " " + this.para2[1].nazwa;
-    } if (this.aktualnaPara == 2) {
+    //   this.wyswietlPara = this.para2[0].nazwa + " " + this.para2[1].nazwa;
+    // } if (this.aktualnaPara == 2) {
 
-      this.wyswietlPara = this.para3[0].nazwa + " " + this.para3[1].nazwa;
-    } if (this.aktualnaPara == 3) {
+    //   this.wyswietlPara = this.para3[0].nazwa + " " + this.para3[1].nazwa;
+    // } if (this.aktualnaPara == 3) {
 
-      this.wyswietlPara = this.para4[0].nazwa + " " + this.para4[1].nazwa;
-    } if (this.aktualnaPara == 4) {
+    //   this.wyswietlPara = this.para4[0].nazwa + " " + this.para4[1].nazwa;
+    // } if (this.aktualnaPara == 4) {
 
-      this.wyswietlPara = this.para5[0].nazwa + " " + this.para5[1].nazwa;
-    } if (this.aktualnaPara == 5) {
+    //   this.wyswietlPara = this.para5[0].nazwa + " " + this.para5[1].nazwa;
+    // } if (this.aktualnaPara == 5) {
 
-      this.wyswietlPara = this.para6[0].nazwa + " " + this.para6[1].nazwa;
-    } if (this.aktualnaPara == 6) {
+    //   this.wyswietlPara = this.para6[0].nazwa + " " + this.para6[1].nazwa;
+    // } if (this.aktualnaPara == 6) {
 
-      this.wyswietlPara = this.para7[0].nazwa + " " + this.para7[1].nazwa;
-    } if (this.aktualnaPara == 7) {
+    //   this.wyswietlPara = this.para7[0].nazwa + " " + this.para7[1].nazwa;
+    // } 
+    if (this.aktualnaPara == 7) {
       this.wyswietlPara = this.para8[0].nazwa + " " + this.para8[1].nazwa;
       this.polfinaly()
+      // console.log('stop');
     }
-    // polfinaly
-    if (this.aktualnaPara == 8) {
+     
+    // // polfinaly
+    // if (this.aktualnaPara == 8) {
       
-      this.wyswietlPara = this.paraPolFi1[0].nazwa +  " "+this.paraPolFi1[1].nazwa;
-    }
-    if (this.aktualnaPara == 9) {
-      console.log('polfinaly1');
-      console.log(this.paraPolFi2);
+    //   this.wyswietlPara = this.paraPolFi1[0].nazwa +  " "+this.paraPolFi1[1].nazwa;
+    // }
+    // if (this.aktualnaPara == 9) {
+    //   this.wyswietlPara = this.paraPolFi2[0].nazwa + " " + this.paraPolFi2[1].nazwa;
+    // }
+    // if (this.aktualnaPara == 10) {
+    //   this.wyswietlPara = this.paraPolFi3[0].nazwa + " " + this.paraPolFi3[1].nazwa;
+    // }
+    // if (this.aktualnaPara == 11) {
       
-      this.wyswietlPara = this.paraPolFi2[0].nazwa + " " + this.paraPolFi2[1].nazwa;
-    }
-    if (this.aktualnaPara == 10) {
-      console.log('polfinaly2');
+    //   this.wyswietlPara = this.paraPolFi4[0].nazwa + " " + this.paraPolFi4[1].nazwa; 
+    // }
+    // // finaly
+    // if (this.aktualnaPara == 12) {
       
-      console.log(this.paraPolFi3);
-      
-      this.wyswietlPara = this.paraPolFi3[0].nazwa + " " + this.paraPolFi3[1].nazwa;
-    }
-    if (this.aktualnaPara == 11) {
-      console.log('polfinaly3');
-      console.log(this.paraPolFi4);
-      
-      this.wyswietlPara = this.paraPolFi4[0].nazwa + " " + this.paraPolFi4[1].nazwa;
-    }
-
-
+    //   console.log(this.paraFinal1);
+    //   this.wyswietlPara = this.paraFinal1[0].nazwa +  " "+this.paraFinal1[1].nazwa;
+    // }
+    // if (this.aktualnaPara == 13) {
+    //   console.log(this.paraFinal2);
+    //   this.wyswietlPara = this.paraFinal2[0].nazwa +  " "+this.paraFinal2[1].nazwa;
+    // }
   }
 
 
@@ -173,9 +180,10 @@ export class PanelSedziowskiComponent implements OnInit {
     });
   }
   polfinaly() {
-
     // funkcja opdla sie przy wysweitlaniu
     // pary 1 i 3 || 2 i 4 || 5 i 7 || 6 i 8
+
+
     this.paraPolFi1.push(this.para1.filter(p => p.pierwszyoQ == 'true')[0]);
     this.paraPolFi1.push(this.para3.filter(p => p.trzecioQ == 'true')[0]);
     // console.log(this.paraPolFi1);
@@ -184,9 +192,31 @@ export class PanelSedziowskiComponent implements OnInit {
 
     this.paraPolFi3.push(this.para5.filter(p => p.piatyoQ == 'true')[0]);
     this.paraPolFi3.push(this.para7.filter(p => p.siuoQ == 'true')[0]);
-
+    // console.log(this.para6);
+    // console.log(this.para8);
     this.paraPolFi4.push(this.para6.filter(p => p.szustyoQ == 'true')[0]);
     this.paraPolFi4.push(this.para8.filter(p => p.osmyuoQ == 'true')[0]);
+  }
+
+  finaly(){
+    //  1 i 3 || 2 i 4 
+    console.log(this.paraPolFi1);
+    console.log(this.paraPolFi2);
+    console.log(this.paraPolFi3);
+    console.log(this.paraPolFi4);
+    console.log('start');
+     
+    this.paraFinal1.push(this.paraPolFi1.filter(p => p.pierwszySFinal == 'true')[0]);
+    this.paraFinal1.push(this.paraPolFi3.filter(p => p.trzeciSFinal == 'true')[0]);
+    
+    this.paraFinal2.push(this.paraPolFi2.filter(p => p.drugiSFinal == 'true')[0]);
+    this.paraFinal2.push(this.paraPolFi4.filter(p => p.czwartySFinal == 'true')[0]);
+    console.log(this.paraFinal1);
+    console.log(this.paraFinal2);
+    console.log('stop');
+    
+    
+    // this.paraFinal1.push(this.paraPolFi1.filter(p => p.pierwszySFinal == 'true'));
   }
 
   ngOnInit() {
@@ -267,13 +297,19 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 7) {
+
       if (ktoryZawo == 1) {
-        this.para8[0].osmyuoQ = 'true';
-        this.updateZawodnika(this.para8[0], this.para8[0].id);
+        let pop: poprawnyZawodnik = new poprawnyZawodnik();
+        pop = this.para8[0];
+        pop.osmyuoQ = 'true';
+        // this.para8[0].osmyuoQ = 'true';
+        this.updateZawodnika(pop, this.para8[0].id);
       } else {
         this.para8[1].osmyuoQ = 'true';
         this.updateZawodnika(this.para8[1], this.para8[1].id);
+        
       }
+
     }
 
     if (this.aktualnaPara == 8) {
@@ -304,6 +340,7 @@ export class PanelSedziowskiComponent implements OnInit {
       }
     }
     if (this.aktualnaPara == 11) {
+      console.log(this.paraPolFi4);
       if (ktoryZawo == 1) {
         this.paraPolFi4[0].czwartySFinal = 'true';
         this.updateZawodnika(this.paraPolFi4[0], this.paraPolFi4[0].id);
@@ -311,8 +348,30 @@ export class PanelSedziowskiComponent implements OnInit {
         this.paraPolFi4[1].czwartySFinal = 'true';
         this.updateZawodnika(this.paraPolFi4[1], this.paraPolFi4[1].id);
       }
+      setTimeout(() => { this.finaly(); }, 1000);
+      
+    }
+// finaly
+
+    if (this.aktualnaPara == 12) {
+      if (ktoryZawo == 1) {
+        this.paraFinal1[0].pierwszyFinal = 'true';
+        this.updateZawodnika(this.paraFinal1[0], this.paraFinal1[0].id);
+      } else {
+        this.paraFinal1[1].pierwszyFinal = 'true';
+        this.updateZawodnika(this.paraFinal1[1], this.paraFinal1[1].id);
+      }
     }
 
+    if (this.aktualnaPara == 13) {
+      if (ktoryZawo == 1) {
+        this.paraFinal2[0].drugiFinal = 'true';
+        this.updateZawodnika(this.paraFinal2[0], this.paraFinal2[0].id);
+      } else {
+        this.paraFinal2[1].drugiFinal = 'true';
+        this.updateZawodnika(this.paraFinal2[1], this.paraFinal2[1].id);
+      }
+    }
 
 
     this.ladujPare();
@@ -424,11 +483,61 @@ export class PanelSedziowskiComponent implements OnInit {
     // polfinaly
     if (this.aktualnaPara == 8) {
       if (ktoryZawo == 1) {
-        this.para8[0].duzePunkty = '' + this.duzePunktyZawodnik1;
-        this.updateZawodnika(this.para8[0], this.para8[0].id);
+        this.paraPolFi1[0].duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(this.paraPolFi1[0], this.paraPolFi1[0].id);
       } else {
-        this.para8[1].duzePunkty = '' + this.duzePunktyZawodnik2;
-        this.updateZawodnika(this.para8[1], this.para8[1].id);
+        this.paraPolFi1[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.paraPolFi1[1], this.paraPolFi1[1].id);
+      }
+    }
+
+    if (this.aktualnaPara == 9) {
+      if (ktoryZawo == 1) {
+        this.paraPolFi2[0].duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(this.paraPolFi2[0], this.paraPolFi2[0].id);
+      } else {
+        this.paraPolFi2[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.paraPolFi2[1], this.paraPolFi2[1].id);
+      }
+    }
+    if (this.aktualnaPara == 10) {
+      if (ktoryZawo == 1) {
+        this.paraPolFi3[0].duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(this.paraPolFi3[0], this.paraPolFi3[0].id);
+      } else {
+        this.paraPolFi3[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.paraPolFi3[1], this.paraPolFi3[1].id);
+      }
+    }
+    if (this.aktualnaPara == 11) {
+      if (ktoryZawo == 1) {
+        console.log(this.paraPolFi4)
+        this.paraPolFi4[0].duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(this.paraPolFi4[0], this.paraPolFi4[0].id);
+      } else {
+        this.paraPolFi4[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.paraPolFi4[1], this.paraPolFi4[1].id);
+      }
+    }
+
+    // finaly
+    if (this.aktualnaPara == 12) {
+      if (ktoryZawo == 1) {
+        this.paraFinal1[0].duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(this.paraFinal1[0], this.paraFinal1[0].id);
+      } else {
+        this.paraFinal1[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.paraFinal1[1], this.paraFinal1[1].id);
+      }
+    }
+
+    if (this.aktualnaPara == 12) {
+      if (ktoryZawo == 1) {
+        this.paraFinal2[0].duzePunkty = '' + this.duzePunktyZawodnik1;
+        this.updateZawodnika(this.paraFinal2[0], this.paraFinal2[0].id);
+      } else {
+        this.paraFinal2[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.paraFinal2[1], this.paraFinal2[1].id);
       }
     }
 
