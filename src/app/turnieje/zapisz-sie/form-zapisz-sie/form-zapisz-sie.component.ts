@@ -118,6 +118,13 @@ export class poprawnyZawodnik {
   // final
   public pierwszyFinal?:string;
   public drugiFinal?:string;
+
+  // punkty
+  public duzePunkty?:string;
+  public przewagi?:string;
+  public kary?:string;
+  
+
   
   
   
