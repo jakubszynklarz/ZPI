@@ -1,6 +1,4 @@
-<button (click)="test()">
-  asd
-</button>
+
 <div class="card text-black bg-white" style="margin: 50px">
   <div class="card-header">
     <h3 class="panel-title" style="float: left ;">Wyniki online:</h3>
@@ -33,6 +31,9 @@
                       <th class="col-sm" style="font-size:100%">Klub</th>
                       <th class="col-sm" style="font-size:100%">Pozycja startowa</th>
                       <th class="col-sm" style="font-size:100%">Dotarł do</th>
+                      <th class="col-sm" style="font-size:100%">Wygrane</th>
+                      <th class="col-sm" style="font-size:100%">Suma punktów</th>
+                      
                     </table>
                   </div>
                   <div *ngFor="let zaw of zawColection8 ">
@@ -57,20 +58,25 @@
                             </ng-template>
                             </ng-container>
                           </ng-container>
+                          <th class="col-sm">{{zaw.duzePunkty}}</th>
 
 
 
                             <ng-template #loss>
                               <th class="col-sm">Pierwsza runda</th>
+                              <th class="col-sm">0</th>
                             </ng-template>
                             <ng-template #semifi>
                               <th class="col-sm">Pół finał</th>
+                              <th class="col-sm">2</th>
                             </ng-template>
                             <ng-template #cwierc>
                               <th class="col-sm">Cwierc finał</th>
+                              <th class="col-sm">1</th>
                             </ng-template>
                             <ng-template #final>
                               <th class="col-sm">Finał</th>
+                              <th class="col-sm">3</th>
                             </ng-template>
                             <ng-template #zwyciezca>
                               <th class="col-sm">Zwyciezca</th>

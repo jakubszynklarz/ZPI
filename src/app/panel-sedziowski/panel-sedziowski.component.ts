@@ -192,8 +192,8 @@ export class PanelSedziowskiComponent implements OnInit {
 
     this.paraPolFi3.push(this.para5.filter(p => p.piatyoQ == 'true')[0]);
     this.paraPolFi3.push(this.para7.filter(p => p.siuoQ == 'true')[0]);
-    // console.log(this.para6);
-    // console.log(this.para8);
+    console.log(this.para6);
+    console.log(this.para8);
     this.paraPolFi4.push(this.para6.filter(p => p.szustyoQ == 'true')[0]);
     this.paraPolFi4.push(this.para8.filter(p => p.osmyuoQ == 'true')[0]);
   }
