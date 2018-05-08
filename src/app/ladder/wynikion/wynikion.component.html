@@ -53,9 +53,13 @@
                              || zaw.siuoQ === 'true' || zaw.osmyuoQ === 'true';else loss">
                              <ng-container #semi *ngIf="zaw.pierwszySFinal === 'true'  || zaw.drugiSFinal === 'true' || zaw.trzeciSFinal === 'true'
                             || zaw.czwartySFinal === 'true';else cwierc">
-                            <ng-template #pol *ngIf="zaw.pierwszyFinal === 'true'  || zaw.drugiFinal === 'true'
-                            ;then final;else semifi">
-                            </ng-template>
+                            <ng-container #pol *ngIf="zaw.pierwszyFinal === 'true'  || zaw.drugiFinal === 'true'
+                            ;else semifi">
+                            <ng-container #pol *ngIf="zaw.winner === 'true';else final">
+                                <th class="col-sm">Zwyciezca</th>
+                                <th class="col-sm">4</th>
+                            </ng-container>
+                            </ng-container>
                             </ng-container>
                           </ng-container>
                           <th class="col-sm">{{zaw.duzePunkty}}</th>

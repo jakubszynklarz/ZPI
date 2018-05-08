@@ -141,6 +141,8 @@ export class DrabinkaWyswietlComponent implements OnInit {
         this.fi1=zaw.nazwa
       }if(zaw.drugiFinal =='true'){
         this.fi2=zaw.nazwa
+      }if(zaw.winner =='true'){
+        this.zwyciezca=zaw.nazwa
       }
 
 
