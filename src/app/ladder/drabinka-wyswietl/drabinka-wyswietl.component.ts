@@ -60,11 +60,15 @@ export class DrabinkaWyswietlComponent implements OnInit {
   zawColection8: poprawnyZawodnik[];
   zawColection9: poprawnyZawodnik[];
   zawColection10: poprawnyZawodnik[];
+  zawCollectionfin: poprawnyZawodnik[];
   turnieje: Modeloo;
   public url:string[] = window.location.href.split('/');
 
+
   constructor(private db: AngularFirestore, private ladServ: LadderService, private podzielone: TurniejPodzialSerService) {
     ladServ.getTur().subscribe(data => { this.turnieje = data.filter(turn => turn.id == this.current)[0];});
+    ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawCollectionfin = data });
+
     ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection = data });
     setTimeout(() => {
       this.fukcja()

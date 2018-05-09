@@ -147,13 +147,16 @@ export class PanelSedziowskiComponent implements OnInit {
     }
     // finaly
     if (this.aktualnaPara == 12) {
-      console.log(this.paraFinal1);
+      // console.log(this.paraFinal1);
       this.wyswietlPara = this.paraFinal1[0].nazwa + " " + this.paraFinal1[1].nazwa;
     }
     if (this.aktualnaPara == 13) {
+      
       this.wyswietlPara = this.paraFinal2[0].nazwa + " " + this.paraFinal2[1].nazwa;
     }
     if (this.aktualnaPara == 14) {
+      // console.log(this.paraGlownyFinal[0]);
+      // console.log(this.paraGlownyFinal[1]);
       this.wyswietlPara = this.paraGlownyFinal[0].nazwa + " " + this.paraGlownyFinal[1].nazwa;
     }
     
@@ -195,8 +198,8 @@ export class PanelSedziowskiComponent implements OnInit {
 
     this.paraPolFi3.push(this.para5.filter(p => p.piatyoQ == 'true')[0]);
     this.paraPolFi3.push(this.para7.filter(p => p.siuoQ == 'true')[0]);
-    console.log(this.para6);
-    console.log(this.para8);
+    // console.log(this.para6);
+    // console.log(this.para8);
     this.paraPolFi4.push(this.para6.filter(p => p.szustyoQ == 'true')[0]);
     this.paraPolFi4.push(this.para8.filter(p => p.osmyuoQ == 'true')[0]);
   }
@@ -207,8 +210,8 @@ export class PanelSedziowskiComponent implements OnInit {
     this.paraFinal1.push(this.paraPolFi1.filter(p => p.pierwszySFinal == 'true')[0]);
     this.paraFinal1.push(this.paraPolFi3.filter(p => p.trzeciSFinal == 'true')[0]);
 
-    this.paraFinal2.push(this.paraPolFi2.filter(p => p.drugiSFinal == 'true')[0]);
-    this.paraFinal2.push(this.paraPolFi4.filter(p => p.czwartySFinal == 'true')[0]);
+    // this.paraFinal2.push(this.paraPolFi2.filter(p => p.drugiSFinal == 'true')[0]);
+    // this.paraFinal2.push(this.paraPolFi4.filter(p => p.czwartySFinal == 'true')[0]);
 
 
 
@@ -234,7 +237,11 @@ export class PanelSedziowskiComponent implements OnInit {
     if (this.aktualnaPara == 11) {
       this.finaly()
     }
-
+    
+    if (this.aktualnaPara == 12) {
+      // this.ultimateFinal()
+      this.paraFinal2.push(this.paraPolFi2.filter(p => p.drugiSFinal == 'true')[0]);
+    }
     if (this.aktualnaPara == 0) {
       if (ktoryZawo == 1) {
         this.para1[0].pierwszyoQ = 'true';
