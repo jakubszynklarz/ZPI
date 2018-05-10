@@ -44,11 +44,11 @@ export class PanelSedziowskiComponent implements OnInit {
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
   wagadoFun: string;
   pasdoFun: string;
-  private pasyColection: AngularFirestoreCollection<any[]>;
-  private pasy: Observable<any[]>;
+  public pasyColection: AngularFirestoreCollection<any[]>;
+  public pasy: Observable<any[]>;
 
-  private wagiColection: AngularFirestoreCollection<any[]>;
-  private wagi: Observable<any[]>;
+  public wagiColection: AngularFirestoreCollection<any[]>;
+  public wagi: Observable<any[]>;
   zawodnicy;
 
 
@@ -71,7 +71,7 @@ export class PanelSedziowskiComponent implements OnInit {
   //#endregion
 
 
-  constructor(private db: AngularFirestore, private podzialServ: TurniejPodzialSerService) {
+  constructor(private db: AngularFirestore, public podzialServ: TurniejPodzialSerService) {
 
     //#region pasyWagi
     this.pasyColection = db.collection<any[]>('pasy');

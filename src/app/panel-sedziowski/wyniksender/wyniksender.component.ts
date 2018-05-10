@@ -9,8 +9,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class WyniksenderComponent implements OnInit {
 
-  private zapisaniCollection: AngularFirestoreCollection<Walka>;
-  private zapisani: Observable<any[]>;
+  public zapisaniCollection: AngularFirestoreCollection<Walka>;
+  public zapisani: Observable<any[]>;
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 
 

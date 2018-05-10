@@ -12,8 +12,8 @@ import { Modeloo } from '../../zarzadzaj/shared/modeloo.model';
 })
 export class ListaTurniejiComponent implements OnInit {
   
-  private turnieCollection: AngularFirestoreCollection<Modeloo>;
-  private turnieje: Observable<any[]>;
+  public turnieCollection: AngularFirestoreCollection<Modeloo>;
+  public turnieje: Observable<any[]>;
   
   constructor(private db: AngularFirestore) { 
     this.turnieCollection=db.collection<Modeloo>('/turnieje');

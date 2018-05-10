@@ -15,6 +15,7 @@ import { TurniejPodzialSerService } from '../../zarzadzaj/shared/turniej-podzial
 })
 export class GenerujLadderComponent implements OnInit {
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+  zawColection: poprawnyZawodnik[];
   zawColection1: poprawnyZawodnik[];
   zawColection2: poprawnyZawodnik[];
   zawColection3: poprawnyZawodnik[];

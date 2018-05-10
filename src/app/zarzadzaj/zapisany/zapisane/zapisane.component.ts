@@ -21,14 +21,14 @@ export class ZapisaneComponent implements OnInit {
   selectedModeloo: Modeloo = new Modeloo();
 
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-  private turnieCollection: AngularFirestoreCollection<Modeloo>;
+  public turnieCollection: AngularFirestoreCollection<Modeloo>;
 
-  private turnieje: Observable<any[]>;
-  private kategorie: Observable<any[]>;
-  private kateCollection: AngularFirestoreCollection<Kategorie>;
+  public turnieje: Observable<any[]>;
+  public kategorie: Observable<any[]>;
+  public kateCollection: AngularFirestoreCollection<Kategorie>;
 
-  private zapisaniCollection: AngularFirestoreCollection<Kategorie>;
-  private zapisani: Observable<any[]>;
+  public zapisaniCollection: AngularFirestoreCollection<Kategorie>;
+  public zapisani: Observable<any[]>;
   public datakonca:string;
   constructor(private db: AngularFirestore) { 
     
