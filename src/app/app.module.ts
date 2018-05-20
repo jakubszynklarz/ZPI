@@ -47,6 +47,7 @@ import { TurniejPodzialComponent } from './zarzadzaj/shared/turniej-podzial/turn
 import { TurniejPodzialSerService } from './zarzadzaj/shared/turniej-podzial-ser.service';
 import { DrabinkaWyswietlComponent } from './ladder/drabinka-wyswietl/drabinka-wyswietl.component';
 import { WynikionComponent } from './ladder/wynikion/wynikion.component';
+import { WyniksenderComponent } from './panel-sedziowski/wyniksender/wyniksender.component';
 
 
 
@@ -73,7 +74,7 @@ declare var require: any;
     MyeventListaComponent,
     GenerujLadderComponent,
     MyevenComponent,
-
+    WyniksenderComponent,
     ZapiszSieComponent,
     FormZapiszSieComponent,
     KategorieComponent,

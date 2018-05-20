@@ -13,13 +13,13 @@ import { TurniejeService } from '../zapisz-sie/serwisy/turniej.service';
 })
 export class FormStworzTurniejComponent implements OnInit {
 
-  private tworca: string = "Andre"
+  public tworca: string = "Andre"
   selectedModeloo: Modeloo = new Modeloo();
-  private turnieCollection: AngularFirestoreCollection<Modeloo>;
-  private turnieje: Observable<any[]>;
+  public turnieCollection: AngularFirestoreCollection<Modeloo>;
+  public turnieje: Observable<any[]>;
 
 
-  constructor(private _turniejSerivce: TurniejeService,
+  constructor(public _turniejSerivce: TurniejeService,
     private _router: Router, private db: AngularFirestore) {
     this.turnieCollection = db.collection<Modeloo>('/turnieje');
     this.turnieje = this.turnieCollection.snapshotChanges().map(actions => {
@@ -35,7 +35,7 @@ export class FormStworzTurniejComponent implements OnInit {
 
   ngOnInit() {
   }
-  private add() {
+  public add() {
     let turniej: Modeloo = new Modeloo();
     turniej.opis = this.selectedModeloo.opis,
       turniej.kiedy = this.selectedModeloo.kiedy,

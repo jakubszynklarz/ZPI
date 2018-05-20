@@ -21,11 +21,11 @@ export class MyevenComponent implements OnInit {
   selectedModeloo: Modeloo = new Modeloo();
 
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-  private turnieCollection: AngularFirestoreCollection<Modeloo>;
-  private turnieje: Observable<any[]>;
+  public turnieCollection: AngularFirestoreCollection<Modeloo>;
+  public turnieje: Observable<any[]>;
 
-  private zapisaniCollection: AngularFirestoreCollection<Kategorie>;
-  private zapisani: Observable<any[]>;
+  public zapisaniCollection: AngularFirestoreCollection<Kategorie>;
+  public zapisani: Observable<any[]>;
 
   
   constructor(private db: AngularFirestore) { 
@@ -70,7 +70,7 @@ export class MyevenComponent implements OnInit {
     this.selectedModeloo.do_kiedyrej=x.do_kiedyrej
   }
     
-  private update(){
+  public update(){
     var updateNested = this.db.collection('turnieje').doc(this.current).update({
       opis: this.selectedModeloo.opis,
       kiedy:this.selectedModeloo.kiedy,

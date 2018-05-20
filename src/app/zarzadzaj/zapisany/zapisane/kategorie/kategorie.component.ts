@@ -11,11 +11,11 @@ import {KeysPipePipe} from './keys-pipe.pipe'
 export class KategorieComponent implements OnInit {
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 
-  private kategorie: Observable<any[]>;
-  private kateCollection: AngularFirestoreCollection<Kategorie>;
+  public kategorie: Observable<any[]>;
+  public kateCollection: AngularFirestoreCollection<Kategorie>;
 
-  private katu: Observable<any[]>;
-  private katuCollection: AngularFirestoreCollection<Kategorie>;
+  public katu: Observable<any[]>;
+  public katuCollection: AngularFirestoreCollection<Kategorie>;
 
 
   

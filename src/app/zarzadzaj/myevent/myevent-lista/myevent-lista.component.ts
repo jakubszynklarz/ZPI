@@ -20,11 +20,11 @@ export class MyeventListaComponent implements OnInit {
   
   public value:boolean=true;
 
-  private turnieCollection: AngularFirestoreCollection<Modeloo>;
-  private turnieje: Observable<any[]>;
+  public turnieCollection: AngularFirestoreCollection<Modeloo>;
+  public turnieje: Observable<any[]>;
 
   
-  constructor(private zarzadService: ZarzadService,private db: AngularFirestore) { 
+  constructor(public zarzadService: ZarzadService,private db: AngularFirestore) { 
     
     this.turnieCollection=db.collection<Modeloo>('/turnieje',ref => {return ref.where('tworca','==',this.tworca)});
 
