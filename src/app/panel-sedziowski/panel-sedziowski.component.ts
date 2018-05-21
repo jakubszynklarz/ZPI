@@ -40,7 +40,7 @@ export class PanelSedziowskiComponent implements OnInit {
   paraFinal2: poprawnyZawodnik[] = [];
   paraGlownyFinal: poprawnyZawodnik[] = [];
 
-  zwyciezcaTurnieju:poprawnyZawodnik;
+  zwyciezcaTurnieju: poprawnyZawodnik;
 
 
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
@@ -126,9 +126,9 @@ export class PanelSedziowskiComponent implements OnInit {
 
 
       }
-        if (this.aktualnaPara == -1) {
-          this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
-        }
+      if (this.aktualnaPara == -1) {
+        this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
+      }
     });
 
 
@@ -302,7 +302,7 @@ export class PanelSedziowskiComponent implements OnInit {
         this.updateZawodnika(this.paraFinal2[1], this.paraFinal2[1].id);
       }
       this.wyswietlPara = "wczytywanie ostatniej pary.."
-      
+
       setTimeout(() => {
         this.wyswietlPara = this.paraGlownyFinal[0].nazwa + " " + this.paraGlownyFinal[1].nazwa;
       }, 1500);
@@ -324,7 +324,7 @@ export class PanelSedziowskiComponent implements OnInit {
 
     if (this.aktualnaPara == 15) {
       // paraGlownyFinal
-      this.wyswietlPara = "Wygrał: " + this.zwyciezcaTurnieju.nazwa 
+      this.wyswietlPara = "Wygrał: " + this.zwyciezcaTurnieju.nazwa
     }
 
 
@@ -475,6 +475,18 @@ export class PanelSedziowskiComponent implements OnInit {
       }
     }
 
+    //wielki final
+    if (this.aktualnaPara == 13) {
+      // paraGlownyFinal
+      if (ktoryZawo == 1) {
+        this.paraGlownyFinal[0].duzePunkty = '' + this.duzePunktyZawodnik1;;
+        this.updateZawodnika(this.paraGlownyFinal[0], this.paraGlownyFinal[0].id);
+      } else {
+        this.paraGlownyFinal[1].duzePunkty = '' + this.duzePunktyZawodnik2;
+        this.updateZawodnika(this.paraGlownyFinal[1], this.paraGlownyFinal[1].id);
+      }
+    }
+
 
   }
 
@@ -484,15 +496,14 @@ export class PanelSedziowskiComponent implements OnInit {
 
   //#region  obslugaPunktow
   zwiekszDuzeZawodnik1(ilePunktow) {
-
     this.duzePunktyZawodnik1 += ilePunktow;
     if (this.duzePunktyZawodnik1 < 0) {
       this.duzePunktyZawodnik1 = 0;
     }
     this.aktualizujZawodnikow(1);
   }
-  zwiekszDuzeZawodnik2(ilePunktow) {
 
+  zwiekszDuzeZawodnik2(ilePunktow) {
     this.duzePunktyZawodnik2 += ilePunktow;
     if (this.duzePunktyZawodnik2 < 0) {
       this.duzePunktyZawodnik2 = 0;
@@ -512,12 +523,14 @@ export class PanelSedziowskiComponent implements OnInit {
       this.karyZawodnik2 = 0;
     }
   }
+
   zwiekszPrzewagiZawodnik1(ilePunktow) {
     this.przewagiZawodnik1 += ilePunktow;
     if (this.przewagiZawodnik1 < 0) {
       this.przewagiZawodnik1 = 0;
     }
   }
+
   zwiekszPrzewagiZawodnik2(ilePunktow) {
     this.przewagiZawodnik2 += ilePunktow;
     if (this.przewagiZawodnik2 < 0) {
