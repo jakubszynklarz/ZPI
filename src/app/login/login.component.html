@@ -1,2 +1,34 @@
-
- 
+<form [formGroup]="loginForm" #f="ngForm" (ngSubmit)="singInWithEmail(f.value)">
+    <div class="form-group">
+        <label for="loginEmail">Login użytkownika</label>
+        <input
+            formControlName="loginEmail"
+            id="loginEmail"
+            type="text"
+            class="form-control"
+            placeholder="E-mail">
+            <div *ngIf="loginEmail.touched && loginEmail.invalid" class="alert alert-danger">
+                <div *ngIf="loginEmail.errors.required">Login jest wymagany</div>
+                <div *ngIf="loginEmail.errors.pattern">Wprowadź login</div>
+            </div>
+    </div>
+    <div class="form-group">
+        <label for="loginPassword">Hasło</label>
+        <input
+            type=password
+            formControlName="loginPassword"
+            id="loginPassword"
+            class="form-control"
+            placeholder="Hasło">
+            <div *ngIf="loginPassword.touched && loginPassword.invalid" class="alert alert-danger">
+                <div *ngIf="loginPassword.errors.required">Podaj hasło.</div>
+            </div>
+    <div *ngIf="loginForm.errors" class="alert alert-danger"> login lub hasło są niepoprawne.</div>
+    </div>
+    <button class="btn btn-primary" [disabled]="!f.valid" type="submit">Zaloguj się</button>
+    
+    		<!-- <a *ngIf="!resetPassword" class="text-danger" (click)="sendResetEmail()">Reset Password</a> -->
+		<!-- <p *ngIf="resetPassword" class="text-success">Email has been sent to {{email_g}}. Check your email to reset password!</p> -->
+  <div id = "verifyEmail" > </div>
+  
+</form>
