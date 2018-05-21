@@ -21,6 +21,7 @@ export class PanelSedziowskiComponent implements OnInit {
   public zawodnik2: string;
 
   aktualnaPara: number = -1;
+
   wyswietlPara: string;
   para1: poprawnyZawodnik[];
   para2: poprawnyZawodnik[];
@@ -102,6 +103,7 @@ export class PanelSedziowskiComponent implements OnInit {
   ladujZawodnikow(waga: string, pas: string) {
     this.wagadoFun = waga;
     this.pasdoFun = pas;
+    this.wyswietlPara = '';
     this.aktualnaPara = -1;
     this.podzialServ.getPodzial(this.current, waga, pas, 'man').subscribe(data => {
       this.zawodnicy = data;
@@ -127,7 +129,9 @@ export class PanelSedziowskiComponent implements OnInit {
 
       }
       if (this.aktualnaPara == -1) {
-        this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
+        this.zawodnik1 = this.para1[0].nazwa;
+        this.zawodnik2 = this.para1[1].nazwa;
+        // this.wyswietlPara = this.para1[0].nazwa + " " + this.para1[1].nazwa;
       }
     });
 
@@ -139,12 +143,12 @@ export class PanelSedziowskiComponent implements OnInit {
   ngOnInit() {
 
   }
-  zaw1(x) {
-    this.zawodnik1 = x;
-  }
-  zaw2(x) {
-    this.zawodnik2 = x;
-  }
+  // zaw1(x) {
+  //   this.zawodnik1 = x;
+  // }
+  // zaw2(x) {
+  //   this.zawodnik2 = x;
+  // }
 
 
   wygral(ktoryZawo: number) {
@@ -153,7 +157,9 @@ export class PanelSedziowskiComponent implements OnInit {
 
     //#region pierwszaRunda
     if (this.aktualnaPara == 0) {
-      this.wyswietlPara = this.para2[0].nazwa + " " + this.para2[1].nazwa;
+      this.zawodnik1 = this.para2[0].nazwa;
+      this.zawodnik2 = this.para2[1].nazwa;
+      // this.wyswietlPara = this.para2[0].nazwa + " " + this.para2[1].nazwa;
       if (ktoryZawo == 1) {
         this.para1[0].pierwszyoQ = 'true';
         this.updateZawodnika(this.para1[0], this.para1[0].id);
@@ -163,7 +169,10 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 1) {
-      this.wyswietlPara = this.para3[0].nazwa + " " + this.para3[1].nazwa;
+
+      this.zawodnik1 = this.para3[0].nazwa;
+      this.zawodnik2 = this.para3[1].nazwa;
+      // this.wyswietlPara = this.para3[0].nazwa + " " + this.para3[1].nazwa;
       if (ktoryZawo == 1) {
         this.para2[0].drugioQ = 'true';
         this.updateZawodnika(this.para2[0], this.para2[0].id);
@@ -173,7 +182,9 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 2) {
-      this.wyswietlPara = this.para4[0].nazwa + " " + this.para4[1].nazwa;
+      this.zawodnik1 = this.para4[0].nazwa;
+      this.zawodnik2 = this.para4[1].nazwa;
+      // this.wyswietlPara = this.para4[0].nazwa + " " + this.para4[1].nazwa;
       if (ktoryZawo == 1) {
         this.para3[0].trzecioQ = 'true';
         this.updateZawodnika(this.para3[0], this.para3[0].id);
@@ -183,7 +194,9 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 3) {
-      this.wyswietlPara = this.para5[0].nazwa + " " + this.para5[1].nazwa;
+      this.zawodnik1 = this.para5[0].nazwa;
+      this.zawodnik2 = this.para5[1].nazwa;
+      // this.wyswietlPara = this.para5[0].nazwa + " " + this.para5[1].nazwa;
       if (ktoryZawo == 1) {
         this.para4[0].czwartyoQ = 'true';
         this.updateZawodnika(this.para4[0], this.para4[0].id);
@@ -193,7 +206,9 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 4) {
-      this.wyswietlPara = this.para6[0].nazwa + " " + this.para6[1].nazwa;
+      this.zawodnik1 = this.para6[0].nazwa;
+      this.zawodnik2 = this.para6[1].nazwa;
+      // this.wyswietlPara = this.para6[0].nazwa + " " + this.para6[1].nazwa;
       if (ktoryZawo == 1) {
         this.para5[0].piatyoQ = 'true';
         this.updateZawodnika(this.para5[0], this.para5[0].id);
@@ -203,7 +218,9 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 5) {
-      this.wyswietlPara = this.para7[0].nazwa + " " + this.para7[1].nazwa;
+      this.zawodnik1 = this.para7[0].nazwa;
+      this.zawodnik2 = this.para7[1].nazwa;
+      // this.wyswietlPara = this.para7[0].nazwa + " " + this.para7[1].nazwa;
       if (ktoryZawo == 1) {
         this.para6[0].szustyoQ = 'true';
         this.updateZawodnika(this.para6[0], this.para6[0].id);
@@ -213,7 +230,9 @@ export class PanelSedziowskiComponent implements OnInit {
       }
 
     } if (this.aktualnaPara == 6) {
-      this.wyswietlPara = this.para8[0].nazwa + " " + this.para8[1].nazwa;
+      this.zawodnik1 = this.para8[0].nazwa;
+      this.zawodnik2 = this.para8[1].nazwa;
+      // this.wyswietlPara = this.para8[0].nazwa + " " + this.para8[1].nazwa;
       if (ktoryZawo == 1) {
         this.para7[0].siuoQ = 'true';
         this.updateZawodnika(this.para7[0], this.para7[0].id);
@@ -236,11 +255,15 @@ export class PanelSedziowskiComponent implements OnInit {
         this.updateZawodnika(this.para8[1], this.para8[1].id);
 
       }
-      this.wyswietlPara = this.paraPolFi1[0].nazwa + " " + this.paraPolFi1[1].nazwa;
+      this.zawodnik1 = this.paraPolFi1[0].nazwa;
+      this.zawodnik2 = this.paraPolFi1[1].nazwa;
+      // this.wyswietlPara = this.paraPolFi1[0].nazwa + " " + this.paraPolFi1[1].nazwa;
     }
 
     if (this.aktualnaPara == 8) {
-      this.wyswietlPara = this.paraPolFi2[0].nazwa + " " + this.paraPolFi2[1].nazwa;
+      this.zawodnik1 = this.paraPolFi2[0].nazwa;
+      this.zawodnik2 = this.paraPolFi2[1].nazwa;
+      // this.wyswietlPara = this.paraPolFi2[0].nazwa + " " + this.paraPolFi2[1].nazwa;
 
       if (ktoryZawo == 1) {
         this.paraPolFi1[0].pierwszySFinal = 'true';
@@ -251,7 +274,10 @@ export class PanelSedziowskiComponent implements OnInit {
       }
     }
     if (this.aktualnaPara == 9) {
-      this.wyswietlPara = this.paraPolFi3[0].nazwa + " " + this.paraPolFi3[1].nazwa;
+
+      this.zawodnik1 = this.paraPolFi3[0].nazwa;
+      this.zawodnik2 = this.paraPolFi3[1].nazwa;
+      // this.wyswietlPara = this.paraPolFi3[0].nazwa + " " + this.paraPolFi3[1].nazwa;
       if (ktoryZawo == 1) {
         this.paraPolFi2[0].drugiSFinal = 'true';
         this.updateZawodnika(this.paraPolFi2[0], this.paraPolFi2[0].id);
@@ -261,7 +287,10 @@ export class PanelSedziowskiComponent implements OnInit {
       }
     }
     if (this.aktualnaPara == 10) {
-      this.wyswietlPara = this.paraPolFi4[0].nazwa + " " + this.paraPolFi4[1].nazwa;
+      this.zawodnik1 = this.paraPolFi4[0].nazwa;
+      this.zawodnik2 = this.paraPolFi4[1].nazwa;
+
+      // this.wyswietlPara = this.paraPolFi4[0].nazwa + " " + this.paraPolFi4[1].nazwa;
       if (ktoryZawo == 1) {
         this.paraPolFi3[0].trzeciSFinal = 'true';
         this.updateZawodnika(this.paraPolFi3[0], this.paraPolFi3[0].id);
@@ -272,7 +301,9 @@ export class PanelSedziowskiComponent implements OnInit {
       // this.finaly();
     }
     if (this.aktualnaPara == 11) {
-      this.wyswietlPara = this.paraFinal1[0].nazwa + " " + this.paraFinal1[1].nazwa;
+      this.zawodnik1 = this.paraFinal1[0].nazwa;
+      this.zawodnik2 = this.paraFinal1[1].nazwa;
+      // this.wyswietlPara = this.paraFinal1[0].nazwa + " " + this.paraFinal1[1].nazwa;
       if (ktoryZawo == 1) {
         this.paraPolFi4[0].czwartySFinal = 'true';
         this.updateZawodnika(this.paraPolFi4[0], this.paraPolFi4[0].id);
@@ -283,7 +314,10 @@ export class PanelSedziowskiComponent implements OnInit {
     }
     // finaly
     if (this.aktualnaPara == 12) {
-      this.wyswietlPara = this.paraFinal2[0].nazwa + " " + this.paraFinal2[1].nazwa;
+
+      this.zawodnik1 = this.paraFinal2[0].nazwa;
+      this.zawodnik2 = this.paraFinal2[1].nazwa;
+      // this.wyswietlPara = this.paraFinal2[0].nazwa + " " + this.paraFinal2[1].nazwa;
       if (ktoryZawo == 1) {
         this.paraFinal1[0].pierwszyFinal = 'true';
         this.updateZawodnika(this.paraFinal1[0], this.paraFinal1[0].id);
@@ -304,7 +338,10 @@ export class PanelSedziowskiComponent implements OnInit {
       this.wyswietlPara = "wczytywanie ostatniej pary.."
 
       setTimeout(() => {
-        this.wyswietlPara = this.paraGlownyFinal[0].nazwa + " " + this.paraGlownyFinal[1].nazwa;
+        this.zawodnik1 = this.paraGlownyFinal[0].nazwa;
+        this.zawodnik2 = this.paraGlownyFinal[1].nazwa;
+        this.wyswietlPara = '';
+        // this.wyswietlPara = this.paraGlownyFinal[0].nazwa + " " + this.paraGlownyFinal[1].nazwa;
       }, 1500);
 
 

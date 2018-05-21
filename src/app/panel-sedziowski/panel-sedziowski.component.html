@@ -14,33 +14,58 @@
     </select>
   </div>
 </div>
-<button class="btn btn-primary" (click)="ladujZawodnikow(selectWeight.value,selectBelt.value)"> laduj zawodnkow </button>
-<!-- <button class="btn btn-primary" (click)="ladujPare()" > nastepna walka </button> -->
-<button class="btn btn-primary" (click)="wygral(1)" > wygral zawodnik1 </button>
-<button class="btn btn-primary" (click)="wygral(2)" > wygral zawodnik2  </button>
-      <!-- <button class="btn btn-primary" (click)="finaly()" > testuj </button> -->
-<!-- {{paraPolFi1|json}} -->
 
 
-<h1>{{wyswietlPara }}</h1>
- 
-<div style="float: left;" class="col-sm-6">
-  <div class="row">
+<div class="row ">
+  <div class="col-sm-2 ">
+    <button class="btn btn-primary" (click)="ladujZawodnikow(selectWeight.value,selectBelt.value)"> Ładuj zawodnków </button>
+  </div>
 
-    <div class="btn-group">
-      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Zawodnik 1
-      </button>
-      <div class="dropdown-menu">
-        <!-- <div *ngFor="let zap of zawodnicy"> -->
-          <a class="dropdown-item" *ngFor="let zap of zawodnicy" (click)="zaw1(zap.nazwa)">{{zap.nazwa}}</a>
-        <!-- </div> -->
-      </div>
-    </div>
-    <div>
-      <h3>{{zawodnik1}}</h3>
+
+  <div class="btn-group col-sm-2">
+
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Podgląd zawodników
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" *ngFor="let zap of zawodnicy ">{{zap.nazwa}}</a>
     </div>
   </div>
+
+</div>
+
+
+
+<div class="row">
+  <div style="text-align: center" class="col-sm-6 ">
+    <button class="btn btn-primary" (click)="wygral(1)"> Wygral </button>
+
+    <h1 class="display-4">{{zawodnik1 }}</h1>
+
+  </div>
+
+  <div style="text-align: center" class="col-sm-6">
+    <button class="btn btn-primary" (click)="wygral(2)"> Wygral </button>
+
+    <h1 class="display-4">{{zawodnik2 }}</h1>
+
+  </div>
+</div>
+
+<!-- 
+<button class="btn btn-primary" (click)="wygral(1)"> Wygral {{zawodnik1}} </button>
+<button class="btn btn-primary" (click)="wygral(2)"> Wygral {{zawodnik2}} </button> -->
+
+<div class="col-sm-12 ">
+  <h1 style="text-align: center">{{wyswietlPara }}</h1>
+</div>
+
+
+
+
+<div style="float: left;" class="col-sm-6">
+
+
   <!-- duze punkty -->
   <div class="row">
     <div class="col-sm">
@@ -108,27 +133,7 @@
 </div>
 
 <div style="float: left;" class="col-sm-6">
-  <div class="row">
-    <!-- dorpdown dla zawodnika drugiego -->
-    <!-- <div class="btn-group">
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Zawodnik 2
-        </button>
-        <div class="dropdown-menu">
-          <div *ngFor="let zap of zapisani | async">
-            <div *ngIf="zap.pas === selectBelt.value">
-              <div *ngIf="zap.waga === selectWeight.value">
-                <a class="dropdown-item" id="selectZaw1" #selectZaw1="ngModel" ngModel (click)="zaw2(zap.nazwa)">{{zap.nazwa}} </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
 
-    <div>
-      <h3>{{zawodnik2}}</h3>
-    </div>
-  </div>
 
 
   <!-- duze punkty -->
