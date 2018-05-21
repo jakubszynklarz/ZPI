@@ -1,4 +1,6 @@
 <!-- dodaj miejscowość -->
+
+<!-- {{zapisaniNogi |async|json}} -->
 <div class="pole" *ngFor="let turnie of turnieje | async ">
   <div *ngIf="turnie.id === current">
     <div *ngIf="check == defula">
@@ -9,9 +11,9 @@
     <!-- dodaj miejscowość -->
     <form #turniejForm="ngForm" (ngSubmit)="update()">
       <div class="card text-black bg-white" style="margin: 50px">
-          <div class="card-header">
-            <h3 class="panel-title">Właściwości turnieju</h3>
-          </div>
+        <div class="card-header">
+          <h3 class="panel-title">Właściwości turnieju</h3>
+        </div>
         <div class="card-body ">
 
           <div class="row">
@@ -20,89 +22,113 @@
               <label for="nazwaTurnieju" class="col-form-label " style="font-size:120%">Nazwa Turnieju:</label>
               <input class="form-control" id="nazwaTurnieju" required type="text" class="form-control" name="nazwaTurnieju" #nazwaTurnieju="ngModel"
                 [(ngModel)]="selectedModeloo.nazwa" style="width:50%">
-              
-                <label for="miasto" style="font-size:120%">Miasto:</label>
+
+              <label for="miasto" style="font-size:120%">Miasto:</label>
               <input id="miasto" type="text" class="form-control" value="{{turnie.miejsce}}" name="miasto" #miasto="ngModel" [(ngModel)]="selectedModeloo.miejsce"
                 style="width:50%">
-              
-                <label for="nrkonta" style="font-size:120%">Nr konta:</label>
+
+              <label for="nrkonta" style="font-size:120%">Nr konta:</label>
               <input id="nrkonta" type="text" class="form-control" value="{{turnie.nr_konta}}" name="nrkonta" #nrkonta="ngModel" [(ngModel)]="selectedModeloo.nr_konta"
                 style="width:50%">
               <label for="wpisowe" style="font-size:120%">Wpisowe:</label>
               <input id="wpisowe" type="text" class="form-control" value="{{turnie.wpisowe}}" name="wpisowe" #wpisowe="ngModel" [(ngModel)]="selectedModeloo.wpisowe"
                 style="width:20%">
 
-                <div class="form-group " style="font-size:120%">
-                    <label>Kategoria:</label>
-                    <div class="form-control" style="width:10%">
-                      
-                        {{turnie.kategoria}}
-                     
-                    </div>
-                  </div>
+              <div class="form-group " style="font-size:120%">
+                <label>Kategoria:</label>
+                <div class="form-control" style="width:10%">
 
-                  <div>
-                      <div class="form-group " style="width: 25%;">
-                          <label for="data" style="font-size:120%">Data Turnieju:</label>
-                          <input id="data" type="date" class="form-control" value="{{turnie.kiedy | date:'yyyy-MM-dd'}}" name="data" #data="ngModel"
-                            [(ngModel)]="selectedModeloo.kiedy" />
-                        </div>
-                      </div>
-                      <div>
-                        <div class="form-group "style="width: 25%;">
-                          <label for="datakonca" style="font-size:120%">Data końca rejestracji:</label>
-                          <input id="datakonca" type="date" class="form-control" value="{{turnie.do_kiedyrej | date:'yyyy-MM-dd'}}" name="datakonca"
-                            #datakonca="ngModel" [(ngModel)]="selectedModeloo.do_kiedyrej" />
-                        </div>
-                    </div>
-                  <br>
-                  <br>
-                  <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
+                  {{turnie.kategoria}}
+
+                </div>
+              </div>
+
+              <div>
+                <div class="form-group " style="width: 25%;">
+                  <label for="data" style="font-size:120%">Data Turnieju:</label>
+                  <input id="data" type="date" class="form-control" value="{{turnie.kiedy | date:'yyyy-MM-dd'}}" name="data" #data="ngModel"
+                    [(ngModel)]="selectedModeloo.kiedy" />
+                </div>
+              </div>
+              <div>
+                <div class="form-group " style="width: 25%;">
+                  <label for="datakonca" style="font-size:120%">Data końca rejestracji:</label>
+                  <input id="datakonca" type="date" class="form-control" value="{{turnie.do_kiedyrej | date:'yyyy-MM-dd'}}" name="datakonca"
+                    #datakonca="ngModel" [(ngModel)]="selectedModeloo.do_kiedyrej" />
+                </div>
+              </div>
+              <br>
+              <br>
+              <label for="opisturnieju" style="font-size:120%">Opis Turnieju:</label>
               <textarea id="opisturnieju" cols="30" rows="10" type="text" class="form-control" value="{{turnie.opis}}" name="opisturnieju"
                 #opisturnieju="ngModel" [(ngModel)]="selectedModeloo.opis">
               </textarea>
 
             </div>
             <div class="form-group col-lg-6">
-             <div class="list">
+              <div class="list">
                 <div class="navlist">
-                    <table class="table">
-                      <th class="col-sm" style="font-size:100%">Imię i nazwisko</th>
-                      <th class="col-sm" style="font-size:100%">Czy opłacone?</th>
-                      <th class="col-sm" style="font-size:100%">Pas</th>
-                      <th class="col-sm" style="font-size:100%">Waga</th>
-                    </table>
+                  <table class="table">
+                    <th class="col-sm" style="font-size:100%">Imię i nazwisko</th>
+                    <th class="col-sm" style="font-size:100%">Klub</th>
+
+                    <th class="col-sm" style="font-size:100%">Czy opłacone?</th>
+                    <th class="col-sm" style="font-size:100%">Pas</th>
+                    <th class="col-sm" style="font-size:100%">Waga</th>
+                  </table>
+                </div>
+
+
+                <div class="listzaw">
+                  <div *ngFor="let zapi of zapisani | async">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <th class="col-sm">{{zapi.nazwa}}</th>
+                            <th class="col-sm">{{zapi.klub}}</th>
+
+                            <th class="col-sm">{{zapi.oplacone}}</th>
+                            <th class="col-sm">{{zapi.pas}}</th>
+                            <th class="col-sm">{{zapi.waga}}</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
                   </div>
-              
-                  
-                  <div class="listzaw">
-                      <div *ngFor="let zapi of zapisani | async">
-                          <div class="table-responsive">
-                              <table class="table">
-                                <tbody>
-                                  <tr>
-                                    <th class="col-sm">{{zapi.nazwa}}</th>
-                                    <th class="col-sm">{{zapi.oplacone}}</th>
-                                    <th class="col-sm">{{zapi.pas}}</th>
-                                    <th class="col-sm">{{zapi.waga}}</th>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                        
-                        </div>
+
+
+                  <div *ngFor="let zapi of zapisaniNogi | async">
+
+                    <div class="table-responsive">
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <th class="col-sm">{{zapi.nazwa}}</th>
+                            <th class="col-sm">{{zapi.klub}}</th>
+                            <th class="col-sm">{{zapi.oplacone}}</th>
+
+                            <th class="col-sm">{{zapi.pas}}</th>
+                            <th class="col-sm">{{zapi.waga}}</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-              
-            </div>
+                </div>
+
+
+              </div>
             </div>
           </div>
         </div>
         <div class="card-footer">
-            <button class="btn btn-primary" [routerLink]="['/sedziowski', turnie.id]" >Panel sędziowski</button>
+          <button class="btn btn-primary" [routerLink]="['/sedziowski', turnie.id]">Panel sędziowski</button>
           <button class="btn btn-primary" type="submit" [disabled]="turniejForm.invalid">Aktualizuj</button>
-          <button class="btn btn-primary" [routerLink]="['/lader',pas,waga, turnie.id]" >Generuj drabinke</button>
+          <button class="btn btn-primary" [routerLink]="['/lader',pas,waga, turnie.id]">Generuj drabinke</button>
         </div>
-        
+
       </div>
     </form>
   </div>
