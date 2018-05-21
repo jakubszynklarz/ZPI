@@ -1,11 +1,30 @@
+<div class = "card-header" style="margin: auto">
+    <h2 class="headerH2">O nas:</h2>
+<p>Jesteśmy studentami 3-ciego roku Politechniki Wrocławskiej. Aplikacja powstała w ramach zajęć Zespołowego Przedsięwzięcia Inżynierskiego. 
+    Oprogramowanie powstało w celu wspomagania procesu organizacji turniejów brazylijskiego Jiu-Jitsu oraz monitorowania wyników walk w trybie online.
+    
+    Wszystkie osoby zainteresowane współpracą zapraszamy do wypełnienia formularza kontaktowego.</p>
+</div>
+<div class="card-body" style="margin: auto">
+    <h3 class="headerH2">FORMULARZ KONTAKTOWY</h3>
+  <div>
+      <div class="form-group col-md-10" >
+          <input  placeholder="Imię"      />
+          
+          <input  placeholder="Nazwisko"     />
+          </div>
+          <div class="form-group col-md-10">
+              <input  placeholder="E-mail kontaktow"     />
+              
+              <input  placeholder="Numer telefonu"     />
+              </div>
+    
+<div class="form-group col-md-10">
+    <textarea  placeholder="Wpisz wiadomość" cols="120" rows="10" type="text"></textarea>
+    </div>
 
-<div class="col-md-4"  style="width: 50%;margin: auto;">
-
-
-
-
-
-
-
+<button [routerLink]="['/homepage']" type="submit" class="btn btn-primary">Wyślij pytanie</button>
+<button [routerLink]="['/homepage']" type="submit" class="btn btn-danger">Anuluj</button>
 
 </div>
+
