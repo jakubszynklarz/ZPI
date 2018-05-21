@@ -48,6 +48,7 @@ import { TurniejPodzialSerService } from './zarzadzaj/shared/turniej-podzial-ser
 import { DrabinkaWyswietlComponent } from './ladder/drabinka-wyswietl/drabinka-wyswietl.component';
 import { WynikionComponent } from './ladder/wynikion/wynikion.component';
 import { WyniksenderComponent } from './panel-sedziowski/wyniksender/wyniksender.component';
+import { KontaktComponent } from './kontakt/kontakt.component';
 
 
 
@@ -90,7 +91,9 @@ declare var require: any;
 
     DrabinkaWyswietlComponent,
 
-    WynikionComponent
+    WynikionComponent,
+
+    KontaktComponent
 
 
   ],
