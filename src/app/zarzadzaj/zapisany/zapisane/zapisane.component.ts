@@ -29,6 +29,11 @@ export class ZapisaneComponent implements OnInit {
 
   public zapisaniCollection: AngularFirestoreCollection<Kategorie>;
   public zapisani: Observable<any[]>;
+
+  public zapisaniCollectionNogi: AngularFirestoreCollection<Kategorie>;
+  public zapisaniNogi: Observable<any[]>;
+
+
   public datakonca:string;
   constructor(private db: AngularFirestore) { 
     
@@ -52,14 +57,22 @@ export class ZapisaneComponent implements OnInit {
       })
     })
 
-    
+    this.zapisaniCollectionNogi=db.collection<Modeloo>('/turnieje').doc(this.current).collection('zapisani').doc('nogi').collection('zawodnicy');
+    this.zapisaniNogi=this.zapisaniCollectionNogi.snapshotChanges().map(actions =>{
+      return actions.map( a=>{
+        const data = a.payload.doc.data() as Modeloo;
+        const id = a.payload.doc.id;
+        
+        return {id,...data};
+      })
+    })
+
+
+
     
   }
   ngOnInit() {
    
-    
-   
-    
     
   }
  
@@ -73,10 +86,6 @@ export class ZapisaneComponent implements OnInit {
       nr_konta:this.selectedModeloo.nr_konta,
       wpisowe:this.selectedModeloo.wpisowe
     });
-  }
-  public datka(data){
-    console.log(data);
-
   }
 
 }

@@ -6,14 +6,14 @@
     <form #turniejForm="ngForm" (ngSubmit)="update()">
       <div class="card text-black bg-white" style="margin: 50px">
         <div class="card-header">
-          <h3 class="panel-title" style="float: left ;">Szczegóły turnieju</h3> 
+          <h3 class="panel-title" style="float: left ;">Szczegóły turnieju</h3>
           <button style="float: right;" class="btn btn-outline-primary" [routerLink]="['/ladder', pas,waga,current]">Drabinka</button>
           <button style="float: right;" class="btn btn-outline-primary" [routerLink]="['/wyniki', current]">Wyniki</button>
 
-          
+
           <form>
-          <button style="float: right;" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModall">Zapisz się</button>
-        </form>
+            <button style="float: right;" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModall">Zapisz się</button>
+          </form>
           <!-- [routerLink]="['/zapiszSie', turnie.id]" -->
           <div class="modal fade" id="exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModallLabele" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -25,9 +25,9 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <app-form-zapisz-sie></app-form-zapisz-sie>
+                  <app-form-zapisz-sie></app-form-zapisz-sie>
                 </div>
-                
+
               </div>
             </div>
           </div>
@@ -51,14 +51,14 @@
               <label for="wpisowe" style="font-size:120%">Wpisowe:</label>
               <div class="divek" style="width:50%">{{turnie.wpisowe}}</div>
 
-              <div class="form-group" >
-                  <label style="font-size:120%">Kategoria:</label>
-                  <div class="divek">
-                    
-                      {{turnie.kategoria}}
-                   
-                  </div>
+              <div class="form-group">
+                <label style="font-size:120%">Kategoria:</label>
+                <div class="divek">
+
+                  {{turnie.kategoria}}
+
                 </div>
+              </div>
 
               <div>
                 <div class="form-group">
@@ -69,7 +69,7 @@
               <div>
                 <div class="form-group">
                   <label for="datakonca" style="font-size:120%">Data końca rejestracji:</label>
-                  
+
                   <div class="divek" style="width:60%">{{turnie.do_kiedyrej}}</div>
                 </div>
               </div>
@@ -80,72 +80,60 @@
             </div>
             <div class="form-group col-lg-6">
               <div class="list">
-              <!-- <div class="form-group "style="margin:5px">
-                  <div class="row">
-                      <div class="form-group col-lg-4" >
-                          <label style="font-size:120%">Zapisani:</label>
-                      </div>
-          
-                        <div class="form-group col-lg-4">
-                            <label style="font-size:120%">Pas:</label>
-                          </div>
-                          <div class="form-group col-lg-4">
-                              <label style="font-size:120%">Waga:</label>
-                            </div>
-                    </div>
-                  <div class="tablica">
-                      <div *ngFor="let zapi of zapisani | async">
-                          <div class="row" >
-                            <div  class="column col-lg-4 ">
-                                <label >{{zapi.nazwa}}</label>
-                            </div>
-                            
-                              <div  class="column col-lg-4 ">
-                                  <label >{{zapi.pas}}</label>
-                              </div>
-                              <div class="column col-lg-4">
-                                  <label >{{zapi.waga}}</label>
-                                </div>
-                          </div>
-                        </div>
-                  </div>
-              </div> -->
-              <div class="navlist">
-                <table class="table">
-                  <th class="col-sm" style="font-size:120%">Zapisani</th>
-                  <th class="col-sm" style="font-size:120%">Pas</th>
-                  <th class="col-sm" style="font-size:120%">Waga</th>
-                </table>
-              </div>
-              <div class="listzaw">
-              <div *ngFor="let zapi of zapisani | async">
 
-                <div class="table-responsive">
+                <div class="navlist">
                   <table class="table">
-                    <tbody>
-                      <tr>
-                        <th class="col-sm">{{zapi.nazwa}}</th>
-                        <th class="col-sm">{{zapi.pas}}</th>
-                        <th class="col-sm">{{zapi.waga}}</th>
-                      </tr>
-                    </tbody>
+                    <th class="col-sm" style="font-size:120%">Zapisani</th>
+                    <th class="col-sm" style="font-size:120%">Klub</th>
+
+                    <th class="col-sm" style="font-size:120%">Pas</th>
+                    <th class="col-sm" style="font-size:120%">Waga</th>
                   </table>
+                </div>
+                <div class="listzaw">
+
+
+                  <div *ngFor="let zapi of zapisani | async">
+
+                    <div class="table-responsive">
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <th class="col-sm">{{zapi.nazwa}}</th>
+                            <th class="col-sm">{{zapi.klub}}</th>
+                            <th class="col-sm">{{zapi.pas}}</th>
+                            <th class="col-sm">{{zapi.waga}}</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div *ngFor="let zapi of zapisaniNogi | async">
+
+                    <div class="table-responsive">
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <th class="col-sm">{{zapi.nazwa}}</th>
+                            <th class="col-sm">{{zapi.klub}}</th>
+
+                            <th class="col-sm">{{zapi.pas}}</th>
+                            <th class="col-sm">{{zapi.waga}}</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+
+
                 </div>
               </div>
             </div>
-            </div>
-          </div>
           </div>
         </div>
       </div>
     </form>
-    </div>
   </div>
-  <!-- <ul>
-    <li *ngFor="let zaw of zawoCzarnyHeavy" >{{zaw.nazwa}} {{zaw.klub}}</li>
-  </ul>
-  {{zawoCzarnyHeavy|json}}
-
-  {{zawoCzarnyRooster |json}} -->
-
-  
+</div>

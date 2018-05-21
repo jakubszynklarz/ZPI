@@ -24,14 +24,14 @@ export class FormZapiszSieComponent implements OnInit {
 
   menWomen: any[];
   facetGi: any[];
-  //  facetNoGi: any[];
-  //  kobietaNoGi: any[];
+   facetNoGi: any[];
+   kobietaNoGi: any[];
    kobietaGi: any[];
    pasy: any[]
    turniejGiNogi: KatGiNogi;
    kategorieCollection: AngularFirestoreCollection<Kategorie>;
    kategorie: Observable<any[]>;
-  turniej:Modeloo = new Modeloo();
+  turniej:Modeloo = null;
 
   kmenNogi:KategorieService = new KategorieService(this.db);
   kwomenGi:KategorieService = new KategorieService(this.db);
@@ -47,13 +47,14 @@ export class FormZapiszSieComponent implements OnInit {
     
     katServ.getManWoman(this.current).subscribe(data => { this.menWomen = data });
     
-    katServ.getWagi('man', 'gi').subscribe(data => { this.facetGi = data });
+    katServ.getWagi('man', "gi").subscribe(data => { this.facetGi = data });
     
-    // katServ.getWagi('man', 'nogi').subscribe(data => { this.facetNoGi = data });
+    katServ.getWagi('man', 'nogi').subscribe(data => { this.facetNoGi = data });
+    katServ.getWagi('women', 'nogi').subscribe(data => { this.kobietaNoGi = data });
     
-    katServ.getWagi('women', 'gi').subscribe(data => { this.kobietaGi = data });
+    katServ.getWagi('women', "gi").subscribe(data => { this.kobietaGi = data });
     
-    // katServ.getWagi('women', 'nogi').subscribe(data => { this.kobietaNoGi = data });
+    
 
   }
 
@@ -69,10 +70,10 @@ export class FormZapiszSieComponent implements OnInit {
     dobryZawonidk.pas = formularz.selectBelt;
     dobryZawonidk.plec = formularz.selectSex;
     dobryZawonidk.waga = formularz.selectWeight;
-    dobryZawonidk.kategoria = 'gi';
+    dobryZawonidk.kategoria = this.turniej.kategoria;
     // console.log(dobryZawonidk)
     this.db.collection<any>('turnieje').doc('' + this.current).
-      collection('zapisani').doc('gi').collection<any>('zawodnicy').
+      collection('zapisani').doc(this.turniej.kategoria).collection<any>('zawodnicy').
       add(JSON.parse(JSON.stringify(dobryZawonidk)));
       
     // console.log("dodano zawodnika");

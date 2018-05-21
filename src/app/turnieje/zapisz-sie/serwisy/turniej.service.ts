@@ -29,7 +29,7 @@ export class TurniejeService {
 
   getTurnieje() {
     let turniejCollection = this.db.collection<Modeloo[]>('/turnieje');
-    this.turniej = this.turniejCollection.snapshotChanges().map(actions => {
+    this.turniej = turniejCollection.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Modeloo;
         const id = a.payload.doc.id;
