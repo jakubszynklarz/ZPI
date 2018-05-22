@@ -1,4 +1,4 @@
 export class Kontakt {
-    email?:string;
-    pytanie?:string;
+    public email?:string;
+    public pytanie?:string;
 }

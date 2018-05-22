@@ -50,6 +50,7 @@ import { WynikionComponent } from './ladder/wynikion/wynikion.component';
 import { WyniksenderComponent } from './panel-sedziowski/wyniksender/wyniksender.component';
 import { KontaktComponent } from './kontakt/kontakt.component';
 import { KontaktServService } from './kontakt/shared/kontakt-serv.service';
+import { ListaDrabinekComponent } from './ladder/lista-drabinek/lista-drabinek.component';
 
 
 
@@ -94,7 +95,9 @@ declare var require: any;
 
     WynikionComponent,
 
-    KontaktComponent
+    KontaktComponent,
+
+    ListaDrabinekComponent
 
 
   ],

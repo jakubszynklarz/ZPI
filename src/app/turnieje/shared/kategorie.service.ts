@@ -6,16 +6,16 @@ import { Observable } from 'rxjs/Observable';
 export class KategorieService {
 
   private kategorie: AngularFirestoreCollection<KatGiNogi[]>;
-  private katGiNogi: Observable<KatGiNogi[]>;
-  private menWomen: Observable<any[]>;
-  private facetGi: Observable<any[]>;
-  private facetNoGi: Observable<any[]>;
-  private kobietaNoGi: Observable<any[]>;
-  private kobietaGi: Observable<any[]>;
-  private wagi: Observable<any[]>;
+  // private katGiNogi: Observable<KatGiNogi[]>;
+  // private menWomen: Observable<any[]>;
+  // private facetGi: Observable<any[]>;
+  // private facetNoGi: Observable<any[]>;
+  // private kobietaNoGi: Observable<any[]>;
+  // private kobietaGi: Observable<any[]>;
+  // private wagi: Observable<any[]>;
 
-  private pasyColection: AngularFirestoreCollection<any[]>;
-  private pasy: Observable<any[]>;
+  // private pasyColection: AngularFirestoreCollection<any[]>;
+  // private pasy: Observable<any[]>;
 
   constructor(private db: AngularFirestore) {
     this.kategorie = this.db.collection<any[]>('KATegorie');
@@ -23,56 +23,55 @@ export class KategorieService {
 
   getKatGiNogi(current: string) {
     // zwraca kategorie [{id:gi},{id: nogi}} dla danego turnieju
-    this.kategorie = this.db.collection<KatGiNogi[]>('turnieje').doc('' + current).collection('zapisani');;
-    this.katGiNogi = this.kategorie.snapshotChanges().map(actions => {
+    let kategorie = this.db.collection<KatGiNogi[]>('turnieje').doc('' + current).collection('zapisani');;
+    let katGiNogi = kategorie.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as KatGiNogi;
         const id = a.payload.doc.id;
         return { id, ...data };
       })
     });
-    return this.katGiNogi;
+    return katGiNogi;
   }
 
   getManWoman(current: string) {
     //zwraca man women
-    this.kategorie = this.db.collection<any[]>('KATegorie');
-    this.menWomen = this.kategorie.snapshotChanges().map(actions => {
+    let kategorie = this.db.collection<any[]>('KATegorie');
+    let menWomen = kategorie.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as any;
         const id = a.payload.doc.id;
         return { id, ...data };
       })
     });
-    return this.menWomen;
+    return menWomen;
   }
 
-  
-  getPasy(){
-    this.pasyColection = this.db.collection<any[]>('pasy');
-    this.pasy = this.pasyColection.snapshotChanges().map(actions => {
+
+  getPasy() {
+    let pasyColection = this.db.collection<any[]>('pasy');
+    let pasy = pasyColection.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as any;
         const id = a.payload.doc.id;
         return { id, ...data };
       })
     });
-    return this.pasy;
+    return pasy;
   }
 
 
-  getWagi(menOrWomen: string, giOrNogi:string) {
+  getWagi(menOrWomen: string, giOrNogi: string) {
     let kat = this.db.collection<any[]>('KATegorie');
-    this.kategorie = kat.doc(menOrWomen).collection(giOrNogi);
-    this.wagi = this.kategorie.snapshotChanges().map(actions => {
+    let kategorie = kat.doc(menOrWomen).collection(giOrNogi);
+    let wagi = kategorie.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as any;
         const id = a.payload.doc.id;
         return { id, ...data };
       })
     });
-    return this.wagi;
-    
+    return wagi;
   }
 
 }
@@ -80,6 +79,11 @@ export class KategorieService {
 
 
 export class KatGiNogi {
+  id?: string;
+
+}
+
+export class pasy {
   id?: string;
 
 }

@@ -21,6 +21,7 @@ import { SixteenComponent } from './ladder/sixteen/sixteen.component';
 import { DrabinkaWyswietlComponent } from './ladder/drabinka-wyswietl/drabinka-wyswietl.component';
 import { WynikionComponent } from './ladder/wynikion/wynikion.component';
 import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-details.component';
+import { ListaDrabinekComponent } from './ladder/lista-drabinek/lista-drabinek.component';
 
 
 
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     { path: 'zarzadzanie', component: ZarzadzajComponent },
     // { path: 'ladder', component: LadderComponent },
     { path: 'ladder/:def_number', component: GenerujLadderComponent },
+    { path: 'listadrabinek/:def_number', component: ListaDrabinekComponent },
     { path: 'lader/:pas/:waga/:def_number', component: SixteenComponent },    
     {path:'turnieje/:def_number',component: MyevenComponent},
     {path:'sedziowski/:def_number',component: PanelSedziowskiComponent},
