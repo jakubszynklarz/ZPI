@@ -28,7 +28,7 @@ export class GenerujLadderComponent implements OnInit {
   zawColection9: poprawnyZawodnik[];
   zawColection10: poprawnyZawodnik[];
 
-  pasy = ['bialy', 'brązowy', 'czarny', 'niebieski', 'purpurowy'];
+  pasy = ['white', 'brown', 'black', 'blue', 'purple'];
   wagi = ['heavy', 'rooster'];
   // kolekcje=[  this.zawColection1,this.zawColection2,this.zawColection3,this.zawColection4,this.zawColection5,]
   constructor(private db: AngularFirestore, private ladServ: LadderService, private podzielone: TurniejPodzialSerService) {
@@ -53,13 +53,13 @@ export class GenerujLadderComponent implements OnInit {
 
   mojaFun() {
     // console.log("dupa");
-     let usuwanieZbazy = this.ladServ.getzawo(this.current, 'heavy', 'czarny', 'man').subscribe(data2 => {
+     let usuwanieZbazy = this.ladServ.getzawo(this.current, 'heavy', 'black', 'man').subscribe(data2 => {
       // console.log("dupa");
       setTimeout(() => {
         console.log(data2.length);
         for (let i = 0; i < data2.length; i++) {
           console.log(data2[i]);
-          this.db.doc('/turnieje/AU7pzccJaqxZAGtwjk6N/czarny/heavy/man/' + data2[i].id).delete();
+          this.db.doc('/turnieje/AU7pzccJaqxZAGtwjk6N/black/heavy/man/' + data2[i].id).delete();
         }
         ;
       }, 500);

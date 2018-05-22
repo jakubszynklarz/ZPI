@@ -13,7 +13,7 @@ import { Kategorie } from '../../shared/kategorie.model';
 export class MyevenComponent implements OnInit {
 
 
-  public pas:string = 'czarny';
+  public pas:string = 'black';
   public waga:string='heavy';
 
   public check:number;
