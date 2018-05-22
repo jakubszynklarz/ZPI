@@ -1,0 +1,14 @@
+<div class="container">
+
+    <ng-container *ngIf="turniej">
+      <h1> {{turniej.nazwa |json}} </h1>
+    </ng-container>
+  
+    <ul class="list-group col-md-4">
+      <ng-container *ngFor="let p of pasy">
+        <li class="list-group-item" *ngFor="let kat of katwagowe">
+          <button class="btn btn-primary" [routerLink]="['/wyniki', p.id,kat.id,current]" > {{p.id}} {{kat.id }} </button>
+        </li>
+      </ng-container>
+    </ul>
+  </div>

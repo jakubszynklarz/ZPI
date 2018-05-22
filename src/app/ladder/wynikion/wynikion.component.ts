@@ -16,27 +16,26 @@ export class WynikionComponent implements OnInit {
   // czarny heavy
   zawColection8: poprawnyZawodnik[];
 
-
- 
-
-
-
+  public url:string[] = window.location.href.split('/');
   zawodnicy;
-  pasy = ['bialy', 'brązowy', 'czarny', 'niebieski', 'purpurowy'];
-  wagi = ['heavy', 'rooster'];
-  constructor(private db: AngularFirestore, private ladServ: LadderService,private podzialServ: TurniejPodzialSerService) { 
-    ladServ.getzawo(this.current, this.wagi[0], this.pasy[2], 'man').subscribe(data => { this.zawColection8 = data });
+  // pasy = ['bialy', 'brązowy', 'czarny', 'niebieski', 'purpurowy'];
+  // wagi = ['heavy', 'rooster'];
+  // this.url[4] - pasy
+  // this.url[5] - wagi
 
+  pas :string;
+  waga :string;
+
+  constructor(private db: AngularFirestore, private ladServ: LadderService,private podzialServ: TurniejPodzialSerService) { 
+    // console.log(this.url);
+    this.pas = this.url[4];
+    this.waga = this.url[5];
+    ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection8 = data });
   }
 
   ngOnInit() {
   }
-test(){
-  for (let zaw of this.zawColection8) {
-    console.log(zaw);
-  }
-  
-}
+
 
 
 }

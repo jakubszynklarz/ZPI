@@ -22,6 +22,7 @@ import { DrabinkaWyswietlComponent } from './ladder/drabinka-wyswietl/drabinka-w
 import { WynikionComponent } from './ladder/wynikion/wynikion.component';
 import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-details.component';
 import { ListaDrabinekComponent } from './ladder/lista-drabinek/lista-drabinek.component';
+import { ListaWynikiOnlineComponent } from './ladder/lista-wyniki-online/lista-wyniki-online.component';
 
 
 
@@ -42,12 +43,15 @@ const appRoutes: Routes = [
     // { path: 'ladder', component: LadderComponent },
     { path: 'ladder/:def_number', component: GenerujLadderComponent },
     { path: 'listadrabinek/:def_number', component: ListaDrabinekComponent },
+    { path: 'wyniki/:def_number', component: ListaWynikiOnlineComponent },    
     { path: 'lader/:pas/:waga/:def_number', component: SixteenComponent },    
     {path:'turnieje/:def_number',component: MyevenComponent},
     {path:'sedziowski/:def_number',component: PanelSedziowskiComponent},
     {path:'zapisany/:def_number',component: ZapisaneComponent},
     {path:'ladder/:pas/:waga/:def_number',component: DrabinkaWyswietlComponent},
-    {path:'wyniki/:def_number',component: WynikionComponent},
+    {path:'wyniki/:pas/:waga/:def_number',component: WynikionComponent},
+    
+    // {path:'wyniki/:def_number',component: WynikionComponent},
     {path:'kontakt',component: KontaktComponent},
     
 

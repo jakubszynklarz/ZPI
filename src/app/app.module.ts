@@ -51,6 +51,7 @@ import { WyniksenderComponent } from './panel-sedziowski/wyniksender/wyniksender
 import { KontaktComponent } from './kontakt/kontakt.component';
 import { KontaktServService } from './kontakt/shared/kontakt-serv.service';
 import { ListaDrabinekComponent } from './ladder/lista-drabinek/lista-drabinek.component';
+import { ListaWynikiOnlineComponent } from './ladder/lista-wyniki-online/lista-wyniki-online.component';
 
 
 
@@ -97,7 +98,9 @@ declare var require: any;
 
     KontaktComponent,
 
-    ListaDrabinekComponent
+    ListaDrabinekComponent,
+
+    ListaWynikiOnlineComponent
 
 
   ],
