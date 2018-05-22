@@ -9,10 +9,10 @@ export class LadderService {
   // turniej: Observable<poprawnyZawodnik[]>;
   constructor(public db: AngularFirestore) { }
 
-  getZawonikow(current: string, waga: string, pas: string, plec: string) {
+  getZawonikow(current: string, waga: string, pas: string, plec: string, gi?: string) {
     // ('/turnieje/'+ current+'/zapisani/gi/zawodnicy/',ref => {return ref.where('','==','')});
 
-    let zawoCollection = this.db.collection<poprawnyZawodnik>('/turnieje/' + current + '/zapisani/gi/zawodnicy/', ref => {
+    let zawoCollection = this.db.collection<poprawnyZawodnik>('/turnieje/' + current + '/zapisani/'+gi+'/zawodnicy/', ref => {
       return ref.where('waga', '==', waga).where('pas', '==', pas).where('plec', '==', plec)
     });
     let turniej = zawoCollection.snapshotChanges().map(actions => {
@@ -27,6 +27,7 @@ export class LadderService {
   }
   
   getzawo(current: string, waga: string, pas: string, plec: string){
+    
     let zawoCollection = this.db.collection<poprawnyZawodnik>('/turnieje/' + current +'/'+pas+'/'+waga+'/'+plec);
     let turniej = zawoCollection.snapshotChanges().map(actions => {
       return actions.map(a => {

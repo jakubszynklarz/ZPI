@@ -15,163 +15,115 @@ import { Modeloo } from '../../zarzadzaj/shared/modeloo.model';
 
 export class SixteenComponent implements OnInit {
 
-  
-
-
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-  zawColection: poprawnyZawodnik[];
-  public poz1: string;
-  public poz2: string;
-  public poz3: string;
-  public poz4: string;
-  public poz5: string;
-  public poz6: string;
-  public poz7: string;
-  public poz8: string;
-  public poz9: string;
-  public poz10: string;
-  public poz11: string;
-  public poz12: string;
-  public poz13: string;
-  public poz14: string;
-  public poz15: string;
-  public poz16: string;
+  
+  // public poz1: string;
+  // public poz2: string;
+  // public poz3: string;
+  // public poz4: string;
+  // public poz5: string;
+  // public poz6: string;
+  // public poz7: string;
+  // public poz8: string;
+  // public poz9: string;
+  // public poz10: string;
+  // public poz11: string;
+  // public poz12: string;
+  // public poz13: string;
+  // public poz14: string;
+  // public poz15: string;
+  // public poz16: string;
   public nazwaturnieju: string;
-  zawColection1: poprawnyZawodnik[];
-  zawColection2: poprawnyZawodnik[];
-  zawColection3: poprawnyZawodnik[];
-  zawColection4: poprawnyZawodnik[];
-  zawColection5: poprawnyZawodnik[];
+  
+  // czarny heavy
+  zawColection11: poprawnyZawodnik[];
+  zawColection12: poprawnyZawodnik[];
+ 
+    // czarny rooster
+  zawColection21: poprawnyZawodnik[];
+  zawColection22: poprawnyZawodnik[];
 
-  zawColection6: poprawnyZawodnik[];
-  zawColection7: poprawnyZawodnik[];
-  zawColection8: poprawnyZawodnik[];
-  zawColection9: poprawnyZawodnik[];
-  zawColection10: poprawnyZawodnik[];
+  
   turnieje: Modeloo;
+
+  pasy = ['bialy', 'brązowy', 'czarny', 'niebieski', 'purpurowy'];
+  wagi = ['heavy', 'rooster'];
+
   public url:string[] = window.location.href.split('/');
 
   constructor(private db: AngularFirestore, private ladServ: LadderService, private podzielone: TurniejPodzialSerService) {
-    // ladServ.getTur(this.current).subscribe(data => { this.turnieje = data.filter(turn => turn.id == this.current)[0];});
+
     ladServ.getTur().subscribe(data => { this.turnieje = data.filter(turn => turn.id == this.current)[0];});
 
-   console.log(this.url);
-//    4"pas"
+    console.log(this.url);
 
-// 5:"waga
+    // heavy czarny 
+    
 
-    ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection = data });
-    //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[0],'man').subscribe(data => {this.zawColection1 = data});
-    //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[1],'man').subscribe(data => {this.zawColection2 = data});
-    ladServ.getZawonikow(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection3 = data });
-    //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[3],'man').subscribe(data => {this.zawColection4 = data});
-    //  ladServ.getZawonikow(this.current,this.wagi[0],this.pasy[4],'man').subscribe(data => {this.zawColection5 = data});
-
-    //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[0],'man').subscribe(data => {this.zawColection6 = data});
-    //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[1],'man').subscribe(data => {this.zawColection7 = data});
-    ladServ.getZawonikow(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection8 = data });
-    //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[3],'man').subscribe(data => {this.zawColection9 = data});
-    //  ladServ.getZawonikow(this.current,this.wagi[1],this.pasy[4],'man').subscribe(data => {this.zawColection10 = data});
-    // this.zawColection = this.db.collection<poprawnyZawodnik>('/turnieje/'+ this.current+'/zapisani/gi/zawodnicy/',ref => {return ref.where('','==','')});
+    
+      
     setTimeout(() => {
-      this.fukcja()
       this.nazwaturnieju=this.turnieje.nazwa
-          }, 4000);
+          }, 1000);
+          }
 
 
-    // this.mojaFun(); 
-  }
+// pod guzikiem
+  opusmagnum(waga:string,pas:string) {
+    let fun=
+      this.
+        // Przed podziałem
+        ladServ.getZawonikow(this.current, waga, pas, 'man','gi').subscribe(data => { this.zawColection12 = data });
+   let nul= this. 
+      // dzieli
+      ladServ.getzawo(this.current, waga,pas, 'man').subscribe(data => { this.zawColection11 = data });
 
-
-  // ('/turnieje/'+ current+'/zapisani/gi/zawodnicy/',ref => {return ref.where('','==','')});
-
-  opusmagnum() {
-
-    this.mojaFun();
+    this.mojaFun(waga,pas);
     
     setTimeout(() => {
-      this.podziel();
-    }, 2200);
-    
+      this.podziel(waga,pas);
+    }, 1300);
     setTimeout(() => {
-      this.fukcja();
-    }, 3300);
-
+      fun.unsubscribe();
+      nul.unsubscribe();
+    }, 1500);
+    
   }
 
-  fukcja() {
-    for (let zaw of this.zawColection) {
-      if (zaw.pozycjaStartowa == '0') {
-        this.poz1 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '1') {
-        this.poz2 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '2') {
-        this.poz3 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '3') {
-        this.poz4 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '4') {
-        this.poz5 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '5') {
-        this.poz6 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '6') {
-        this.poz7 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '7') {
-        this.poz8 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '8') {
-        this.poz9 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '9') {
-        this.poz10 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '10') {
-        this.poz11 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '11') {
-        this.poz12 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '12') {
-        this.poz13 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '13') {
-        this.poz14 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '14') {
-        this.poz15 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '15') {
-        this.poz16 = zaw.nazwa
-      }
+  // czyszczenie bazy
+  mojaFun(waga?:string, pas?:string) {
+    
+    let cos = this.ladServ.getzawo(this.current, waga, pas, "man").subscribe(data2 => {
+      setTimeout(() => {
 
+        for (let i = 0; i < data2.length; i++) {
+         
+          this.db.doc('/turnieje/' +this.current+'/'+pas+'/'+waga+'/man/'+ data2[i].id).delete();
+          
+        }
+        ;
+      }, 100);
+    });
 
-
-
-    }
-
-
+    setTimeout(() => {
+      cos.unsubscribe();
+    }, 1000);
   }
+  
 
 
-
-  podziel() {
-
-
-
-    // this.mojaFun(); 
-
-    //     for (let zaw of this.zawColection1) {
-    //       this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[0]+'/'+this.wagi[0]+'/man').
-    //       add(JSON.parse(JSON.stringify(zaw)));
-    //   }
-    //   for (let zaw of this.zawColection2) {
-    //     this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[1]+'/'+this.wagi[0]+'/man').
-    //     add(JSON.parse(JSON.stringify(zaw)));
-    // }
-
-    // this.db.doc('/turnieje/AU7pzccJaqxZAGtwjk6N/czarny/heavy/man').delete();
-    // this.slowoDocument.delete();
+// podzial na kategorie
+  podziel(waga?:string, pas?:string) {
 
     let i = 0;
     var shuffle = require('shuffle-array'),
-      collection3 = this.zawColection3;
+      collection3 = this.zawColection12;
 
     shuffle(collection3);
 
     console.log(collection3);
     for (let zaw of collection3) {
-      // if (i< 8){
+      
 
       zaw.pozycjaStartowa = '' + i;
       zaw.pierwszyoQ = "false";
@@ -193,9 +145,8 @@ export class SixteenComponent implements OnInit {
        
       zaw.winner = "false";
       i++;
-      // }
-      this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' + this.url[4] + '/' + this.url[5] + '/man').doc(zaw.id).set(JSON.parse(JSON.stringify(zaw)))
-      // add(JSON.parse(JSON.stringify(zaw)));
+      
+      this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' + pas + '/' + waga + '/man').doc(zaw.id).set(JSON.parse(JSON.stringify(zaw)))
     }
     let pusty: poprawnyZawodnik = new poprawnyZawodnik();
     pusty.nazwa = 'Brak zawodnika';
@@ -221,66 +172,12 @@ export class SixteenComponent implements OnInit {
        
       pusty.winner = "false";
       if (k >= i) {
-        this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' +this.url[4] + '/' +this.url[5] + '/man').add(JSON.parse(JSON.stringify(pusty)));
+        this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' +pas + '/' +waga + '/man').add(JSON.parse(JSON.stringify(pusty)));
       }
     }
-
-    // for (let zaw of this.zawColection4) {
-    //   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[3]+'/'+this.wagi[0]+'/man').
-    //   add(JSON.parse(JSON.stringify(zaw)));
-    // }
-    // for (let zaw of this.zawColection5) {
-    //   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[4]+'/'+this.wagi[0]+'/man').
-    //   add(JSON.parse(JSON.stringify(zaw)));
-    // }
-
-    //   for (let zaw of this.zawColection6) {
-    //   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[0]+'/'+this.wagi[1]+'/man').
-    //   add(JSON.parse(JSON.stringify(zaw)));
-    // }
-    // for (let zaw of this.zawColection7) {
-    //   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[1]+'/'+this.wagi[1]+'/man').
-    //   add(JSON.parse(JSON.stringify(zaw)));
-    // }
-
-
-    // for (let zaw of this.zawColection8) {
-    //   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[2]+'/'+this.wagi[1]+'/man').
-    //   add(JSON.parse(JSON.stringify(zaw)));
-    // }
-    // for (let zaw of this.zawColection9) {
-    //   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[3]+'/'+this.wagi[1]+'/man').
-    //   add(JSON.parse(JSON.stringify(zaw)));
-    // }
-    // for (let zaw of this.zawColection10) {
-    //   this.db.collection<poprawnyZawodnik[]>('/turnieje/'+this.current+'/'+this.pasy[4]+'/'+this.wagi[1]+'/man').
-    //   add(JSON.parse(JSON.stringify(zaw)));
-    // }
   }
 
-  mojaFun() {
-    // console.log("dupa");
-    let cos = this.ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data2 => {
-      // console.log("dupa");
-      setTimeout(() => {
-
-        for (let i = 0; i < data2.length; i++) {
-
-          this.db.doc('/turnieje/' +this.current+'/'+this.url[4]+'/'+this.url[5]+'/man/'+ data2[i].id).delete();
-        }
-        ;
-      }, 700);
-    });
-
-    setTimeout(() => {
-      cos.unsubscribe();
-    }, 1000);
-
-
-  }
-
-
-
+  
 
   ngOnInit() {
 

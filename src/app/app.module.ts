@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing }        from './app.routing';
@@ -52,7 +53,9 @@ import { KontaktComponent } from './kontakt/kontakt.component';
 import { KontaktServService } from './kontakt/shared/kontakt-serv.service';
 import { ListaDrabinekComponent } from './ladder/lista-drabinek/lista-drabinek.component';
 import { ListaWynikiOnlineComponent } from './ladder/lista-wyniki-online/lista-wyniki-online.component';
+import { ListaPytanComponent } from './kontakt/lista-pytan/lista-pytan.component';
 
+import { RejestracjaServService } from './register/shared/rejestracja-serv.service';
 
 
 declare var require: any;
@@ -100,7 +103,9 @@ declare var require: any;
 
     ListaDrabinekComponent,
 
-    ListaWynikiOnlineComponent
+    ListaWynikiOnlineComponent,
+
+    ListaPytanComponent
 
 
   ],
@@ -114,7 +119,7 @@ declare var require: any;
     ReactiveFormsModule
     
   ],
-  providers: [TurniejService,TurniejeService,KategorieService,LadderService,TurniejPodzialSerService , KontaktServService],
+  providers: [TurniejService,TurniejeService,KategorieService,LadderService,TurniejPodzialSerService , KontaktServService,RejestracjaServService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
