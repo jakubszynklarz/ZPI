@@ -1,4 +1,5 @@
-﻿import { Routes, RouterModule } from '@angular/router';
+﻿import { KontaktComponent } from './kontakt/kontakt.component';
+import { Routes, RouterModule } from '@angular/router';
 
 
 import { HomepageComponent } from './homepage/homepage.component';
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     {path:'zapisany/:def_number',component: ZapisaneComponent},
     {path:'ladder/:pas/:waga/:def_number',component: DrabinkaWyswietlComponent},
     {path:'wyniki/:def_number',component: WynikionComponent},
+    {path:'kontakt',component: KontaktComponent},
     
 
 

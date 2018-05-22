@@ -27,6 +27,9 @@ export class MyevenComponent implements OnInit {
   public zapisaniCollection: AngularFirestoreCollection<Kategorie>;
   public zapisani: Observable<any[]>;
 
+  public zapisaniCollectionNogi: AngularFirestoreCollection<Kategorie>;
+  public zapisaniNogi: Observable<any[]>;
+
   
   constructor(private db: AngularFirestore) { 
 
@@ -43,6 +46,17 @@ export class MyevenComponent implements OnInit {
 
     this.zapisaniCollection=db.collection<Modeloo>('/turnieje').doc(this.current).collection('zapisani').doc('gi').collection('zawodnicy');
     this.zapisani=this.zapisaniCollection.snapshotChanges().map(actions =>{
+      return actions.map( a=>{
+        const data = a.payload.doc.data() as Modeloo;
+        const id = a.payload.doc.id;
+        
+        return {id,...data};
+      })
+    })
+
+
+    this.zapisaniCollectionNogi=db.collection<Modeloo>('/turnieje').doc(this.current).collection('zapisani').doc('nogi').collection('zawodnicy');
+    this.zapisaniNogi=this.zapisaniCollectionNogi.snapshotChanges().map(actions =>{
       return actions.map( a=>{
         const data = a.payload.doc.data() as Modeloo;
         const id = a.payload.doc.id;
