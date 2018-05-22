@@ -1,3 +1,4 @@
+
 <div class="col-md-4" align="center" style="width: 50%;margin: auto;">
   <h2>Rejestracja</h2>
   <form name="form"  #f="ngForm" >
@@ -5,7 +6,7 @@
           <label for="user_name">Nazwa Użytkownika</label>
           <input type="text" class="form-control" name="user_name"  />
           
-      </div>
+      </div>    
       <div class="form-group" >
           <label for="e_mail">Adres e-mail</label>
           <input type="text" class="form-control" name="e_mail"   />
@@ -20,7 +21,7 @@
           <input type="text" class="form-control" name="password_potwierdz" />
       </div>
       <div class="form-group">
-          <button [disabled]="" class="btn btn-primary">Zarejestruj</button>
+          <button  class="btn btn-primary">Zarejestruj</button>
           
           <button [routerLink]="['/homepage']" class = "btn btn-primary">Anuluj</button>
       </div>
