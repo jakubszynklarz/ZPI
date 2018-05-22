@@ -49,6 +49,7 @@ import { DrabinkaWyswietlComponent } from './ladder/drabinka-wyswietl/drabinka-w
 import { WynikionComponent } from './ladder/wynikion/wynikion.component';
 import { WyniksenderComponent } from './panel-sedziowski/wyniksender/wyniksender.component';
 import { KontaktComponent } from './kontakt/kontakt.component';
+import { KontaktServService } from './kontakt/shared/kontakt-serv.service';
 
 
 
@@ -107,7 +108,7 @@ declare var require: any;
     ReactiveFormsModule
     
   ],
-  providers: [TurniejService,TurniejeService,KategorieService,LadderService,TurniejPodzialSerService],
+  providers: [TurniejService,TurniejeService,KategorieService,LadderService,TurniejPodzialSerService , KontaktServService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

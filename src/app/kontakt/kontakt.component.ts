@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Kontakt } from './shared/kontakt.model';
+import { KontaktServService } from './shared/kontakt-serv.service';
 
 @Component({
   selector: 'app-kontakt',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KontaktComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private kontaktSev:KontaktServService) { }
+  
   ngOnInit() {
+  }
+
+
+  ss(f:NgForm){
+    let kon :Kontakt = new Kontakt();
+    kon.email = f.value.email;
+    kon.pytanie = f.value.pytanie;
+    this.kontaktSev.setKontakt(kon);
+    f.resetForm();
   }
 
 }
