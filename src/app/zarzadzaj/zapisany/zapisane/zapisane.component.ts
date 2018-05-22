@@ -12,7 +12,7 @@ import { Kategorie } from '../../shared/kategorie.model';
 export class ZapisaneComponent implements OnInit {
 
 // dane do routas
-  public pas:string = 'czarny';
+  public pas:string = 'black';
   public waga:string='heavy';
 
 

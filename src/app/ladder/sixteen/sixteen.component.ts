@@ -46,7 +46,7 @@ export class SixteenComponent implements OnInit {
   
   turnieje: Modeloo;
 
-  pasy = ['bialy', 'brązowy', 'czarny', 'niebieski', 'purpurowy'];
+  pasy = ['white', 'brown', 'black', 'blue', 'purple'];
   wagi = ['heavy', 'rooster'];
 
   public url:string[] = window.location.href.split('/');
