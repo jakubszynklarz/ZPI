@@ -357,11 +357,16 @@ export class PanelSedziowskiComponent implements OnInit {
         this.paraGlownyFinal[1].winner = 'true';
         this.updateZawodnika(this.paraGlownyFinal[1], this.paraGlownyFinal[1].id);
       }
+      this.wyswietlPara = "wczytywanie zwycięzcy..."
+      setTimeout(() => {
+        this.wyswietlPara = "Wygrał: " + this.zwyciezcaTurnieju.nazwa
+      }, 1500);
     }
 
     if (this.aktualnaPara == 15) {
       // paraGlownyFinal
-      this.wyswietlPara = "Wygrał: " + this.zwyciezcaTurnieju.nazwa
+      this.wyswietlPara = "Aby kontynuować zmień kategorię "
+
     }
 
 
