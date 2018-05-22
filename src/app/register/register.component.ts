@@ -19,9 +19,9 @@ export class RegisterComponent implements OnInit {
   }
   nvm(f:NgForm){
     let regi: Rejestracja = new Rejestracja()
-    regi.email = f.value.e_mail;
-    regi.haslo = f.value.password;
-    regi.login = f.value.user_name;
+    regi.email = f.value.email;
+    regi.password = f.value.password;
+    regi.username = f.value.username;
     this.regServ.setRejestracja(regi);
     f.resetForm();
 

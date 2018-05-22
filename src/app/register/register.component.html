@@ -1,29 +1,39 @@
 
 <div class="col-md-4" align="center" style="width: 50%;margin: auto;">
   <h2>Rejestracja</h2>
-  <form name="form"  #f="ngForm" >
+  <form ngForm #f="ngForm" >
       <div class="form-group" >
-          <label for="user_name">Nazwa Użytkownika</label>
-          <input type="text" class="form-control" name="user_name"  />
+          <label for="username">Nazwa Użytkownika</label>
+          <input type="text" class="form-control" #username = "ngModel" name="username" ngModel 
+          required 
+          id="username" />
           
       </div>    
       <div class="form-group" >
-          <label for="e_mail">Adres e-mail</label>
-          <input type="text" class="form-control" name="e_mail"   />
+          <label for="email">Adres e-mail</label>
+          <input type="text" class="form-control"  #email = "ngModel" name="email"  ngModel 
+          required 
+          id="email" />
           
       </div>
       <div class="form-group">
           <label for="password">Hasło</label>
-          <input type="text" class="form-control" name="password"   />
+          <input type="text" class="form-control" #password = "ngModel" name="password" ngModel 
+          required 
+          id="password"  />
       </div>
       <div class="form-group" >
-          <label for="password_potwierdz">Potwierdz hasło</label>
-          <input type="text" class="form-control" name="password_potwierdz" />
+          <label for="passwordpotwierdz">Potwierdz hasło</label>
+          <input type="text" class="form-control" name="passwordpotwierdz" #passwordpotwierdz = "ngModel" ngModel 
+          required 
+          id="passwordpotwierdz"/>
       </div>
       <div class="form-group">
-          <button type = "submit" class="btn btn-primary">Zarejestruj</button>
+          <button  [disabled]="!f.form.valid" (click)="SubmitForm(f)" type = "submit" class="btn btn-primary">Zarejestruj</button>
           
           <button [routerLink]="['/homepage']" class = "btn btn-primary" >Anuluj</button>
-      </div>
+          
+        </div>
   </form>
 </div>
+{{f.value|json}
