@@ -1,34 +1,42 @@
 <div class="navlist">
   <table class="table">
 
+    <tr>
 
-    <th class="col-sm">Nazwa</th>
+      <th class="col-sm">Nazwa</th>
 
-    <th class="col-sm">Miasto</th>
-    <th class="col-sm">Kategoria</th>
-    <th class="col-sm">Data turnieju</th>
+      <th class="col-sm">Miasto</th>
+      <th class="col-sm">Kategoria</th>
+      <th class="col-sm">Data turnieju</th>
+    </tr>
 
-
+    <tr>
+      <th>
+        <input class="form-control" (keyup.control.1)="onKeydown($egg)" (keyup)="onKey($event)" placeholder="Szukaj">
+      </th>
+    </tr>
 
   </table>
 </div>
-<div class="lista" *ngFor="let turnie of turnieje | async ">
+<div class="lista" *ngFor="let turnie of turnieje ">
 
-  <div class="Row" [routerLink]="['/zapisany', turnie.id]">
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <tbody>
-          <tr>
-            <th class="col-sm">{{turnie.nazwa}}</th>
-            <th class="col-sm">{{turnie.miejsce}}</th>
-            <th class="col-sm"> {{turnie.kategoria}}</th>
-            <th class="col-sm">{{turnie.kiedy | date}}</th>
-          </tr>
-        </tbody>
-      </table>
+  <ng-container *ngIf="turnie.nazwa.substring(0,values.length).toUpperCase() == values.toUpperCase()">
+
+    <div class="Row" [routerLink]="['/zapisany', turnie.id]">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tbody>
+            <tr>
+              <th class="col-sm">{{turnie.nazwa}}</th>
+              <th class="col-sm">{{turnie.miejsce}}</th>
+              <th class="col-sm"> {{turnie.kategoria}}</th>
+              <th class="col-sm">{{turnie.kiedy | date}}</th>
+            </tr>
+          </tbody>
+        </table>
 
 
+      </div>
     </div>
-  </div>
+  </ng-container>
 </div>
-

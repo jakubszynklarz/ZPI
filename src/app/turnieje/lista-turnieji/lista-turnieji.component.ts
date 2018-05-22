@@ -5,28 +5,29 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Modeloo } from '../../zarzadzaj/shared/modeloo.model';
+import { TurniejeService } from '../zapisz-sie/serwisy/turniej.service';
 @Component({
   selector: 'app-lista-turnieji',
   templateUrl: './lista-turnieji.component.html',
   styleUrls: ['./lista-turnieji.component.css']
 })
 export class ListaTurniejiComponent implements OnInit {
-  
-  public turnieCollection: AngularFirestoreCollection<Modeloo>;
-  public turnieje: Observable<any[]>;
-  
-  constructor(private db: AngularFirestore) { 
-    this.turnieCollection=db.collection<Modeloo>('/turnieje');
-    this.turnieje=this.turnieCollection.snapshotChanges().map(actions =>{
-      return actions.map( a=>{
-        const data = a.payload.doc.data() as Modeloo;
-        const id = a.payload.doc.id;
-        return {id,...data};
-      })
-    })
+
+  // public turnieCollection: AngularFirestoreCollection<Modeloo>;
+  // public turnieje: Observable<any[]>;
+  values: string = '';
+  turnieje: Modeloo[];
+  constructor(private db: AngularFirestore, turServ: TurniejeService) {
+    turServ.getTurnieje().subscribe(data => this.turnieje = data)
+
+
   }
+  onKey(event: any) {
+    this.values = event.target.value;
+  }
+
   ngOnInit() {
-    
+
 
   }
 
