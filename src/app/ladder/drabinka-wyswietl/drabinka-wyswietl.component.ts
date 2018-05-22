@@ -12,148 +12,120 @@ import { TurniejPodzialSerService } from '../../zarzadzaj/shared/turniej-podzial
 })
 export class DrabinkaWyswietlComponent implements OnInit {
 
+ 
+  poz1:poprawnyZawodnik;
+  poz2:poprawnyZawodnik;
+  poz3:poprawnyZawodnik;
+  poz4:poprawnyZawodnik;
+  poz5:poprawnyZawodnik;
+  poz6:poprawnyZawodnik;
+  poz7:poprawnyZawodnik;
+  poz8:poprawnyZawodnik;
+  poz9:poprawnyZawodnik;
+  poz10:poprawnyZawodnik;
+  poz11:poprawnyZawodnik;
+  poz12:poprawnyZawodnik;
+  poz13:poprawnyZawodnik;
+  poz14:poprawnyZawodnik;
+  poz15:poprawnyZawodnik;
+  poz16:poprawnyZawodnik;
+
+  q1:poprawnyZawodnik;
+  q2:poprawnyZawodnik;
+  q3:poprawnyZawodnik;
+  q4:poprawnyZawodnik;
+  q5:poprawnyZawodnik;
+  q6:poprawnyZawodnik;
+  q7:poprawnyZawodnik;
+  q8:poprawnyZawodnik;
+
+  
+  sf1:poprawnyZawodnik;
+  sf2:poprawnyZawodnik;
+  sf3:poprawnyZawodnik;
+  sf4:poprawnyZawodnik;
+
+  fi1:poprawnyZawodnik;
+  fi2:poprawnyZawodnik;
+
+  zwyciezca:poprawnyZawodnik;
+
   public current = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-  zawColection: poprawnyZawodnik[];
-  public poz1: string;
-  public poz2: string;
-  public poz3: string;
-  public poz4: string;
-  public poz5: string;
-  public poz6: string;
-  public poz7: string;
-  public poz8: string;
-  public poz9: string;
-  public poz10: string;
-  public poz11: string;
-  public poz12: string;
-  public poz13: string;
-  public poz14: string;
-  public poz15: string;
-  public poz16: string;
-  public q1:string;
-  public q2:string;
-  public q3:string;
-  public q4:string;
-  public q5:string;
-  public q6:string;
-  public q7:string;
-  public q8:string;
-
-  public sf1:string;
-  public sf2:string;
-  public sf3:string;
-  public sf4:string;
-
-  public fi1:string;
-  public fi2:string;
-  public zwyciezca:string;
-
-  public nazwaturnieju: string;
-  zawColection1: poprawnyZawodnik[];
-  zawColection2: poprawnyZawodnik[];
-  zawColection3: poprawnyZawodnik[];
-  zawColection4: poprawnyZawodnik[];
-  zawColection5: poprawnyZawodnik[];
-
-  zawColection6: poprawnyZawodnik[];
-  zawColection7: poprawnyZawodnik[];
-  zawColection8: poprawnyZawodnik[];
-  zawColection9: poprawnyZawodnik[];
-  zawColection10: poprawnyZawodnik[];
-  zawCollectionfin: poprawnyZawodnik[];
-  turnieje: Modeloo;
+  zawodnicy: poprawnyZawodnik[];
+  turnieje: Modeloo[];
   public url:string[] = window.location.href.split('/');
-
+  zawColection: poprawnyZawodnik[];
+  turn;
+  turniej;
 
   constructor(private db: AngularFirestore, private ladServ: LadderService, private podzielone: TurniejPodzialSerService) {
-    ladServ.getTur().subscribe(data => { this.turnieje = data.filter(turn => turn.id == this.current)[0];});
-    ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawCollectionfin = data });
 
-    ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection = data });
-    setTimeout(() => {
-      this.fukcja()
-      this.nazwaturnieju=this.turnieje.nazwa
-          }, 3000);
+    // ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data => { this.zawColection = data });
+ 
+    ladServ.getTur().subscribe(data => {
+      this.turnieje = data;
+        if (data) {
+          this.turniej = data.filter(z => z.id == this.url[6])[0];
+        }
+      })
+      this.ladujZawodnikow()
+     
+    
           
    }
 
   ngOnInit() {
+    
   }
-  fukcja() {
-    for (let zaw of this.zawColection) {
-      if (zaw.pozycjaStartowa == '0') {
-        this.poz1 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '1') {
-        this.poz2 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '2') {
-        this.poz3 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '3') {
-        this.poz4 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '4') {
-        this.poz5 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '5') {
-        this.poz6 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '6') {
-        this.poz7 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '7') {
-        this.poz8 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '8') {
-        this.poz9 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '9') {
-        this.poz10 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '10') {
-        this.poz11 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '11') {
-        this.poz12 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '12') {
-        this.poz13 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '13') {
-        this.poz14 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '14') {
-        this.poz15 = zaw.nazwa
-      } if (zaw.pozycjaStartowa == '15') {
-        this.poz16 = zaw.nazwa
-      }if(zaw.pierwszyoQ=='true'){
-        this.q1=zaw.nazwa
-      }if(zaw.drugioQ=='true'){
-        this.q2=zaw.nazwa
-      }if(zaw.trzecioQ=='true'){
-        this.q3=zaw.nazwa
+  ladujZawodnikow() {
+ 
+    
+    this.ladServ.getzawo(this.current, this.url[5], this.url[4], 'man').subscribe(data => {
+    this.zawodnicy = data;
+      if (data) {
+          this.poz1 = data.find(z => z.pozycjaStartowa == "0");
+          this.poz2 = data.find(z => z.pozycjaStartowa == "1");
+          this.poz3 = data.find(z => z.pozycjaStartowa == "2");
+          this.poz4 = data.find(z => z.pozycjaStartowa == "3");
+          this.poz5 = data.find(z => z.pozycjaStartowa == "4");
+          this.poz6 = data.find(z => z.pozycjaStartowa == "5");
+          this.poz7 = data.find(z => z.pozycjaStartowa == "6");
+          this.poz8 = data.find(z => z.pozycjaStartowa == "7");
+          this.poz9 = data.find(z => z.pozycjaStartowa == "8");
+          this.poz10 = data.find(z => z.pozycjaStartowa == "9");
+          this.poz11 = data.find(z => z.pozycjaStartowa == "10");
+          this.poz12 = data.find(z => z.pozycjaStartowa == "11");
+          this.poz13 = data.find(z => z.pozycjaStartowa == "12");
+          this.poz14 = data.find(z => z.pozycjaStartowa == "13");
+          this.poz15 = data.find(z => z.pozycjaStartowa == "14");
+          this.poz16 = data.find(z => z.pozycjaStartowa == "15");
+
+          this.q1=data.find(z => z.pierwszyoQ == "true");
+          this.q2=data.find(z => z.drugioQ == "true");
+          this.q3=data.find(z => z.trzecioQ == "true");
+          this.q4=data.find(z => z.czwartyoQ == "true");
+          this.q5=data.find(z => z.piatyoQ == "true");
+          this.q6=data.find(z => z.szustyoQ == "true");
+          this.q7=data.find(z => z.siuoQ == "true");
+          this.q8=data.find(z => z.osmyuoQ == "true");
+
+          this.sf1=data.find(z => z.pierwszySFinal == "true");
+          this.sf2=data.find(z => z.drugiSFinal == "true");
+          this.sf3=data.find(z => z.trzeciSFinal == "true");
+          this.sf4=data.find(z => z.czwartySFinal == "true");
+
+          this.fi1=data.find(z => z.pierwszyFinal == "true");
+          this.fi2=data.find(z => z.drugiFinal == "true");
+          
+          this.zwyciezca=data.find(z => z.winner == "true");
+          
+
       }
-      if(zaw.czwartyoQ=='true'){
-        this.q4=zaw.nazwa
-      }
-      if(zaw.piatyoQ=='true'){
-        this.q5=zaw.nazwa
-      }
-      if(zaw.szustyoQ=='true'){
-        this.q6=zaw.nazwa
-      }
-      if(zaw.siuoQ=='true'){
-        this.q7=zaw.nazwa
-      }if(zaw.osmyuoQ=='true'){
-        this.q8=zaw.nazwa
-      }if(zaw.pierwszySFinal =='true'){
-        this.sf1=zaw.nazwa
-      }if(zaw.drugiSFinal =='true'){
-        this.sf2=zaw.nazwa
-      }if(zaw.trzeciSFinal =='true'){
-        this.sf3=zaw.nazwa
-      }if(zaw.czwartySFinal =='true'){
-        this.sf4=zaw.nazwa
-      }if(zaw.pierwszyFinal =='true'){
-        this.fi1=zaw.nazwa
-      }if(zaw.drugiFinal =='true'){
-        this.fi2=zaw.nazwa
-      }if(zaw.winner =='true'){
-        this.zwyciezca=zaw.nazwa
-      }
+   
+    });
 
 
+  }
+  
 
-
-
-    }
-
-}
 }

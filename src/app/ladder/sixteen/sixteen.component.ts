@@ -174,6 +174,24 @@ export class SixteenComponent implements OnInit {
       // if (i< 8){
 
       zaw.pozycjaStartowa = '' + i;
+      zaw.pierwszyoQ = "false";
+      zaw.drugioQ = "false";
+      zaw.trzecioQ = "false";
+      zaw.czwartyoQ = "false";
+      zaw.piatyoQ = "false";
+      zaw.szustyoQ = "false";
+      zaw.siuoQ = "false";
+      zaw.osmyuoQ = "false";
+
+      zaw.pierwszySFinal = "false";
+      zaw.drugiSFinal = "false";
+      zaw.trzeciSFinal = "false";
+      zaw.czwartySFinal = "false";
+
+      zaw.pierwszyFinal = "false";
+      zaw.drugiFinal = "false";
+       
+      zaw.winner = "false";
       i++;
       // }
       this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' + this.url[4] + '/' + this.url[5] + '/man').doc(zaw.id).set(JSON.parse(JSON.stringify(zaw)))
@@ -184,6 +202,24 @@ export class SixteenComponent implements OnInit {
     pusty.klub = ' ';
     for (let k = i; k <= 16; k++) {
       pusty.pozycjaStartowa = '' + k;
+      pusty.pierwszyoQ = "false";
+      pusty.drugioQ = "false";
+      pusty.trzecioQ = "false";
+      pusty.czwartyoQ = "false";
+      pusty.piatyoQ = "false";
+      pusty.szustyoQ = "false";
+      pusty.siuoQ = "false";
+      pusty.osmyuoQ = "false";
+
+      pusty.pierwszySFinal = "false";
+      pusty.drugiSFinal = "false";
+      pusty.trzeciSFinal = "false";
+      pusty.czwartySFinal = "false";
+
+      pusty.pierwszyFinal = "false";
+      pusty.drugiFinal = "false";
+       
+      pusty.winner = "false";
       if (k >= i) {
         this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' +this.url[4] + '/' +this.url[5] + '/man').add(JSON.parse(JSON.stringify(pusty)));
       }
