@@ -1,12 +1,18 @@
-<div class="container text-center" >
+<div class="container text-center">
   <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
       <div class="card bg-light card-body mb-3 text-primary">
         <span class="title"></span>
         <span class="text-muted">
-          
-          {{nazwaturnieju}}
+          <ng-container *ngIf="turniej">
+            
+            <label>{{turniej.nazwa}} </label>
+            <label> Pas: {{url[4]}}</label>
+            <label>Kategoria wagowa: {{url[5]}}</label>
+
+          </ng-container>
+
 
         </span>
 
@@ -27,8 +33,11 @@
       <span class="seed-lt">1 </span>
       <span></span>
       <span class="text-muted pad-rt">
-
-        {{poz1}}
+        <ng-container *ngIf="poz1">
+          <ng-container *ngIf=" poz1.nazwa !== 'Brak zawodnika';else brak">
+            {{poz1.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -53,7 +62,11 @@
       <span></span>
       <span class="text-muted pad-lt">
 
-          {{poz2}}
+        <ng-container *ngIf="poz2">
+          <ng-container *ngIf=" poz2.nazwa !== 'Brak zawodnika';else brak">
+            {{poz2.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
       <span class="seed-rt"> 2</span>
@@ -67,8 +80,11 @@
       <span></span>
       <span class="text-muted pad-rt">
 
-        {{q1}}
-
+        <ng-container *ngIf="q1">
+          <ng-container *ngIf=" q1.nazwa !== 'Brak zawodnika';else brak">
+            {{q1.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
 
     </div>
@@ -85,9 +101,11 @@
     <div class="col-lg-1 team-top">
       <span></span>
       <span class="text-muted pad-lt">
-
-       {{q2}}
-
+        <ng-container *ngIf="q2">
+          <ng-container *ngIf=" q2.nazwa !== 'Brak zawodnika';else brak">
+            {{q2.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
 
     </div>
@@ -100,9 +118,14 @@
       <span class="seed-lt">16 </span>
       <span></span>
       <span class="text-muted pad-rt">
+        <ng-container *ngIf="poz16">
+          <ng-container *ngIf=" poz16.nazwa !== 'Brak zawodnika';else brak">
+            {{poz16.nazwa}}
+          </ng-container>
+        </ng-container>
 
-          {{poz16}}
-
+        <ng-template #brak>
+        </ng-template>
       </span>
 
     </div>
@@ -125,8 +148,11 @@
     <div class="col-lg-2 team-bt-rt">
       <span></span>
       <span class="text-muted pad-lt">
-
-          {{poz15}}
+        <ng-container *ngIf="poz15">
+          <ng-container *ngIf=" poz15.nazwa !== 'Brak zawodnika';else brak">
+            {{poz15.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
       <span class="seed-rt"> 15</span>
@@ -142,8 +168,11 @@
     <div class="col-lg-2 team-top">
       <span></span>
       <span class="text-muted pad-rt">
-
-        {{sf1}}
+        <ng-container *ngIf="sf1">
+          <ng-container *ngIf=" sf1.nazwa !== 'Brak zawodnika';else brak">
+            {{sf1.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -155,8 +184,11 @@
     <div class="col-lg-2 team-top">
       <span></span>
       <span class="text-muted pad-lt">
-
-        {{sf2}}
+        <ng-container *ngIf="sf2">
+          <ng-container *ngIf=" sf2.nazwa !== 'Brak zawodnika';else brak">
+            {{sf2.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -174,7 +206,12 @@
       <span></span>
       <span class="text-muted pad-rt">
 
-          {{poz8}}
+        <ng-container *ngIf="poz8">
+          <ng-container *ngIf=" poz8.nazwa !== 'Brak zawodnika';else brak">
+            {{poz8.nazwa}}
+          </ng-container>
+        </ng-container>
+
 
       </span>
 
@@ -199,7 +236,11 @@
       <span></span>
       <span class="text-muted pad-lt">
 
-          {{poz7}}
+        <ng-container *ngIf="poz7">
+          <ng-container *ngIf=" poz7.nazwa !== 'Brak zawodnika';else brak">
+            {{poz7.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
       <span class="seed-rt"> 7</span>
@@ -212,8 +253,11 @@
     <div class="col-lg-1 team-bt-lt">
       <span></span>
       <span class="text-muted pad-rt">
-
-       {{q3}}
+        <ng-container *ngIf="q3">
+          <ng-container *ngIf=" q3.nazwa !== 'Brak zawodnika';else brak">
+            {{q3.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -231,8 +275,11 @@
     <div class="col-lg-1 team-bt-rt">
       <span></span>
       <span class="text-muted pad-lt">
-
-        {{q4}}
+        <ng-container *ngIf="q4">
+          <ng-container *ngIf=" q4.nazwa !== 'Brak zawodnika';else brak">
+            {{q4.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -246,9 +293,11 @@
       <span class="seed-lt">9 </span>
       <span></span>
       <span class="text-muted pad-rt">
-
-          {{poz9}}
-
+        <ng-container *ngIf="poz9">
+          <ng-container *ngIf=" poz9.nazwa !== 'Brak zawodnika';else brak">
+            {{poz9.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
 
     </div>
@@ -263,7 +312,11 @@
       <span></span>
       <span class="text-muted">
 
-        {{fi1}}
+        <ng-container *ngIf="fi1">
+          <ng-container *ngIf=" fi1.nazwa !== 'Brak zawodnika';else brak">
+            {{fi1.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -279,8 +332,11 @@
       <span></span>
       <span class="text-muted pad-lt">
 
-          {{poz10}}
-
+        <ng-container *ngIf="poz10">
+          <ng-container *ngIf=" poz10.nazwa !== 'Brak zawodnika';else brak">
+            {{poz10.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
       <span class="seed-rt"> 10</span>
     </div>
@@ -311,8 +367,11 @@
       <span></span>
       <span class="text-muted pad-rt">
 
-          {{poz5}}
-
+        <ng-container *ngIf="poz5">
+          <ng-container *ngIf=" poz5.nazwa !== 'Brak zawodnika';else brak">
+            {{poz5.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
 
     </div>
@@ -327,7 +386,11 @@
       <span></span>
       <span class="text-muted">
 
-        {{fi2}}
+        <ng-container *ngIf="fi2">
+          <ng-container *ngIf=" fi2.nazwa !== 'Brak zawodnika';else brak">
+            {{fi2.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -343,8 +406,11 @@
       <span></span>
       <span class="text-muted pad-lt">
 
-          {{poz6}}
-
+        <ng-container *ngIf="poz6">
+          <ng-container *ngIf=" poz6.nazwa !== 'Brak zawodnika';else brak">
+            {{poz6.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
       <span class="seed-rt"> 6</span>
     </div>
@@ -357,7 +423,11 @@
       <span></span>
       <span class="text-muted pad-rt">
 
-        {{q5}}
+        <ng-container *ngIf="q5">
+          <ng-container *ngIf=" q5.nazwa !== 'Brak zawodnika';else brak">
+            {{q5.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -376,7 +446,11 @@
       <span></span>
       <span class="text-muted pad-lt">
 
-        {{q6}}
+        <ng-container *ngIf="q6">
+          <ng-container *ngIf=" q6.nazwa !== 'Brak zawodnika';else brak">
+            {{q6.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -391,8 +465,11 @@
       <span></span>
       <span class="text-muted pad-rt">
 
-          {{poz12}}
-
+        <ng-container *ngIf="poz12">
+          <ng-container *ngIf=" poz12.nazwa !== 'Brak zawodnika';else brak">
+            {{poz12.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
 
     </div>
@@ -416,8 +493,11 @@
       <span></span>
       <span class="text-muted pad-lt">
 
-          {{poz11}}
-
+        <ng-container *ngIf="poz11">
+          <ng-container *ngIf=" poz11.nazwa !== 'Brak zawodnika';else brak">
+            {{poz11.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
       <span class="seed-rt"> 11</span>
     </div>
@@ -433,7 +513,11 @@
       <span></span>
       <span class="text-muted pad-rt">
 
-        {{sf3}}
+        <ng-container *ngIf="sf3">
+          <ng-container *ngIf=" sf3.nazwa !== 'Brak zawodnika';else brak">
+            {{sf3.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -446,7 +530,11 @@
       <span></span>
       <span class="text-muted pad-lt">
 
-        {{sf4}}
+        <ng-container *ngIf="sf4">
+          <ng-container *ngIf=" sf4.nazwa !== 'Brak zawodnika';else brak">
+            {{sf4.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -464,8 +552,11 @@
       <span></span>
       <span class="text-muted pad-rt">
 
-          {{poz4}}
-
+        <ng-container *ngIf="poz4">
+          <ng-container *ngIf=" poz4.nazwa !== 'Brak zawodnika';else brak">
+            {{poz4.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
 
     </div>
@@ -489,8 +580,11 @@
       <span></span>
       <span class="text-muted pad-lt">
 
-          {{poz3}}
-
+        <ng-container *ngIf="poz3">
+          <ng-container *ngIf=" poz3.nazwa !== 'Brak zawodnika';else brak">
+            {{poz3.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
       <span class="seed-rt"> 3</span>
     </div>
@@ -503,7 +597,11 @@
       <span></span>
       <span class="text-muted pad-rt">
 
-        {{q7}}
+        <ng-container *ngIf="q7">
+          <ng-container *ngIf=" q7.nazwa !== 'Brak zawodnika';else brak">
+            {{q7.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -522,7 +620,12 @@
       <span></span>
       <span class="text-muted pad-lt">
 
-        {{q8}}
+
+        <ng-container *ngIf="q8">
+          <ng-container *ngIf=" q8.nazwa !== 'Brak zawodnika';else brak">
+            {{q8.nazwa}}
+          </ng-container>
+        </ng-container>
 
       </span>
 
@@ -537,8 +640,12 @@
       <span></span>
       <span class="text-muted pad-rt">
 
-          {{poz13}}
 
+        <ng-container *ngIf="poz13">
+          <ng-container *ngIf=" poz13.nazwa !== 'Brak zawodnika';else brak">
+            {{poz13.nazwa}}
+          </ng-container>
+        </ng-container>
       </span>
 
     </div>
@@ -562,7 +669,12 @@
       <span></span>
       <span class="text-muted pad-lt">
 
-          {{poz14}}
+        <ng-container *ngIf="poz14">
+          <ng-container *ngIf=" poz14.nazwa !== 'Brak zawodnika';else brak">
+            {{poz14.nazwa}}
+          </ng-container>
+        </ng-container>
+
 
       </span>
       <span class="seed-rt"> 14</span>
@@ -585,10 +697,15 @@
       <div class="card  bg-primary">
         <div class="card-header text-white">Zwycięzca</div>
         <div class="card-body bg-white ">
-          
+
           <span class="text-black">
 
-            {{zwyciezca}}
+
+            <ng-container *ngIf="zwyciezca">
+              <ng-container *ngIf=" zwyciezca.nazwa !== 'Brak zawodnika';else brak">
+                {{zwyciezca.nazwa}}
+              </ng-container>
+            </ng-container>
 
           </span>
 
