@@ -18,8 +18,8 @@ export class RejestracjaServService {
   
   }
   getKurs() {
-    let kursCollection = this.db.collection<Rejestracja[]>('/rejestracja');
-    this.rejestracja = kursCollection.snapshotChanges().map(actions => {
+    let rejestracjaCollection = this.db.collection<Rejestracja[]>('/rejestracja');
+    this.rejestracja = this.rejestracjaCollection.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Rejestracja;
         const id = a.payload.doc.id;
