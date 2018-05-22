@@ -45,13 +45,14 @@
       				 <div class="modal-body">
        					 <div class="col-md-6 col-md-offset-3">
     
-                            <app-login></app-login>
+							<app-login></app-login>
+
                         </div>
      				 </div>
       				 <div class="modal-footer">
-							
+						<a class="btn btn-outline-primary" data-toggle="modal" routerLink="/homepage" role="button" data-dismiss="modal">Zaloguj się</a>
 						<a data-toggle="modal" data-target="#exampleModale" class="btn btn-outline-danger" role="button">Zarejestruj się</a>
-						
+
       				 </div>
     			</div>
  		 	</div>
@@ -86,7 +87,7 @@
                     
         
         <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-outline-primary">Zarejestruj się</button>
+            <a class="btn btn-outline-primary" data-toggle="modal" routerLink="/homepage" role="button" data-dismiss="modal" ng-disabled="form.$invalid || vm.dataLoading">Zarejestruj się</a>
             
             
         </div>
