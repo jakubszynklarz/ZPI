@@ -10,17 +10,18 @@ import { KontaktServService } from './shared/kontakt-serv.service';
 })
 export class KontaktComponent implements OnInit {
 
-  constructor(private kontaktSev:KontaktServService) { }
-  
+  constructor(private kontaktSev: KontaktServService) { }
+
   ngOnInit() {
   }
+  czywyslany: boolean = false;
 
-
-  ss(f:NgForm){
-    let kon :Kontakt = new Kontakt();
+  ss(f: NgForm) {
+    let kon: Kontakt = new Kontakt();
     kon.email = f.value.email;
     kon.pytanie = f.value.pytanie;
     this.kontaktSev.setKontakt(kon);
+    this.czywyslany = true;
     f.resetForm();
   }
 

@@ -23,6 +23,7 @@ import { WynikionComponent } from './ladder/wynikion/wynikion.component';
 import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-details.component';
 import { ListaDrabinekComponent } from './ladder/lista-drabinek/lista-drabinek.component';
 import { ListaWynikiOnlineComponent } from './ladder/lista-wyniki-online/lista-wyniki-online.component';
+import { ListaPytanComponent } from './kontakt/lista-pytan/lista-pytan.component';
 
 
 
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
     { path: 'homepage', component: HomepageComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'panelsedziego', component: PanelSedziowskiComponent },
+    { path: 'listapytan', component: ListaPytanComponent },    
     { path: 'login', component: LoginComponent },
     { path: 'error', component: NonRouteLinkComponent },
     { path: 'stworz_turniej', component: FormStworzTurniejComponent },

@@ -1,3 +1,13 @@
-<p>
-  lista-pytan works!
-</p>
+<h1>
+  Ostatnie pytania od użytkowników
+</h1>
+
+<ul class="list-group">
+
+    <li class="list-group-item" *ngFor="let pyt of pytania" >
+      <p class="lead">{{pyt.pytanie}}</p>
+      <a href="#" >{{pyt.email}}</a>
+      
+    </li>
+
+  </ul>
