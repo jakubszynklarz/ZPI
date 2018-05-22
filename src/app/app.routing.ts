@@ -19,7 +19,7 @@ import { GenerujLadderComponent } from './ladder/generuj-ladder/generuj-ladder.c
 import { SixteenComponent } from './ladder/sixteen/sixteen.component';
 import { DrabinkaWyswietlComponent } from './ladder/drabinka-wyswietl/drabinka-wyswietl.component';
 import { WynikionComponent } from './ladder/wynikion/wynikion.component';
-// import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-details.component';
+import { TurniejDetailsComponent } from './turnieje/turniej-details/turniej-details.component';
 
 
 
