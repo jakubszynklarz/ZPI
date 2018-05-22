@@ -15,9 +15,9 @@ export class KontaktServService {
   }
 
 
-  getKurs() {
+  getKontakt() {
     let kursCollection = this.db.collection<Kontakt[]>('/Kontakt');
-    this.Kontakt = kursCollection.snapshotChanges().map(actions => {
+    let Kontakt = kursCollection.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Kontakt;
         const id = a.payload.doc.id;
@@ -25,7 +25,7 @@ export class KontaktServService {
       })
     });
 
-    return this.Kontakt;
+    return Kontakt;
   }
   DeleteKontakt(idDokumentu) {
     this.kontaktDoc = this.db.doc('/Kontakt/' + idDokumentu);

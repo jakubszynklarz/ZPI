@@ -1,8 +1,8 @@
 export class Rejestracja {
-    id?:string;
-    login?:string;
-    email?:string;
-    haslo?:string;
+    public id?: string;
+    public login?: string;
+    public email?: string;
+    public haslo?: string;
 
 
 }

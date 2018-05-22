@@ -8,8 +8,13 @@
             Inżynierskiego. Oprogramowanie powstało w celu wspomagania procesu organizacji turniejów brazylijskiego Jiu-Jitsu
             oraz monitorowania wyników walk w trybie online. Wszystkie osoby zainteresowane współpracą zapraszamy do wypełnienia
             formularza kontaktowego.</p>
-        <p class="h2">Formularz kontaktowy</p>
-
+            <ng-container *ngIf="czywyslany">
+                <div class="alert alert-success" role="alert">
+                    Wiadomość zostałą wysłana pomyślnie :)
+                </div>
+            </ng-container>
+            
+            <p class="h2">Formularz kontaktowy</p>
         <div>
             <div class="form-group col-md-3">
                 <label for="email">E-mail kontaktow</label>
@@ -31,8 +36,9 @@
             </div>
 
             <!-- <button class="btn btn-primary" (click)="ss(f)"> test</button> -->
-            <button [routerLink]="['/homepage']" (click)="SubmitForm(f)" [disabled]="!f.form.valid" type="submit" class="btn btn-primary">Wyślij pytanie</button>
+            <button  (click)="ss(f)" [disabled]="!f.form.valid" type="submit" class="btn btn-primary">Wyślij pytanie</button>
             <!-- <button [routerLink]="['/homepage']" [disabled]="!f.form.valid" type="submit" class="btn btn-danger">Anuluj</button> -->
+            
         </div>
     </form>
 </div>

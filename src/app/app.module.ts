@@ -106,6 +106,7 @@ declare var require: any;
     ListaWynikiOnlineComponent,
 
     ListaPytanComponent
+    
 
 
   ],
