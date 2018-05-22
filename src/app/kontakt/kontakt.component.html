@@ -1,33 +1,39 @@
+<!-- <div class="container"> -->
+<div class="container">
+    <form ngForm #f="ngForm"  >
 
-<div class = "all" >
+        <p class="h2">O nas</p>
 
-<div class = "card-body" >
-    <h2 class="panel-title">O nas:</h2>
-<p>Jesteśmy studentami 3-ciego roku Politechniki Wrocławskiej. Aplikacja powstała w ramach zajęć Zespołowego Przedsięwzięcia Inżynierskiego. 
-    Oprogramowanie powstało w celu wspomagania procesu organizacji turniejów brazylijskiego Jiu-Jitsu oraz monitorowania wyników walk w trybie online.
-    
-    Wszystkie osoby zainteresowane współpracą zapraszamy do wypełnienia formularza kontaktowego.</p>
+        <p class="lead">Jesteśmy studentami 3-ciego roku Politechniki Wrocławskiej. Aplikacja powstała w ramach zajęć Zespołowego Przedsięwzięcia
+            Inżynierskiego. Oprogramowanie powstało w celu wspomagania procesu organizacji turniejów brazylijskiego Jiu-Jitsu
+            oraz monitorowania wyników walk w trybie online. Wszystkie osoby zainteresowane współpracą zapraszamy do wypełnienia
+            formularza kontaktowego.</p>
+        <p class="h2">Formularz kontaktowy</p>
+
+        <div>
+            <div class="form-group col-md-3">
+                <label for="email">E-mail kontaktow</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" #email="ngModel" name="email" ngModel required
+                    placeholder="E-mail do kontaktu">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group col-md-10" >
+                <label for="pytanie">Zadaj pytanie</label>
+                <textarea 
+                    class="form-control" 
+                    placeholder="Wpisz wiadomość"
+                    #pytanie="ngModel" 
+                    name="pytanie" 
+                    ngModel 
+                    required 
+                    id="pytanie" 
+                rows="8"></textarea>
+            </div>
+
+            <!-- <button class="btn btn-primary" (click)="ss(f)"> test</button> -->
+            <button [routerLink]="['/homepage']" (click)="SubmitForm(f)" [disabled]="!f.form.valid" type="submit" class="btn btn-primary">Wyślij pytanie</button>
+            <button [routerLink]="['/homepage']" [disabled]="!f.form.valid" type="submit" class="btn btn-danger">Anuluj</button>
+        </div>
+    </form>
 </div>
-<div class="card-body" >
-    <h3 class="headerH2">FORMULARZ KONTAKTOWY:</h3>
-  <div>
-      <div class="form-group col-md-10" >
-          <input  placeholder="Imię"      />
-          
-          <input  placeholder="Nazwisko"     />
-          </div>
-          <div class="form-group col-md-10">
-              <input  placeholder="E-mail kontaktow"     />
-              
-              <input  placeholder="Numer telefonu"     />
-              </div>
-    
-<div class="form-group col-md-10">
-    <textarea  placeholder="Wpisz wiadomość" cols="120" rows="10" type="text"></textarea>
-    </div>
-
-<button [routerLink]="['/homepage']" type="submit" class="btn btn-outline-primary">Wyślij pytanie</button>
-<button [routerLink]="['/homepage']" type="submit" class="btn btn-outline-danger">Anuluj</button>
-
-</div>
-</div>
+<!-- {{f.value|json}} -->
