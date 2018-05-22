@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing }        from './app.routing';
@@ -50,7 +51,7 @@ import { WynikionComponent } from './ladder/wynikion/wynikion.component';
 import { WyniksenderComponent } from './panel-sedziowski/wyniksender/wyniksender.component';
 import { KontaktComponent } from './kontakt/kontakt.component';
 import { KontaktServService } from './kontakt/shared/kontakt-serv.service';
-
+import { RejestracjaServService } from './register/shared/rejestracja-serv.service';
 
 
 declare var require: any;
@@ -94,7 +95,8 @@ declare var require: any;
 
     WynikionComponent,
 
-    KontaktComponent
+    KontaktComponent,
+
 
 
   ],
@@ -108,7 +110,7 @@ declare var require: any;
     ReactiveFormsModule
     
   ],
-  providers: [TurniejService,TurniejeService,KategorieService,LadderService,TurniejPodzialSerService , KontaktServService],
+  providers: [TurniejService,TurniejeService,KategorieService,LadderService,TurniejPodzialSerService , KontaktServService,RejestracjaServService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
