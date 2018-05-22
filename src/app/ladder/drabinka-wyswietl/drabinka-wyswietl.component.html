@@ -5,14 +5,15 @@
       <div class="card bg-light card-body mb-3 text-primary">
         <span class="title"></span>
         <span class="text-muted">
-<ng-container *ngIf="turniej">
-
-    <label>{{turniej.nazwa}} </label>
-    <label> Pas: {{url[4]}}</label> 
-    <label>Kategoria wagowa: {{url[5]}}</label>
-
-</ng-container>
+          <ng-container *ngIf="turniej">
+            
+              <div >Turniej: {{turniej.nazwa}} </div>
+              <div > Pas: {{url[4]}}</div>
+              <div >Kategoria wagowa: {{url[5]}}</div>
           
+
+          </ng-container>
+
 
         </span>
 
