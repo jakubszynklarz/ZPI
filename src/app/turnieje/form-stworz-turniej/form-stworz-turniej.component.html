@@ -10,17 +10,38 @@
         <div class="form-group col-lg-6">
 
           <label for="nazwaTurnieju" class="col-form-label " style="font-size:120%">Nazwa Turnieju:</label>
-          <input class="form-control" id="nazwaTurnieju" placeholder="Wroclaw KSW" required type="text" class="form-control" required ngModel name="nazwaTurnieju" #nazwaTurnieju="ngModel"
-            required minlength="3" maxlength="10" [(ngModel)]="selectedModeloo.nazwa" style="width:50%">
+          <input 
+              class="form-control" 
+              id="nazwaTurnieju" 
+              placeholder="Wroclaw KSW" 
+              required 
+              type="text" 
+              class="form-control" 
+              required 
+              ngModel 
+              name="nazwaTurnieju" 
+              #nazwaTurnieju="ngModel"
+              required minlength="3" 
+              maxlength="100" 
+              [(ngModel)]="selectedModeloo.nazwa" 
+              style="width:50%">
             <div class = "alert alert-danger" *ngIf="nazwaTurnieju.touched && !nazwaTurnieju.valid" style="width:50%">Nazwa Turnieju jest wymagana</div>
             <!-- <div *ngIf="nazwaTurnieju.errors.required">Nazwa Turnieju jest wymagana</div> -->
             <!-- <div *ngIf="nazwaTurnieju.errors.minlength">Nazwa Turnieju powinna posiadać min 3 znaki</div> -->
           
 
           <label for="miasto" style="font-size:120%">Miasto:</label>
-          <input id="miasto" type="text" class="form-control" placeholder ="Wroclaw" required ngModel name="miasto" #miasto="ngModel" [(ngModel)]="selectedModeloo.miejsce"
-            style="width:50%">
-            <div class = "alert alert-danger" *ngIf ="miasto.touched && !nazwaTurnieju.valid" style="width:50%">Miasto jest wymagane</div>
+          <input id="miasto"
+                type="text"
+                class="form-control"
+                placeholder ="Wroclaw"
+                required
+                ngModel 
+                name="miasto"
+                #miasto="ngModel"
+                [(ngModel)]="selectedModeloo.miejsce"
+                 style="width:50%">
+            <div class = "alert alert-danger" *ngIf ="miasto.touched && !miasto.valid" style="width:50%">Miasto jest wymagane</div>
 
           <label for="nrkonta">Nr konta:</label>
           <input id="nrkonta" type = "text" class="form-control" required ngModel name="nrkonta" #nrkonta="ngModel" [(ngModel)]="selectedModeloo.nr_konta"
@@ -37,12 +58,12 @@
           
           <label for="wpisowe">Wpisowe:</label>
           <input id="wpisowe"
-           type="text"
-            class="form-control"
-             required
-              ngModel 
-              name = "wpisowe"
-               #wpisowe="ngModel"
+               type="text"
+               class="form-control"
+                required
+                ngModel 
+                name = "wpisowe"
+                #wpisowe="ngModel"
                 [(ngModel)]="selectedModeloo.wpisowe"
             style="width:30%" placeholder="50 zł">
             <div class = "alert alert-danger" *ngIf ="wpisowe.touched && !wpisowe.valid" style="width:30%">Wpisowe jest wymagane</div>
@@ -59,23 +80,10 @@
                 <input type="radio" name="kategoria" value="nogi" name="kategoria" #kategoria="ngModel" [(ngModel)]="selectedModeloo.kategoria"> No Gi
               </div>
               
-              <!-- <div>
-                          <input type="radio" name="kategoria" value="Gi oraz No Gi"> Gi oraz No Gi
-                        </div> -->
+
             </div>
 
-            <!-- <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                          Default radio
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                          Second default radio
-                        </label>
-                      </div> -->
+
           </div>
     <!-- NIE MOGE DODAC VALIDACJI NA DATEPICKERY   --> 
           <div style="display:inline-flex">

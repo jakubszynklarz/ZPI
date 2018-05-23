@@ -155,6 +155,9 @@ export class PanelSedziowskiComponent implements OnInit {
     this.zresetujZegarIpunkty();
     this.aktualnaPara++;
 
+    this.aktualizujZawodnikow(1);
+    this.aktualizujZawodnikow(2);
+
     //#region pierwszaRunda
     if (this.aktualnaPara == 0) {
       this.zawodnik1 = this.para2[0].nazwa;
@@ -368,6 +371,7 @@ export class PanelSedziowskiComponent implements OnInit {
       this.wyswietlPara = "Aby kontynuować zmień kategorię "
 
     }
+    
 
 
 
@@ -380,7 +384,7 @@ export class PanelSedziowskiComponent implements OnInit {
 
   }
 
-
+  // funkcja dodaje punkty dla zawodnikow
   aktualizujZawodnikow(ktoryZawo: number) {
     if (this.aktualnaPara == -1) {
       // console.log(this.para1[1])

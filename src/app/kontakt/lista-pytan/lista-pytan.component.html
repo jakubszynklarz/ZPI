@@ -1,13 +1,16 @@
-<h1>
-  Ostatnie pytania od użytkowników
-</h1>
+<div class="container">
 
-<ul class="list-group">
+  <h1 class="display-4">Ostatnie pytania od użytkowników</h1>
 
-    <li class="list-group-item" *ngFor="let pyt of pytania" >
+
+  <ul class="list-group">
+
+    <li class="list-group-item rozdziel"  *ngFor="let pyt of pytania">
       <p class="lead">{{pyt.pytanie}}</p>
-      <a href="#" >{{pyt.email}}</a>
-      
+      <a href="#">{{pyt.email}}</a>
+
     </li>
 
   </ul>
+
+</div>
