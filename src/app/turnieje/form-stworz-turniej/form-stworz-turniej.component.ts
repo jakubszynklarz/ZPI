@@ -50,17 +50,7 @@ export class FormStworzTurniejComponent implements OnInit {
     this._turniejSerivce.setTurniej(turniej);
 
     
-    // var updateNested = this.db.collection('turnieje').add({
-    //   opis: this.selectedModeloo.opis,
-    //   kiedy: this.selectedModeloo.kiedy,
-    //   do_kiedyrej: this.selectedModeloo.do_kiedyrej,
-    //   miejsce: this.selectedModeloo.miejsce,
-    //   nazwa: this.selectedModeloo.nazwa,
-    //   nr_konta: this.selectedModeloo.nr_konta,
-    //   wpisowe: this.selectedModeloo.wpisowe,
-    //   tworca: this.tworca
 
-    // });
 
   }
 }

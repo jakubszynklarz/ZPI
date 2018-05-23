@@ -60,18 +60,20 @@ export class FormZapiszSieComponent implements OnInit {
 
 
 
-  zapiszSie(formularz: nowyZawodnik) {
+  zapiszSie(formularz: NgForm) {
     
     let dobryZawonidk: poprawnyZawodnik = new poprawnyZawodnik();
     // dobryZawonidk.kategoria = formularz.kategoria;
-    dobryZawonidk.klub = formularz.Klub;
-    dobryZawonidk.nazwa = formularz.ImieNazwisko;
+    dobryZawonidk.klub = formularz.value.Klub;
+    dobryZawonidk.nazwa = formularz.value.ImieNazwisko;
     dobryZawonidk.oplacone = false;
-    dobryZawonidk.pas = formularz.selectBelt;
-    dobryZawonidk.plec = formularz.selectSex;
-    dobryZawonidk.waga = formularz.selectWeight;
+    dobryZawonidk.pas = formularz.value.selectBelt;
+    dobryZawonidk.plec = formularz.value.selectSex;
+    dobryZawonidk.waga = formularz.value.selectWeight;
     dobryZawonidk.kategoria = this.turniej.kategoria;
     // console.log(dobryZawonidk)
+      // formularz.resetForm();
+    
     this.db.collection<any>('turnieje').doc('' + this.current).
       collection('zapisani').doc(this.turniej.kategoria).collection<any>('zawodnicy').
       add(JSON.parse(JSON.stringify(dobryZawonidk)));
