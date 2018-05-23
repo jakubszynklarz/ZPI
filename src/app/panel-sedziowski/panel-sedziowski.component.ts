@@ -155,8 +155,8 @@ export class PanelSedziowskiComponent implements OnInit {
     this.zresetujZegarIpunkty();
     this.aktualnaPara++;
 
-    this.aktualizujZawodnikow(1);
-    this.aktualizujZawodnikow(2);
+    // this.aktualizujZawodnikow(1);
+    // this.aktualizujZawodnikow(2);
 
     //#region pierwszaRunda
     if (this.aktualnaPara == 0) {
