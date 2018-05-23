@@ -7,12 +7,12 @@
       <div class="card text-black bg-white" style="margin: 50px">
         <div class="card-header">
           <h3 class="panel-title" style="float: left ;">Szczegóły turnieju</h3>
-          <button style="float: right;" class="btn btn-outline-primary" [routerLink]="['/listadrabinek',current]">Drabinki</button>
-          <button style="float: right;" class="btn btn-outline-primary" [routerLink]="['/wyniki', current]">Wyniki</button>
+          <button class="btn btn-outline-primary" [routerLink]="['/listadrabinek',current]">Drabinki</button>
+          <button class="btn btn-outline-primary" [routerLink]="['/wyniki', current]">Wyniki</button>
 
 
           <form>
-            <button style="float: right;" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModall">Zapisz się</button>
+            <button class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModall">Zapisz się</button>
           </form>
           <!-- [routerLink]="['/zapiszSie', turnie.id]" -->
           <div class="modal fade" id="exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModallLabele" aria-hidden="true">
@@ -82,13 +82,14 @@
               <div class="list">
 
                 <div class="navlist">
-                  <table class="table">
-                    <th class="col-sm" style="font-size:120%">Zapisani</th>
-                    <th class="col-sm" style="font-size:120%">Klub</th>
-
-                    <th class="col-sm" style="font-size:120%">Pas</th>
-                    <th class="col-sm" style="font-size:120%">Waga</th>
-                  </table>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <th class="col-sm" style="font-size:120%">Zapisani</th>
+                      <th class="col-sm" style="font-size:120%">Klub</th>
+                      <th class="col-sm" style="font-size:120%">Pas</th>
+                      <th class="col-sm" style="font-size:120%">Waga</th>
+                    </table>
+                  </div>
                 </div>
                 <div class="listzaw">
 

@@ -21,9 +21,25 @@ td.col-sm{
 th.col-sm{
     width: 10%;
 }
+table.table{
+    width: 100%;
+}
 table.table-hover:hover{
     background-color: #abdde5;
 }
 tbody{
     width: 70%;
+}
+.card{
+    width: 80%;
+    margin: 0 auto;
+}
+
+input.form-control{
+    float: left;
+    width: 200px;
+}
+.stworz{
+    float: right;
+    
 }

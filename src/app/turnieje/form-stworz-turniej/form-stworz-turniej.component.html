@@ -1,6 +1,3 @@
-<!-- dodaj miejscowość -->
-
-<!-- dodaj miejscowość -->
 <form #turniejForm="ngForm" (ngSubmit)="add()">
   <div class="card text-black bg-white" style="margin: 50px">
 
@@ -30,7 +27,7 @@
             <div *ngIf = "nrkonta.errors.minlength">Nr konta musi zawierać co najmniej 1 cyfre</div>
               <div *ngIf ="nrkonta.errors.pattern">Nr konta musi byc cyfra</div>
           </div>
-            <!-- <div *ngIf = "nrkonta.errors.pattern">Muszą być to cyfry</div> -->
+           
 
             
           
@@ -47,7 +44,7 @@
             style="width:30%" placeholder="50 zł">
             <div class = "alert alert-danger" *ngIf ="wpisowe.touched && !wpisowe.valid" style="width:30%">Wpisowe jest wymagane</div>
 
-            <!-- NIE MOGE DODAC VALIDACJI NA RADIOBOXY   -->
+            
           <div class="form-group ">
             <label>Wybierz Kategorie:</label>
             <div class="form-control" style="width:30%">
@@ -59,33 +56,20 @@
                 <input type="radio" name="kategoria" value="nogi" name="kategoria" #kategoria="ngModel" [(ngModel)]="selectedModeloo.kategoria"> No Gi
               </div>
               
-              <!-- <div>
-                          <input type="radio" name="kategoria" value="Gi oraz No Gi"> Gi oraz No Gi
-                        </div> -->
+              
             </div>
 
-            <!-- <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                          Default radio
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                          Second default radio
-                        </label>
-                      </div> -->
+            
           </div>
-    <!-- NIE MOGE DODAC VALIDACJI NA DATEPICKERY   --> 
-          <div style="display:inline-flex">
-            <div class="form-group " style="margin:5px">
+    
+          <div>
+            <div class="form-group data" style="margin:5px">
               <label for="data">Data Turnieju:</label>
               <input id="data" type="date" class="form-control" name="data" #data="ngModel" [(ngModel)]="selectedModeloo.kiedy" />
             
             </div>
 
-            <div class="form-group " style="margin:5px">
+            <div class="form-group data" style="margin:5px">
               <label for="datakonca">Data końca rejestracji:</label>
               <input id="datakonca" type="date" class="form-control" name="datakonca" #datakonca="ngModel" [(ngModel)]="selectedModeloo.do_kiedyrej"
               />
