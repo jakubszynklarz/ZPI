@@ -78,7 +78,7 @@ img.logo{
 		background: #222;
 		border-radius:2px;
 		display: block;
-		z-index: 100;
+		z-index: 101;
 		cursor: pointer;
 }
 .navigation-toggle span {
@@ -93,7 +93,7 @@ img.logo{
 		margin-top:12px;
 }
 .navigation {
-		z-index: 2;
+		z-index: 101;
 		min-height: 100%;
 		font-family:'Source Sans Serif', sans-serif;
 		font-weight:300;
