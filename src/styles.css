@@ -4,6 +4,7 @@ body{
     
 }
 .loading {
+    width: 100%;
     text-align: center;
     text-transform: uppercase;
     font-family: sans-serif;
@@ -41,6 +42,28 @@ body{
 
 .loading span:nth-child(6) {
     animation-delay: 1.25s;
+}
+.loading span:nth-child(7) {
+    animation-delay: 1.5s;
+}
+
+.loading span:nth-child(8) {
+    animation-delay: 2s;
+}
+
+.loading span:nth-child(9) {
+    animation-delay: 2.25s;
+}
+
+.loading span:nth-child(10) {
+    animation-delay: 2.5s;
+}
+
+.loading span:nth-child(11) {
+    animation-delay: 2.75s;
+}
+.loading span:nth-child(12) {
+    animation-delay: 3s;
 }
 .loadingpage{
 	margin-top: 20%;
