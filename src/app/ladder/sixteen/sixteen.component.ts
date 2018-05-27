@@ -142,7 +142,7 @@ export class SixteenComponent implements OnInit {
 
       zaw.pierwszyFinal = "false";
       zaw.drugiFinal = "false";
-       
+      zaw.duzePunkty = '0';
       zaw.winner = "false";
       i++;
       
@@ -169,7 +169,7 @@ export class SixteenComponent implements OnInit {
 
       pusty.pierwszyFinal = "false";
       pusty.drugiFinal = "false";
-       
+      pusty.duzePunkty="0"
       pusty.winner = "false";
       if (k >= i) {
         this.db.collection<poprawnyZawodnik[]>('/turnieje/' + this.current + '/' +pas + '/' +waga + '/man').add(JSON.parse(JSON.stringify(pusty)));
