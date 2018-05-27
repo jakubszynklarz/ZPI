@@ -1,83 +1,21 @@
-.title {
-    font-size: 1.75em;
-    text-transform: uppercase;
-  }
-  
-  .champ {
-    font-size: 1.5em;
-    padding-left: 25px;
-  }
-  
-  .pad-lt {
-    padding-left: 25px;
-  }
-  
-  .pad-rt {
-    padding-right: 30px;
-  }
-  
-  .seed-lt {
-    font-size: .75em;
-    font-weight: 600;
-    float: left;
-  }
-  
-  .seed-rt {
-    font-size: .75em;
-    font-weight: 600;
-    float: right;
-  }
-  
-  .adv-lt {
-    float: right;
-  }
-  
-  .adv-rt {
-    float: left;
-  }
-  
-  .rm {
-    float: right;
-  }
-  
-  .rm-lt {
-    float: left;
-  }
-  
-  .team-top {
-    border-bottom: 2px solid black;
-  }
-  
-  .team-bt {
-    border-bottom: 2px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-  }
-  
-  .team-bt-only {
-    border-bottom: 2px solid black;
-  }
-  
-  .team-bt-lt {
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
-  }
-  
-  .team-bt-rt {
-    border-bottom: 2px solid black;
-    border-left: 2px solid black
-  }
-  
-  .vs-mid {
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-  }
-  
-  .vs-lt {
-    border-right: 2px solid black;
-  }
-  
-  .vs-rt {
-    border-left: 2px solid black;
-  }
-  
+li{
+  text-align: center;
+  margin: 10px;
+  /* -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;*/
+  border-radius: 10px;
+  /* border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; */
+
+}
+li:hover{
+  background:#f0f8ff;
+  cursor: pointer;
+}
+h1{
+  text-align: center;
+}
+
+ul{
+  margin: auto;
+}

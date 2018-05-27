@@ -1,26 +1,16 @@
+<div class="container">
+  <h1 class="display-4"> Generuj drabinki</h1>
+<br>
 
-
-
-
-  <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-      <div class="card bg-light card-body mb-3 text-primary">
-        <span class="title"></span>
-        <span class="text-muted">
-          
-          {{nazwaturnieju}}
-
-        </span>
-
-      </div>
-    </div>
-    <div class="col-lg-2"></div>
-  </div>
-  
-  <ng-container *ngFor="let waga of wagi ">
-      <ng-container *ngFor="let pas of pasy ">
-        <button (click)='opusmagnum(waga,pas)'>Generuj drabinke {{pas}} {{waga}} </button>
-
+  <ul class="list-group col-md-4">
+    <ng-container *ngFor="let pas of pasy ">
+      <ng-container *ngFor="let waga of wagi ">
+        <li class="list-group-item" (click)='opusmagnum(waga,pas)'>
+          Generuj drabinke {{pas}} {{waga}}
+        </li>
+      </ng-container>
     </ng-container>
-  </ng-container>
+  </ul>
+
+
+</div>

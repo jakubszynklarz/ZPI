@@ -1,17 +1,16 @@
 <div class="container">
 
-    <ng-container *ngIf="turniej">
-      <h1 class="display-4"> {{turniej.nazwa }} </h1>
-    </ng-container>
-    <h1 class="display-4"> Wyniki online </h1>
-    
-  
-    <ul class="list-group col-md-4">
-      <ng-container *ngFor="let p of pasy">
-        <li class="list-group-item" [routerLink]="['/wyniki', p.id,kat.id,current]" *ngFor="let kat of katwagowe">
-           {{p.id}} {{kat.id }}
-        </li>
-      </ng-container>
-    </ul>
-  </div>
+  <ng-container *ngIf="turniej">
+    <h1 class="display-4"> {{turniej.nazwa }} </h1>
+  </ng-container>
+  <h1 class="display-4"> Wyniki online </h1>
 
+
+  <ul class="list-group col-md-4">
+    <ng-container *ngFor="let p of pasy">
+      <li class="list-group-item" [routerLink]="['/wyniki', p.id,kat.id,current]" *ngFor="let kat of katwagowe">
+        {{p.id}} {{kat.id }}
+      </li>
+    </ng-container>
+  </ul>
+</div>
