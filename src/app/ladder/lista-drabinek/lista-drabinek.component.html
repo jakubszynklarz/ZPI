@@ -1,13 +1,16 @@
-<div class="container">
+<div class="container ">
+
 
   <ng-container *ngIf="turniej">
-    <h1> {{turniej.nazwa |json}} </h1>
+    <h1 class="display-4"> {{turniej.nazwa}} </h1>
   </ng-container>
+  <h1 class="display-4"> Drabinki </h1>
 
-  <ul class="list-group col-md-4">
+
+  <ul class="list-group col-md-3 ">
     <ng-container *ngFor="let p of pasy">
-      <li class="list-group-item" *ngFor="let kat of katwagowe">
-        <button class="btn btn-primary" [routerLink]="['/ladder', p.id,kat.id,current]" > {{p.id}} {{kat.id }} </button>
+      <li class="list-group-item pagination-centered" [routerLink]="['/ladder', p.id,kat.id,current]" *ngFor="let kat of katwagowe">
+        {{p.id}} {{kat.id }}
       </li>
     </ng-container>
   </ul>

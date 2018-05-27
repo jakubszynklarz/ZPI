@@ -1,0 +1,21 @@
+li{
+    text-align: center;
+    margin: 10px;
+    /* -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;*/
+    border-radius: 10px;
+    /* border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; */
+
+}
+li:hover{
+    background:#f0f8ff;
+    cursor: pointer;
+}
+h1{
+    text-align: center;
+}
+
+ul{
+    margin: auto;
+}
