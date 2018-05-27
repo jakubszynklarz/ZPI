@@ -73,9 +73,13 @@
                       <th class="col-sm" style="font-size:100%">Imię i nazwisko</th>
                       <th class="col-sm" style="font-size:100%">Klub</th>
 
-                      <th class="col-sm" style="font-size:100%">Czy opłacone?</th>
                       <th class="col-sm" style="font-size:100%">Pas</th>
                       <th class="col-sm" style="font-size:100%">Waga</th>
+                      <th class="col-sm" style="font-size:100%">Czy opłacone?</th>
+
+                      <th class="col-sm" style="font-size:100%">
+                        Zapłacone
+                      </th>
                     </table>
                   </div>
                 </div>
@@ -90,9 +94,12 @@
                             <th class="col-sm">{{zapi.nazwa}}</th>
                             <th class="col-sm">{{zapi.klub}}</th>
 
-                            <th class="col-sm">{{zapi.oplacone}}</th>
                             <th class="col-sm">{{zapi.pas}}</th>
                             <th class="col-sm">{{zapi.waga}}</th>
+                            <th class="col-sm">{{zapi.oplacone}}</th>
+                            <th>
+                              <button class="btn btn-outline-success" (click)="zaplacone(zapi)"> Tak </button>
+                            </th>
                           </tr>
                         </tbody>
                       </table>
@@ -109,10 +116,15 @@
                           <tr>
                             <th class="col-sm">{{zapi.nazwa}}</th>
                             <th class="col-sm">{{zapi.klub}}</th>
-                            <th class="col-sm">{{zapi.oplacone}}</th>
 
                             <th class="col-sm">{{zapi.pas}}</th>
                             <th class="col-sm">{{zapi.waga}}</th>
+                            <th class="col-sm">{{zapi.oplacone}}</th>
+
+                            <th>
+                              <button class="btn btn-outline-success" (click)="zaplacone(zapi)"> Tak </button>
+                            </th>
+
                           </tr>
                         </tbody>
                       </table>

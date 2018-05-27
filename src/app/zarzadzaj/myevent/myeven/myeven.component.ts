@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { DatePipe } from '@angular/common';
 import { JsonPipe } from '@angular/common';
 import { Kategorie } from '../../shared/kategorie.model';
+import { poprawnyZawodnik } from '../../../turnieje/zapisz-sie/form-zapisz-sie/form-zapisz-sie.component';
+import { TurniejeService } from '../../../turnieje/zapisz-sie/serwisy/turniej.service';
 @Component({
   selector: 'app-myeven',
   templateUrl: './myeven.component.html',
@@ -30,8 +32,11 @@ export class MyevenComponent implements OnInit {
   public zapisaniCollectionNogi: AngularFirestoreCollection<Kategorie>;
   public zapisaniNogi: Observable<any[]>;
 
+  tenTurniej :Modeloo;
   
-  constructor(private db: AngularFirestore) { 
+  constructor(private db: AngularFirestore, private turServ:TurniejeService) { 
+    // turServ.getTurnieje().subscribe(data =>this.tenTurniej = data.find(d => d.id== this.current))
+
 
     this.turnieCollection=db.collection<Modeloo>('/turnieje');
     this.turnieje=this.turnieCollection.snapshotChanges().map(actions =>{
@@ -66,11 +71,22 @@ export class MyevenComponent implements OnInit {
     })
     
   }
-  ngOnInit() {
-  //   console.log("init")
-  //   this.check=0;
-  //  console.log(this.check);
+
+  zaplacone(zawo:poprawnyZawodnik){
     
+    zawo.oplacone = true;
+    // console.log(zawo.kategoria);
+    if (zawo.kategoria =="gi"){
+      this.db.doc('/turnieje/'+this.current+'/zapisani/gi/zawodnicy/'+zawo.id).update(JSON.parse(JSON.stringify(zawo)));
+    }
+    else{
+      zawo.oplacone = true;
+      this.db.doc('/turnieje/'+this.current+'/zapisani/nogi/zawodnicy/'+zawo.id).update(JSON.parse(JSON.stringify(zawo)));
+    }
+
+  }
+  ngOnInit() {
+
     
   }
   def(x){
@@ -85,7 +101,7 @@ export class MyevenComponent implements OnInit {
   }
     
   public update(){
-    var updateNested = this.db.collection('turnieje').doc(this.current).update({
+    let updateNested = this.db.collection('turnieje').doc(this.current).update({
       opis: this.selectedModeloo.opis,
       kiedy:this.selectedModeloo.kiedy,
       do_kiedyrej:this.selectedModeloo.do_kiedyrej,
